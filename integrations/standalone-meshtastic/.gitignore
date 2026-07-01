@@ -1,0 +1,44 @@
+# Ambiente virtual
+venv/
+env/
+ENV/
+
+# Arquivos de configuração local com dados sensíveis
+config.yaml
+
+# Arquivos de estado
+state.json
+
+# Logs
+*.log
+
+# Cache Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtualenv
+.env
+.venv
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Sistema operacional
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Artefatos
+dist/
+build/
+*.egg-info/
