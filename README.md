@@ -66,73 +66,14 @@ defesa-civil-sc-meshtastic/
     └── README.md
 ```
 
-## Instalação rápida — Home Assistant + AppDaemon
+## Integrações disponíveis
 
-### 1. Pré-requisitos
+- [Home Assistant com AppDaemon](integrations/home-assistant-appdaemon/README.md)
 
-- Home Assistant funcionando.
-- Integração Meshtastic instalada e conectada a um gateway.
-- Canal Meshtastic criado, por exemplo `Alertas-SC`.
-- Entidade `notify.mesh_channel_*` disponível para o canal.
-- Add-on AppDaemon instalado.
+## Integrações em desenvolvimento
 
-### 2. Copiar o app
+- [Versão standalone Meshtastic](integrations/standalone-meshtastic/README.md)
 
-Copie:
-
-```text
-integrations/home-assistant-appdaemon/apps/defesa_civil_sc_alertas.py
-```
-
-para:
-
-```text
-/config/apps/defesa_civil_sc_alertas.py
-```
-
-### 3. Configurar o AppDaemon
-
-Use como base:
-
-```text
-integrations/home-assistant-appdaemon/config/apps.yaml.example
-```
-
-Exemplo:
-
-```yaml
-defesa_civil_sc_alertas:
-  module: defesa_civil_sc_alertas
-  class: DefesaCivilSCAlertas
-  notify_entity: notify.mesh_channel_<NOME_DO_CANAL>
-  gateway_node_id: 0000000000
-  test_mode: false
-```
-
-Substitua:
-
-- `notify.mesh_channel_<NOME_DO_CANAL>` pela entidade real do seu canal;
-- `0000000000` pelo node ID numérico do gateway Meshtastic.
-
-### 4. Reiniciar o AppDaemon
-
-Depois de copiar os arquivos e ajustar a configuração, reinicie o add-on AppDaemon.
-
-## Teste sem esperar novo alerta
-
-Ative o modo de teste:
-
-```yaml
-test_mode: true
-```
-
-Reinicie o AppDaemon. O app enviará o alerta mais recente salvo no estado local; se não houver estado, buscará o feed, populará o histórico e enviará o item mais recente.
-
-Depois do teste, volte para:
-
-```yaml
-test_mode: false
-```
 
 ## Formato das mensagens
 
@@ -148,6 +89,12 @@ Segunda mensagem:
 Link: https://www.defesacivil.sc.gov.br/?p=XXXXX
 ```
 
+![Exemplo de mensagem no canal](docs/images/channel_exemple.jpeg)
+
+## Canal de alertas de SC
+
+![Exemplo de mensagem no canal](docs/images/channelConf.jpeg)
+
 ## Mensagens diretas
 
 Se outro node Meshtastic enviar mensagem direta ao gateway com:
@@ -157,6 +104,8 @@ ALERTAS
 ```
 
 O app responde com os 3 últimos alertas armazenados, cada um no mesmo formato de duas mensagens.
+
+![Exemplo de mensagem direta](docs/images/dm_exemple.jpeg)
 
 ## Arquivos que não devem ir para o GitHub
 
