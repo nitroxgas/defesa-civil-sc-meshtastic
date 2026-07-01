@@ -256,7 +256,6 @@ sudo journalctl -u defesa-civil-sc-meshtastic -f
 - [ ] Container Docker
 - [ ] Filtros por município/região
 - [ ] Interface web para monitoramento
-- [ ] Sincronização com Home Assistant
 
 ## Licença
 
