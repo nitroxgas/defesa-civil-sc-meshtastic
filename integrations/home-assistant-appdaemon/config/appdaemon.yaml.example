@@ -1,0 +1,19 @@
+# Exemplo mínimo de /config/appdaemon.yaml
+# Ajuste timezone/latitude/longitude/elevation conforme seu ambiente.
+
+appdaemon:
+  latitude: 0.0
+  longitude: 0.0
+  elevation: 0
+  time_zone: America/Sao_Paulo
+
+  plugins:
+    HASS:
+      type: hass
+
+http:
+  url: http://0.0.0.0:5050
+
+admin:
+api:
+hadashboard:

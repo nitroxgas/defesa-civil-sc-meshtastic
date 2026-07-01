@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+.env
+.env.*
+
+# Home Assistant / AppDaemon runtime state
+*_state.json
+defesa_civil_sc_alertas_state.json
+
+# Local configs with real gateway/channel IDs
+apps.yaml
+appdaemon.yaml
+secrets.yaml
+
+# Logs
+*.log
+logs/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

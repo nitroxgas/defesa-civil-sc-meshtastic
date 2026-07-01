@@ -1,0 +1,18 @@
+# Copie este bloco para o seu /config/apps/apps.yaml do AppDaemon
+# e ajuste os placeholders conforme sua instalação.
+
+defesa_civil_sc_alertas:
+  module: defesa_civil_sc_alertas
+  class: DefesaCivilSCAlertas
+
+  # Entidade notify criada pela integração Meshtastic no Home Assistant.
+  # Exemplo comum: notify.mesh_channel_alertas_sc
+  notify_entity: notify.mesh_channel_<NOME_DO_CANAL>
+
+  # Node ID numérico do gateway Meshtastic usado para filtrar mensagens diretas.
+  # Substitua por seu ID real. Não publique o ID real se considerar sensível.
+  gateway_node_id: 0000000000
+
+  # true: envia o alerta mais recente armazenado ao iniciar, para teste.
+  # false: operação normal, lendo o feed e enviando apenas novos alertas.
+  test_mode: false
