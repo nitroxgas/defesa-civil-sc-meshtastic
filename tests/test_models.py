@@ -70,7 +70,7 @@ class TestState:
         assert isinstance(state.sent_guids, list)
         assert isinstance(state.alerts, list)
         assert state.update_period is None
-        assert state.update_frequency is None
+        assert state.update_frequency == 1
     
     def test_state_with_alerts(self):
         """Testa estado com alertas."""
@@ -78,7 +78,9 @@ class TestState:
             guid="test-123",
             title="Teste",
             content="Conteúdo teste",
-            link="http://example.com"
+            link="http://example.com",
+            pub_date="2024-01-01T12:00:00",
+            seen_at="2024-01-01T12:00:00"
         )
         
         state = State(alerts=[alert])

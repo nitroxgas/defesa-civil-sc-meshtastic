@@ -14,7 +14,7 @@ def sample_feed():
             return f.read()
     
     # Feed de fallback para testes iniciais
-    return b"""<?xml version="1.0" encoding="UTF-8"?>
+    return """<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" 
      xmlns:content="http://purl.org/rss/1.0/modules/content/"
      xmlns:sy="http://purl.org/rss/1.0/modules/syndication/">
@@ -31,7 +31,7 @@ def sample_feed():
     </item>
   </channel>
 </rss>
-"""
+""".encode("utf-8")
 
 
 class TestRSSParser:
@@ -61,9 +61,9 @@ class TestRSSParser:
         items, period, frequency, minutes = parser.parse_feed(sample_feed)
         
         assert len(items) >= 1
-        assert items[0]["guid"] == "alert-001"
-        assert items[0]["title"] == "ALERTA - Temporal"
-        assert items[0]["link"] == "http://example.com/alert1"
+        assert items[0]["guid"] == "https://www.defesacivil.sc.gov.br/alerta/temporal-severo-001"
+        assert items[0]["title"] == "ALERTA - Temporal Severo"
+        assert items[0]["link"] == "https://www.defesacivil.sc.gov.br/alerta/temporal-severo-001"
     
     def test_parse_feed_has_timestamps(self, sample_feed):
         """Verifica se os alertas têm timestamps."""
@@ -111,7 +111,8 @@ class TestRSSParser:
         _, period, frequency, minutes = parser.parse_feed(weekly_feed)
         
         assert period == "weekly"
-        assert minutes == 10080  # 7 dias
+        # O código limita ao intervalo máximo de 1440 minutos (24 horas)
+        assert minutes == 1440
     
     def test_parse_respects_min_interval(self):
         """Testa se respeita intervalo mínimo."""

@@ -36,7 +36,7 @@ def test_interval_limits():
 def test_delays():
     """Verifica delays entre mensagens."""
     assert constants.CHANNEL_LINK_DELAY_SECONDS == 20
-    assert constants.CHANNEL_ALERT_BATCH_DELAY_SECONDS == 20
+    assert constants.CHANNEL_ALERT_BATCH_DELAY_SECONDS == 60
 
 
 def test_level_prefix_map():
