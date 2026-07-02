@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+     xmlns:content="http://purl.org/rss/1.0/modules/content/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/">
+  <channel>
+    <title>Defesa Civil SC - Alertas</title>
+    <link>https://www.defesacivil.sc.gov.br</link>
+    <description>Alertas da Defesa Civil de Santa Catarina</description>
+    <language>pt-br</language>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>2</sy:updateFrequency>
+    
+    <item>
+      <title>ALERTA - Temporal Severo</title>
+      <link>https://www.defesacivil.sc.gov.br/alerta/temporal-severo-001</link>
+      <guid>https://www.defesacivil.sc.gov.br/alerta/temporal-severo-001</guid>
+      <pubDate>Mon, 01 Jan 2024 14:30:00 GMT</pubDate>
+      <content:encoded><![CDATA[<p><strong>ALERTA - Temporal Severo</strong></p>
+<p>ALERTA - Temporal severo com rajadas de vento nas próximas 3 horas.</p>
+<p>Regiões afetadas: Grande Florianópolis e Litoral Norte.</p>
+<p>Para as regiões da Grande Florianópolis e Litoral Norte há possibilidade de TEMPORAL SEVERO com rajada de vento de até 80 km/h nas próximas 3 horas.</p>
+<p>Ocorrências ligue 199 ou 193.</p>
+<p>A Secretaria de Estado da Defesa Civil continua monitorando as condições climáticas.</p>]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>ATENÇÃO - Alagamentos</title>
+      <link>https://www.defesacivil.sc.gov.br/alerta/alagamentos-002</link>
+      <guid>https://www.defesacivil.sc.gov.br/alerta/alagamentos-002</guid>
+      <pubDate>Mon, 01 Jan 2024 13:00:00 GMT</pubDate>
+      <content:encoded><![CDATA[<p><strong>ATENÇÃO - Possível Alagamento</strong></p>
+<p>ATENÇÃO - Possibilidade de alagamentos em municípios do Vale do Itajaí.</p>
+<p>Para os municípios do Médio e Alto Vale do Itajaí há possibilidade de ALAGAMENTOS em áreas de risco nas próximas 2 horas.</p>
+<p>Ocorrências ligue 199 ou 193.</p>]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>OBSERVAÇÃO - Monitoramento</title>
+      <link>https://www.defesacivil.sc.gov.br/alerta/monitoramento-003</link>
+      <guid>https://www.defesacivil.sc.gov.br/alerta/monitoramento-003</guid>
+      <pubDate>Mon, 01 Jan 2024 11:45:00 GMT</pubDate>
+      <content:encoded><![CDATA[<p><strong>OBSERVAÇÃO</strong></p>
+<p>OBSERVAÇÃO - Monitoramento contínuo das condições climáticas na região do Extremo Oeste.</p>
+<p>Informações: www.defesacivil.sc.gov.br</p>]]></content:encoded>
+    </item>
+  </channel>
+</rss>
