@@ -10,24 +10,36 @@ Disponíveis duas versões:
 
 ## 🚀 Instalação Rápida
 
-### Home Assistant + AppDaemon (Linux/Mac)
+### ⚡ Opção 1: Wget/Invoke-WebRequest (Mais Rápido - Sem Clone Prévio)
 
+**Linux/Mac:**
+```bash
+# Home Assistant
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-home-assistant.sh)
+
+# OU Standalone
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh)
+```
+
+**Windows (PowerShell):**
+```powershell
+# Home Assistant
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-home-assistant.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
+
+# OU Standalone
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
+```
+
+### 📋 Opção 2: Clone + Script Local (Recomendado)
+
+**Linux/Mac:**
 ```bash
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 cd defesa-civil-sc-meshtastic
-bash install-home-assistant.sh
+bash install-home-assistant.sh      # Ou install-standalone.sh
 ```
 
-### Standalone Python (Linux/Mac)
-
-```bash
-git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
-cd defesa-civil-sc-meshtastic
-bash install-standalone.sh
-```
-
-### Windows (PowerShell)
-
+**Windows (PowerShell):**
 ```powershell
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 cd defesa-civil-sc-meshtastic
@@ -36,6 +48,39 @@ powershell -ExecutionPolicy Bypass -File install-home-assistant.ps1
 # OU Standalone
 powershell -ExecutionPolicy Bypass -File install-standalone.ps1
 ```
+
+**Windows (CMD):**
+```batch
+git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
+cd defesa-civil-sc-meshtastic
+install-home-assistant.bat
+```
+
+### 🔄 Atualizar Antes de Instalar (Opcional)
+
+Se você já clonado e quer atualizar para a versão mais recente:
+
+**Linux/Mac:**
+```bash
+cd defesa-civil-sc-meshtastic
+bash install-standalone.sh --pull      # Ou install-home-assistant.sh --pull
+```
+
+**Windows (PowerShell):**
+```powershell
+cd defesa-civil-sc-meshtastic
+powershell -ExecutionPolicy Bypass -File install-standalone.ps1 -Pull
+```
+
+### ℹ️ Como os Scripts Funcionam
+
+Os scripts são **inteligentes** e detectam automaticamente o contexto:
+
+- ✅ Se executado após `git clone` → Usa versão local (sem duplicação)
+- ✅ Se executado via `wget` → Clona repositório automaticamente
+- ✅ Argumento `--pull` ou `-Pull` → Atualiza repositório antes de instalar
+
+**Mais detalhes:** Veja [docs/SCRIPT_DETECTION.md](docs/SCRIPT_DETECTION.md) para explicação completa com fluxogramas.
 
 ## 📖 Documentação de Instalação
 

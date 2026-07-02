@@ -26,8 +26,28 @@ Veja [docs/ARCHITECTURE.md](../../docs/ARCHITECTURE.md) para detalhes de arquite
 
 ## 🚀 Instalação Rápida (Recomendado)
 
-### Linux/Mac
+### ⚡ Opção 1: Wget Direto (Sem Clone Prévio)
 
+**Linux/Mac:**
+```bash
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-home-assistant.sh)
+```
+
+O script irá:
+- Clonar repositório automaticamente
+- Detectar automaticamente o diretório do AppDaemon
+- Copiar o app para `/config/apps/`
+- Copiar módulos `core/` para o AppDaemon
+- Gerar arquivo `apps.yaml` (exemplo)
+
+**Windows (PowerShell):**
+```powershell
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-home-assistant.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
+```
+
+### 📋 Opção 2: Clone Local + Script
+
+**Linux/Mac:**
 ```bash
 # 1. Clonar repositório
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
@@ -35,16 +55,12 @@ cd defesa-civil-sc-meshtastic
 
 # 2. Executar script de instalação
 bash install-home-assistant.sh
+
+# 3. (Opcional) Atualizar antes de instalar
+bash install-home-assistant.sh --pull
 ```
 
-O script irá:
-- Detectar automaticamente o diretório do AppDaemon
-- Copiar o app para `/config/apps/`
-- Copiar módulos `core/` para o AppDaemon
-- Gerar arquivo `apps.yaml` (exemplo)
-
-### Windows (PowerShell)
-
+**Windows (PowerShell):**
 ```powershell
 # 1. Clonar repositório
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
@@ -52,6 +68,9 @@ cd defesa-civil-sc-meshtastic
 
 # 2. Executar script de instalação
 powershell -ExecutionPolicy Bypass -File install-home-assistant.ps1
+
+# 3. (Opcional) Atualizar antes de instalar
+powershell -ExecutionPolicy Bypass -File install-home-assistant.ps1 -Pull
 ```
 
 ## 📋 Instalação Manual

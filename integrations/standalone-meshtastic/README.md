@@ -38,8 +38,28 @@ RSS Defesa Civil SC
 
 ## 🚀 Instalação Rápida (Recomendado)
 
-### Linux/Mac
+### ⚡ Opção 1: Wget Direto (Sem Clone Prévio)
 
+**Linux/Mac:**
+```bash
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh)
+```
+
+O script irá:
+- Clonar repositório automaticamente
+- Criar ambiente virtual Python
+- Instalar dependências
+- Copiar configuração de exemplo
+- Verificar integração com `core/`
+
+**Windows (PowerShell):**
+```powershell
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
+```
+
+### 📋 Opção 2: Clone Local + Script
+
+**Linux/Mac:**
 ```bash
 # 1. Clonar repositório
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
@@ -47,16 +67,12 @@ cd defesa-civil-sc-meshtastic
 
 # 2. Executar script de instalação
 bash install-standalone.sh
+
+# 3. (Opcional) Atualizar antes de instalar
+bash install-standalone.sh --pull
 ```
 
-O script irá:
-- Criar ambiente virtual Python
-- Instalar dependências
-- Copiar configuração de exemplo
-- Verificar integração com `core/`
-
-### Windows (PowerShell)
-
+**Windows (PowerShell):**
 ```powershell
 # 1. Clonar repositório
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
@@ -64,10 +80,12 @@ cd defesa-civil-sc-meshtastic
 
 # 2. Executar script de instalação
 powershell -ExecutionPolicy Bypass -File install-standalone.ps1
+
+# 3. (Opcional) Atualizar antes de instalar
+powershell -ExecutionPolicy Bypass -File install-standalone.ps1 -Pull
 ```
 
-### Windows (CMD)
-
+**Windows (CMD):**
 ```batch
 # 1. Clonar repositório
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
@@ -75,6 +93,9 @@ cd defesa-civil-sc-meshtastic
 
 # 2. Executar script
 install-standalone.bat
+
+# 3. (Opcional) Atualizar antes de instalar
+install-standalone.bat --pull
 ```
 
 ## 📋 Instalação Manual
