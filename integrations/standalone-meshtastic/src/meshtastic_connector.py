@@ -56,10 +56,22 @@ class MeshtasticConnector:
                 )
             elif self.connection_type == "tcp":
                 self.logger.info(f"Conectando via TCP ({self.tcp_host}:{self.tcp_port})...")
-                self.interface = meshtastic.tcp_interface.TCPInterface(
-                    hostname=self.tcp_host,
-                    portNumber=self.tcp_port
-                )
+                try:
+                    # Try with portNumber first (newer versions of Meshtastic)
+                    self.interface = meshtastic.tcp_interface.TCPInterface(
+                        hostname=self.tcp_host,
+                        portNumber=self.tcp_port
+                    )
+                except TypeError as e:
+                    if "portNumber" in str(e):
+                        # Fallback to port (older versions of Meshtastic)
+                        self.logger.debug("portNumber not supported, trying port parameter...")
+                        self.interface = meshtastic.tcp_interface.TCPInterface(
+                            hostname=self.tcp_host,
+                            port=self.tcp_port
+                        )
+                    else:
+                        raise
             else:
                 self.logger.error(f"Tipo de conexão desconhecido: {self.connection_type}")
                 return False
@@ -115,7 +127,7 @@ class MeshtasticConnector:
                 return False
             
             self.interface.sendData(
-                message,
+                message.encode("utf-8"),  # Meshtastic espera bytes
                 destinationId="^all",  # Broadcast para o canal
                 channelIndex=channel_id,
                 wantAck=want_ack
@@ -151,7 +163,7 @@ class MeshtasticConnector:
                 return False
             
             self.interface.sendData(
-                message,
+                message.encode("utf-8"),  # Meshtastic espera bytes
                 destinationId=node_id,
                 wantAck=want_ack
             )
