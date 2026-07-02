@@ -64,6 +64,6 @@ test_mode: false
 # Logging
 logging:
   # Nível: DEBUG, INFO, WARNING, ERROR, CRITICAL
-  level: INFO
+  level: DEBUG
   # Arquivo de log (deixe vazio para apenas console)
   file: "./defesa_civil_sc_alertas.log"

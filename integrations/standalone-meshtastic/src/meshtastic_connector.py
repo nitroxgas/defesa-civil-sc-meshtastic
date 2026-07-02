@@ -111,7 +111,7 @@ class MeshtasticConnector:
         want_ack: bool = False
     ) -> bool:
         """
-        Envia mensagem para um canal.
+        Envia mensagem de texto para um canal.
         
         Args:
             message: Texto da mensagem
@@ -126,18 +126,22 @@ class MeshtasticConnector:
                 self.logger.error("Não conectado ao Meshtastic.")
                 return False
             
-            self.interface.sendData(
-                message.encode("utf-8"),  # Meshtastic espera bytes
+            self.logger.debug(
+                f"Enviando texto para canal {channel_id}: {message[:80]}..."
+            )
+            
+            self.interface.sendText(
+                message,
                 destinationId="^all",  # Broadcast para o canal
                 channelIndex=channel_id,
                 wantAck=want_ack
             )
             
-            self.logger.debug(f"Mensagem enviada para canal {channel_id}: {message[:50]}...")
+            self.logger.debug(f"Texto enviado para canal {channel_id}")
             return True
         
         except Exception as e:
-            self.logger.error(f"Erro ao enviar mensagem: {e}")
+            self.logger.error(f"Erro ao enviar mensagem para canal: {e}")
             return False
     
     def send_direct_message(
@@ -147,7 +151,7 @@ class MeshtasticConnector:
         want_ack: bool = True
     ) -> bool:
         """
-        Envia mensagem direta para um node.
+        Envia mensagem de texto direta para um node.
         
         Args:
             message: Texto da mensagem
@@ -162,13 +166,17 @@ class MeshtasticConnector:
                 self.logger.error("Não conectado ao Meshtastic.")
                 return False
             
-            self.interface.sendData(
-                message.encode("utf-8"),  # Meshtastic espera bytes
-                destinationId=node_id,
+            self.logger.debug(
+                f"Enviando DM para {node_id}: {message[:80]}..."
+            )
+            
+            self.interface.sendText(
+                message,
+                destinationId=str(node_id),
                 wantAck=want_ack
             )
             
-            self.logger.debug(f"Mensagem direta enviada para {node_id}: {message[:50]}...")
+            self.logger.debug(f"DM enviado para {node_id}")
             return True
         
         except Exception as e:

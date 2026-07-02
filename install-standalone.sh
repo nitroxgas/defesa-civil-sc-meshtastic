@@ -4,6 +4,30 @@
 # Ou: bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh)
 
 set -e
+set -u
+
+# Parse de argumentos: --pull e diretório de instalação são independentes
+INSTALL_DIR="."
+PULL=false
+for arg in "$@"; do
+    case "$arg" in
+        --pull)
+            PULL=true
+            ;;
+        --help|-h)
+            echo "Uso: bash install-standalone.sh [--pull] [diretorio_de_instalacao]"
+            echo "  --pull    Atualiza o repositório com git pull antes de instalar"
+            exit 0
+            ;;
+        -*)
+            echo "Opção desconhecida: $arg"
+            exit 1
+            ;;
+        *)
+            INSTALL_DIR="$arg"
+            ;;
+    esac
+done
 
 echo "=========================================="
 echo "Instalação - Defesa Civil SC Meshtastic"
@@ -48,7 +72,7 @@ if [ -d "$SCRIPT_DIR/.git" ] && [ -f "$SCRIPT_DIR/core/__init__.py" ]; then
     echo -e "${GREEN}✓ Repositório detectado (script no diretório)${NC}"
     
     # Se argumento --pull foi passado, fazer git pull
-    if [[ "$*" == *"--pull"* ]]; then
+    if [[ "$PULL" == true ]]; then
         echo -e "${YELLOW}  Atualizando repositório com git pull...${NC}"
         cd "$PROJECT_ROOT"
         git pull origin main
@@ -58,8 +82,8 @@ if [ -d "$SCRIPT_DIR/.git" ] && [ -f "$SCRIPT_DIR/core/__init__.py" ]; then
 elif [ -d "$CURRENT_DIR/.git" ] && [ -f "$CURRENT_DIR/core/__init__.py" ]; then
     PROJECT_ROOT="$CURRENT_DIR"
     echo -e "${GREEN}✓ Repositório detectado (diretório atual)${NC}"
-    
-    if [[ "$*" == *"--pull"* ]]; then
+
+    if [[ "$PULL" == true ]]; then
         echo -e "${YELLOW}  Atualizando repositório com git pull...${NC}"
         git pull origin main
         echo -e "${GREEN}  ✓ Repositório atualizado${NC}"
@@ -68,12 +92,11 @@ elif [ -d "$CURRENT_DIR/.git" ] && [ -f "$CURRENT_DIR/core/__init__.py" ]; then
 elif [[ "$SCRIPT_DIR" == /tmp/* ]] || [[ "$SCRIPT_DIR" == /var/tmp/* ]]; then
     echo -e "${YELLOW}Executando via wget - clonando repositório...${NC}"
     
-    INSTALL_DIR="${1:-.}"
     if [ ! -d "$INSTALL_DIR" ]; then
         mkdir -p "$INSTALL_DIR"
     fi
     cd "$INSTALL_DIR" || exit 1
-    
+
     if [ ! -d "defesa-civil-sc-meshtastic" ]; then
         git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
     fi
@@ -89,12 +112,11 @@ elif [ -d "$CURRENT_DIR/defesa-civil-sc-meshtastic/.git" ] && [ -f "$CURRENT_DIR
 else
     echo -e "${YELLOW}Repositório não encontrado - clonando...${NC}"
     
-    INSTALL_DIR="${1:-.}"
     if [ ! -d "$INSTALL_DIR" ]; then
         mkdir -p "$INSTALL_DIR"
     fi
     cd "$INSTALL_DIR" || exit 1
-    
+
     if [ ! -d "defesa-civil-sc-meshtastic" ]; then
         git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
     fi
@@ -153,13 +175,13 @@ fi
 echo ""
 echo -e "${YELLOW}[6/7] Verificando integração com core/...${NC}"
 
-# Verificar se core/ está acessível
-python3 -c "import sys; sys.path.insert(0, '../..'); from core import RSSParser, MessageFormatter; print('✓ Core importado com sucesso')" 2>/dev/null && echo -e "${GREEN}✓ Core/RSSParser e MessageFormatter acessíveis${NC}" || echo -e "${YELLOW}⚠ Aviso ao importar core (pode estar ok)${NC}"
+# Verificar se core/ está acessível (usar python do venv ativado)
+python -c "import sys; sys.path.insert(0, '../..'); from core import RSSParser, MessageFormatter; print('✓ Core importado com sucesso')" 2>/dev/null && echo -e "${GREEN}✓ Core/RSSParser e MessageFormatter acessíveis${NC}" || echo -e "${YELLOW}⚠ Aviso ao importar core (pode estar ok)${NC}"
 
 echo ""
 echo -e "${YELLOW}[7/7] Teste rápido de importação...${NC}"
 
-python3 -c "
+python -c "
 import sys
 sys.path.insert(0, '../..')
 from core import RSSParser, MessageFormatter, State, Alert
@@ -169,6 +191,7 @@ print('  - MessageFormatter')
 print('  - State')
 print('  - Alert')
 " || echo -e "${YELLOW}⚠ Aviso ao verificar importações${NC}"
+
 
 echo ""
 echo -e "${GREEN}=========================================="
@@ -183,8 +206,8 @@ echo "2. Configure os campos obrigatórios:"
 echo "   - connection_type: 'serial' ou 'tcp'"
 echo "   - serial_port: '/dev/ttyUSB0' (para serial)"
 echo "   - tcp_host: 'localhost:4403' (para TCP)"
-echo "   - gateway_id: seu ID numérico do Meshtastic"
-echo "   - channel: número do canal (ex: 1)"
+echo "   - channel.name: nome do canal (ex: 'Alertas-SC')"
+echo "   - channel.number: número do canal (ex: 0)"
 echo ""
 echo -e "${YELLOW}🚀 EXECUTANDO A APLICAÇÃO:${NC}"
 echo ""
@@ -218,7 +241,7 @@ echo ""
 echo -e "${YELLOW}🔧 AMBIENTE VIRTUAL:${NC}"
 echo "  Ativar: source $(pwd)/venv/bin/activate"
 echo "  Desativar: deactivate"
-echo "  Python: $(pwd)/venv/bin/python3"
+echo "  Python: $(pwd)/venv/bin/python"
 echo ""
 echo -e "${YELLOW}📚 DOCUMENTAÇÃO:${NC}"
 echo "  - README detalhado: integrations/standalone-meshtastic/README.md"

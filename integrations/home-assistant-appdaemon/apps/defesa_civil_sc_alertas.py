@@ -6,9 +6,26 @@ from pathlib import Path
 from datetime import datetime
 
 # Configurar path para imports de core
-# Este arquivo está em: defesa-civil-sc-meshtastic/integrations/home-assistant-appdaemon/apps/
-# Core está em: defesa-civil-sc-meshtastic/core/
-PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
+# Este arquivo pode estar em:
+#   - defesa-civil-sc-meshtastic/integrations/home-assistant-appdaemon/apps/ (desenvolvimento)
+#   - <AppDaemon>/config/apps/ (instalado)
+# Core pode estar em:
+#   - defesa-civil-sc-meshtastic/core/ (desenvolvimento)
+#   - <AppDaemon>/config/core/ (instalado)
+
+def _find_project_root():
+    app_file = Path(__file__).resolve()
+    candidates = [
+        app_file.parent.parent.parent.parent,  # desenvolvimento: 4 níveis acima
+        app_file.parent.parent,                # instalado: 2 níveis acima (apps -> config)
+    ]
+    for candidate in candidates:
+        if (candidate / "core" / "__init__.py").exists():
+            return candidate
+    # Fallback para desenvolvimento se nenhum encontrado
+    return candidates[0]
+
+PROJECT_ROOT = _find_project_root()
 if str(PROJECT_ROOT) not in sys.path:
     sys.path.insert(0, str(PROJECT_ROOT))
 

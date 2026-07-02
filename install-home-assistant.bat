@@ -4,6 +4,22 @@ REM Uso: install-home-assistant.bat [--pull]
 
 setlocal enabledelayedexpansion
 
+REM Parse de argumentos
+set PULL=false
+for %%a in (%*) do (
+    if "%%a"=="--pull" set PULL=true
+    if "%%a"=="--help" goto :show_help
+    if "%%a"=="-h" goto :show_help
+)
+
+goto :start
+
+:show_help
+echo Uso: install-home-assistant.bat [--pull]
+echo   --pull    Atualiza o repositório com git pull antes de instalar
+exit /b 0
+
+:start
 echo.
 echo ==========================================
 echo Instalação - Defesa Civil SC Meshtastic
@@ -37,7 +53,7 @@ if exist ".git" if exist "core\__init__.py" (
     echo [AVISO] Caminho: %cd%
     
     REM Verificar se --pull foi passado
-    if "%~1"=="--pull" (
+    if "!PULL!"=="true" (
         echo [AVISO] Atualizando repositório com git pull...
         git pull origin main
         echo [OK] Repositório atualizado
@@ -70,7 +86,23 @@ echo [2/5] Localizando AppDaemon...
 
 echo.
 REM Procurar AppDaemon em locais comuns
+if "%APPDAEMON_DIR%"=="" (
+    for %%d in (
+        "%USERPROFILE%\.homeassistant\appdaemon"
+        "%USERPROFILE%\AppData\Local\AppDaemon\appdaemon"
+        "%USERPROFILE%\AppData\Roaming\AppDaemon\appdaemon"
+        "%PROGRAMDATA%\AppDaemon\appdaemon"
+        "%PROGRAMFILES%\AppDaemon"
+        "C:\AppDaemon"
+    ) do (
+        if exist "%%~d" (
+            set APPDAEMON_DIR=%%~d
+            goto :found_appdaemon
+        )
+    )
+)
 
+:found_appdaemon
 if "%APPDAEMON_DIR%"=="" (
     echo [AVISO] AppDaemon não encontrado automaticamente
     set /p APPDAEMON_DIR="Digite o caminho do AppDaemon (ex: C:\Users\...\appdaemon): "
@@ -118,8 +150,8 @@ echo 1. Edite o arquivo de configuração:
 echo    %APPS_DIR%\..\apps.yaml
 echo.
 echo 2. Configure os campos obrigatórios:
-echo    - notify_service: entidade notify (ex: notify.mesh_channel_alertas_sc)
-echo    - gateway_id: ID numérico do seu Meshtastic
+echo    - notify_entity: entidade notify (ex: notify.mesh_channel_alertas_sc)
+echo    - gateway_node_id: ID numérico do seu Meshtastic
 echo    - channel: número do canal para enviar alertas
 echo.
 echo ATIVANDO A INTEGRACAO:

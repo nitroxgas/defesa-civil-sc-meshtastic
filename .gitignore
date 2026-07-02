@@ -26,3 +26,7 @@ logs/
 Thumbs.db
 .vscode/
 .idea/
+
+# Local AI assistant context (per-project, not versioned)
+.devin/
+.windsurf/

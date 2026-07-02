@@ -43,7 +43,7 @@ class ConfigManager:
         },
         "test_mode": False,
         "logging": {
-            "level": "INFO",
+            "level": "DEBUG",
             "file": None
         }
     }

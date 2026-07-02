@@ -105,18 +105,19 @@ Write-Host "[3/5] Localizando AppDaemon..." -ForegroundColor Yellow
 # Procurar AppDaemon nos locais comuns
 $appDaemonDirs = @(
     "$env:USERPROFILE\.homeassistant\appdaemon",
+    "$env:USERPROFILE\AppData\Local\AppDaemon\appdaemon",
+    "$env:USERPROFILE\AppData\Roaming\AppDaemon\appdaemon",
     "C:\AppDaemon",
     "$env:PROGRAMFILES\AppDaemon",
-    "C:\Users\*\AppData\Local\*\appdaemon"
+    "$env:PROGRAMDATA\AppDaemon\appdaemon"
 )
 
 $appDaemonPath = $null
 
 foreach ($dir in $appDaemonDirs) {
-    $expandedDir = Resolve-Path $dir -ErrorAction SilentlyContinue
-    if ($expandedDir) {
-        Write-Host "✓ AppDaemon encontrado: $expandedDir" -ForegroundColor Green
-        $appDaemonPath = $expandedDir
+    if (Test-Path $dir) {
+        Write-Host "✓ AppDaemon encontrado: $dir" -ForegroundColor Green
+        $appDaemonPath = $dir
         break
     }
 }
@@ -186,8 +187,8 @@ Write-Host "1. Edite o arquivo de configuração do AppDaemon:"
 Write-Host "   $appsYamlDest"
 Write-Host ""
 Write-Host "2. Configure os campos obrigatórios:"
-Write-Host "   - notify_service: entidade notify (ex: notify.mesh_channel_alertas_sc)"
-Write-Host "   - gateway_id: ID numérico do seu Meshtastic"
+Write-Host "   - notify_entity: entidade notify (ex: notify.mesh_channel_alertas_sc)"
+Write-Host "   - gateway_node_id: ID numérico do seu Meshtastic"
 Write-Host "   - channel: número do canal para enviar alertas"
 Write-Host ""
 Write-Host "3. Verifique a entidade notify no Home Assistant:"
@@ -214,7 +215,7 @@ Write-Host "📂 LOCALIZAÇÃO DOS ARQUIVOS:" -ForegroundColor Yellow
 Write-Host "  App: $appsDir\defesa_civil_sc_alertas.py"
 Write-Host "  Config: $appsYamlDest"
 Write-Host "  Core: $coreDestDir"
-Write-Host "  AppDaemon config: $(Split-Path $appDaemonPath)\config"
+Write-Host "  AppDaemon config: $appDaemonPath\config"
 Write-Host ""
 
 Write-Host "🧪 MODO DE TESTE:" -ForegroundColor Yellow

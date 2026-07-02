@@ -5,6 +5,31 @@
 # Ou: bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install.sh)
 
 set -e
+set -u
+
+# Parse de argumentos: --pull e diretório de instalação são independentes
+INSTALL_DIR="."
+PULL=false
+for arg in "$@"; do
+    case "$arg" in
+        --pull)
+            PULL=true
+            ;;
+        --help|-h)
+            echo "Uso: bash install.sh [--pull] [diretorio_de_instalacao]"
+            echo "  --pull    Atualiza o repositório com git pull antes de instalar"
+            exit 0
+            ;;
+        -*)
+            echo "Opção desconhecida: $arg"
+            echo "Uso: bash install.sh [--pull] [diretorio_de_instalacao]"
+            exit 1
+            ;;
+        *)
+            INSTALL_DIR="$arg"
+            ;;
+    esac
+done
 
 echo "=========================================="
 echo "Defesa Civil SC Meshtastic"
@@ -43,7 +68,7 @@ if [ -d "$SCRIPT_DIR/.git" ] && [ -f "$SCRIPT_DIR/core/__init__.py" ]; then
     cd "$PROJECT_ROOT"
     
     # Se argumento --pull foi passado, fazer git pull
-    if [[ "$*" == *"--pull"* ]]; then
+    if [[ "$PULL" == true ]]; then
         echo -e "${YELLOW}Atualizando repositório com git pull...${NC}"
         git pull origin main
         echo -e "${GREEN}✓ Repositório atualizado${NC}"
@@ -52,8 +77,8 @@ if [ -d "$SCRIPT_DIR/.git" ] && [ -f "$SCRIPT_DIR/core/__init__.py" ]; then
 elif [ -d "$CURRENT_DIR/.git" ] && [ -f "$CURRENT_DIR/core/__init__.py" ]; then
     PROJECT_ROOT="$CURRENT_DIR"
     echo -e "${GREEN}✓ Repositório detectado (diretório atual)${NC}"
-    
-    if [[ "$*" == *"--pull"* ]]; then
+
+    if [[ "$PULL" == true ]]; then
         echo -e "${YELLOW}Atualizando repositório com git pull...${NC}"
         git pull origin main
         echo -e "${GREEN}✓ Repositório atualizado${NC}"
@@ -62,12 +87,11 @@ elif [ -d "$CURRENT_DIR/.git" ] && [ -f "$CURRENT_DIR/core/__init__.py" ]; then
 elif [[ "$SCRIPT_DIR" == /tmp/* ]] || [[ "$SCRIPT_DIR" == /var/tmp/* ]]; then
     echo -e "${YELLOW}Executando via wget - clonando repositório...${NC}"
     
-    INSTALL_DIR="${1:-.}"
     if [ ! -d "$INSTALL_DIR" ]; then
         mkdir -p "$INSTALL_DIR"
     fi
     cd "$INSTALL_DIR" || exit 1
-    
+
     if [ ! -d "defesa-civil-sc-meshtastic" ]; then
         git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
     fi
@@ -83,12 +107,11 @@ elif [ -d "$CURRENT_DIR/defesa-civil-sc-meshtastic/.git" ] && [ -f "$CURRENT_DIR
 else
     echo -e "${YELLOW}Repositório não encontrado - clonando...${NC}"
     
-    INSTALL_DIR="${1:-.}"
     if [ ! -d "$INSTALL_DIR" ]; then
         mkdir -p "$INSTALL_DIR"
     fi
     cd "$INSTALL_DIR" || exit 1
-    
+
     if [ ! -d "defesa-civil-sc-meshtastic" ]; then
         git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
     fi
@@ -106,7 +129,7 @@ echo "1) Home Assistant + AppDaemon"
 echo "2) Standalone Meshtastic"
 echo "3) Ambas"
 echo ""
-read -p "Escolha (1-3): " choice
+read -r -p "Escolha (1-3): " choice || true
 
 case $choice in
     1)
@@ -138,8 +161,8 @@ echo -e "${YELLOW}📝 PRÓXIMAS ETAPAS:${NC}"
 echo ""
 if [[ "$choice" == "1" ]] || [[ "$choice" == "3" ]]; then
     echo -e "${BLUE}Para Home Assistant + AppDaemon:${NC}"
-    echo "  1. Edite: $APPDAEMON_DIR/config/apps.yaml"
-    echo "  2. Configure: notify_service, gateway_id, channel"
+    echo "  1. Edite o apps.yaml no diretório de config do AppDaemon"
+    echo "  2. Configure: notify_entity, gateway_node_id"
     echo "  3. Restart AppDaemon em Home Assistant"
     echo "  4. Verifique logs em Add-ons → AppDaemon → Logs"
     echo ""
@@ -147,7 +170,7 @@ fi
 if [[ "$choice" == "2" ]] || [[ "$choice" == "3" ]]; then
     echo -e "${BLUE}Para Standalone Meshtastic:${NC}"
     echo "  1. Edite: integrations/standalone-meshtastic/config.yaml"
-    echo "  2. Configure: connection_type, serial_port/tcp_host, gateway_id, channel"
+    echo "  2. Configure: connection_type, serial_port/tcp_host, channel.name, channel.number"
     echo "  3. Execute: cd integrations/standalone-meshtastic"
     echo "            source venv/bin/activate"
     echo "            python main.py config.yaml"

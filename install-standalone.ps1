@@ -9,13 +9,6 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-# Cores
-$RED = "`e[31m"
-$GREEN = "`e[32m"
-$YELLOW = "`e[33m"
-$BLUE = "`e[34m"
-$RESET = "`e[0m"
-
 Write-Host "===========================================" -ForegroundColor Green
 Write-Host "Instalação - Defesa Civil SC Meshtastic" -ForegroundColor Green
 Write-Host "Integração: Standalone Meshtastic" -ForegroundColor Green
@@ -93,8 +86,24 @@ if ($gitDir -and $coreDir) {
     } else {
         # Script foi clonado mas não estamos no diretório certo
         Write-Host "Script local detectado - procurando repositório..." -ForegroundColor Yellow
-        
-        $repoPath = Join-Path (Get-Location) "defesa-civil-sc-meshtastic"
+
+        $repoPath = $null
+        if ($InstallPath -ne ".") {
+            $repoPath = Join-Path $InstallPath "defesa-civil-sc-meshtastic"
+            if (-not (Test-Path $InstallPath)) {
+                New-Item -ItemType Directory -Path $InstallPath -Force | Out-Null
+            }
+            if (-not (Test-Path $repoPath)) {
+                Push-Location $InstallPath
+                git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
+                Pop-Location
+            }
+        }
+
+        if (-not $repoPath) {
+            $repoPath = Join-Path (Get-Location) "defesa-civil-sc-meshtastic"
+        }
+
         if ((Test-Path $repoPath) -and (Test-Path "$repoPath\core\__init__.py")) {
             Set-Location $repoPath
             Write-Host "✓ Repositório encontrado" -ForegroundColor Green
@@ -202,8 +211,8 @@ Write-Host "2. Configure os campos obrigatórios:"
 Write-Host "   - connection_type: 'serial' ou 'tcp'"
 Write-Host "   - serial_port: 'COM3' (para serial no Windows)"
 Write-Host "   - tcp_host: 'localhost:4403' (para TCP)"
-Write-Host "   - gateway_id: seu ID numérico do Meshtastic"
-Write-Host "   - channel: número do canal (ex: 1)"
+Write-Host "   - channel.name: nome do canal (ex: 'Alertas-SC')"
+Write-Host "   - channel.number: número do canal (ex: 0)"
 Write-Host ""
 
 Write-Host "🚀 EXECUTANDO A APLICAÇÃO:" -ForegroundColor Yellow
@@ -246,7 +255,7 @@ Write-Host ""
 
 Write-Host "⚠️  TROUBLESHOOTING:" -ForegroundColor Yellow
 Write-Host "  Erro 'ModuleNotFoundError: No module named core'?"
-Write-Host "  Execute: python ..\..\test_imports.py"
+Write-Host "  Execute: & '$projectRoot\test_imports.py'"
 Write-Host ""
 Write-Host "  Erro de conexão Meshtastic?"
 Write-Host "  1. Verifique Device Manager para porta COM"

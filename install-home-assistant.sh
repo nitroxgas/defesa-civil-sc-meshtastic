@@ -4,6 +4,30 @@
 # Ou: bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-home-assistant.sh)
 
 set -e
+set -u
+
+# Parse de argumentos: --pull e diretório de instalação são independentes
+INSTALL_DIR="."
+PULL=false
+for arg in "$@"; do
+    case "$arg" in
+        --pull)
+            PULL=true
+            ;;
+        --help|-h)
+            echo "Uso: bash install-home-assistant.sh [--pull] [diretorio_de_instalacao]"
+            echo "  --pull    Atualiza o repositório com git pull antes de instalar"
+            exit 0
+            ;;
+        -*)
+            echo "Opção desconhecida: $arg"
+            exit 1
+            ;;
+        *)
+            INSTALL_DIR="$arg"
+            ;;
+    esac
+done
 
 echo "=========================================="
 echo "Instalação - Defesa Civil SC Meshtastic"
@@ -47,7 +71,7 @@ if [ -d "$SCRIPT_DIR/.git" ] && [ -f "$SCRIPT_DIR/core/__init__.py" ]; then
     echo -e "${GREEN}✓ Repositório detectado (script no diretório)${NC}"
     
     # Se argumento --pull foi passado, fazer git pull
-    if [[ "$*" == *"--pull"* ]]; then
+    if [[ "$PULL" == true ]]; then
         echo -e "${YELLOW}  Atualizando repositório com git pull...${NC}"
         cd "$PROJECT_ROOT"
         git pull origin main
@@ -57,8 +81,8 @@ if [ -d "$SCRIPT_DIR/.git" ] && [ -f "$SCRIPT_DIR/core/__init__.py" ]; then
 elif [ -d "$CURRENT_DIR/.git" ] && [ -f "$CURRENT_DIR/core/__init__.py" ]; then
     PROJECT_ROOT="$CURRENT_DIR"
     echo -e "${GREEN}✓ Repositório detectado (diretório atual)${NC}"
-    
-    if [[ "$*" == *"--pull"* ]]; then
+
+    if [[ "$PULL" == true ]]; then
         echo -e "${YELLOW}  Atualizando repositório com git pull...${NC}"
         git pull origin main
         echo -e "${GREEN}  ✓ Repositório atualizado${NC}"
@@ -67,12 +91,11 @@ elif [ -d "$CURRENT_DIR/.git" ] && [ -f "$CURRENT_DIR/core/__init__.py" ]; then
 elif [[ "$SCRIPT_DIR" == /tmp/* ]] || [[ "$SCRIPT_DIR" == /var/tmp/* ]]; then
     echo -e "${YELLOW}Executando via wget - clonando repositório...${NC}"
     
-    INSTALL_DIR="${1:-.}"
     if [ ! -d "$INSTALL_DIR" ]; then
         mkdir -p "$INSTALL_DIR"
     fi
     cd "$INSTALL_DIR" || exit 1
-    
+
     if [ ! -d "defesa-civil-sc-meshtastic" ]; then
         git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
     fi
@@ -88,12 +111,11 @@ elif [ -d "$CURRENT_DIR/defesa-civil-sc-meshtastic/.git" ] && [ -f "$CURRENT_DIR
 else
     echo -e "${YELLOW}Repositório não encontrado - clonando...${NC}"
     
-    INSTALL_DIR="${1:-.}"
     if [ ! -d "$INSTALL_DIR" ]; then
         mkdir -p "$INSTALL_DIR"
     fi
     cd "$INSTALL_DIR" || exit 1
-    
+
     if [ ! -d "defesa-civil-sc-meshtastic" ]; then
         git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
     fi
@@ -110,6 +132,8 @@ echo -e "${GREEN}✓ Repositório pronto${NC}"
 echo ""
 echo -e "${YELLOW}[3/5] Localizando AppDaemon...${NC}"
 
+APPDAEMON_DIR=""
+
 # Procurar Home Assistant AppDaemon
 if [ -d "/root/addon_config" ]; then
     APPDAEMON_DIR=$(find /root/addon_config -name "appdaemon" -type d 2>/dev/null | head -1)
@@ -120,7 +144,7 @@ fi
 
 if [ -z "$APPDAEMON_DIR" ]; then
     echo -e "${YELLOW}AppDaemon não encontrado automaticamente.${NC}"
-    read -p "Digite o caminho do AppDaemon (ex: /root/addon_config/.../appdaemon): " APPDAEMON_DIR
+    read -r -p "Digite o caminho do AppDaemon (ex: /root/addon_config/.../appdaemon): " APPDAEMON_DIR || true
 fi
 
 if [ ! -d "$APPDAEMON_DIR" ]; then
@@ -169,8 +193,8 @@ echo "1. Edite o arquivo de configuração do AppDaemon:"
 echo "   $APPS_DIR/../apps.yaml"
 echo ""
 echo "2. Configure os campos obrigatórios:"
-echo "   - notify_service: entidade notify (ex: notify.mesh_channel_alertas_sc)"
-echo "   - gateway_id: ID numérico do seu Meshtastic"
+echo "   - notify_entity: entidade notify (ex: notify.mesh_channel_alertas_sc)"
+echo "   - gateway_node_id: ID numérico do seu Meshtastic"
 echo "   - channel: número do canal para enviar alertas"
 echo ""
 echo "3. Verifique a entidade notify no Home Assistant:"
@@ -229,7 +253,7 @@ echo "  2. Teste envio manual em Services"
 echo "  3. Verifique permissões do usuário"
 echo ""
 echo "  Erro de importação de core?"
-echo "  Execute: python $APPDAEMON_DIR/../../test_imports.py"
+echo "  Execute: python $PROJECT_ROOT/test_imports.py"
 echo ""
 echo -e "${GREEN}✓ Instalação concluída! Agora configure e reinicie AppDaemon.${NC}"
 echo ""

@@ -54,11 +54,12 @@ class DefesaCivilAlertasStandalone:
         self.formatter = MessageFormatter()
         self.mesh = None
         self.running = False
+        self.shutdown_requested = False
         self.next_check_time = time.time()
     
     def _setup_logging(self) -> None:
         """Configura logging da aplicação."""
-        log_level = self.config.get("logging.level", "INFO").upper()
+        log_level = self.config.get("logging.level", "DEBUG").upper()
         log_file = self.config.get("logging.file")
         
         # Formato de log
@@ -112,25 +113,82 @@ class DefesaCivilAlertasStandalone:
             interface: Interface Meshtastic
         """
         try:
-            # Verificar se é mensagem de texto
+            self.logger.debug(f"Pacote recebido: {packet}")
+            
             if "decoded" not in packet:
+                self.logger.debug("Pacote ignorado: sem 'decoded'")
                 return
             
             decoded = packet["decoded"]
-            if "payload" not in decoded:
+            self.logger.debug(f"Decoded: {decoded}")
+            
+            # Verificar se é mensagem de texto (portnum 1 ou 'TEXT_MESSAGE_APP')
+            portnum = decoded.get("portnum")
+            if isinstance(portnum, int):
+                is_text = portnum == 1
+            elif isinstance(portnum, str):
+                is_text = portnum.upper() == "TEXT_MESSAGE_APP"
+            else:
+                is_text = "text" in decoded
+            
+            if not is_text:
+                self.logger.debug(f"Pacote ignorado: portnum={portnum} não é texto")
                 return
             
-            # Se for mensagem direta com texto
-            if decoded.get("portNum") == 1:  # Text message port
+            # Extrair texto (novas versões já expõem 'text'; fallback para payload)
+            message_text = None
+            if "text" in decoded:
+                message_text = decoded["text"]
+                self.logger.debug(f"Texto extraído de decoded['text']: '{message_text}'")
+            elif "payload" in decoded:
                 try:
                     message_text = decoded["payload"].decode("utf-8")
-                except:
+                    self.logger.debug(f"Texto decodificado de payload: '{message_text}'")
+                except Exception as e:
+                    self.logger.debug(f"Payload não decodificável como texto: {e}")
                     return
-                
-                trigger_word = self.config.get("direct_message.trigger_word", "ALERTAS")
-                
-                if message_text.strip().upper() == trigger_word:
-                    self.handle_dm_alerts_request(packet, interface)
+            else:
+                self.logger.debug("Pacote ignorado: sem 'text' nem 'payload'")
+                return
+            
+            trigger_word = self.config.get("direct_message.trigger_word", "ALERTAS")
+            from_id = packet.get("from")
+            to_id = packet.get("to")
+            self.logger.debug(
+                f"Mensagem de {from_id} para {to_id}: '{message_text}'"
+            )
+            
+            # Responder apenas a mensagens diretas (não broadcast)
+            BROADCAST_NUM = 0xFFFFFFFF
+            my_info = self.mesh.get_my_info() if self.mesh else None
+            my_node_num = None
+            if my_info:
+                if isinstance(my_info, dict):
+                    my_node_num = my_info.get("my_node_num") or my_info.get("num")
+                else:
+                    my_node_num = getattr(my_info, "my_node_num", None) or getattr(my_info, "num", None)
+            
+            is_broadcast = to_id is None or to_id == BROADCAST_NUM
+            if is_broadcast:
+                self.logger.debug(f"Mensagem de broadcast ignorada (to={to_id})")
+                return
+            
+            if my_node_num and to_id != my_node_num:
+                self.logger.debug(
+                    f"Mensagem não é para este node (to={to_id}, me={my_node_num})"
+                )
+                return
+            
+            if trigger_word in message_text.strip().upper():
+                self.logger.info(
+                    f"Comando '{trigger_word}' recebido de {from_id}"
+                )
+                self.handle_dm_alerts_request(packet, interface)
+            else:
+                self.logger.error(
+                    f"Mensagem direta de {from_id} não contém comando "
+                    f"'{trigger_word}': '{message_text}'"
+                )
         
         except Exception as e:
             self.logger.error(f"Erro ao processar mensagem recebida: {e}")
@@ -146,6 +204,7 @@ class DefesaCivilAlertasStandalone:
         try:
             from_id = packet.get("from")
             if not from_id:
+                self.logger.debug("DM sem remetente ignorado")
                 return
             
             # Obter alertas recentes
@@ -154,49 +213,88 @@ class DefesaCivilAlertasStandalone:
             
             if not alerts:
                 self.logger.info(f"Sem alertas para responder a {from_id}")
+                self.mesh.send_direct_message(
+                    "Nenhum alerta ativo no momento.", str(from_id)
+                )
                 return
             
             self.logger.info(f"Enviando {len(alerts)} alerta(s) via DM para {from_id}")
             
             for idx, alert in enumerate(alerts):
+                if not self.running:
+                    self.logger.debug("Resposta a DM abortada: shutdown solicitado")
+                    break
+                
                 # Enviar em duas mensagens
                 msg1, msg2 = self.formatter.build_alert_messages(alert)
                 
+                self.logger.debug(f"Enviando DM {idx+1}/{len(alerts)} para {from_id}")
                 self.mesh.send_direct_message(msg1, str(from_id))
-                time.sleep(CHANNEL_LINK_DELAY_SECONDS)
+                
+                # Aguardar entre as duas partes, verificando shutdown
+                for _ in range(int(CHANNEL_LINK_DELAY_SECONDS * 2)):
+                    if not self.running:
+                        break
+                    time.sleep(0.5)
+                if not self.running:
+                    break
                 
                 self.mesh.send_direct_message(msg2, str(from_id))
                 
                 if idx < len(alerts) - 1:
-                    time.sleep(CHANNEL_ALERT_BATCH_DELAY_SECONDS)
+                    for _ in range(int(CHANNEL_ALERT_BATCH_DELAY_SECONDS * 2)):
+                        if not self.running:
+                            break
+                        time.sleep(0.5)
+                    if not self.running:
+                        break
         
         except Exception as e:
             self.logger.error(f"Erro ao responder DM de alertas: {e}")
     
-    def send_alert_to_channel(self, alert: dict, channel_id: int = 0) -> None:
+    def send_alert_to_channel(self, alert: dict, channel_id: int = 0) -> bool:
         """
         Envia alerta para canal Meshtastic.
         
         Args:
             alert: Dicionário com dados do alerta
             channel_id: ID do canal
+            
+        Returns:
+            True se enviado com sucesso, False caso contrário
         """
         try:
+            if not self.running:
+                self.logger.debug("Envio abortado: aplicação está encerrando")
+                return False
+            
             msg1, msg2 = self.formatter.build_alert_messages(alert)
             
             # Enviar mensagem de conteúdo
-            self.mesh.send_to_channel(msg1, channel_id)
+            self.logger.debug(f"Enviando alerta para canal {channel_id}: {msg1[:80]}...")
+            if not self.mesh.send_to_channel(msg1, channel_id):
+                self.logger.error("Falha ao enviar mensagem de alerta")
+                return False
             self.logger.info(f"Alerta enviado: {msg1[:80]}...")
             
-            # Aguardar antes de enviar link
-            time.sleep(CHANNEL_LINK_DELAY_SECONDS)
+            # Aguardar antes de enviar link, verificando shutdown
+            for _ in range(int(CHANNEL_LINK_DELAY_SECONDS * 2)):
+                if not self.running:
+                    self.logger.debug("Envio abortado durante espera do link")
+                    return False
+                time.sleep(0.5)
             
             # Enviar link
-            self.mesh.send_to_channel(msg2, channel_id)
+            self.logger.debug(f"Enviando link para canal {channel_id}: {msg2[:80]}...")
+            if not self.mesh.send_to_channel(msg2, channel_id):
+                self.logger.error("Falha ao enviar link do alerta")
+                return False
             self.logger.debug(f"Link enviado: {msg2}")
+            return True
         
         except Exception as e:
             self.logger.error(f"Erro ao enviar alerta: {e}")
+            return False
     
     def check_feed(self) -> None:
         """Verifica feed RSS e envia novos alertas."""
@@ -223,6 +321,10 @@ class DefesaCivilAlertasStandalone:
             new_alerts_count = 0
             
             for item in items:
+                if not self.running:
+                    self.logger.debug("Verificação de feed abortada: shutdown solicitado")
+                    break
+                
                 guid = item.get("guid")
                 
                 if self.state_manager.is_guid_sent(guid):
@@ -235,12 +337,18 @@ class DefesaCivilAlertasStandalone:
                 else:
                     # Enviar alerta
                     self.logger.info(f"Novo alerta detectado: {item.get('title', '')[:60]}...")
-                    self.send_alert_to_channel(item, channel_id)
-                    new_alerts_count += 1
+                    if self.send_alert_to_channel(item, channel_id):
+                        new_alerts_count += 1
                     
-                    # Aguardar antes do próximo alerta
+                    # Aguardar antes do próximo alerta, verificando shutdown
                     if new_alerts_count < len(items):
-                        time.sleep(CHANNEL_ALERT_BATCH_DELAY_SECONDS)
+                        for _ in range(int(CHANNEL_ALERT_BATCH_DELAY_SECONDS * 2)):
+                            if not self.running:
+                                self.logger.debug("Verificação de feed abortada durante espera")
+                                break
+                            time.sleep(0.5)
+                        if not self.running:
+                            break
                 
                 # Marcar como enviado e armazenar
                 self.state_manager.add_sent_guid(guid)
@@ -298,12 +406,18 @@ class DefesaCivilAlertasStandalone:
         self.running = True
         self.logger.info("Aplicação iniciada com sucesso!")
         
-        # Handler para Ctrl+C
+        # Handler para Ctrl+C e SIGTERM
         def signal_handler(sig, frame):
+            if self.shutdown_requested:
+                self.logger.warning("Shutdown forçado")
+                sys.exit(1)
             self.logger.info("Encerrando aplicação...")
+            self.shutdown_requested = True
             self.running = False
+            self.cleanup()
         
         signal.signal(signal.SIGINT, signal_handler)
+        signal.signal(signal.SIGTERM, signal_handler)
         
         # Primeira verificação
         if self.config.is_test_mode():
@@ -320,16 +434,15 @@ class DefesaCivilAlertasStandalone:
                 if now >= self.next_check_time:
                     self.check_feed()
                 
-                # Sleep para não usar 100% CPU
-                time.sleep(5)
+                # Sleep curto para responder rápido a Ctrl+C
+                time.sleep(0.5)
             
             except Exception as e:
                 self.logger.error(f"Erro no loop principal: {e}")
-                time.sleep(10)
+                time.sleep(5)
         
-        # Limpeza
-        if self.mesh:
-            self.mesh.disconnect()
+        # Limpeza final
+        self.cleanup()
         
         self.logger.info("Aplicação encerrada.")
     
@@ -337,7 +450,11 @@ class DefesaCivilAlertasStandalone:
         """Limpeza antes de encerrar."""
         self.running = False
         if self.mesh:
-            self.mesh.disconnect()
+            try:
+                self.mesh.disconnect()
+            except Exception as e:
+                self.logger.error(f"Erro ao desconectar: {e}")
+        self.logger.debug("Cleanup concluído")
 
 
 def main():
