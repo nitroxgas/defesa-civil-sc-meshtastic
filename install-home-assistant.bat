@@ -63,12 +63,13 @@ echo.
 echo [OK] Repositório pronto
 echo.
 
-echo [2/5] Localizando AppDaemon...
+REM Garantir que estamos no diretório raiz do projeto
+cd /d "%PROJECT_ROOT%"
 
 echo [2/5] Localizando AppDaemon...
 
-set APPDAEMON_DIR=
-for /d %%D in ("%USERPROFILE%\*appdaemon*") do set APPDAEMON_DIR=%%D
+echo.
+REM Procurar AppDaemon em locais comuns
 
 if "%APPDAEMON_DIR%"=="" (
     echo [AVISO] AppDaemon não encontrado automaticamente
@@ -88,22 +89,22 @@ echo [3/5] Copiando arquivos...
 set APPS_DIR=%APPDAEMON_DIR%\config\apps
 if not exist "%APPS_DIR%" mkdir "%APPS_DIR%"
 
-copy integrations\home-assistant-appdaemon\apps\defesa_civil_sc_alertas.py "%APPS_DIR%\" >nul
+copy "%PROJECT_ROOT%\integrations\home-assistant-appdaemon\apps\defesa_civil_sc_alertas.py" "%APPS_DIR%\" >nul
 echo [OK] App copiado para: %APPS_DIR%\defesa_civil_sc_alertas.py
 
 if not exist "%APPDAEMON_DIR%\config\core" (
-    xcopy /E /I core "%APPDAEMON_DIR%\config\core\" >nul
+    xcopy /E /I "%PROJECT_ROOT%\core" "%APPDAEMON_DIR%\config\core\" >nul
     echo [OK] Módulos compartilhados (core/) copiados
 ) else (
     echo [AVISO] Core já existe, atualizando...
-    xcopy /E /I /Y core "%APPDAEMON_DIR%\config\core\" >nul
+    xcopy /E /I /Y "%PROJECT_ROOT%\core" "%APPDAEMON_DIR%\config\core\" >nul
 )
 
 if not exist "%APPS_DIR%\..\apps.yaml" (
-    copy integrations\home-assistant-appdaemon\config\apps.yaml.example "%APPS_DIR%\..\apps.yaml" >nul
+    copy "%PROJECT_ROOT%\integrations\home-assistant-appdaemon\config\apps.yaml.example" "%APPS_DIR%\..\apps.yaml" >nul
     echo [AVISO] Arquivo apps.yaml criado (exemplo). EDITE COM SUAS CONFIGURAÇÕES!
 ) else (
-    copy integrations\home-assistant-appdaemon\config\apps.yaml.example "%APPS_DIR%\..\apps.yaml.example" >nul
+    copy "%PROJECT_ROOT%\integrations\home-assistant-appdaemon\config\apps.yaml.example" "%APPS_DIR%\..\apps.yaml.example" >nul
     echo [AVISO] Arquivo apps.yaml.example disponível como referência
 )
 

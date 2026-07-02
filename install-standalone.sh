@@ -101,6 +101,9 @@ fi
 
 STANDALONE_DIR="integrations/standalone-meshtastic"
 
+# Garantir que estamos no diretório raiz do projeto
+cd "$PROJECT_ROOT" || exit 1
+
 echo -e "${GREEN}✓ Repositório pronto${NC}"
 
 echo ""

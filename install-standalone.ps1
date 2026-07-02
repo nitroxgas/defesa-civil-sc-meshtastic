@@ -113,6 +113,9 @@ if ($gitDir -and $coreDir) {
 Write-Host "✓ Repositório pronto" -ForegroundColor Green
 Write-Host ""
 
+# Garantir que estamos no diretório raiz do projeto
+Set-Location $projectRoot
+
 # Criar ambiente virtual
 Write-Host "[3/7] Criando ambiente virtual Python..." -ForegroundColor Yellow
 $standaloneDir = Join-Path $projectRoot "integrations\standalone-meshtastic"

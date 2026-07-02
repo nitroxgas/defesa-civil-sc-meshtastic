@@ -97,6 +97,9 @@ if ($gitDir -and $coreDir) {
 Write-Host "✓ Repositório pronto" -ForegroundColor Green
 Write-Host ""
 
+# Garantir que estamos no diretório raiz do projeto
+Set-Location $projectRoot
+
 Write-Host "[3/5] Localizando AppDaemon..." -ForegroundColor Yellow
 
 # Procurar AppDaemon nos locais comuns

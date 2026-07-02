@@ -98,6 +98,9 @@ else
     fi
 fi
 
+# Garantir que estamos no diretório raiz do projeto
+cd "$PROJECT_ROOT" || exit 1
+
 echo -e "${GREEN}✓ Repositório pronto${NC}"
 
 echo ""
