@@ -15,89 +15,219 @@ A partir da v1.0, esta integração usa módulos centralizados em `core/` para e
 
 Veja [docs/ARCHITECTURE.md](../../docs/ARCHITECTURE.md) para detalhes de arquitetura.
 
-### Pré-requisitos
+## Pré-requisitos
 
-- Home Assistant funcionando.
-- Integração Meshtastic instalada e conectada a um gateway.
-- Canal Meshtastic criado, por exemplo `Alertas-SC`.
-- Entidade `notify.mesh_channel_*` disponível para o canal.
-- Add-on AppDaemon instalado.
+- ✅ Home Assistant funcionando
+- ✅ Integração Meshtastic instalada e conectada
+- ✅ Canal Meshtastic criado (ex: `Alertas-SC`)
+- ✅ Entidade `notify.mesh_channel_*` disponível
+- ✅ Add-on AppDaemon instalado
+- ✅ Git instalado (para clone do repositório)
 
-### Arquivos
+## 🚀 Instalação Rápida (Recomendado)
 
-```text
-apps/defesa_civil_sc_alertas.py       # App AppDaemon
-config/apps.yaml.example              # Exemplo de configuração do app
-config/appdaemon.yaml.example         # Exemplo mínimo de AppDaemon
+### Linux/Mac
+
+```bash
+# 1. Clonar repositório
+git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
+cd defesa-civil-sc-meshtastic
+
+# 2. Executar script de instalação
+bash install-home-assistant.sh
 ```
 
-## Instalação
+O script irá:
+- Detectar automaticamente o diretório do AppDaemon
+- Copiar o app para `/config/apps/`
+- Copiar módulos `core/` para o AppDaemon
+- Gerar arquivo `apps.yaml` (exemplo)
 
-### 1. Instale o add-on AppDaemon no Home Assistant.
- - Para o Home Assistant OS após a instalação os arquivos ficam em /root/addon_config/<ALGUMACOISA>_appdaemon/ - Este será o diretório raiz para o AppDaemon e assumido daqui para frente na documentação;
+### Windows (PowerShell)
 
- ```text
- O arquivo:
-/root/addon_config/<ALGUMACOISA>_appdaemon/config/apps/defesa_civil_sc_alertas.py
+```powershell
+# 1. Clonar repositório
+git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
+cd defesa-civil-sc-meshtastic
 
-Será referenciado como:
-/config/apps/defesa_civil_sc_alertas.py
+# 2. Executar script de instalação
+powershell -ExecutionPolicy Bypass -File install-home-assistant.ps1
 ```
 
-### 2. Copie `integrations/home-assistant-appdaemon/apps/defesa_civil_sc_alertas.py` para o diretório onde está instalado seu AppDaemon:
+## 📋 Instalação Manual
 
-```text
-/config/apps/defesa_civil_sc_alertas.py
+### Passo 1: Pré-requisitos do Home Assistant
+
+Instale o add-on AppDaemon se ainda não tiver:
+
+1. Abra **Home Assistant → Settings → Add-ons**
+2. Procure por "AppDaemon"
+3. Clique em instalar e ativar
+
+> No Home Assistant OS, os arquivos ficam em:
+> `/root/addon_config/<ALGUMACOISA>_appdaemon/`
+> 
+> Referenciamos como `/config/` nos exemplos a seguir.
+
+### Passo 2: Clonar o Repositório
+
+```bash
+git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
+cd defesa-civil-sc-meshtastic
 ```
 
-### 3. Configurar o AppDaemon
+### Passo 3: Copiar Arquivos para AppDaemon
 
-Use como base `integrations/home-assistant-appdaemon/config/apps.yaml.example` e copie para: 
+#### 3a. App Principal
 
-```text
-/config/apps.yaml
+Copie o arquivo da integração:
+
+```bash
+# Linux/Mac
+cp integrations/home-assistant-appdaemon/apps/defesa_civil_sc_alertas.py \
+   /config/apps/defesa_civil_sc_alertas.py
+
+# Ou encontre manualmente o caminho e copie
 ```
-Substitua:
 
-- `notify.mesh_channel_<NOME_DO_CANAL>` pela entidade real do seu canal;
-- `0000000000` pelo node ID numérico do gateway Meshtastic.
+#### 3b. Módulos Compartilhados (Core)
 
-Exemplo:
+**Importante**: A integração precisa acessar os módulos `core/`:
+
+```bash
+# Opção 1: Copiar core/ para AppDaemon
+cp -r core /config/
+
+# Opção 2: Criar symlink (melhor para atualizações)
+ln -s /path/to/defesa-civil-sc-meshtastic/core /config/core
+```
+
+**Verificar se está correto**: O app consegue importar os módulos?
+
+```python
+import sys
+sys.path.insert(0, '/config')
+from core import RSSParser, MessageFormatter, State, Alert
+```
+
+### Passo 4: Configurar o AppDaemon
+
+Copie e edite o arquivo de configuração:
+
+```bash
+cp integrations/home-assistant-appdaemon/config/apps.yaml.example \
+   /config/apps.yaml
+```
+
+Edite `/config/apps.yaml`:
 
 ```yaml
 defesa_civil_sc_alertas:
   module: defesa_civil_sc_alertas
   class: DefesaCivilSCAlertas
-  notify_entity: notify.mesh_channel_<NOME_DO_CANAL>
-  gateway_node_id: 0000000000
+  notify_entity: notify.mesh_channel_alertas_sc    # ← Sua entidade
+  gateway_node_id: 3735928559                       # ← ID do seu gateway
   test_mode: false
 ```
 
-### 4. Reiniciar o AppDaemon
+**Como encontrar seus valores:**
 
-Depois de copiar os arquivos e ajustar a configuração, reinicie o add-on AppDaemon.
+**notify_entity**: No Home Assistant, procure em Settings → Devices & Services → Entities. Procure por "mesh_channel" ou similar.
 
-## Teste sem esperar novo alerta
+**gateway_node_id**: No seu gateway Meshtastic:
+- Abra a interface Meshtastic Web (`meshtastic.org/client/`)
+- Procure por "Node ID" ou "My Info"
+- Use o número decimal (não hexadecimal)
 
-Ative o modo de teste:
+### Passo 5: Reiniciar AppDaemon
 
-```yaml
-test_mode: true
+1. Home Assistant → Settings → Add-ons
+2. Clique em AppDaemon
+3. Clique em "Restart"
+
+Verifique os logs para erros:
+
+```
+Settings → Add-ons → AppDaemon → Logs
 ```
 
-Reinicie o AppDaemon. O app enviará o alerta mais recente salvo no estado local; se não houver estado, buscará o feed, populará o histórico e enviará o item mais recente.
+## 🧪 Testando a Integração
 
-Depois do teste, volte para:
+### Modo de Teste
+
+Para enviar um alerta sem esperar por novos alertas:
+
+**Edite `/config/apps.yaml`:**
+
+```yaml
+defesa_civil_sc_alertas:
+  # ... outras configs ...
+  test_mode: true
+```
+
+**Reinicie o AppDaemon**. Ele enviará um alerta de teste.
+
+Depois, volte para:
 
 ```yaml
 test_mode: false
 ```
 
+### Verificar Logs
 
-## Operação
+```
+Home Assistant → Settings → Add-ons → AppDaemon → Logs
+```
 
-- Lê o feed RSS a cada hora ou conforme `sy:updatePeriod`/`sy:updateFrequency`.
-- Armazena os últimos 10 alertas.
-- Evita reenviar alertas repetidos usando `guid`.
-- Na primeira execução, armazena o histórico sem enviar os 10 alertas antigos, evitando flood.
-- Responde mensagem direta `ALERTAS` com os 3 últimos alertas armazenados.
+Procure por:
+- `Defesa Civil SC Alertas iniciado`
+- `Feed verificado`
+- Mensagens de erro
+
+## 📊 Operação
+
+- **Leitura do feed**: A cada hora ou conforme `sy:updatePeriod`/`sy:updateFrequency` do feed RSS
+- **Histórico**: Armazena os últimos 10 alertas
+- **Deduplicação**: Evita reenviar alertas repetidos usando `guid`
+- **Primeira execução**: Carrega histórico sem enviar (evita flood)
+- **Resposta DM**: Quando alguém enviar `ALERTAS` por mensagem direta, responde com 3 últimos alertas
+
+## 🔄 Atualizando
+
+Para atualizar a integração com novas versões:
+
+```bash
+cd defesa-civil-sc-meshtastic
+git pull origin main
+cp integrations/home-assistant-appdaemon/apps/defesa_civil_sc_alertas.py /config/apps/
+cp -r core /config/  # Ou atualizar se usar symlink
+```
+
+Reinicie o AppDaemon.
+
+## 🐛 Troubleshooting
+
+| Problema | Solução |
+|----------|---------|
+| `ModuleNotFoundError: core` | Verifique se `/config/core/` existe com os módulos |
+| App não inicia | Procure por `ImportError` nos logs do AppDaemon |
+| Mensagens não chegam | Verifique se `notify_entity` está correto em `apps.yaml` |
+| Sem alertas | Verifique conexão de internet e URL do feed RSS |
+
+## 📚 Arquivos
+
+```text
+integrations/home-assistant-appdaemon/
+├── README.md                          # Este arquivo
+├── apps/
+│   └── defesa_civil_sc_alertas.py    # App AppDaemon (refatorado)
+└── config/
+    ├── apps.yaml.example             # Configuração (copiar para /config/apps.yaml)
+    └── appdaemon.yaml.example        # Configuração AppDaemon (opcional)
+```
+
+## 📖 Documentação
+
+- [Arquitetura e Design](../../docs/ARCHITECTURE.md)
+- [README Principal](../../README.md)
+- [Home Assistant AppDaemon Docs](https://appdaemon.readthedocs.io/)

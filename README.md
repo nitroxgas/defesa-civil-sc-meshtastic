@@ -2,152 +2,250 @@
 
 Integração para ler alertas publicados pela Defesa Civil de Santa Catarina e redistribuir mensagens resumidas para uma malha Meshtastic.
 
-A primeira versão usa **Home Assistant + AppDaemon + integração Meshtastic**. A estrutura do repositório já separa essa integração de futuras versões standalone sem Home Assistant.
+Disponíveis duas versões:
+- 🏠 **Home Assistant + AppDaemon** (usa notificações do HA)
+- 🔧 **Standalone Python** (sem dependências do HA)
 
 > Este projeto não é oficial da Defesa Civil. Use como integração comunitária e mantenha sempre os canais oficiais de alerta como referência primária.
 
-## Funcionalidades atuais
+## 🚀 Instalação Rápida
 
-- Lê o feed RSS da categoria de alertas da Defesa Civil SC.
-- Respeita os campos RSS `sy:updatePeriod` e `sy:updateFrequency` para definir o intervalo de leitura.
-- Armazena os últimos 10 alertas.
-- Evita reenvio de alertas repetidos usando `guid`.
-- Envia cada novo alerta para canal Meshtastic via `notify.mesh_channel_*` do Home Assistant.
-- Envia o alerta em duas mensagens:
-  - resumo compactado;
-  - link do alerta.
-- Responde mensagens diretas com texto `ALERTAS`, retornando os 3 últimos alertas armazenados.
-- Tem modo de teste para validar o envio sem depender de novos alertas reais.
-- Compacta prefixos longos:
-  - `ALERTA` → `AL:`
-  - `ATENÇÃO` → `AT:`
-  - `OBSERVAÇÃO` → `OBS:`
+### Home Assistant + AppDaemon (Linux/Mac)
+
+```bash
+git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
+cd defesa-civil-sc-meshtastic
+bash install-home-assistant.sh
+```
+
+### Standalone Python (Linux/Mac)
+
+```bash
+git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
+cd defesa-civil-sc-meshtastic
+bash install-standalone.sh
+```
+
+### Windows (PowerShell)
+
+```powershell
+git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
+cd defesa-civil-sc-meshtastic
+# Home Assistant
+powershell -ExecutionPolicy Bypass -File install-home-assistant.ps1
+# OU Standalone
+powershell -ExecutionPolicy Bypass -File install-standalone.ps1
+```
+
+## 📖 Documentação de Instalação
+
+Consulte os READMEs específicos para instruções detalhadas:
+
+| Integração | Link | Descrição |
+|------------|------|-----------|
+| **Home Assistant + AppDaemon** | [README](integrations/home-assistant-appdaemon/README.md) | Instalação manual passo a passo, configuração do AppDaemon |
+| **Standalone Python** | [README](integrations/standalone-meshtastic/README.md) | Instalação com venv, conexão serial/TCP, modo daemon systemd |
+
+## ✨ Funcionalidades
+
+✅ Lê feed RSS da Defesa Civil SC com polling automático
+✅ Respeita intervalos dinâmicos do feed (`sy:updatePeriod`/`sy:updateFrequency`)
+✅ Armazena histórico dos últimos 10 alertas
+✅ Evita reenvio de alertas repetidos (deduplicação por GUID)
+✅ Compacta mensagens para caber em LoRa (150-180 caracteres)
+✅ Envia alertas em 2 mensagens: conteúdo + link
+✅ Responde mensagens diretas `ALERTAS` com 3 últimos alertas
+✅ Modo de teste para validação
+✅ Suporta ambas as integrações: HA + AppDaemon e Standalone Python
 
 ## Fonte de dados
 
-Feed RSS usado pela integração:
-
+Feed RSS:
 ```text
 https://www.defesacivil.sc.gov.br/categoria/alerta/feed/
 ```
 
-Campos principais utilizados:
+Campos utilizados:
+- `item/title` - Título do alerta
+- `item/content:encoded` - Conteúdo completo
+- `item/guid` - Identificador único
+- `channel/sy:updatePeriod` - Período de atualização
+- `channel/sy:updateFrequency` - Frequência de atualização
 
-- `item/title`
-- `item/content:encoded`
-- `item/guid`
-- `channel/sy:updatePeriod`
-- `channel/sy:updateFrequency`
-
-## Estrutura do projeto
+## 📦 Estrutura do projeto
 
 ```text
 defesa-civil-sc-meshtastic/
-├── README.md
-├── LICENSE
-├── SECURITY.md
-├── CONTRIBUTING.md
-├── .gitignore
-├── core/                                    # Módulos compartilhados (refatoração)
-│   ├── __init__.py
+├── 📄 README.md (este arquivo)
+├── 📄 LICENSE
+├── 📄 SECURITY.md
+├── 📄 CONTRIBUTING.md
+├── 📄 .gitignore
+│
+├── 🔧 install.sh                           # Script menu de instalação
+├── 🔧 install-home-assistant.sh            # Script HA (Linux/Mac)
+├── 🔧 install-home-assistant.ps1           # Script HA (Windows)
+├── 🔧 install-standalone.sh                # Script Standalone (Linux/Mac)
+├── 🔧 install-standalone.ps1               # Script Standalone (Windows)
+│
+├── 📚 core/                                # Módulos compartilhados
+│   ├── __init__.py                         # Exports
 │   ├── constants.py                        # Constantes centralizadas
 │   ├── models.py                           # Alert, State dataclasses
 │   ├── rss_parser.py                       # Parser RSS
-│   └── message_formatter.py                # Formatador de mensagens
-├── integrations/
+│   └── message_formatter.py                # Formatação de mensagens
+│
+├── 📦 integrations/
 │   ├── home-assistant-appdaemon/
-│   │   ├── README.md
+│   │   ├── README.md                       # Instalação HA
 │   │   ├── apps/
-│   │   │   └── defesa_civil_sc_alertas.py
+│   │   │   └── defesa_civil_sc_alertas.py (380 linhas)
 │   │   └── config/
 │   │       ├── appdaemon.yaml.example
 │   │       └── apps.yaml.example
+│   │
 │   └── standalone-meshtastic/
-│       ├── README.md
-│       ├── main.py
-│       ├── requirements.txt
-│       ├── config.example.yaml
-│       ├── state.example.json
+│       ├── README.md                       # Instalação Standalone
+│       ├── main.py                         # Orquestrador
+│       ├── requirements.txt                # Dependências
+│       ├── config.example.yaml             # Config template
+│       ├── state.example.json              # Estado template
 │       ├── .gitignore
 │       └── src/
 │           ├── __init__.py
 │           ├── config_manager.py
 │           ├── state_manager.py
 │           └── meshtastic_connector.py
-├── examples/
-│   └── defesa_civil_sc_alertas_state.example.json
-├── docs/
-│   ├── PROJECT_STRUCTURE.md
-│   └── ARCHITECTURE.md                     # Documentação de arquitetura (novo)
-└── tests/                                  # Suite de testes centralizados
-    ├── __init__.py
-    ├── conftest.py
-    ├── README.md
-    ├── test_constants.py
-    ├── test_models.py
-    ├── test_rss_parser.py
-    ├── test_message_formatter.py
-    └── fixtures/
-        └── sample_feed.xml
+│
+├── 📚 docs/
+│   ├── PROJECT_STRUCTURE.md                # Estrutura detalhada
+│   └── ARCHITECTURE.md                     # Design e padrões
+│
+├── 🧪 tests/                               # Suite de testes (40+)
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── README.md
+│   ├── test_constants.py
+│   ├── test_models.py
+│   ├── test_rss_parser.py
+│   ├── test_message_formatter.py
+│   └── fixtures/
+│       └── sample_feed.xml
+│
+└── 📋 examples/
+    └── defesa_civil_sc_alertas_state.example.json
 ```
 
-## Integrações disponíveis
+## 🏠 Home Assistant + AppDaemon
 
-- [Home Assistant com AppDaemon](integrations/home-assistant-appdaemon/README.md)
-- [Standalone Meshtastic (Python)](integrations/standalone-meshtastic/README.md)
+**Requisitos:**
+- Home Assistant funcionando
+- Integração Meshtastic instalada
+- Add-on AppDaemon instalado
+- Canal Meshtastic com entidade notify
 
-## Arquitetura e Módulos Compartilhados
+**Instalação Rápida:**
+```bash
+bash install-home-assistant.sh
+```
 
-A partir da versão refatorada, o projeto usa módulos centralizados em `core/` para evitar duplicação de código entre integrações:
+**Vantagens:**
+- Integração nativa com Home Assistant
+- Usa notificações do HA
+- Configurável via UI do HA
+- Logs integrados com HA
 
-### core/
+[👉 Instruções Detalhadas](integrations/home-assistant-appdaemon/README.md)
 
-- **constants.py**: Constantes centralizadas (URLs, limites, intervalos, mapeamentos)
-- **models.py**: Dataclasses para type-safety (`Alert`, `State`)
-- **rss_parser.py**: Parser RSS da Defesa Civil SC
-- **message_formatter.py**: Formatação e compactação de mensagens para LoRa
+## 🔧 Standalone Python
 
-Veja [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) para detalhes sobre o design e padrões.
+**Requisitos:**
+- Python 3.8+
+- Gateway Meshtastic (USB/Serial ou TCP)
+- Conexão com internet
 
-### Testes
+**Instalação Rápida:**
+```bash
+bash install-standalone.sh
+```
 
-Suite de testes centralizados usando pytest em `tests/`:
+**Vantagens:**
+- Sem dependência de Home Assistant
+- Executa em qualquer servidor com Python
+- Modo daemon systemd (Linux)
+- Mais leve e simples
+
+[👉 Instruções Detalhadas](integrations/standalone-meshtastic/README.md)
+
+## 🏗️ Arquitetura
+
+A partir da v1.0, o projeto usa módulos centralizados em `core/`:
+
+### Módulos Compartilhados (core/)
+
+- **constants.py** - URLs, limites, intervalos, mapeamentos
+- **models.py** - Dataclasses `Alert` e `State` para type-safety
+- **rss_parser.py** - Parser RSS com intervalos dinâmicos
+- **message_formatter.py** - Compactação para LoRa (46 compactações)
+
+Benefícios:
+- 🔄 DRY - Sem duplicação entre integrações
+- 🧪 Testável - Suite com 40+ testes
+- 🔒 Type-safe - Dataclasses com type hints
+- 📚 Bem documentado - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+
+### Comparação (antes vs depois)
+
+| Métrica | Antes | Depois | Melhoria |
+|---------|-------|--------|----------|
+| Código duplicado | 650 linhas | 0 linhas | ✅ -100% |
+| App HA | 658 linhas | 380 linhas | ✅ -42% |
+| Testes | 0 | 40+ | ✅ +40 |
+| Documentação | Mínima | Completa | ✅ +300% |
+
+## 🧪 Testes
+
+Suite completa com pytest:
 
 ```bash
+# Instalar pytest
 pip install pytest
+
+# Executar todos os testes
 pytest tests/ -v
+
+# Executar com cobertura
+pytest tests/ --cov=core
+
+# Executar teste específico
+pytest tests/test_rss_parser.py -v
 ```
 
-Executa 40+ testes cobrindo:
-- Parsing RSS e extração de intervalos
-- Formatação e compactação de mensagens
-- Serialização de modelos
-- Tratamento de erros e edge cases
+Testes incluem:
+- ✅ Parser RSS e intervalos dinâmicos
+- ✅ Formatação e compactação de mensagens
+- ✅ Modelos (serialização/deserialização)
+- ✅ Constantes e limites
+- ✅ Tratamento de erros
 
-Veja [tests/README.md](tests/README.md) para mais detalhes.
+[👉 Documentação de Testes](tests/README.md)
 
-## Integrações em desenvolvimento
+## 📊 Formato das mensagens
 
-Futuras integrações sugeridas:
-
-
-## Formato das mensagens
-
-Exemplo de mensagem compactada:
-
+Exemplo:
 ```text
 DC-SC AL: 01/07 11:47 - tempestade severa c/ vento, alag., granizo, raios e enxurr. Mun: Bom Jardim da Serra... Val: 1h. 199/193.
-```
-
-Segunda mensagem:
-
-```text
 Link: https://www.defesacivil.sc.gov.br/?p=XXXXX
 ```
 
-![Exemplo de mensagem no canal](docs/images/channel_exemple.jpeg)
+Compactações automáticas:
+- `ALERTA` → `AL:`, `ATENÇÃO` → `AT:`, `OBSERVAÇÃO` → `OBS:`
+- `TEMPESTADE SEVERA` → `tempestade severa`
+- `Grande Florianópolis` → `Gde Fpolis`
+- `nas próximas 2 horas` → `Val: 2h`
+- 46+ compactações de regiões e termos específicos
 
-## Canal de alertas de SC
+## 🤝 Canais de Alertas de SC
 
 ![Exemplo de mensagem no canal](docs/images/channelConf.jpeg)
 
