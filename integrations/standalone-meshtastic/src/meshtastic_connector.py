@@ -58,7 +58,7 @@ class MeshtasticConnector:
                 self.logger.info(f"Conectando via TCP ({self.tcp_host}:{self.tcp_port})...")
                 self.interface = meshtastic.tcp_interface.TCPInterface(
                     hostname=self.tcp_host,
-                    port=self.tcp_port
+                    portNumber=self.tcp_port
                 )
             else:
                 self.logger.error(f"Tipo de conexão desconhecido: {self.connection_type}")
