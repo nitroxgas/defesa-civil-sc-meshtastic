@@ -48,6 +48,12 @@ defesa-civil-sc-meshtastic/
 ├── SECURITY.md
 ├── CONTRIBUTING.md
 ├── .gitignore
+├── core/                                    # Módulos compartilhados (refatoração)
+│   ├── __init__.py
+│   ├── constants.py                        # Constantes centralizadas
+│   ├── models.py                           # Alert, State dataclasses
+│   ├── rss_parser.py                       # Parser RSS
+│   └── message_formatter.py                # Formatador de mensagens
 ├── integrations/
 │   ├── home-assistant-appdaemon/
 │   │   ├── README.md
@@ -57,22 +63,72 @@ defesa-civil-sc-meshtastic/
 │   │       ├── appdaemon.yaml.example
 │   │       └── apps.yaml.example
 │   └── standalone-meshtastic/
-│       └── README.md
+│       ├── README.md
+│       ├── main.py
+│       ├── requirements.txt
+│       ├── config.example.yaml
+│       ├── state.example.json
+│       ├── .gitignore
+│       └── src/
+│           ├── __init__.py
+│           ├── config_manager.py
+│           ├── state_manager.py
+│           └── meshtastic_connector.py
 ├── examples/
 │   └── defesa_civil_sc_alertas_state.example.json
 ├── docs/
-│   └── PROJECT_STRUCTURE.md
-└── tests/
-    └── README.md
+│   ├── PROJECT_STRUCTURE.md
+│   └── ARCHITECTURE.md                     # Documentação de arquitetura (novo)
+└── tests/                                  # Suite de testes centralizados
+    ├── __init__.py
+    ├── conftest.py
+    ├── README.md
+    ├── test_constants.py
+    ├── test_models.py
+    ├── test_rss_parser.py
+    ├── test_message_formatter.py
+    └── fixtures/
+        └── sample_feed.xml
 ```
 
 ## Integrações disponíveis
 
 - [Home Assistant com AppDaemon](integrations/home-assistant-appdaemon/README.md)
+- [Standalone Meshtastic (Python)](integrations/standalone-meshtastic/README.md)
+
+## Arquitetura e Módulos Compartilhados
+
+A partir da versão refatorada, o projeto usa módulos centralizados em `core/` para evitar duplicação de código entre integrações:
+
+### core/
+
+- **constants.py**: Constantes centralizadas (URLs, limites, intervalos, mapeamentos)
+- **models.py**: Dataclasses para type-safety (`Alert`, `State`)
+- **rss_parser.py**: Parser RSS da Defesa Civil SC
+- **message_formatter.py**: Formatação e compactação de mensagens para LoRa
+
+Veja [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) para detalhes sobre o design e padrões.
+
+### Testes
+
+Suite de testes centralizados usando pytest em `tests/`:
+
+```bash
+pip install pytest
+pytest tests/ -v
+```
+
+Executa 40+ testes cobrindo:
+- Parsing RSS e extração de intervalos
+- Formatação e compactação de mensagens
+- Serialização de modelos
+- Tratamento de erros e edge cases
+
+Veja [tests/README.md](tests/README.md) para mais detalhes.
 
 ## Integrações em desenvolvimento
 
-- [Versão standalone Meshtastic](integrations/standalone-meshtastic/README.md)
+Futuras integrações sugeridas:
 
 
 ## Formato das mensagens

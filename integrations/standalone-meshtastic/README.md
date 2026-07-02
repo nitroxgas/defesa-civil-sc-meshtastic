@@ -2,6 +2,17 @@
 
 Integração sem dependência do Home Assistant que lê alertas RSS da Defesa Civil SC e redistribui para uma malha Meshtastic via conexão serial ou TCP.
 
+## ℹ️ Refatoração - Uso de Módulos Compartilhados
+
+A partir da v1.0, esta integração usa módulos centralizados em `core/` para evitar duplicação de código:
+
+- `core.RSSParser` - Parser RSS
+- `core.MessageFormatter` - Compactação de mensagens
+- `core.State`, `core.Alert` - Modelos de dados
+- `core.constants` - Constantes centralizadas
+
+Veja [docs/ARCHITECTURE.md](../../docs/ARCHITECTURE.md) para detalhes de arquitetura.
+
 ## Arquitetura
 
 ```text
