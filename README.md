@@ -49,14 +49,23 @@ Consulte os READMEs específicos para instruções detalhadas:
 ## ✨ Funcionalidades
 
 ✅ Lê feed RSS da Defesa Civil SC com polling automático
+
 ✅ Respeita intervalos dinâmicos do feed (`sy:updatePeriod`/`sy:updateFrequency`)
+
 ✅ Armazena histórico dos últimos 10 alertas
+
 ✅ Evita reenvio de alertas repetidos (deduplicação por GUID)
+
 ✅ Compacta mensagens para caber em LoRa (150-180 caracteres)
+
 ✅ Envia alertas em 2 mensagens: conteúdo + link
+
 ✅ Responde mensagens diretas `ALERTAS` com 3 últimos alertas
+
 ✅ Modo de teste para validação
+
 ✅ Suporta ambas as integrações: HA + AppDaemon e Standalone Python
+
 
 ## Fonte de dados
 
@@ -274,22 +283,6 @@ Não publique arquivos reais de estado ou configuração local com dados da sua 
 O `.gitignore` deste projeto já ignora esses arquivos quando usados dentro do repositório.
 
 ## Próximas versões sugeridas
-
-### Standalone sem Home Assistant
-
-Pasta sugerida:
-
-```text
-integrations/standalone-meshtastic/
-```
-
-Possíveis transportes:
-
-- Python + `meshtastic` via serial/USB;
-- Python + Meshtastic TCP;
-- MQTT do Meshtastic;
-- serviço Linux com `systemd`;
-- container Docker.
 
 ### Filtros futuros
 
