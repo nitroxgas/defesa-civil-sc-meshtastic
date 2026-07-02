@@ -113,22 +113,57 @@ echo ==========================================
 echo [OK] Instalação concluída com sucesso!
 echo ==========================================
 echo.
-echo PRÓXIMAS ETAPAS:
+echo CONFIGURACAO NECESSARIA:
 echo 1. Edite o arquivo de configuração:
 echo    %APPS_DIR%\..\apps.yaml
 echo.
-echo 2. Substitua:
-echo    - notify.mesh_channel_alertas_sc por sua entidade notify real
-echo    - 0000000000 por ID numérico do seu gateway Meshtastic
+echo 2. Configure os campos obrigatórios:
+echo    - notify_service: entidade notify (ex: notify.mesh_channel_alertas_sc)
+echo    - gateway_id: ID numérico do seu Meshtastic
+echo    - channel: número do canal para enviar alertas
 echo.
-echo 3. Reinicie o AppDaemon no Home Assistant
+echo ATIVANDO A INTEGRACAO:
+echo 1. Edite o arquivo de configuração conforme acima
+echo 2. Vá para Home Assistant Settings Add-ons AppDaemon
+echo 3. Clique em Reiniciar para recarregar a configuração
 echo.
-echo LOCALIZAÇÃO DOS ARQUIVOS:
+echo VERIFICANDO A INSTALACAO:
+echo 1. Acesse Home Assistant Settings Add-ons AppDaemon Logs
+echo 2. Procure por 'DefesaCivilSCAlertas' ou 'defesa_civil_sc_alertas'
+echo 3. Se não houver erros, a integração está funcionando
+echo.
+echo LOCALIZACAO DOS ARQUIVOS:
 echo   App: %APPS_DIR%\defesa_civil_sc_alertas.py
 echo   Config: %APPS_DIR%\..\apps.yaml
 echo   Core: %APPDAEMON_DIR%\config\core\
+echo   AppDaemon config: %APPDAEMON_DIR%\config\
 echo.
-echo DOCUMENTAÇÃO:
-echo   - Instruções detalhadas: integrations\home-assistant-appdaemon\README.md
-echo   - Arquitetura: docs\ARCHITECTURE.md
+echo MODO DE TESTE:
+echo   Para testar sem conectar ao Meshtastic:
+echo   1. Edite apps.yaml e defina: test_mode: true
+echo   2. Restart AppDaemon
+echo.
+echo COMANDOS UTEIS:
+echo   Ver logs em tempo real:
+echo     Home Assistant Settings Add-ons AppDaemon Logs
+echo.
+echo   Listar entidades notify:
+echo     Home Assistant Developer Tools States
+echo     Procurar por 'notify'
+echo.
+echo DOCUMENTACAO:
+echo   - README detalhado: integrations\home-assistant-appdaemon\README.md
+echo   - Arquitetura do projeto: docs\ARCHITECTURE.md
+echo.
+echo TROUBLESHOOTING:
+echo   App não aparece em Home Assistant?
+echo   - Verifique logs do AppDaemon
+echo   - Confirme nome correto em apps.yaml
+echo   - Verifique indentação YAML (use espaços, não tabs)
+echo.
+echo Erro de entidade notify?
+echo   - Verifique se entidade realmente existe
+echo   - Teste envio manual em Services
+echo.
+echo OK - Instalação concluída! Agora configure e reinicie AppDaemon.
 echo.

@@ -181,29 +181,80 @@ Write-Host "✓ Instalação concluída com sucesso!" -ForegroundColor Green
 Write-Host "===========================================" -ForegroundColor Green
 Write-Host ""
 
-Write-Host "PRÓXIMAS ETAPAS:" -ForegroundColor Yellow
-Write-Host "1. Edite o arquivo de configuração:"
+Write-Host "📝 CONFIGURAÇÃO NECESSÁRIA:" -ForegroundColor Yellow
+Write-Host "1. Edite o arquivo de configuração do AppDaemon:"
 Write-Host "   $appsYamlDest"
 Write-Host ""
-Write-Host "2. Configure os parâmetros necessários:"
-Write-Host "   - notify_entity: entidade de notificação (ex: notify.mesh_channel_1)"
-Write-Host "   - gateway_node_id: ID do gateway Meshtastic"
-Write-Host "   - test_mode: true/false"
+Write-Host "2. Configure os campos obrigatórios:"
+Write-Host "   - notify_service: entidade notify (ex: notify.mesh_channel_alertas_sc)"
+Write-Host "   - gateway_id: ID numérico do seu Meshtastic"
+Write-Host "   - channel: número do canal para enviar alertas"
 Write-Host ""
-Write-Host "3. Reinicie o AppDaemon"
-Write-Host ""
-Write-Host "4. Verifique os logs:"
-Write-Host "   Home Assistant > Settings > Add-ons > AppDaemon > Logs"
+Write-Host "3. Verifique a entidade notify no Home Assistant:"
+Write-Host "   - Home Assistant > Developer Tools > States"
+Write-Host "   - Procure por 'notify.*' para listar entidades disponíveis"
+Write-Host "   - Use a entidade correta no apps.yaml"
 Write-Host ""
 
-Write-Host "LOCALIZAÇÃO DOS ARQUIVOS:" -ForegroundColor Yellow
+Write-Host "🔄 ATIVANDO A INTEGRAÇÃO:" -ForegroundColor Yellow
+Write-Host "1. Edite o arquivo de configuração conforme acima"
+Write-Host "2. Vá para Home Assistant > Settings > Add-ons > AppDaemon"
+Write-Host "3. Clique em 'Reiniciar' para recarregar a configuração"
+Write-Host "4. Aguarde a inicialização (pode levar alguns segundos)"
+Write-Host ""
+
+Write-Host "📊 VERIFICANDO A INSTALAÇÃO:" -ForegroundColor Yellow
+Write-Host "1. Acesse Home Assistant > Settings > Add-ons > AppDaemon > Logs"
+Write-Host "2. Procure por 'DefesaCivilSCAlertas' ou 'defesa_civil_sc_alertas'"
+Write-Host "3. Se não houver erros, a integração está funcionando"
+Write-Host "4. Se houver erros, verifique o apps.yaml (YAML syntax, valores, etc)"
+Write-Host ""
+
+Write-Host "📂 LOCALIZAÇÃO DOS ARQUIVOS:" -ForegroundColor Yellow
 Write-Host "  App: $appsDir\defesa_civil_sc_alertas.py"
 Write-Host "  Config: $appsYamlDest"
 Write-Host "  Core: $coreDestDir"
+Write-Host "  AppDaemon config: $(Split-Path $appDaemonPath)\config"
 Write-Host ""
 
-Write-Host "DOCUMENTAÇÃO:" -ForegroundColor Yellow
-Write-Host "  - Instruções detalhadas: README.md"
-Write-Host "  - Configuração: integrations/home-assistant-appdaemon/README.md"
-Write-Host "  - Arquitetura: docs/ARCHITECTURE.md"
+Write-Host "🧪 MODO DE TESTE:" -ForegroundColor Yellow
+Write-Host "  Para testar sem conectar ao Meshtastic:"
+Write-Host "  1. Edite apps.yaml e defina: test_mode: true"
+Write-Host "  2. Restart AppDaemon"
+Write-Host "  3. A aplicação simula conexão"
+Write-Host ""
+
+Write-Host "🔧 COMANDOS ÚTEIS:" -ForegroundColor Yellow
+Write-Host "  Ver logs em tempo real:"
+Write-Host "    Home Assistant > Settings > Add-ons > AppDaemon > Logs"
+Write-Host ""
+Write-Host "  Listar entidades notify:"
+Write-Host "    Home Assistant > Developer Tools > States"
+Write-Host "    Procurar por 'notify'"
+Write-Host ""
+Write-Host "  Testar envio de notificação:"
+Write-Host "    Home Assistant > Developer Tools > Services"
+Write-Host "    Serviço: notify.seu_entidade"
+Write-Host "    Dados: { message: 'Teste' }"
+Write-Host ""
+
+Write-Host "📚 DOCUMENTAÇÃO:" -ForegroundColor Yellow
+Write-Host "  - README detalhado: integrations\home-assistant-appdaemon\README.md"
+Write-Host "  - Arquitetura do projeto: docs\ARCHITECTURE.md"
+Write-Host "  - AppDaemon oficial: https://appdaemon.readthedocs.io"
+Write-Host ""
+
+Write-Host "⚠️  TROUBLESHOOTING:" -ForegroundColor Yellow
+Write-Host "  App não aparece em Home Assistant?"
+Write-Host "  1. Verifique logs do AppDaemon"
+Write-Host "  2. Confirme nome correto em apps.yaml"
+Write-Host "  3. Verifique indentação YAML (use espaços, não tabs)"
+Write-Host ""
+Write-Host "  Erro de entidade notify?"
+Write-Host "  1. Verifique se entidade realmente existe (States)"
+Write-Host "  2. Teste envio manual em Services"
+Write-Host "  3. Verifique permissões do usuário"
+Write-Host ""
+
+Write-Host "✓ Instalação concluída! Agora configure e reinicie AppDaemon." -ForegroundColor Green
 Write-Host ""

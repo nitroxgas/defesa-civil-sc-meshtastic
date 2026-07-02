@@ -194,39 +194,67 @@ Write-Host "✓ Instalação concluída com sucesso!" -ForegroundColor Green
 Write-Host "===========================================" -ForegroundColor Green
 Write-Host ""
 
-Write-Host "PRÓXIMAS ETAPAS:" -ForegroundColor Yellow
+Write-Host "📝 CONFIGURAÇÃO NECESSÁRIA:" -ForegroundColor Yellow
 Write-Host "1. Edite o arquivo de configuração:"
 Write-Host "   $configFile"
 Write-Host ""
-Write-Host "2. Configure:"
-Write-Host "   - connection_type (serial ou tcp)"
-Write-Host "   - serial_port ou tcp_host"
-Write-Host "   - channel name e number"
-Write-Host ""
-Write-Host "3. Execute a aplicação:"
-Write-Host "   venv\Scripts\Activate.ps1"
-Write-Host "   python main.py config.yaml"
-Write-Host ""
-Write-Host "4. Para modo de teste:"
-Write-Host "   Edite config.yaml e defina 'test_mode: true'"
-Write-Host "   Depois: python main.py config.yaml"
+Write-Host "2. Configure os campos obrigatórios:"
+Write-Host "   - connection_type: 'serial' ou 'tcp'"
+Write-Host "   - serial_port: 'COM3' (para serial no Windows)"
+Write-Host "   - tcp_host: 'localhost:4403' (para TCP)"
+Write-Host "   - gateway_id: seu ID numérico do Meshtastic"
+Write-Host "   - channel: número do canal (ex: 1)"
 Write-Host ""
 
-Write-Host "LOCALIZAÇÃO DOS ARQUIVOS:" -ForegroundColor Yellow
+Write-Host "🚀 EXECUTANDO A APLICAÇÃO:" -ForegroundColor Yellow
+Write-Host ""
+Write-Host "Opção 1 - Execução direta:"
+Write-Host "  venv\Scripts\Activate.ps1"
+Write-Host "  python main.py config.yaml"
+Write-Host ""
+Write-Host "Opção 2 - Com path completo:"
+Write-Host "  & '$(Get-Location)\venv\Scripts\Activate.ps1'"
+Write-Host "  & '$(Get-Location)\venv\Scripts\python.exe' '$(Get-Location)\main.py' '$configFile'"
+Write-Host ""
+
+Write-Host "🧪 MODO DE TESTE:" -ForegroundColor Yellow
+Write-Host "  1. Edite config.yaml e defina: test_mode: true"
+Write-Host "  2. Execute normalmente: python main.py config.yaml"
+Write-Host "  3. A aplicação simula conexão"
+Write-Host ""
+
+Write-Host "📂 LOCALIZAÇÃO DOS ARQUIVOS:" -ForegroundColor Yellow
+Write-Host "  Instalação: $(Get-Location)"
 Write-Host "  App: $(Get-Location)\main.py"
 Write-Host "  Config: $configFile"
 Write-Host "  Estado: $stateFile"
-Write-Host "  Core: ..\..\core\"
+Write-Host "  Core (compartilhado): ..\..\core\"
+Write-Host "  Requirements: $(Get-Location)\requirements.txt"
 Write-Host ""
 
-Write-Host "AMBIENTE VIRTUAL:" -ForegroundColor Yellow
+Write-Host "🔧 AMBIENTE VIRTUAL:" -ForegroundColor Yellow
 Write-Host "  Ativar: venv\Scripts\Activate.ps1"
 Write-Host "  Desativar: deactivate"
+Write-Host "  Python executável: $(Get-Location)\venv\Scripts\python.exe"
 Write-Host ""
 
-Write-Host "DOCUMENTAÇÃO:" -ForegroundColor Yellow
-Write-Host "  - Instruções detalhadas: README.md"
-Write-Host "  - Arquitetura: ..\..\docs\ARCHITECTURE.md"
+Write-Host "📚 DOCUMENTAÇÃO:" -ForegroundColor Yellow
+Write-Host "  - README detalhado: integrations\standalone-meshtastic\README.md"
+Write-Host "  - Arquitetura do projeto: docs\ARCHITECTURE.md"
+Write-Host "  - Exemplo config: $(Get-Location)\config.example.yaml"
+Write-Host ""
+
+Write-Host "⚠️  TROUBLESHOOTING:" -ForegroundColor Yellow
+Write-Host "  Erro 'ModuleNotFoundError: No module named core'?"
+Write-Host "  Execute: python ..\..\test_imports.py"
+Write-Host ""
+Write-Host "  Erro de conexão Meshtastic?"
+Write-Host "  1. Verifique Device Manager para porta COM"
+Write-Host "  2. Confirme serial_port em config.yaml"
+Write-Host "  3. Teste conexão com meshtastic CLI"
+Write-Host ""
+
+Write-Host "✓ Instalação pronta! Execute agora para começar." -ForegroundColor Green
 Write-Host ""
 
 Pop-Location
