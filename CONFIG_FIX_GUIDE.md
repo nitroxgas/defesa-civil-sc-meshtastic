@@ -4,38 +4,44 @@
 **Config Validation Error (FIXED)** ✅
 - Fixed: Host/port vs tcp_host/tcp_port naming mismatch
 - Fixed: Meshtastic TCPInterface parameter name (portNumber vs port)
+- Fixed: Message encoding (must use bytes, not strings)
 
-## Problem You Encountered
-When running `python main.py config.yaml`, you received this error:
+## Problems You Encountered
+When running `python main.py config.yaml`:
+
+### 1. Config Validation Error
 ```
 Conexão TCP requer 'meshtastic.tcp_host' configurado
 ```
 
-Even though your config.yaml had the correct TCP settings with `host` and `port`.
+### 2. Connection Parameter Error
+```
+TCPInterface.__init__() got an unexpected keyword argument 'port'
+```
 
-## Root Cause
-Two issues were found and fixed:
+### 3. Message Sending Error
+```
+Erro ao enviar mensagem: expected bytes, str found
+```
+
+## Root Causes & Solutions
 
 ### Issue 1: Configuration Key Naming
 - Your config.yaml used: `meshtastic.host` and `meshtastic.port`
 - The code expected: `meshtastic.tcp_host` and `meshtastic.tcp_port`
+- **Solution**: ConfigManager now normalizes both formats automatically
 
-### Issue 2: Meshtastic Library Parameter Name
+### Issue 2: TCPInterface Parameter Name
 - The Meshtastic library uses `portNumber` not `port`
-- The connector was passing the wrong parameter name
+- The connector was using wrong parameter name
+- **Solution**: Added try/except fallback to handle both parameter names
 
-## Solution Applied
-Updated ConfigManager to accept **both formats**:
-- ✅ Original format: `tcp_host` and `tcp_port`
-- ✅ Alternative format: `host` and `port`
+### Issue 3: Message Data Type
+- The Meshtastic library's `sendData()` requires bytes, not strings
+- The connector was passing plain strings
+- **Solution**: All message methods now encode strings to UTF-8 bytes before sending
 
-The ConfigManager now automatically normalizes either format during loading.
-
-**Also fixed Meshtastic connector:**
-- ✅ Changed TCPInterface parameter from `port` to `portNumber`
-- ✅ Meshtastic library now properly receives the TCP port number
-
-## Your Config Format is Now Valid ✅
+## Implementation Details
 
 Your config.yaml should work as-is:
 ```yaml
