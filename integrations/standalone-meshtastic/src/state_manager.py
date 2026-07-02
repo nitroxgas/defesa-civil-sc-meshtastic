@@ -10,8 +10,10 @@ from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Optional
 
-# Imports de core
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+# Imports de core - caminho relativo correto
+PROJECT_ROOT = Path(__file__).parent.parent.parent.parent  # standalone-meshtastic/src/../../..
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 from core import State, Alert
 
 

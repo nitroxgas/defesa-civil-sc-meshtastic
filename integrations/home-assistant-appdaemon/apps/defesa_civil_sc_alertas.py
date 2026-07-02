@@ -5,8 +5,14 @@ import sys
 from pathlib import Path
 from datetime import datetime
 
+# Configurar path para imports de core
+# Este arquivo está em: defesa-civil-sc-meshtastic/integrations/home-assistant-appdaemon/apps/
+# Core está em: defesa-civil-sc-meshtastic/core/
+PROJECT_ROOT = Path(__file__).parent.parent.parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
 # Imports de core
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 from core import (
     RSSParser,
     MessageFormatter,

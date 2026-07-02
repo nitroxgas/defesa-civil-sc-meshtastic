@@ -12,17 +12,21 @@ from pathlib import Path
 from typing import Optional
 import signal
 
-# Adicionar src/ ao path
-sys.path.insert(0, str(Path(__file__).parent / "src"))
+# Configurar paths - core deve estar antes de imports que o usam
+PROJECT_ROOT = Path(__file__).parent.parent.parent
+STANDALONE_SRC = Path(__file__).parent / "src"
 
-# Imports de src/ (específicos do standalone)
+# Adicionar paths para imports
+sys.path.insert(0, str(STANDALONE_SRC))
+sys.path.insert(0, str(PROJECT_ROOT))
+
+# Imports de core/ (compartilhados) - ANTES de state_manager que depende disso
+from core import RSSParser, MessageFormatter, MAX_HISTORY, CHANNEL_LINK_DELAY_SECONDS, CHANNEL_ALERT_BATCH_DELAY_SECONDS
+
+# Imports de src/ (específicos do standalone) - DEPOIS de core estar disponível
 from config_manager import ConfigManager
 from state_manager import StateManager
 from meshtastic_connector import MeshtasticConnector
-
-# Imports de core/ (compartilhados)
-sys.path.insert(0, str(Path(__file__).parent.parent.parent))
-from core import RSSParser, MessageFormatter, MAX_HISTORY, CHANNEL_LINK_DELAY_SECONDS, CHANNEL_ALERT_BATCH_DELAY_SECONDS
 
 
 class DefesaCivilAlertasStandalone:
