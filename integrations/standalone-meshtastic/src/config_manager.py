@@ -17,7 +17,9 @@ class ConfigManager:
             "connection_type": "serial",
             "serial_port": "",
             "tcp_host": None,
-            "tcp_port": 4403
+            "tcp_port": 4403,
+            "host": None,
+            "port": 4403
         },
         "channel": {
             "name": "Alertas-SC",
@@ -71,6 +73,10 @@ class ConfigManager:
             
             # Deep merge com configuração padrão
             self._deep_merge(self.config, loaded_config)
+            
+            # Normalizar configuração TCP (converter host/port para tcp_host/tcp_port)
+            self._normalize_tcp_config()
+            
             print(f"Configuração carregada de: {self.config_file}")
         
         except Exception as e:
@@ -153,6 +159,19 @@ class ConfigManager:
         """Retorna se está em modo de teste."""
         return self.get("test_mode", False)
     
+    def _normalize_tcp_config(self) -> None:
+        """
+        Normaliza configuração de TCP.
+        Converte host/port para tcp_host/tcp_port para manter compatibilidade.
+        """
+        mesh_config = self.config.get("meshtastic", {})
+        
+        if mesh_config.get("host") is not None:
+            mesh_config["tcp_host"] = mesh_config["host"]
+        
+        if mesh_config.get("port") is not None:
+            mesh_config["tcp_port"] = mesh_config["port"]
+    
     def validate(self) -> bool:
         """
         Valida configuração.
@@ -160,16 +179,21 @@ class ConfigManager:
         Returns:
             True se configuração válida, False caso contrário
         """
+        # Normalizar configuração TCP
+        self._normalize_tcp_config()
+        
         # Validar tipo de conexão Meshtastic
         connection_type = self.get("meshtastic.connection_type", "").lower()
         if connection_type not in ("serial", "tcp"):
             print(f"Tipo de conexão inválido: {connection_type}")
             return False
         
-        # Validar se TCP tem host configurado
-        if connection_type == "tcp" and not self.get("meshtastic.tcp_host"):
-            print("Conexão TCP requer 'meshtastic.tcp_host' configurado")
-            return False
+        # Validar se TCP tem host configurado (aceita tcp_host ou host)
+        if connection_type == "tcp":
+            tcp_host = self.get("meshtastic.tcp_host") or self.get("meshtastic.host")
+            if not tcp_host:
+                print("Conexão TCP requer 'host' ou 'tcp_host' configurado")
+                return False
         
         # Validar URL do feed
         feed_url = self.get("feed.url")

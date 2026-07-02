@@ -12,6 +12,11 @@ meshtastic:
   
   # Para conexão TCP:
   # Descomente se usar connection_type: tcp
+  # Opção 1: Usando tcp_host e tcp_port (recomendado)
+  # tcp_host: "192.168.1.100"
+  # tcp_port: 4403
+  # 
+  # Opção 2: Usando host e port (também funciona)
   # host: "192.168.1.100"
   # port: 4403
 
