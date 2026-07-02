@@ -8,9 +8,14 @@ __author__ = "Comunidade defesa-civil-sc-meshtastic"
 
 from .config_manager import ConfigManager
 from .state_manager import StateManager
-from .rss_parser import RSSParser
-from .message_formatter import MessageFormatter
 from .meshtastic_connector import MeshtasticConnector
+
+# RSSParser e MessageFormatter são importados de core
+# neste módulo para compatibilidade com imports diretos de src/
+import sys
+from pathlib import Path
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+from core import RSSParser, MessageFormatter
 
 __all__ = [
     "ConfigManager",

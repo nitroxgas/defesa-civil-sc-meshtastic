@@ -8,12 +8,11 @@ import urllib.request
 from typing import List, Dict, Tuple, Optional
 from datetime import datetime
 
+from .constants import FEED_URL, DEFAULT_INTERVAL_MINUTES, MIN_INTERVAL_MINUTES, MAX_INTERVAL_MINUTES
+
 
 class RSSParser:
     """Parser do feed RSS da Defesa Civil SC."""
-    
-    FEED_URL = "https://www.defesacivil.sc.gov.br/categoria/alerta/feed/"
-    DEFAULT_INTERVAL_MINUTES = 60
     
     # Namespaces do feed
     NAMESPACES = {
@@ -31,7 +30,7 @@ class RSSParser:
             custom_url: URL customizada do feed (opcional, para testes)
         """
         self.timeout_seconds = timeout_seconds
-        self.feed_url = custom_url or self.FEED_URL
+        self.feed_url = custom_url or FEED_URL
     
     def fetch_feed(self) -> bytes:
         """
@@ -87,13 +86,13 @@ class RSSParser:
         elif period == "monthly":
             minutes = 43200 // frequency
         else:
-            minutes = self.DEFAULT_INTERVAL_MINUTES
+            minutes = DEFAULT_INTERVAL_MINUTES
         
         # Garantir limites mínimo e máximo
-        if minutes < 15:
-            minutes = 15
-        if minutes > 1440:
-            minutes = 1440
+        if minutes < MIN_INTERVAL_MINUTES:
+            minutes = MIN_INTERVAL_MINUTES
+        if minutes > MAX_INTERVAL_MINUTES:
+            minutes = MAX_INTERVAL_MINUTES
         
         return period or None, frequency, minutes
     

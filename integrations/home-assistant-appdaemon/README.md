@@ -2,6 +2,19 @@
 
 Esta integração lê o feed RSS de alertas da Defesa Civil de Santa Catarina e envia novos alertas para um canal Meshtastic via entidade `notify.mesh_channel_*` do Home Assistant.
 
+## ℹ️ Refatoração - Uso de Módulos Compartilhados
+
+A partir da v1.0, esta integração usa módulos centralizados em `core/` para evitar duplicação de código:
+
+- `core.RSSParser` - Parser RSS
+- `core.MessageFormatter` - Compactação de mensagens  
+- `core.State`, `core.Alert` - Modelos de dados
+- `core.constants` - Constantes centralizadas
+
+**Redução de código**: 658 linhas → 380 linhas (-42%)
+
+Veja [docs/ARCHITECTURE.md](../../docs/ARCHITECTURE.md) para detalhes de arquitetura.
+
 ### Pré-requisitos
 
 - Home Assistant funcionando.

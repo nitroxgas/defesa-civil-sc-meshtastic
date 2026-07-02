@@ -7,21 +7,11 @@ import re
 import html
 from typing import Tuple
 
+from .constants import LEVEL_PREFIX_MAP, MAX_ALERT_MESSAGE_LEN, MAX_LINK_MESSAGE_LEN
+
 
 class MessageFormatter:
     """Formata e compacta mensagens de alerta para Meshtastic."""
-    
-    MAX_ALERT_MESSAGE_LEN = 150
-    MAX_LINK_MESSAGE_LEN = 180
-    
-    # Mapa de prefixos longos para curtos
-    LEVEL_PREFIX_MAP = {
-        "ALERTA": "AL:",
-        "ATENÇÃO": "AT:",
-        "ATENCAO": "AT:",
-        "OBSERVAÇÃO": "OBS:",
-        "OBSERVACAO": "OBS:",
-    }
     
     # Compactações de termos frequentes
     TERM_REPLACEMENTS = {
@@ -125,7 +115,7 @@ class MessageFormatter:
         
         if match:
             raw_level = match.group(1).upper()
-            prefix = self.LEVEL_PREFIX_MAP.get(raw_level, raw_level + ":")
+            prefix = LEVEL_PREFIX_MAP.get(raw_level, raw_level + ":")
             value = prefix + " " + value[match.end():].strip()
         
         # Normalizar abreviações mal espaçadas
@@ -230,8 +220,8 @@ class MessageFormatter:
         msg2 = f"Link: {link}".strip()
         
         # Truncar aos tamanhos máximos
-        msg1 = self.truncate_text(msg1, self.MAX_ALERT_MESSAGE_LEN)
-        msg2 = self.truncate_text(msg2, self.MAX_LINK_MESSAGE_LEN)
+        msg1 = self.truncate_text(msg1, MAX_ALERT_MESSAGE_LEN)
+        msg2 = self.truncate_text(msg2, MAX_LINK_MESSAGE_LEN)
         
         return msg1, msg2
     
