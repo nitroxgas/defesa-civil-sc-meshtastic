@@ -46,6 +46,7 @@ PROJECT_ROOT=""
 if [[ "$SCRIPT_DIR" == /tmp/* ]] || [[ "$SCRIPT_DIR" == /var/tmp/* ]]; then
     IS_TEMP_SCRIPT=1
 fi
+echo "george"
 
 # Verificar se está dentro de um repositório válido
 if [ -d ".git" ] && [ -f "core/__init__.py" ]; then
