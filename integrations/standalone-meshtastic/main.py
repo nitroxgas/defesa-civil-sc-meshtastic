@@ -15,18 +15,18 @@ import signal
 # Adicionar src/ ao path
 sys.path.insert(0, str(Path(__file__).parent / "src"))
 
+# Imports de src/ (específicos do standalone)
 from config_manager import ConfigManager
 from state_manager import StateManager
-from rss_parser import RSSParser
-from message_formatter import MessageFormatter
 from meshtastic_connector import MeshtasticConnector
+
+# Imports de core/ (compartilhados)
+sys.path.insert(0, str(Path(__file__).parent.parent.parent))
+from core import RSSParser, MessageFormatter, MAX_HISTORY, CHANNEL_LINK_DELAY_SECONDS, CHANNEL_ALERT_BATCH_DELAY_SECONDS
 
 
 class DefesaCivilAlertasStandalone:
     """Orquestrador principal da aplicação."""
-    
-    CHANNEL_ALERT_BATCH_DELAY_SECONDS = 20
-    CHANNEL_LINK_DELAY_SECONDS = 20
     
     def __init__(self, config_file: Optional[str] = None):
         """
@@ -159,12 +159,12 @@ class DefesaCivilAlertasStandalone:
                 msg1, msg2 = self.formatter.build_alert_messages(alert)
                 
                 self.mesh.send_direct_message(msg1, str(from_id))
-                time.sleep(self.CHANNEL_LINK_DELAY_SECONDS)
+                time.sleep(CHANNEL_LINK_DELAY_SECONDS)
                 
                 self.mesh.send_direct_message(msg2, str(from_id))
                 
                 if idx < len(alerts) - 1:
-                    time.sleep(self.CHANNEL_ALERT_BATCH_DELAY_SECONDS)
+                    time.sleep(CHANNEL_ALERT_BATCH_DELAY_SECONDS)
         
         except Exception as e:
             self.logger.error(f"Erro ao responder DM de alertas: {e}")
@@ -185,7 +185,7 @@ class DefesaCivilAlertasStandalone:
             self.logger.info(f"Alerta enviado: {msg1[:80]}...")
             
             # Aguardar antes de enviar link
-            time.sleep(self.CHANNEL_LINK_DELAY_SECONDS)
+            time.sleep(CHANNEL_LINK_DELAY_SECONDS)
             
             # Enviar link
             self.mesh.send_to_channel(msg2, channel_id)
@@ -236,11 +236,11 @@ class DefesaCivilAlertasStandalone:
                     
                     # Aguardar antes do próximo alerta
                     if new_alerts_count < len(items):
-                        time.sleep(self.CHANNEL_ALERT_BATCH_DELAY_SECONDS)
+                        time.sleep(CHANNEL_ALERT_BATCH_DELAY_SECONDS)
                 
                 # Marcar como enviado e armazenar
                 self.state_manager.add_sent_guid(guid)
-                self.state_manager.add_alert(item, self.config.get("state.max_history", 10))
+                self.state_manager.add_alert(item, self.config.get("state.max_history", MAX_HISTORY))
             
             # Salvar estado
             self.state_manager.save()
