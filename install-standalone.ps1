@@ -1,8 +1,10 @@
 # Script de instalação para Defesa Civil SC Meshtastic - Standalone
-# Uso: powershell -ExecutionPolicy Bypass -File install-standalone.ps1
+# Uso: powershell -ExecutionPolicy Bypass -File install-standalone.ps1 [-Pull]
+# Ou: Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
 
 param(
-    [string]$InstallPath = "."
+    [string]$InstallPath = ".",
+    [switch]$Pull = $false
 )
 
 $ErrorActionPreference = "Stop"
@@ -39,27 +41,81 @@ $pythonVersion = python --version
 Write-Host "✓ $pythonVersion encontrado" -ForegroundColor Green
 Write-Host ""
 
-# Clonar repositório
-Write-Host "[2/7] Clonando repositório..." -ForegroundColor Yellow
-$repoPath = Join-Path $InstallPath "defesa-civil-sc-meshtastic"
+# Detectar repositório
+Write-Host "[2/7] Detectando repositório..." -ForegroundColor Yellow
 
-if (-not (Test-Path $repoPath)) {
-    Push-Location $InstallPath
-    git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
-    Pop-Location
-} else {
-    Write-Host "Diretório já existe, atualizando..." -ForegroundColor Yellow
-    Push-Location $repoPath
-    git pull origin main
-    Pop-Location
+$scriptPath = $PSScriptRoot
+$isTempScript = $false
+
+# Verificar se script está em diretório temporário
+if ($scriptPath -like "*\AppData\Local\Temp*" -or $scriptPath -like "*\Temp*") {
+    $isTempScript = $true
 }
 
-$standaloneDir = Join-Path $repoPath "integrations\standalone-meshtastic"
+# Verificar se está dentro de um repositório válido
+$gitDir = Test-Path ".git"
+$coreDir = Test-Path "core\__init__.py"
+
+if ($gitDir -and $coreDir) {
+    Write-Host "✓ Executando dentro do repositório" -ForegroundColor Green
+    Write-Host "  Caminho: $(Get-Location)" -ForegroundColor Yellow
+    
+    # Se argumento -Pull foi passado, fazer git pull
+    if ($Pull) {
+        Write-Host "  Atualizando repositório com git pull..." -ForegroundColor Yellow
+        git pull origin main
+        Write-Host "  ✓ Repositório atualizado" -ForegroundColor Green
+    }
+    
+    $projectRoot = (Get-Location).Path
+} else {
+    # Não está em um repositório, fazer clone
+    if ($isTempScript) {
+        Write-Host "Executando via web - clonando repositório..." -ForegroundColor Yellow
+        
+        if (-not (Test-Path $InstallPath)) {
+            New-Item -ItemType Directory -Path $InstallPath -Force | Out-Null
+        }
+        
+        Push-Location $InstallPath
+        
+        $repoPath = Join-Path $InstallPath "defesa-civil-sc-meshtastic"
+        if (-not (Test-Path $repoPath)) {
+            git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
+            $projectRoot = $repoPath
+        } else {
+            Set-Location $repoPath
+            git pull origin main
+            $projectRoot = $repoPath
+        }
+        Pop-Location
+        Set-Location $projectRoot
+    } else {
+        # Script foi clonado mas não estamos no diretório certo
+        Write-Host "Script local detectado - procurando repositório..." -ForegroundColor Yellow
+        
+        $repoPath = Join-Path (Get-Location) "defesa-civil-sc-meshtastic"
+        if ((Test-Path $repoPath) -and (Test-Path "$repoPath\core\__init__.py")) {
+            Set-Location $repoPath
+            Write-Host "✓ Repositório encontrado" -ForegroundColor Green
+            $projectRoot = $repoPath
+        } else {
+            Write-Host "Não conseguiu encontrar ou clonar o repositório" -ForegroundColor Red
+            Write-Host "Use um dos seguintes métodos:" -ForegroundColor Yellow
+            Write-Host "  1. Entre no diretório clonado: cd defesa-civil-sc-meshtastic; powershell -ExecutionPolicy Bypass -File install-standalone.ps1"
+            Write-Host "  2. Especifique caminho: powershell -ExecutionPolicy Bypass -File install-standalone.ps1 -InstallPath C:\caminho"
+            Write-Host "  3. Ou use Invoke-WebRequest para baixar: Invoke-WebRequest -Uri 'https://raw...install-standalone.ps1' -OutFile install.ps1"
+            exit 1
+        }
+    }
+}
+
 Write-Host "✓ Repositório pronto" -ForegroundColor Green
 Write-Host ""
 
 # Criar ambiente virtual
 Write-Host "[3/7] Criando ambiente virtual Python..." -ForegroundColor Yellow
+$standaloneDir = Join-Path $projectRoot "integrations\standalone-meshtastic"
 $venvPath = Join-Path $standaloneDir "venv"
 
 if (-not (Test-Path $venvPath)) {

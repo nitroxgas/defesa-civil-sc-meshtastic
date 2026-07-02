@@ -1,7 +1,6 @@
 @echo off
 REM Script de instalação para Defesa Civil SC Meshtastic - Home Assistant AppDaemon
-REM Uso: install-home-assistant.ps1
-REM PowerShell: powershell -ExecutionPolicy Bypass -File install-home-assistant.ps1
+REM Uso: install-home-assistant.bat [--pull]
 
 setlocal enabledelayedexpansion
 
@@ -30,23 +29,41 @@ for /f "tokens=*" %%i in ('python --version') do set PYTHON_VERSION=%%i
 echo [OK] %PYTHON_VERSION% encontrado
 echo.
 
-echo [1/5] Clonando repositório...
+echo [1/5] Detectando repositório...
 
-set INSTALL_DIR=%1
-if "%INSTALL_DIR%"=="" set INSTALL_DIR=.
-
-if not exist "%INSTALL_DIR%\defesa-civil-sc-meshtastic" (
-    cd /d "%INSTALL_DIR%"
-    git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
-    cd defesa-civil-sc-meshtastic
+REM Verificar se está dentro de um repositório válido
+if exist ".git" if exist "core\__init__.py" (
+    echo [OK] Executando dentro do repositório
+    echo [AVISO] Caminho: %cd%
+    
+    REM Verificar se --pull foi passado
+    if "%~1"=="--pull" (
+        echo [AVISO] Atualizando repositório com git pull...
+        git pull origin main
+        echo [OK] Repositório atualizado
+    )
+    set PROJECT_ROOT=%cd%
 ) else (
-    cd /d "%INSTALL_DIR%\defesa-civil-sc-meshtastic"
-    echo [AVISO] Repositório já existe, atualizando...
-    git pull origin main
+    echo [AVISO] Script local detectado - procurando repositório...
+    
+    if exist "defesa-civil-sc-meshtastic\core\__init__.py" (
+        cd /d "defesa-civil-sc-meshtastic"
+        echo [OK] Repositório encontrado
+        set PROJECT_ROOT=%cd%
+    ) else (
+        echo [ERRO] Não conseguiu encontrar o repositório
+        echo [AVISO] Use um dos seguintes métodos:
+        echo   1. Entre no diretório clonado: cd defesa-civil-sc-meshtastic ^&^& install-home-assistant.bat
+        echo   2. Ou clone o repositório: git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
+        exit /b 1
+    )
 )
 
+echo.
 echo [OK] Repositório pronto
 echo.
+
+echo [2/5] Localizando AppDaemon...
 
 echo [2/5] Localizando AppDaemon...
 

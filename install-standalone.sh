@@ -1,6 +1,7 @@
 #!/bin/bash
 # Script de instalação para Defesa Civil SC Meshtastic - Standalone
-# Uso: bash install-standalone.sh [/caminho/instalacao]
+# Uso: bash install-standalone.sh [--pull]
+# Ou: bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh)
 
 set -e
 
@@ -34,24 +35,68 @@ python_version=$(python3 -c 'import sys; print(".".join(map(str, sys.version_inf
 echo -e "${GREEN}✓ Python $python_version encontrado${NC}"
 
 echo ""
-echo -e "${YELLOW}[2/7] Clonando repositório...${NC}"
+echo -e "${YELLOW}[2/7] Detectando repositório...${NC}"
 
-# Definir diretório de instalação
-INSTALL_DIR="${1:-.}"
+# Detectar se já está em um repositório do projeto
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+IS_TEMP_SCRIPT=0
+PROJECT_ROOT=""
 
-if [ ! -d "$INSTALL_DIR" ]; then
-    mkdir -p "$INSTALL_DIR"
+# Verificar se este script está em um diretório temporário (wget)
+if [[ "$SCRIPT_DIR" == /tmp/* ]] || [[ "$SCRIPT_DIR" == /var/tmp/* ]]; then
+    IS_TEMP_SCRIPT=1
 fi
 
-cd "$INSTALL_DIR"
-
-if [ ! -d "defesa-civil-sc-meshtastic" ]; then
-    git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
-    cd defesa-civil-sc-meshtastic
+# Verificar se está dentro de um repositório válido
+if [ -d ".git" ] && [ -f "core/__init__.py" ]; then
+    PROJECT_ROOT="$(pwd)"
+    echo -e "${GREEN}✓ Executando dentro do repositório${NC}"
+    echo -e "${BLUE}  Caminho: $PROJECT_ROOT${NC}"
+    
+    # Se argumento --pull foi passado, fazer git pull
+    if [[ "$*" == *"--pull"* ]]; then
+        echo -e "${YELLOW}  Atualizando repositório com git pull...${NC}"
+        git pull origin main
+        echo -e "${GREEN}  ✓ Repositório atualizado${NC}"
+    fi
 else
-    cd defesa-civil-sc-meshtastic
-    echo -e "${YELLOW}Diretório já existe, atualizando...${NC}"
-    git pull origin main
+    # Não está em um repositório, fazer clone
+    if [ $IS_TEMP_SCRIPT -eq 1 ]; then
+        echo -e "${YELLOW}Executando via wget - clonando repositório...${NC}"
+        
+        # Clonar em diretório temporário ou current
+        INSTALL_DIR="${1:-.}"
+        if [ ! -d "$INSTALL_DIR" ]; then
+            mkdir -p "$INSTALL_DIR"
+        fi
+        cd "$INSTALL_DIR"
+        
+        if [ ! -d "defesa-civil-sc-meshtastic" ]; then
+            git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
+            cd defesa-civil-sc-meshtastic
+        else
+            cd defesa-civil-sc-meshtastic
+            git pull origin main
+        fi
+        PROJECT_ROOT="$(pwd)"
+    else
+        # Script foi clonado mas não estamos no diretório certo
+        echo -e "${YELLOW}Script local detectado - procurando repositório...${NC}"
+        
+        # Tentar achar o repositório
+        if [ -d "defesa-civil-sc-meshtastic" ] && [ -f "defesa-civil-sc-meshtastic/core/__init__.py" ]; then
+            cd defesa-civil-sc-meshtastic
+            PROJECT_ROOT="$(pwd)"
+            echo -e "${GREEN}✓ Repositório encontrado${NC}"
+        else
+            echo -e "${RED}Não conseguiu encontrar ou clonar o repositório${NC}"
+            echo -e "${YELLOW}Use um dos seguintes métodos:${NC}"
+            echo "  1. Entre no diretório clonado: cd defesa-civil-sc-meshtastic && bash install-standalone.sh"
+            echo "  2. Especifique caminho: bash install-standalone.sh /caminho/desejado"
+            echo "  3. Ou use wget: bash <(wget -qO- https://raw...install-standalone.sh)"
+            exit 1
+        fi
+    fi
 fi
 
 STANDALONE_DIR="integrations/standalone-meshtastic"
