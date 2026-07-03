@@ -5,7 +5,7 @@ Responsável por fazer download, parsing e normalização de alertas.
 
 import xml.etree.ElementTree as ET
 import urllib.request
-from typing import List, Dict, Tuple, Optional
+from typing import List, Dict, Tuple, Optional, Set
 from datetime import datetime
 
 from .constants import (
@@ -45,6 +45,10 @@ class RSSParser:
         self.timeout_seconds = timeout_seconds
         self.feed_url = custom_url or FEED_URL
         self.interval_minutes = interval_minutes
+        self.last_document: Optional[bytes] = None
+        self.last_items: List[Dict] = []
+        self.last_new_items: List[Dict] = []
+        self.last_seen_guids: Set[str] = set()
     
     def fetch_feed(self) -> bytes:
         """
@@ -123,12 +127,16 @@ class RSSParser:
         """
         Faz parsing do feed RSS e extrai alertas.
         
+        Mantém o último documento XML e os últimos itens recebidos
+        nos atributos `last_document` e `last_items`.
+        
         Args:
             xml_bytes: Conteúdo XML do feed em bytes
             
         Returns:
             Tupla (items, period, frequency, minutes)
         """
+        self.last_document = xml_bytes
         root = ET.fromstring(xml_bytes)
         
         update_period, update_frequency, interval_minutes = self.parse_update_interval(root)
@@ -163,11 +171,23 @@ class RSSParser:
             
             items.append(alert)
         
+        self.last_items = items
+        self.last_new_items = [
+            item for item in items
+            if item.get("guid") and item.get("guid") not in self.last_seen_guids
+        ]
+        self.last_seen_guids.update(
+            item.get("guid", "") for item in items if item.get("guid")
+        )
+        
         return items, update_period, update_frequency, interval_minutes
     
     def parse_and_fetch(self) -> Tuple[List[Dict], Optional[str], int, int]:
         """
         Faz fetch do feed e retorna alertas parseados.
+        
+        Mantém o último documento XML e os últimos itens recebidos
+        nos atributos `last_document` e `last_items`.
         
         Returns:
             Tupla (items, period, frequency, minutes)
@@ -177,3 +197,12 @@ class RSSParser:
         """
         xml_bytes = self.fetch_feed()
         return self.parse_feed(xml_bytes)
+    
+    def get_new_items(self) -> List[Dict]:
+        """
+        Retorna itens do último documento que ainda não foram vistos.
+        
+        Returns:
+            Lista de alertas novos desde a última chamada de parse_and_fetch.
+        """
+        return self.last_new_items

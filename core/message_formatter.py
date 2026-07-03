@@ -210,7 +210,8 @@ class MessageFormatter:
             Tupla (msg_conteudo, msg_link)
         """
         content = alert.get("content", "").strip()
-        link = alert.get("link", "").strip()
+        # Usar guid (URL curta do WordPress) quando disponível; fallback para link
+        link = alert.get("guid", "").strip() or alert.get("link", "").strip()
         
         # Recompactar para corrigir também alertas antigos
         content = self.compact_alert_text(content)

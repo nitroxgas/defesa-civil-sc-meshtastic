@@ -51,6 +51,7 @@ def app(tmp_path):
     with patch("logging.basicConfig"):
         instance = DefesaCivilAlertasStandalone(str(config_file))
     instance.mesh = MagicMock()
+    instance.mesh.resolve_channel_id.return_value = 0
     instance.mesh.get_my_info.return_value = {"my_node_num": 12345}
     return instance
 
@@ -137,3 +138,62 @@ def test_send_alert_to_channel_logs_success(app, caplog):
     assert result is True
     app.mesh.send_to_channel.assert_called()
     assert "Alerta enviado" in caplog.text
+
+
+def test_meshtastic_connector_subscribes_to_pubsub(tmp_path):
+    """Verifica que o conector se inscreve no tópico pubsub de texto."""
+    from pubsub import pub
+    from meshtastic_connector import MeshtasticConnector
+
+    received = []
+
+    def listener(packet, interface):
+        received.append(packet)
+
+    connector = MeshtasticConnector(
+        connection_type="tcp",
+        tcp_host="127.0.0.1",
+        tcp_port=4403,
+    )
+
+    # Simular interface já conectada
+    connector.interface = MagicMock()
+    connector.register_receive_callback(listener)
+
+    # Publicar uma mensagem de texto
+    pub.sendMessage(
+        "meshtastic.receive.text",
+        packet={"from": 1, "to": 2, "decoded": {"text": "alertas"}},
+        interface=MagicMock(),
+    )
+
+    assert len(received) == 1
+    pub.unsubscribe(listener, "meshtastic.receive.text")
+
+
+def test_resolve_channel_id_returns_index_by_name():
+    """Verifica que resolve_channel_id converte nome do canal em índice."""
+    from meshtastic_connector import MeshtasticConnector
+
+    connector = MeshtasticConnector(connection_type="tcp", tcp_host="127.0.0.1")
+    connector.interface = MagicMock()
+    ch1 = MagicMock()
+    ch1.settings.name = "Alertas-SC"
+    ch1.index = 6
+    ch2 = MagicMock()
+    ch2.settings.name = "BitDevs"
+    ch2.index = 2
+    connector.interface._localChannels = [ch1, ch2]
+
+    assert connector.resolve_channel_id("BitDevs") == 2
+    assert connector.resolve_channel_id("Alertas-SC") == 6
+    assert connector.resolve_channel_id(3) == 3
+    assert connector.resolve_channel_id("Inexistente", default=0) == 0
+
+
+def test_resolve_channel_id_returns_default_when_not_connected():
+    """Verifica fallback quando não conectado."""
+    from meshtastic_connector import MeshtasticConnector
+
+    connector = MeshtasticConnector(connection_type="tcp", tcp_host="127.0.0.1")
+    assert connector.resolve_channel_id("BitDevs", default=5) == 5

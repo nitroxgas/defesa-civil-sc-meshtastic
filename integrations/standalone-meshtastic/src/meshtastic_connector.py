@@ -9,6 +9,8 @@ import meshtastic.tcp_interface
 from typing import Optional, Callable, Any
 import logging
 
+from pubsub import pub
+
 
 class MeshtasticConnector:
     """Gerencia conexão e comunicação com Meshtastic."""
@@ -78,9 +80,9 @@ class MeshtasticConnector:
             
             self.logger.info("Conectado ao Meshtastic com sucesso!")
             
-            # Registrar callback para mensagens recebidas
+            # Registrar callback para mensagens recebidas via pubsub
             if self.on_message_callback:
-                self.interface.on_receive = self.on_message_callback
+                pub.subscribe(self.on_message_callback, "meshtastic.receive.text")
             
             return True
         
@@ -92,6 +94,11 @@ class MeshtasticConnector:
     def disconnect(self) -> None:
         """Desconecta do gateway Meshtastic."""
         try:
+            if self.on_message_callback:
+                try:
+                    pub.unsubscribe(self.on_message_callback, "meshtastic.receive.text")
+                except Exception:
+                    pass
             if self.interface:
                 self.interface.close()
                 self.logger.info("Desconectado do Meshtastic.")
@@ -103,6 +110,48 @@ class MeshtasticConnector:
     def is_connected(self) -> bool:
         """Verifica se está conectado."""
         return self.interface is not None
+    
+    def resolve_channel_id(self, name_or_number: Any, default: int = 0) -> int:
+        """
+        Resolve nome ou número do canal para o índice usado pela biblioteca.
+        
+        Args:
+            name_or_number: Nome do canal (string) ou índice numérico
+            default: Índice padrão se não for possível resolver
+            
+        Returns:
+            Índice do canal para sendText
+        """
+        try:
+            return int(name_or_number)
+        except (ValueError, TypeError):
+            pass
+        
+        if not name_or_number or not self.is_connected():
+            return default
+        
+        try:
+            local_channels = getattr(self.interface, "_localChannels", None)
+            if local_channels:
+                for ch in local_channels:
+                    ch_name = ""
+                    if hasattr(ch, "settings") and hasattr(ch.settings, "name"):
+                        ch_name = ch.settings.name
+                    elif hasattr(ch, "name"):
+                        ch_name = ch.name
+                    
+                    if ch_name and ch_name == name_or_number:
+                        idx = getattr(ch, "index", None)
+                        if idx is not None:
+                            return int(idx)
+                
+                self.logger.warning(
+                    f"Canal '{name_or_number}' não encontrado; usando {default}"
+                )
+        except Exception as e:
+            self.logger.error(f"Erro ao resolver canal: {e}")
+        
+        return default
     
     def send_to_channel(
         self,
@@ -126,7 +175,7 @@ class MeshtasticConnector:
                 self.logger.error("Não conectado ao Meshtastic.")
                 return False
             
-            self.logger.debug(
+            self.logger.info(
                 f"Enviando texto para canal {channel_id}: {message[:80]}..."
             )
             
@@ -137,7 +186,7 @@ class MeshtasticConnector:
                 wantAck=want_ack
             )
             
-            self.logger.debug(f"Texto enviado para canal {channel_id}")
+            self.logger.info(f"Texto enviado para canal {channel_id}")
             return True
         
         except Exception as e:
@@ -148,7 +197,7 @@ class MeshtasticConnector:
         self,
         message: str,
         node_id: str,
-        want_ack: bool = True
+        want_ack: bool = False
     ) -> bool:
         """
         Envia mensagem de texto direta para um node.
@@ -156,7 +205,8 @@ class MeshtasticConnector:
         Args:
             message: Texto da mensagem
             node_id: ID do node destino
-            want_ack: Se quer receber confirmação de entrega
+            want_ack: Se quer receber confirmação de entrega (padrão: False
+                      para evitar bloqueio no callback de recebimento)
             
         Returns:
             True se enviado com sucesso, False caso contrário
@@ -166,7 +216,7 @@ class MeshtasticConnector:
                 self.logger.error("Não conectado ao Meshtastic.")
                 return False
             
-            self.logger.debug(
+            self.logger.info(
                 f"Enviando DM para {node_id}: {message[:80]}..."
             )
             
@@ -176,7 +226,7 @@ class MeshtasticConnector:
                 wantAck=want_ack
             )
             
-            self.logger.debug(f"DM enviado para {node_id}")
+            self.logger.info(f"DM enviado para {node_id}")
             return True
         
         except Exception as e:
@@ -212,9 +262,14 @@ class MeshtasticConnector:
             callback: Função que será chamada quando uma mensagem for recebida.
                      Assinatura: callback(packet_dict, interface)
         """
+        if self.on_message_callback:
+            try:
+                pub.unsubscribe(self.on_message_callback, "meshtastic.receive.text")
+            except Exception:
+                pass
         self.on_message_callback = callback
         if self.interface:
-            self.interface.on_receive = callback
+            pub.subscribe(callback, "meshtastic.receive.text")
     
     def get_my_info(self) -> Optional[dict]:
         """

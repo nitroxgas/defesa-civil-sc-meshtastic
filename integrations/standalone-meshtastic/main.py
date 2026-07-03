@@ -8,6 +8,7 @@ import sys
 import os
 import time
 import logging
+import threading
 from pathlib import Path
 from typing import Optional
 import signal
@@ -109,6 +110,7 @@ class DefesaCivilAlertasStandalone:
         # Registrar callback para mensagens diretas
         if self.config.get("direct_message.enabled", True):
             self.mesh.register_receive_callback(self.on_message_received)
+            self.logger.debug("Callback de mensagens diretas registrado")
         
         return True
     
@@ -191,7 +193,12 @@ class DefesaCivilAlertasStandalone:
                 self.logger.info(
                     f"Comando '{trigger_word}' recebido de {from_id}"
                 )
-                self.handle_dm_alerts_request(packet, interface)
+                # Responder em thread separada para não bloquear o callback pubsub
+                threading.Thread(
+                    target=self.handle_dm_alerts_request,
+                    args=(packet, interface),
+                    daemon=True
+                ).start()
             else:
                 self.logger.error(
                     f"Mensagem direta de {from_id} não contém comando "
@@ -211,6 +218,7 @@ class DefesaCivilAlertasStandalone:
         """
         try:
             from_id = packet.get("from")
+            from_id_str = packet.get("fromId") or str(from_id)
             if not from_id:
                 self.logger.debug("DM sem remetente ignorado")
                 return
@@ -220,13 +228,13 @@ class DefesaCivilAlertasStandalone:
             alerts = self.state_manager.get_latest_alerts(max_alerts)
             
             if not alerts:
-                self.logger.info(f"Sem alertas para responder a {from_id}")
+                self.logger.info(f"Sem alertas para responder a {from_id_str}")
                 self.mesh.send_direct_message(
-                    "Nenhum alerta ativo no momento.", str(from_id)
+                    "Nenhum alerta ativo no momento.", from_id_str
                 )
                 return
             
-            self.logger.info(f"Enviando {len(alerts)} alerta(s) via DM para {from_id}")
+            self.logger.info(f"Enviando {len(alerts)} alerta(s) via DM para {from_id_str}")
             
             for idx, alert in enumerate(alerts):
                 if not self.running:
@@ -236,8 +244,10 @@ class DefesaCivilAlertasStandalone:
                 # Enviar em duas mensagens
                 msg1, msg2 = self.formatter.build_alert_messages(alert)
                 
-                self.logger.debug(f"Enviando DM {idx+1}/{len(alerts)} para {from_id}")
-                self.mesh.send_direct_message(msg1, str(from_id))
+                self.logger.info(f"Enviando DM {idx+1}/{len(alerts)} parte 1 para {from_id_str}")
+                if not self.mesh.send_direct_message(msg1, from_id_str):
+                    self.logger.error(f"Falha ao enviar DM {idx+1} parte 1 para {from_id_str}")
+                    continue
                 
                 # Aguardar entre as duas partes, verificando shutdown
                 for _ in range(int(CHANNEL_LINK_DELAY_SECONDS * 2)):
@@ -247,7 +257,9 @@ class DefesaCivilAlertasStandalone:
                 if not self.running:
                     break
                 
-                self.mesh.send_direct_message(msg2, str(from_id))
+                self.logger.info(f"Enviando DM {idx+1}/{len(alerts)} parte 2 para {from_id_str}")
+                if not self.mesh.send_direct_message(msg2, from_id_str):
+                    self.logger.error(f"Falha ao enviar DM {idx+1} parte 2 para {from_id_str}")
                 
                 if idx < len(alerts) - 1:
                     for _ in range(int(CHANNEL_ALERT_BATCH_DELAY_SECONDS * 2)):
@@ -256,6 +268,8 @@ class DefesaCivilAlertasStandalone:
                         time.sleep(0.5)
                     if not self.running:
                         break
+            
+            self.logger.info(f"Resposta de DM para {from_id_str} concluída")
         
         except Exception as e:
             self.logger.error(f"Erro ao responder DM de alertas: {e}")
@@ -321,10 +335,10 @@ class DefesaCivilAlertasStandalone:
             self.state_manager.set_update_interval(period, frequency, interval_minutes)
             
             channel_config = self.config.get_channel_config()
-            channel_id = channel_config.get("number", 0)
-            
-            # Primeira execução: carregar histórico sem enviar
-            is_first_run = len(self.state_manager.get_alerts()) == 0
+            channel_name = channel_config.get("name")
+            channel_number = channel_config.get("number", 0)
+            channel_id = self.mesh.resolve_channel_id(channel_name, default=channel_number)
+            self.logger.info(f"Canal de envio: {channel_name or channel_number} (índice {channel_id})")
             
             new_alerts_count = 0
             
@@ -345,24 +359,20 @@ class DefesaCivilAlertasStandalone:
                     self.logger.debug(f"Alerta já enviado: {guid}")
                     continue
                 
-                # Se for primeira execução, apenas armazenar
-                if is_first_run:
-                    self.logger.debug(f"Primeira execução: armazenando alerta {guid}")
-                else:
-                    # Enviar alerta
-                    self.logger.info(f"Novo alerta detectado: {item.get('title', '')[:60]}...")
-                    if self.send_alert_to_channel(item, channel_id):
-                        new_alerts_count += 1
-                    
-                    # Aguardar antes do próximo alerta, verificando shutdown
-                    if new_alerts_count < len(items):
-                        for _ in range(int(CHANNEL_ALERT_BATCH_DELAY_SECONDS * 2)):
-                            if not self.running:
-                                self.logger.debug("Verificação de feed abortada durante espera")
-                                break
-                            time.sleep(0.5)
+                # Enviar alerta
+                self.logger.info(f"Novo alerta detectado: {item.get('title', '')[:60]}...")
+                if self.send_alert_to_channel(item, channel_id):
+                    new_alerts_count += 1
+                
+                # Aguardar antes do próximo alerta, verificando shutdown
+                if new_alerts_count < len(items):
+                    for _ in range(int(CHANNEL_ALERT_BATCH_DELAY_SECONDS * 2)):
                         if not self.running:
+                            self.logger.debug("Verificação de feed abortada durante espera")
                             break
+                        time.sleep(0.5)
+                    if not self.running:
+                        break
                 
                 # Marcar como enviado e armazenar
                 self.state_manager.add_sent_guid(guid)
@@ -401,7 +411,9 @@ class DefesaCivilAlertasStandalone:
             
             if alerts:
                 channel_config = self.config.get_channel_config()
-                channel_id = channel_config.get("number", 0)
+                channel_name = channel_config.get("name")
+                channel_number = channel_config.get("number", 0)
+                channel_id = self.mesh.resolve_channel_id(channel_name, default=channel_number)
                 self.logger.info("Modo de teste: enviando alerta mais recente...")
                 self.send_alert_to_channel(alerts[0], channel_id)
         

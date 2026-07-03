@@ -103,15 +103,30 @@ class TestMessageFormatter:
         """Testa construção de duas mensagens de alerta."""
         alert = {
             "content": "ALERTA - Temporal nas próximas 3 horas",
-            "link": "http://example.com/alert"
+            "guid": "http://example.com/?p=123",
+            "link": "http://example.com/2024/01/01/alerta-temporal-nas-proximas-3-horas"
         }
         
         msg1, msg2 = formatter.build_alert_messages(alert)
         
         assert msg1.startswith("DC-SC")
         assert msg2.startswith("Link:")
+        assert "?p=123" in msg2
+        assert "2024/01/01" not in msg2
         assert len(msg1) <= 150
         assert len(msg2) <= 180
+    
+    def test_build_alert_messages_fallback_to_link(self, formatter):
+        """Testa fallback para link quando guid não existe."""
+        alert = {
+            "content": "ALERTA - Temporal",
+            "link": "http://example.com/alert"
+        }
+        
+        _, msg2 = formatter.build_alert_messages(alert)
+        
+        assert msg2.startswith("Link:")
+        assert "http://example.com/alert" in msg2
     
     def test_sanitize_alert(self, formatter):
         """Testa sanitização de alerta."""

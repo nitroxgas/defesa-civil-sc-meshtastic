@@ -191,3 +191,38 @@ class TestRSSParser:
         
         # Período desconhecido: fallback para DEFAULT_INTERVAL_MINUTES
         assert minutes == 15
+    
+    def test_parse_feed_keeps_last_document(self, sample_feed):
+        """Testa que parser mantém último documento e itens recebidos."""
+        parser = RSSParser()
+        
+        assert parser.last_document is None
+        assert parser.last_items == []
+        
+        parser.parse_feed(sample_feed)
+        
+        assert parser.last_document is sample_feed
+        assert len(parser.last_items) >= 1
+        assert parser.last_items[0]["guid"] is not None
+    
+    def test_parse_feed_tracks_seen_guids(self, sample_feed):
+        """Testa que parser rastreia GUIDs já vistos."""
+        parser = RSSParser()
+        
+        items, _, _, _ = parser.parse_feed(sample_feed)
+        first_guid = items[0]["guid"]
+        
+        assert first_guid in parser.last_seen_guids
+        assert len(parser.last_seen_guids) >= len(items)
+    
+    def test_get_new_items(self, sample_feed):
+        """Testa retorno de apenas itens novos."""
+        parser = RSSParser()
+        
+        # Primeiro fetch: todos são novos
+        items, _, _, _ = parser.parse_feed(sample_feed)
+        assert parser.get_new_items() == items
+        
+        # Segundo fetch com mesmo documento: nenhum é novo
+        parser.parse_feed(sample_feed)
+        assert parser.get_new_items() == []
