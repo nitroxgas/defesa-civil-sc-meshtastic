@@ -5,7 +5,7 @@
 ```
 1. Usuario: git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 2. Usuario: cd defesa-civil-sc-meshtastic
-3. Usuario: bash install-standalone.sh
+3. Usuario: bash scripts/install-standalone.sh
 
 Script detecta:
   ✓ Está dentro de um repositório (.git existe)
@@ -21,7 +21,7 @@ Script detecta:
 ## Cenário 2: Usuário Executa via Wget (Sem Clone Prévio) ✅
 
 ```
-1. Usuario: bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh)
+1. Usuario: bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.sh)
 
 Script detecta:
   ✓ Script está em /tmp (diretório temporário)
@@ -40,14 +40,14 @@ Script detecta:
 ANTES (comportamento antigo):
 1. Usuario: git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 2. Usuario: cd defesa-civil-sc-meshtastic
-3. Usuario: bash install-standalone.sh
+3. Usuario: bash scripts/install-standalone.sh
    ⚠ Script fazia: git clone novamente
    ⚠ Resultado: defesa-civil-sc-meshtastic/defesa-civil-sc-meshtastic/
 
 DEPOIS (comportamento corrigido):
 1. Usuario: git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 2. Usuario: cd defesa-civil-sc-meshtastic
-3. Usuario: bash install-standalone.sh
+3. Usuario: bash scripts/install-standalone.sh
    ✓ Script detecta já estar no repositório
    ✓ Usa versão local
    ✓ Sem duplicação!
@@ -61,7 +61,7 @@ DEPOIS (comportamento corrigido):
 
 ```
 1. Usuario: cd defesa-civil-sc-meshtastic
-2. Usuario: bash install-standalone.sh --pull
+2. Usuario: bash scripts/install-standalone.sh --pull
 
 Script executa:
   ✓ Detecta repositório
@@ -176,16 +176,16 @@ Para validar que a detecção funciona corretamente:
 # Teste 1: Clonar e executar
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git test1
 cd test1
-bash install-standalone.sh --pull   # Deve detectar e usar local
+bash scripts/install-standalone.sh --pull   # Deve detectar e usar local
 cd ..
 
 # Teste 2: Executar via wget
-bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.sh)
 # Deve fazer clone automaticamente
 
 # Teste 3: Validar sintaxe
-bash -n install-standalone.sh
-bash -n install-home-assistant.sh
+bash -n scripts/install-standalone.sh
+bash -n scripts/install-home-assistant.sh
 bash -n install.sh
 # Todos devem retornar 0 (sem erros)
 ```
@@ -206,7 +206,7 @@ bash -n install.sh
 ## Próximos Passos
 
 1. **Usuários podem instalar de forma simples:**
-   - Opção 1: `bash install-standalone.sh` (se já clonado)
+   - Opção 1: `bash scripts/install-standalone.sh` (se já clonado)
    - Opção 2: `bash <(wget -qO- ...)` (sem clone prévio)
 
 2. **Scripts garantem:**
@@ -214,4 +214,4 @@ bash -n install.sh
    - Versão correta
    - Atualização opcional com `--pull`
 
-3. **Documentação clara em INSTALL.md** com todos os cenários
+3. **Documentação clara em docs/INSTALL.md** com todos os cenários

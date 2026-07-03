@@ -134,17 +134,17 @@ read -r -p "Escolha (1-3): " choice || true
 case $choice in
     1)
         echo -e "${YELLOW}Instalando Home Assistant + AppDaemon...${NC}"
-        bash install-home-assistant.sh
+        bash scripts/install-home-assistant.sh
         ;;
     2)
         echo -e "${YELLOW}Instalando Standalone Meshtastic...${NC}"
-        bash install-standalone.sh
+        bash scripts/install-standalone.sh
         ;;
     3)
         echo -e "${YELLOW}Instalando ambas as integrações...${NC}"
-        bash install-home-assistant.sh
+        bash scripts/install-home-assistant.sh
         echo ""
-        bash install-standalone.sh
+        bash scripts/install-standalone.sh
         ;;
     *)
         echo -e "${RED}Opção inválida${NC}"
@@ -181,10 +181,11 @@ echo "  - README.md (instruções gerais)"
 echo "  - integrations/home-assistant-appdaemon/README.md (HA específico)"
 echo "  - integrations/standalone-meshtastic/README.md (Standalone específico)"
 echo "  - docs/ARCHITECTURE.md (arquitetura do projeto)"
-echo "  - SCRIPT_FIX_REPORT.md (informações técnicas)"
+echo "  - docs/INSTALL.md (guia completo de instalação)"
+  echo "  - docs/SCRIPT_FIX_REPORT.md (informações técnicas)"
 echo ""
 echo -e "${YELLOW}🧪 VALIDAR INSTALAÇÃO:${NC}"
-echo "  Testar imports: python test_imports.py"
+echo "  Testar imports: python scripts/test_imports.py"
 echo ""
 echo -e "${GREEN}✓ Instalação concluída! Siga as instruções acima.${NC}"
 echo ""

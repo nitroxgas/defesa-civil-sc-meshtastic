@@ -24,31 +24,31 @@ Após todas as branches de detecção (clone local vs clone via wget vs detecç�
 ## Testes Realizados
 
 ### 1. Validação de Existência de Arquivos ✅
-- ✓ install-standalone.sh
-- ✓ install-home-assistant.sh
+- ✓ scripts/install-standalone.sh
+- ✓ scripts/install-home-assistant.sh
 - ✓ install.sh
-- ✓ install-standalone.ps1
-- ✓ install-home-assistant.ps1
-- ✓ install-home-assistant.bat
+- ✓ scripts/install-standalone.ps1
+- ✓ scripts/install-home-assistant.ps1
+- ✓ scripts/install-home-assistant.bat
 - ✓ core/__init__.py
 - ✓ .git (repositório válido)
-- ✓ INSTALL.md
+- ✓ docs/INSTALL.md
 - ✓ docs/SCRIPT_DETECTION.md
 
 **Resultado**: 10/10 PASSOU
 
 ### 2. Validação de Conteúdo Crítico ✅
-- ✓ install-standalone.sh contém `cd "$PROJECT_ROOT"`
-- ✓ install-home-assistant.sh contém `cd "$PROJECT_ROOT"`
-- ✓ install-home-assistant.bat contém `cd /d "%PROJECT_ROOT%"`
+- ✓ scripts/install-standalone.sh contém `cd "$PROJECT_ROOT"`
+- ✓ scripts/install-home-assistant.sh contém `cd "$PROJECT_ROOT"`
+- ✓ scripts/install-home-assistant.bat contém `cd /d "%PROJECT_ROOT%"`
 - ✓ Todos os scripts contêm PROJECT_ROOT variable
 
 **Resultado**: 4/4 PASSOU
 
 ### 3. Sintaxe Bash ✅
 ```bash
-bash -n install-standalone.sh    # ✓ PASSOU
-bash -n install-home-assistant.sh # ✓ PASSOU
+bash -n scripts/install-standalone.sh    # ✓ PASSOU
+bash -n scripts/install-home-assistant.sh # ✓ PASSOU
 bash -n install.sh                # ✓ PASSOU
 ```
 
@@ -67,7 +67,7 @@ bash -n install.sh                # ✓ PASSOU
 
 ## Mudanças por Script
 
-### install-standalone.sh
+### scripts/install-standalone.sh
 **Antes:**
 ```bash
 STANDALONE_DIR="integrations/standalone-meshtastic"
@@ -82,24 +82,24 @@ STANDALONE_DIR="integrations/standalone-meshtastic"
 cd "$PROJECT_ROOT" || exit 1
 ```
 
-### install-home-assistant.sh
+### scripts/install-home-assistant.sh
 **Mudança idêntica**: Adicionado `cd "$PROJECT_ROOT"` após detecção
 
-### install-home-assistant.ps1
+### scripts/install-home-assistant.ps1
 **Adicionado:**
 ```powershell
 # Guarantee we're in project root
 Set-Location $projectRoot
 ```
 
-### install-standalone.ps1
+### scripts/install-standalone.ps1
 **Adicionado:**
 ```powershell
 # Guarantee we're in project root
 Set-Location $projectRoot
 ```
 
-### install-home-assistant.bat
+### scripts/install-home-assistant.bat
 **Mudanças:**
 1. Adicionado `cd /d "%PROJECT_ROOT%"` após detecção
 2. Removida linha duplicada `echo [2/5] Localizando AppDaemon...`
@@ -127,7 +127,7 @@ Set-Location $projectRoot
 ```
 1. git clone d:/Coding/defesa-civil-sc-meshtastic
 2. cd defesa-civil-sc-meshtastic
-3. bash install-standalone.sh
+3. bash scripts/install-standalone.sh
 4. Detecção: .git + core/__init__.py encontrados
 5. PROJECT_ROOT = $(pwd)
 6. cd "$PROJECT_ROOT" executa (noop mas seguro)
@@ -136,7 +136,7 @@ Set-Location $projectRoot
 
 ### Cenário 3: Com Flag --pull
 ```
-1. bash install-standalone.sh --pull
+1. bash scripts/install-standalone.sh --pull
 2. Se .git detectado: git pull origin main
 3. cd "$PROJECT_ROOT" executa
 4. Continua com instalação ✓
@@ -162,8 +162,8 @@ Set-Location $projectRoot
 - [x] Suporte a --pull funcionando
 - [x] Suporte a wget implementado
 - [x] AppDaemon auto-detection implementado
-- [x] Documentação atualizada (INSTALL.md, READMEs, SCRIPT_DETECTION.md)
-- [x] Arquivo de validação criado (validate-install-scripts.sh)
+- [x] Documentação atualizada (docs/INSTALL.md, READMEs, docs/SCRIPT_DETECTION.md)
+- [x] Arquivo de validação criado (scripts/validate-install-scripts.sh)
 - [x] Testes de conteúdo passando
 - [x] Nenhuma duplicação de linhas
 
@@ -171,7 +171,7 @@ Set-Location $projectRoot
 
 ## Próximos Passos (Recomendado)
 
-1. **Teste em Linux Real**: Executar `bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh)` em máquina Linux
+1. **Teste em Linux Real**: Executar `bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.sh)` em máquina Linux
 2. **Teste em Windows**: Executar scripts PowerShell e Batch em máquina Windows
 3. **Teste com --pull**: Validar git pull funciona corretamente
 4. **Teste de Dependencies**: Confirmar que venv e pip install completam sem erros
@@ -182,7 +182,7 @@ Set-Location $projectRoot
 
 Os scripts de instalação estão **✅ PRONTOS PARA PRODUÇÃO** com todas as correções críticas de path navigation implementadas e testadas. A solução garante que o script funcione corretamente em todos os cenários:
 
-- ✅ Execução direta (bash install-standalone.sh)
+- ✅ Execução direta (bash scripts/install-standalone.sh)
 - ✅ Execução via wget (bash <(wget ...))
 - ✅ Execução com --pull (git pull antes de instalar)
 - ✅ Em qualquer plataforma (Linux, macOS, Windows)

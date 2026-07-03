@@ -12,21 +12,21 @@ Clone o repositório e execute o script localmente:
 ```bash
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 cd defesa-civil-sc-meshtastic
-bash install-home-assistant.sh      # Ou install-standalone.sh
+bash scripts/install-home-assistant.sh      # Ou scripts/install-standalone.sh
 ```
 
 **Windows (PowerShell):**
 ```powershell
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 cd defesa-civil-sc-meshtastic
-powershell -ExecutionPolicy Bypass -File install-home-assistant.ps1      # Ou install-standalone.ps1
+powershell -ExecutionPolicy Bypass -File scripts/install-home-assistant.ps1      # Ou scripts/install-standalone.ps1
 ```
 
 **Windows (CMD):**
 ```batch
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 cd defesa-civil-sc-meshtastic
-install-home-assistant.bat
+scripts/install-home-assistant.bat
 ```
 
 ### Opção 2: Download + Execução Rápida (Sem Clone Prévio)
@@ -35,16 +35,16 @@ Baixe e execute o script direto, ele fará o clone automaticamente:
 
 **Linux/Mac:**
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-home-assistant.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-home-assistant.sh)
 # Ou para Standalone:
-bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.sh)
 ```
 
 **Windows (PowerShell):**
 ```powershell
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-home-assistant.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-home-assistant.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
 # Ou para Standalone:
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
 ```
 
 ### Opção 3: Menu Interativo (Linux/Mac)
@@ -64,43 +64,43 @@ bash install.sh
 
 **Linux/Mac:**
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-home-assistant.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-home-assistant.sh)
 ```
 
 **Windows (PowerShell):**
 ```powershell
-powershell -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-home-assistant.ps1' -OutFile install.ps1; .\install.ps1"
+powershell -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-home-assistant.ps1' -OutFile install.ps1; .\install.ps1"
 ```
 
 **Windows (CMD):**
 ```batch
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 cd defesa-civil-sc-meshtastic
-install-home-assistant.bat
+scripts/install-home-assistant.bat
 ```
 
 ### Para Standalone Python
 
 **Linux/Mac:**
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.sh)
 ```
 
 **Windows (PowerShell):**
 ```powershell
-powershell -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.ps1' -OutFile install.ps1; .\install.ps1"
+powershell -ExecutionPolicy Bypass -Command "Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.ps1' -OutFile install.ps1; .\install.ps1"
 ```
 
 ## 📚 Scripts Disponíveis
 
 | Script | SO | Método | Função |
 |--------|----|----|--------|
-| `install.sh` | Linux/Mac | wget/local | Menu interativo para escolher integração |
-| `install-home-assistant.sh` | Linux/Mac | wget/local | Instalar HA + AppDaemon |
-| `install-home-assistant.ps1` | Windows | Invoke-WebRequest/local | Instalar HA + AppDaemon |
-| `install-home-assistant.bat` | Windows | local | Instalar HA + AppDaemon |
-| `install-standalone.sh` | Linux/Mac | wget/local | Instalar Standalone Python |
-| `install-standalone.ps1` | Windows | Invoke-WebRequest/local | Instalar Standalone Python |
+| `install.sh` | Linux/Mac | wget/local | Menu interativo na raiz |
+| `scripts/install-home-assistant.sh` | Linux/Mac | wget/local | Instalar HA + AppDaemon |
+| `scripts/install-home-assistant.ps1` | Windows | Invoke-WebRequest/local | Instalar HA + AppDaemon |
+| `scripts/install-home-assistant.bat` | Windows | local | Instalar HA + AppDaemon |
+| `scripts/install-standalone.sh` | Linux/Mac | wget/local | Instalar Standalone Python |
+| `scripts/install-standalone.ps1` | Windows | Invoke-WebRequest/local | Instalar Standalone Python |
 
 ## 🔍 Como os Scripts Funcionam
 
@@ -120,13 +120,13 @@ Se você já clonou e quer atualizar antes de instalar:
 **Linux/Mac:**
 ```bash
 cd defesa-civil-sc-meshtastic
-bash install-standalone.sh --pull
+bash scripts/install-standalone.sh --pull
 ```
 
 **Windows (PowerShell):**
 ```powershell
 cd defesa-civil-sc-meshtastic
-powershell -ExecutionPolicy Bypass -File install-standalone.ps1 -Pull
+powershell -ExecutionPolicy Bypass -File scripts/install-standalone.ps1 -Pull
 ```
 
 ## 🎯 O que cada script faz
@@ -192,15 +192,15 @@ Se o script não localizar o AppDaemon:
 ### Permissão negada (Linux)
 Se receber erro de permissão ao executar via wget:
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh) 2>&1
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.sh) 2>&1
 ```
 
 Ou execute localmente:
 ```bash
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 cd defesa-civil-sc-meshtastic
-chmod +x install-standalone.sh
-bash install-standalone.sh
+chmod +x scripts/install-standalone.sh
+bash scripts/install-standalone.sh
 ```
 
 ### Python não encontrado
@@ -219,21 +219,21 @@ Alternativa - Clone e execute localmente:
 ```bash
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 cd defesa-civil-sc-meshtastic
-bash install-standalone.sh
+bash scripts/install-standalone.sh
 ```
 
 ## 📖 Próximas Etapas
 
 Após a instalação, consulte:
 
-- **Home Assistant**: [integrations/home-assistant-appdaemon/README.md](integrations/home-assistant-appdaemon/README.md)
-- **Standalone**: [integrations/standalone-meshtastic/README.md](integrations/standalone-meshtastic/README.md)
-- **Arquitetura**: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
+- **Home Assistant**: [../integrations/home-assistant-appdaemon/README.md](../integrations/home-assistant-appdaemon/README.md)
+- **Standalone**: [../integrations/standalone-meshtastic/README.md](../integrations/standalone-meshtastic/README.md)
+- **Arquitetura**: [ARCHITECTURE.md](ARCHITECTURE.md)
 
 ## ❓ Precisa de Ajuda?
 
 - Consulte o `README.md` da sua integração
 - Procure por erro no `TROUBLESHOOTING` do README específico
-- Verifique [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) para entender a estrutura
+- Verifique [ARCHITECTURE.md](ARCHITECTURE.md) para entender a estrutura
 - Abra uma issue no GitHub
 

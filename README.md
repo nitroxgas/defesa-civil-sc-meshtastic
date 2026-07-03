@@ -62,11 +62,7 @@ defesa-civil-sc-meshtastic/
 ├── 📄 CONTRIBUTING.md
 ├── 📄 .gitignore
 │
-├── 🔧 install.sh                           # Script menu de instalação
-├── 🔧 install-home-assistant.sh            # Script HA (Linux/Mac)
-├── 🔧 install-home-assistant.ps1           # Script HA (Windows)
-├── 🔧 install-standalone.sh                # Script Standalone (Linux/Mac)
-├── 🔧 install-standalone.ps1               # Script Standalone (Windows)
+├── 🔧 install.sh                           # Menu de instalação (raiz)
 │
 ├── 📚 core/                                # Módulos compartilhados
 │   ├── __init__.py                         # Exports
@@ -98,9 +94,22 @@ defesa-civil-sc-meshtastic/
 │           ├── state_manager.py
 │           └── meshtastic_connector.py
 │
-├── 📚 docs/
+├── 📚 docs/                                # Documentação centralizada
+│   ├── ARCHITECTURE.md                     # Design e padrões
+│   ├── INSTALL.md                          # Guia de instalação
 │   ├── PROJECT_STRUCTURE.md                # Estrutura detalhada
-│   └── ARCHITECTURE.md                     # Design e padrões
+│   ├── REFACTORING_PLAN.md                 # Plano de centralização core/
+│   ├── SCRIPT_DETECTION.md                 # Como os scripts detectam contexto
+│   └── images/
+│
+├── 🔧 scripts/                             # Scripts de instalação
+│   ├── install-home-assistant.sh           # Script HA (Linux/Mac)
+│   ├── install-home-assistant.ps1          # Script HA (Windows)
+│   ├── install-home-assistant.bat          # Script HA (Windows CMD)
+│   ├── install-standalone.sh               # Script Standalone (Linux/Mac)
+│   ├── install-standalone.ps1              # Script Standalone (Windows)
+│   ├── test_imports.py                     # Teste de importações
+│   └── validate-install-scripts.sh       # Validação dos scripts
 │
 ├── 🧪 tests/                               # Suite de testes (74+)
 │   ├── __init__.py
@@ -129,7 +138,7 @@ defesa-civil-sc-meshtastic/
 
 **Instalação Rápida:**
 ```bash
-bash install-home-assistant.sh
+bash scripts/install-home-assistant.sh
 ```
 
 **Vantagens:**
@@ -149,7 +158,7 @@ bash install-home-assistant.sh
 
 **Instalação Rápida:**
 ```bash
-bash install-standalone.sh
+bash scripts/install-standalone.sh
 ```
 
 **Vantagens:**
@@ -168,6 +177,7 @@ Consulte os READMEs específicos para instruções detalhadas:
 |------------|------|-----------|
 | **Home Assistant + AppDaemon** | [README](integrations/home-assistant-appdaemon/README.md) | Instalação manual passo a passo, configuração do AppDaemon |
 | **Standalone Python** | [README](integrations/standalone-meshtastic/README.md) | Instalação com venv, conexão serial/TCP, modo daemon systemd |
+| **Guia Geral de Instalação** | [docs/INSTALL.md](docs/INSTALL.md) | Todas as opções de instalação, scripts e troubleshooting |
 
 ## 🏗️ Arquitetura
 
@@ -243,19 +253,19 @@ O `.gitignore` deste projeto já ignora esses arquivos quando usados dentro do r
 **Linux/Mac:**
 ```bash
 # Home Assistant
-bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-home-assistant.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-home-assistant.sh)
 
 # OU Standalone
-bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.sh)
 ```
 
 **Windows (PowerShell):**
 ```powershell
 # Home Assistant
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-home-assistant.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-home-assistant.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
 
 # OU Standalone
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
 ```
 
 ### 📋 Opção 2: Clone + Script Local (Recomendado)
@@ -264,7 +274,7 @@ Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil
 ```bash
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 cd defesa-civil-sc-meshtastic
-bash install-home-assistant.sh      # Ou install-standalone.sh
+bash scripts/install-home-assistant.sh      # Ou scripts/install-standalone.sh
 ```
 
 **Windows (PowerShell):**
@@ -272,16 +282,16 @@ bash install-home-assistant.sh      # Ou install-standalone.sh
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 cd defesa-civil-sc-meshtastic
 # Home Assistant
-powershell -ExecutionPolicy Bypass -File install-home-assistant.ps1
+powershell -ExecutionPolicy Bypass -File scripts/install-home-assistant.ps1
 # OU Standalone
-powershell -ExecutionPolicy Bypass -File install-standalone.ps1
+powershell -ExecutionPolicy Bypass -File scripts/install-standalone.ps1
 ```
 
 **Windows (CMD):**
 ```batch
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 cd defesa-civil-sc-meshtastic
-install-home-assistant.bat
+scripts/install-home-assistant.bat
 ```
 
 ### 🔄 Atualizar Antes de Instalar (Opcional)
@@ -291,13 +301,13 @@ Se você já clonado e quer atualizar para a versão mais recente:
 **Linux/Mac:**
 ```bash
 cd defesa-civil-sc-meshtastic
-bash install-standalone.sh --pull      # Ou install-home-assistant.sh --pull
+bash scripts/install-standalone.sh --pull      # Ou scripts/install-home-assistant.sh --pull
 ```
 
 **Windows (PowerShell):**
 ```powershell
 cd defesa-civil-sc-meshtastic
-powershell -ExecutionPolicy Bypass -File install-standalone.ps1 -Pull
+powershell -ExecutionPolicy Bypass -File scripts/install-standalone.ps1 -Pull
 ```
 
 ### ℹ️ Como os Scripts Funcionam

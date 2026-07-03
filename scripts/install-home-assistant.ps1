@@ -1,6 +1,6 @@
 # Script de instalação para Defesa Civil SC Meshtastic - Home Assistant AppDaemon
-# Uso: powershell -ExecutionPolicy Bypass -File install-home-assistant.ps1 [-Pull]
-# Ou: Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-home-assistant.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
+# Uso: powershell -ExecutionPolicy Bypass -File scripts/install-home-assistant.ps1 [-Pull]
+# Ou: Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-home-assistant.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
 
 param(
     [switch]$Pull = $false
@@ -87,8 +87,8 @@ if ($gitDir -and $coreDir) {
         } else {
             Write-Host "Não conseguiu encontrar ou clonar o repositório" -ForegroundColor Red
             Write-Host "Use um dos seguintes métodos:" -ForegroundColor Yellow
-            Write-Host "  1. Entre no diretório clonado: cd defesa-civil-sc-meshtastic; powershell -ExecutionPolicy Bypass -File install-home-assistant.ps1"
-            Write-Host "  2. Ou use Invoke-WebRequest para baixar: Invoke-WebRequest -Uri 'https://raw...install-home-assistant.ps1' -OutFile install.ps1"
+            Write-Host "  1. Entre no diretório clonado: cd defesa-civil-sc-meshtastic; powershell -ExecutionPolicy Bypass -File scripts/install-home-assistant.ps1"
+            Write-Host "  2. Ou use Invoke-WebRequest para baixar: Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-home-assistant.ps1' -OutFile install.ps1"
             exit 1
         }
     }

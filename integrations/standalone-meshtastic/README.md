@@ -33,7 +33,7 @@ RSS Defesa Civil SC
 
 **Linux/Mac:**
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.sh)
 ```
 
 O script irá:
@@ -45,7 +45,7 @@ O script irá:
 
 **Windows (PowerShell):**
 ```powershell
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
 ```
 
 ### 📋 Opção 2: Clone Local + Script
@@ -57,10 +57,10 @@ git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 cd defesa-civil-sc-meshtastic
 
 # 2. Executar script de instalação
-bash install-standalone.sh
+bash scripts/install-standalone.sh
 
 # 3. (Opcional) Atualizar antes de instalar
-bash install-standalone.sh --pull
+bash scripts/install-standalone.sh --pull
 ```
 
 **Windows (PowerShell):**
@@ -70,24 +70,13 @@ git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 cd defesa-civil-sc-meshtastic
 
 # 2. Executar script de instalação
-powershell -ExecutionPolicy Bypass -File install-standalone.ps1
+powershell -ExecutionPolicy Bypass -File scripts/install-standalone.ps1
 
 # 3. (Opcional) Atualizar antes de instalar
-powershell -ExecutionPolicy Bypass -File install-standalone.ps1 -Pull
+powershell -ExecutionPolicy Bypass -File scripts/install-standalone.ps1 -Pull
 ```
 
-**Windows (CMD):**
-```batch
-# 1. Clonar repositório
-git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
-cd defesa-civil-sc-meshtastic
-
-# 2. Executar script
-install-standalone.bat
-
-# 3. (Opcional) Atualizar antes de instalar
-install-standalone.bat --pull
-```
+> **Windows CMD:** Use o script PowerShell acima (`scripts/install-standalone.ps1`) ou o menu `install.sh` na raiz.
 
 ## 📋 Instalação Manual
 

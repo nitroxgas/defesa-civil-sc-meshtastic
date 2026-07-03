@@ -17,7 +17,7 @@ Esta integração lê o feed RSS de alertas da Defesa Civil de Santa Catarina e 
 
 **Linux/Mac:**
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-home-assistant.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-home-assistant.sh)
 ```
 
 O script irá:
@@ -29,7 +29,7 @@ O script irá:
 
 **Windows (PowerShell):**
 ```powershell
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-home-assistant.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-home-assistant.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
 ```
 
 ### 📋 Opção 2: Clone Local + Script
@@ -41,10 +41,10 @@ git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 cd defesa-civil-sc-meshtastic
 
 # 2. Executar script de instalação
-bash install-home-assistant.sh
+bash scripts/install-home-assistant.sh
 
 # 3. (Opcional) Atualizar antes de instalar
-bash install-home-assistant.sh --pull
+bash scripts/install-home-assistant.sh --pull
 ```
 
 **Windows (PowerShell):**
@@ -54,10 +54,10 @@ git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 cd defesa-civil-sc-meshtastic
 
 # 2. Executar script de instalação
-powershell -ExecutionPolicy Bypass -File install-home-assistant.ps1
+powershell -ExecutionPolicy Bypass -File scripts/install-home-assistant.ps1
 
 # 3. (Opcional) Atualizar antes de instalar
-powershell -ExecutionPolicy Bypass -File install-home-assistant.ps1 -Pull
+powershell -ExecutionPolicy Bypass -File scripts/install-home-assistant.ps1 -Pull
 ```
 
 ## 📋 Instalação Manual

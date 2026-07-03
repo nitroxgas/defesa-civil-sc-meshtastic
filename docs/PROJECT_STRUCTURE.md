@@ -4,21 +4,15 @@
 defesa-civil-sc-meshtastic/
 ├── README.md                         # Documentação principal
 ├── LICENSE
-├── SECURITY.md
-├── CONTRIBUTING.md
 ├── .gitignore
-├── install.sh                        # Menu de instalação
-├── install-home-assistant.sh         # Script HA (Linux/Mac)
-├── install-home-assistant.ps1        # Script HA (Windows)
-├── install-standalone.sh             # Script Standalone (Linux/Mac)
-├── install-standalone.ps1            # Script Standalone (Windows)
+├── install.sh                        # Menu de instalação (raiz)
 ├── core/                             # Módulos compartilhados entre integrações
 │   ├── __init__.py
 │   ├── constants.py                  # URLs, limites e constantes
-│   ├── models.py                   # Dataclasses Alert e State
-│   ├── rss_parser.py               # Parser RSS e cálculo de intervalo
-│   ├── message_formatter.py        # Compactação de mensagens para LoRa
-│   ├── region_filter.py            # Filtro por mesorregião/município
+│   ├── models.py                     # Dataclasses Alert e State
+│   ├── rss_parser.py                 # Parser RSS e cálculo de intervalo
+│   ├── message_formatter.py          # Compactação de mensagens para LoRa
+│   ├── region_filter.py              # Filtro por mesorregião/município
 │   └── sc_mesorregioes_microrregioes_municipios.json
 ├── integrations/
 │   ├── home-assistant-appdaemon/
@@ -30,7 +24,7 @@ defesa-civil-sc-meshtastic/
 │   │       └── apps.yaml.example
 │   └── standalone-meshtastic/
 │       ├── README.md
-│       ├── main.py                 # Orquestrador principal
+│       ├── main.py                   # Orquestrador principal
 │       ├── requirements.txt
 │       ├── config.example.yaml
 │       ├── state.example.json
@@ -41,10 +35,28 @@ defesa-civil-sc-meshtastic/
 │           └── meshtastic_connector.py
 ├── examples/
 │   └── defesa_civil_sc_alertas_state.example.json
-├── docs/
+├── docs/                             # Documentação do projeto
 │   ├── ARCHITECTURE.md
+│   ├── CONFIG_FIX_GUIDE.md
+│   ├── CONTRIBUTING.md
+│   ├── INSTALL.md
+│   ├── INSTALL_SCRIPTS_TEST_REPORT.md
 │   ├── PROJECT_STRUCTURE.md
-│   └── SCRIPT_DETECTION.md
+│   ├── REFACTORING_PLAN.md
+│   ├── SCRIPT_DETECTION.md
+│   ├── SCRIPT_FIX_REPORT.md
+│   ├── SECURITY.md
+│   ├── WGET_CACHE_GUIDE.md
+│   └── images/
+├── scripts/                          # Scripts de instalação e utilitários
+│   ├── install-home-assistant.bat        # Script HA (Windows CMD)
+│   ├── install-home-assistant.ps1        # Script HA (Windows PowerShell)
+│   ├── install-home-assistant.sh         # Script HA (Linux/Mac)
+│   ├── install-standalone.ps1              # Script Standalone (Windows PowerShell)
+│   ├── install-standalone.sh               # Script Standalone (Linux/Mac)
+│   ├── test-scripts.sh
+│   ├── test_imports.py
+│   └── validate-install-scripts.sh
 └── tests/
     ├── __init__.py
     ├── conftest.py
@@ -64,6 +76,14 @@ defesa-civil-sc-meshtastic/
 ### `core/`
 
 Módulos compartilhados entre Home Assistant e Standalone. Centraliza parsing, formatação, modelos e filtro regional. Evita duplicação de código e permite testes centralizados.
+
+### `scripts/`
+
+Scripts de instalação e utilitários. O `install.sh` permanece na raiz como menu interativo; os demais scripts de instalação estão aqui.
+
+### `docs/`
+
+Documentação centralizada: arquitetura, instalação, troubleshooting, relatórios e guias.
 
 ### `integrations/home-assistant-appdaemon/`
 

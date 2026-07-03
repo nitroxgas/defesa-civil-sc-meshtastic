@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script de instalação para Defesa Civil SC Meshtastic - Standalone
-# Uso: bash install-standalone.sh [--pull]
-# Ou: bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh)
+# Uso: bash scripts/install-standalone.sh [--pull]
+# Ou: bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.sh)
 
 set -e
 set -u
@@ -15,7 +15,7 @@ for arg in "$@"; do
             PULL=true
             ;;
         --help|-h)
-            echo "Uso: bash install-standalone.sh [--pull] [diretorio_de_instalacao]"
+            echo "Uso: bash scripts/install-standalone.sh [--pull] [diretorio_de_instalacao]"
             echo "  --pull    Atualiza o repositório com git pull antes de instalar"
             exit 0
             ;;
@@ -250,7 +250,7 @@ echo "  - Exemplo config: $(pwd)/config.example.yaml"
 echo ""
 echo -e "${YELLOW}⚠️  TROUBLESHOOTING:${NC}"
 echo "  Erro 'ModuleNotFoundError: No module named core'?"
-echo "  Execute: python $(pwd)/../../test_imports.py"
+echo "  Execute: python $PROJECT_ROOT/scripts/test_imports.py"
 echo ""
 echo "  Erro de conexão Meshtastic?"
 echo "  1. Verifique: lsusb (Linux/Mac) ou Device Manager (Windows)"

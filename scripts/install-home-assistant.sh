@@ -1,7 +1,7 @@
 #!/bin/bash
 # Script de instalação para Defesa Civil SC Meshtastic - Home Assistant AppDaemon
-# Uso: bash install-home-assistant.sh [--pull]
-# Ou: bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-home-assistant.sh)
+# Uso: bash scripts/install-home-assistant.sh [--pull]
+# Ou: bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-home-assistant.sh)
 
 set -e
 set -u
@@ -15,7 +15,7 @@ for arg in "$@"; do
             PULL=true
             ;;
         --help|-h)
-            echo "Uso: bash install-home-assistant.sh [--pull] [diretorio_de_instalacao]"
+            echo "Uso: bash scripts/install-home-assistant.sh [--pull] [diretorio_de_instalacao]"
             echo "  --pull    Atualiza o repositório com git pull antes de instalar"
             exit 0
             ;;
@@ -253,7 +253,7 @@ echo "  2. Teste envio manual em Services"
 echo "  3. Verifique permissões do usuário"
 echo ""
 echo "  Erro de importação de core?"
-echo "  Execute: python $PROJECT_ROOT/test_imports.py"
+echo "  Execute: python $PROJECT_ROOT/scripts/test_imports.py"
 echo ""
 echo -e "${GREEN}✓ Instalação concluída! Agora configure e reinicie AppDaemon.${NC}"
 echo ""

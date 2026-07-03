@@ -1,6 +1,6 @@
 @echo off
 REM Script de instalação para Defesa Civil SC Meshtastic - Home Assistant AppDaemon
-REM Uso: install-home-assistant.bat [--pull]
+REM Uso: scripts\install-home-assistant.bat [--pull]
 
 setlocal enabledelayedexpansion
 
@@ -15,7 +15,7 @@ for %%a in (%*) do (
 goto :start
 
 :show_help
-echo Uso: install-home-assistant.bat [--pull]
+echo Uso: scripts\install-home-assistant.bat [--pull]
 echo   --pull    Atualiza o repositório com git pull antes de instalar
 exit /b 0
 
@@ -69,7 +69,7 @@ if exist ".git" if exist "core\__init__.py" (
     ) else (
         echo [ERRO] Não conseguiu encontrar o repositório
         echo [AVISO] Use um dos seguintes métodos:
-        echo   1. Entre no diretório clonado: cd defesa-civil-sc-meshtastic ^&^& install-home-assistant.bat
+        echo   1. Entre no diretório clonado: cd defesa-civil-sc-meshtastic ^&^& scripts\install-home-assistant.bat
         echo   2. Ou clone o repositório: git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
         exit /b 1
     )

@@ -1,6 +1,6 @@
 # Script de instalação para Defesa Civil SC Meshtastic - Standalone
-# Uso: powershell -ExecutionPolicy Bypass -File install-standalone.ps1 [-Pull]
-# Ou: Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
+# Uso: powershell -ExecutionPolicy Bypass -File scripts/install-standalone.ps1 [-Pull]
+# Ou: Invoke-WebRequest -Uri "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.ps1" -OutFile install.ps1; powershell -ExecutionPolicy Bypass -File install.ps1
 
 param(
     [string]$InstallPath = ".",
@@ -111,9 +111,9 @@ if ($gitDir -and $coreDir) {
         } else {
             Write-Host "Não conseguiu encontrar ou clonar o repositório" -ForegroundColor Red
             Write-Host "Use um dos seguintes métodos:" -ForegroundColor Yellow
-            Write-Host "  1. Entre no diretório clonado: cd defesa-civil-sc-meshtastic; powershell -ExecutionPolicy Bypass -File install-standalone.ps1"
-            Write-Host "  2. Especifique caminho: powershell -ExecutionPolicy Bypass -File install-standalone.ps1 -InstallPath C:\caminho"
-            Write-Host "  3. Ou use Invoke-WebRequest para baixar: Invoke-WebRequest -Uri 'https://raw...install-standalone.ps1' -OutFile install.ps1"
+            Write-Host "  1. Entre no diretório clonado: cd defesa-civil-sc-meshtastic; powershell -ExecutionPolicy Bypass -File scripts/install-standalone.ps1"
+            Write-Host "  2. Especifique caminho: powershell -ExecutionPolicy Bypass -File scripts/install-standalone.ps1 -InstallPath C:\caminho"
+            Write-Host "  3. Ou use Invoke-WebRequest para baixar: Invoke-WebRequest -Uri 'https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.ps1' -OutFile install.ps1"
             exit 1
         }
     }
@@ -255,7 +255,7 @@ Write-Host ""
 
 Write-Host "⚠️  TROUBLESHOOTING:" -ForegroundColor Yellow
 Write-Host "  Erro 'ModuleNotFoundError: No module named core'?"
-Write-Host "  Execute: & '$projectRoot\test_imports.py'"
+Write-Host "  Execute: & '$projectRoot\scripts\test_imports.py'"
 Write-Host ""
 Write-Host "  Erro de conexão Meshtastic?"
 Write-Host "  1. Verifique Device Manager para porta COM"

@@ -2,7 +2,7 @@
 
 ## Problema Reportado
 
-Ao executar `bash <(wget -qO- https://raw...install-standalone.sh)`, o script pode estar usando versões antigas em cache.
+Ao executar `bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.sh)`, o script pode estar usando versões antigas em cache.
 
 ## Cache do Wget
 
@@ -35,17 +35,17 @@ GitHub fornece URLs que mudam quando há update:
 
 ```bash
 # Com curl (suporta melhor no-cache)
-bash <(curl -L -s -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh)
+bash <(curl -L -s -H 'Cache-Control: no-cache' https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.sh)
 
 # Ou com wget + cache busting (adicionar timestamp)
-bash <(wget -qO- "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh?$(date +%s)")
+bash <(wget -qO- "https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.sh?$(date +%s)")
 ```
 
 ### Opção 2: Usar commit hash ao invés de 'main'
 
 ```bash
 # Exemplo com commit específico (sempre a mesma versão)
-bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/55bd6c6/install-standalone.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/55bd6c6/scripts/install-standalone.sh)
 
 # Para obter commit hash atual:
 git log -1 --pretty=format:%H
@@ -57,7 +57,7 @@ git log -1 --pretty=format:%H
 # Mais confiável, copia tudo localmente
 git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
 cd defesa-civil-sc-meshtastic
-bash install-standalone.sh
+bash scripts/install-standalone.sh
 ```
 
 ### Opção 4: Usar wget com bypass de cache
@@ -68,7 +68,7 @@ bash <(wget -qO- --user-agent="Mozilla/5.0 (Cache-Bypass-$(date +%s))" https://r
 
 # Ou usar curl com flags específicas
 bash <(curl -s -L -H 'Cache-Control: no-cache, no-store, must-revalidate' \
-  https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh)
+  https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.sh)
 ```
 
 ## Problema Real Identificado
@@ -111,25 +111,25 @@ fi
 ### Teste 1: Local (Clone existente)
 ```bash
 cd ~/defesa-civil-sc-meshtastic
-bash install-standalone.sh
+bash scripts/install-standalone.sh
 # Deve detectar repositório no pwd
 ```
 
 ### Teste 2: Via Wget
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.sh)
 # Deve clonar em diretório atual
 ```
 
 ### Teste 3: Com --pull
 ```bash
-bash install-standalone.sh --pull
+bash scripts/install-standalone.sh --pull
 # Deve fazer git pull se em repositório existente
 ```
 
 ### Teste 4: Especificando diretório
 ```bash
-bash install-standalone.sh ~/meu_diretorio
+bash scripts/install-standalone.sh ~/meu_diretorio
 # Deve clonar em ~/meu_diretorio/defesa-civil-sc-meshtastic
 ```
 

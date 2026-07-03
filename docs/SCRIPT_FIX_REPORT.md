@@ -2,7 +2,7 @@
 
 ## 📋 Resumo Executivo
 
-**Problema**: Scripts falhavam com erro "Não conseguiu encontrar ou clonar o repositório" ao executar `./install-standalone.sh .` ou via wget.
+**Problema**: Scripts falhavam com erro "Não conseguiu encontrar ou clonar o repositório" ao executar `./scripts/install-standalone.sh .` ou via wget.
 
 **Causa Real**: Lógica de detecção de repositório estava verificando `.git` no diretório atual sem considerar onde o script realmente estava (wget case) ou qual era o contexto correto.
 
@@ -15,7 +15,7 @@
 ## 🐛 Problemas Identificados
 
 ### Problema 1: Debug deixado no código
-- Arquivo: `install-standalone.sh` linha 60
+- Arquivo: `scripts/install-standalone.sh` linha 60
 - Conteúdo: `echo "george"`
 - Impacto: Saída confusa durante instalação
 - Status: ✅ Removido
@@ -31,7 +31,7 @@ fi
 
 **Problema**: 
 - `[ -d ".git" ]` verifica pwd (qual é?)
-- Se usuário rodava `./install-standalone.sh` de fora do repo, falhava
+- Se usuário rodava `./scripts/install-standalone.sh` de fora do repo, falhava
 - Se wget e script estava em /tmp, `pwd` podia ser diferente de `/tmp/...`
 
 ### Problema 3: Falta de suporte a multiplos cenários
@@ -84,15 +84,15 @@ fi
 
 ## 📝 Mudanças por Arquivo
 
-### install-standalone.sh
+### scripts/install-standalone.sh
 - Removido debug `echo "george"`
 - Substituída lógica simples por sistema de 5 prioridades
 - Adicionada validação de `$SCRIPT_DIR` vs `$CURRENT_DIR`
 - Linhas: 53 → 95 (+42 linhas, mais clareza)
 
-### install-home-assistant.sh
+### scripts/install-home-assistant.sh
 - Aplicada mesma lógica de 5 prioridades
-- Consistência com install-standalone.sh
+- Consistência com scripts/install-standalone.sh
 - Linhas: 45 → 87 (+42 linhas)
 
 ### install.sh
@@ -112,8 +112,8 @@ fi
 
 ### Teste 1: Sintaxe Bash ✅
 ```bash
-bash -n install-standalone.sh    # PASSOU
-bash -n install-home-assistant.sh # PASSOU
+bash -n scripts/install-standalone.sh    # PASSOU
+bash -n scripts/install-home-assistant.sh # PASSOU
 bash -n install.sh                # PASSOU
 ```
 
@@ -135,7 +135,7 @@ bash -n install.sh                # PASSOU
 ### Cenário 1: Repositório Existente (Local)
 ```bash
 cd ~/defesa-civil-sc-meshtastic
-bash install-standalone.sh
+bash scripts/install-standalone.sh
 ```
 ✅ **Detecta**: Prioridade 2 (CURRENT_DIR/.git)
 ✅ **Usa**: Repositório existente
@@ -143,7 +143,7 @@ bash install-standalone.sh
 
 ### Cenário 2: Via Wget (Novo Diretório)
 ```bash
-bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.sh)
 ```
 ✅ **Detecta**: Prioridade 1 (SCRIPT_DIR/.git em /tmp)
 ✅ **Ação**: Clona repositório
@@ -151,7 +151,7 @@ bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-mes
 
 ### Cenário 3: Com --pull Flag
 ```bash
-bash install-standalone.sh --pull
+bash scripts/install-standalone.sh --pull
 ```
 ✅ **Detecta**: Repo válido
 ✅ **Ação**: Executa `git pull origin main`
@@ -159,7 +159,7 @@ bash install-standalone.sh --pull
 
 ### Cenário 4: Caminho Personalizado
 ```bash
-bash install-standalone.sh ~/meu_diretorio
+bash scripts/install-standalone.sh ~/meu_diretorio
 ```
 ✅ **Detecta**: Não há repo em diretórios padrão
 ✅ **Ação**: Clona em ~/meu_diretorio
@@ -168,7 +168,7 @@ bash install-standalone.sh ~/meu_diretorio
 ### Cenário 5: Repositório em Subdiretório
 ```bash
 cd ~/projetos
-bash install-standalone.sh
+bash scripts/install-standalone.sh
 # (repo está em ~/projetos/defesa-civil-sc-meshtastic)
 ```
 ✅ **Detecta**: Prioridade 4 (subdir com repo)
@@ -213,25 +213,25 @@ bash install-standalone.sh
 ```bash
 # Teste 1: Repositório existente
 cd ~/defesa-civil-sc-meshtastic
-bash install-standalone.sh
+bash scripts/install-standalone.sh
 
 # Teste 2: Via wget (novo diretório)
-bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh)
+bash <(wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.sh)
 
 # Teste 3: Com --pull
-bash install-standalone.sh --pull
+bash scripts/install-standalone.sh --pull
 
 # Teste 4: Especificando diretório
-bash install-standalone.sh ~/teste
+bash scripts/install-standalone.sh ~/teste
 ```
 
 ### Teste em Windows
 ```powershell
 # PowerShell
-powershell -ExecutionPolicy Bypass -File .\install-standalone.ps1
+powershell -ExecutionPolicy Bypass -File .\scripts\install-standalone.ps1
 
 # Batch
-.\install-home-assistant.bat
+.\scripts\install-home-assistant.bat
 ```
 
 ### Validar Instalação
@@ -258,7 +258,7 @@ python -c "from core import constants; print(f'✓ Core modules importados com s
    ```bash
    git clone https://github.com/nitroxgas/defesa-civil-sc-meshtastic.git
    cd defesa-civil-sc-meshtastic
-   bash install-standalone.sh
+   bash scripts/install-standalone.sh
    ```
 
 3. **Verificar git está instalado**:
@@ -268,7 +268,7 @@ python -c "from core import constants; print(f'✓ Core modules importados com s
 
 4. **Testar wget diretamente**:
    ```bash
-   wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/install-standalone.sh | head -20
+   wget -qO- https://raw.githubusercontent.com/nitroxgas/defesa-civil-sc-meshtastic/main/scripts/install-standalone.sh | head -20
    ```
 
 ---
