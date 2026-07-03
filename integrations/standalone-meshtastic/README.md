@@ -15,7 +15,7 @@ Veja [docs/ARCHITECTURE.md](../../docs/ARCHITECTURE.md) para detalhes de arquite
 
 ## 📋 Pré-requisitos
 
-- ✅ Python 3.8+
+- ✅ Python 3.10+ (testado no 3.13)
 - ✅ Gateway Meshtastic (USB/Serial ou TCP)
 - ✅ Conexão com internet (para feed RSS)
 - ✅ Git instalado
@@ -27,11 +27,13 @@ RSS Defesa Civil SC
         ↓
    RSSParser (de core/)
         ↓
+   RegionFilter (de core/ - filtro regional opcional)
+        ↓
    MessageFormatter (de core/ - compactação)
         ↓
    StateManager (deduplicação + histórico JSON)
         ↓
-   MeshtasticConnector (serial/TCP)
+   MeshtasticConnector (serial/TCP + reconexão automática)
         ↓
    Canal Meshtastic "Alertas-SC"
 ```
@@ -195,10 +197,22 @@ feed:
 
 state:
   file: "./state.json"     # onde guardar histórico
+  max_history: 10          # máximo de alertas no histórico
+
+region_filter:
+  enabled: false           # true para ativar filtro regional
+  mode: "both"             # "mesorregiao", "municipio" ou "both"
+  mesorregioes:            # nomes exatamente como no JSON
+    - "Grande Florianópolis"
+    - "Vale do Itajaí"
+  municipios:              # nomes exatamente como no JSON
+    - "Florianópolis"
+    - "Blumenau"
 
 direct_message:
   enabled: true
   trigger_word: "ALERTAS"
+  max_alerts_reply: 2      # quantos alertas retornar via DM
 
 test_mode: false           # mude para true para testar
 
@@ -379,12 +393,26 @@ Cada alerta é enviado em 2 mensagens:
 Aguarda 10 segundos entre mensagens para respeitar LoRa.
 
 ### 4️⃣ Resposta a Mensagens Diretas
-Se outro node enviar `ALERTAS`, responde com os 2 últimos alertas.
+Se outro node enviar `ALERTAS`, responde com os últimos alertas (configurável via `direct_message.max_alerts_reply`). Alertas fora das regiões configuradas no filtro regional não são retornados.
 
-### 5️⃣ Histórico Persistente
-- Armazena últimos 10 alertas em `state.json`
+### 5️⃣ Filtro Regional (Opcional)
+Permite enviar/responder apenas alertas que mencionem mesorregiões e/ou municípios configurados:
+- Ative via `region_filter.enabled: true`
+- Modos: `mesorregiao`, `municipio`, `both`
+- Nomes devem coincidir com `core/sc_mesorregioes_microrregioes_municipios.json`
+- Alertas ignorados são registrados em `state.json` (campo `ignored_guids`) e não são reenviados
+
+### 6️⃣ Reconexão Automática
+- Monitora conexão com Meshtastic a cada 30s (conectado) ou 5s (desconectado)
+- Se a conexão TCP/serial cair, tenta reconectar indefinidamente com backoff exponencial: 30s, 60s, 120s, 240s, até 5 minutos
+- Callback de DM é re-registrado após reconexão
+- Envios que falham por queda de conexão não marcam o alerta como enviado
+
+### 7️⃣ Histórico Persistente
+- Armazena alertas enviados em `state.json` (limite configurável via `state.max_history`)
 - Consultas offline funcionam
 - Deduplicação via GUID (evita reenvio)
+- Alertas filtrados são registrados em `ignored_guids`
 
 ## 📁 Estrutura de Arquivos
 
@@ -412,6 +440,7 @@ integrations/standalone-meshtastic/
 | `ModuleNotFoundError: core` | Verifique symlink/cópia de core/, rode: `python -c "from core import RSSParser"` |
 | `SerialException: port not found` | Conecte gateway USB, verifique com `ls /dev/tty*` (Linux) ou Gerenciador de Dispositivos (Windows) |
 | `ConnectionRefusedError (TCP)` | Verifique IP e porta do gateway, teste: `ping 192.168.1.100` |
+| `ConnectionResetError` / `host remoto forçou cancelamento` | A conexão TCP foi fechada pelo gateway. A aplicação tentará reconectar automaticamente com backoff. Verifique se o gateway está online. |
 | `Feed RSS não carrega` | Verifique internet, teste URL em navegador, aumente log para DEBUG |
 | Mensagens não chegam | Verifique se canal existe, teste modo de teste (`test_mode: true`), procure por erros nos logs |
 | `Permission denied /dev/ttyUSB0` | Linux: `sudo usermod -a -G dialout $USER` (saia e entre novamente) |
@@ -451,7 +480,6 @@ cp integrations/standalone-meshtastic/config.example.yaml integrations/standalon
 ## ⚠️ Cuidados
 
 - **LoRa airtime**: Cada mensagem consome recursos. App aguarda 10s entre mensagens.
-- **Flood inicial**: Primeira execução carrega histórico sem enviar (evita flood).
 - **Chaves de canal**: Não publique `config.yaml` com chaves de canal públicas.
 - **Taxa de feed**: Se feed publica muito (< 15 min), o intervalo mínimo de 15 min é respeitado.
 - **Histórico**: `state.json` pode crescer. Limite de 10 alertas é controlado.

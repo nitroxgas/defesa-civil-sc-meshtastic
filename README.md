@@ -97,7 +97,7 @@ Consulte os READMEs específicos para instruções detalhadas:
 
 ✅ Intervalo de polling: 1/4 do período do feed, com override opcional
 
-✅ Armazena histórico dos últimos 10 alertas
+✅ Armazena histórico dos últimos alertas (limite configurável)
 
 ✅ Evita reenvio de alertas repetidos (deduplicação por GUID)
 
@@ -105,7 +105,11 @@ Consulte os READMEs específicos para instruções detalhadas:
 
 ✅ Envia alertas em 2 mensagens: conteúdo + link
 
-✅ Responde mensagens diretas `ALERTAS` com 2 últimos alertas
+✅ Filtro regional opcional por mesorregião e/ou município (somente Standalone)
+
+✅ Responde mensagens diretas `ALERTAS` com últimos alertas
+
+✅ Reconexão automática com backoff exponencial (Standalone)
 
 ✅ Modo de teste para validação
 
@@ -147,7 +151,8 @@ defesa-civil-sc-meshtastic/
 │   ├── constants.py                        # Constantes centralizadas
 │   ├── models.py                           # Alert, State dataclasses
 │   ├── rss_parser.py                       # Parser RSS
-│   └── message_formatter.py                # Formatação de mensagens
+│   ├── message_formatter.py                # Formatação de mensagens
+│   └── region_filter.py                    # Filtro regional (mesorregião/município)
 │
 ├── 📦 integrations/
 │   ├── home-assistant-appdaemon/
@@ -175,7 +180,7 @@ defesa-civil-sc-meshtastic/
 │   ├── PROJECT_STRUCTURE.md                # Estrutura detalhada
 │   └── ARCHITECTURE.md                     # Design e padrões
 │
-├── 🧪 tests/                               # Suite de testes (40+)
+├── 🧪 tests/                               # Suite de testes (74+)
 │   ├── __init__.py
 │   ├── conftest.py
 │   ├── README.md
@@ -183,6 +188,8 @@ defesa-civil-sc-meshtastic/
 │   ├── test_models.py
 │   ├── test_rss_parser.py
 │   ├── test_message_formatter.py
+│   ├── test_region_filter.py
+│   ├── test_standalone_main.py
 │   └── fixtures/
 │       └── sample_feed.xml
 │
