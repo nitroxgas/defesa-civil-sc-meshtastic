@@ -331,3 +331,46 @@ def test_reconnect_meshtastic_reregisters_callback_on_success(app, monkeypatch):
     app.mesh.register_receive_callback.assert_called_with(
         app.on_message_received
     )
+
+
+def test_dm_alerts_request_applies_region_filter(app):
+    """Verifica que resposta a DM aplica filtro regional."""
+    app.running = True
+    app.region_filter = RegionFilter(
+        {
+            "enabled": True,
+            "mode": "both",
+            "mesorregioes": ["Grande Florianópolis"],
+            "municipios": [],
+        }
+    )
+    app.state_manager.add_alert(
+        {
+            "guid": "g1",
+            "title": "ALERTA - Temporal em Chapeco",
+            "content": "Alerta para Oeste Catarinense.",
+            "link": "http://example.com/1",
+            "pub_date": "Mon, 01 Jan 2024 12:00:00 GMT",
+            "seen_at": "2024-01-01T12:00:00",
+        }
+    )
+    app.state_manager.add_alert(
+        {
+            "guid": "g2",
+            "title": "ALERTA - Temporal em Florianopolis",
+            "content": "Alerta para Grande Florianopolis.",
+            "link": "http://example.com/2",
+            "pub_date": "Mon, 01 Jan 2024 12:00:00 GMT",
+            "seen_at": "2024-01-01T12:00:00",
+        }
+    )
+
+    packet = {"from": 12345, "fromId": "!abc123", "to": 12345}
+    app.handle_dm_alerts_request(packet, None)
+
+    calls = app.mesh.send_direct_message.call_args_list
+    # Deve enviar apenas 1 alerta (g2) em 2 mensagens (parte 1 + link)
+    assert len(calls) == 2
+    call_text = " ".join(str(c) for c in calls)
+    assert "Florianopolis" in call_text
+    assert "Chapeco" not in call_text
