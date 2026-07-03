@@ -1,0 +1,2828 @@
+{
+  "metadata": {
+    "titulo": "Mesorregiões, microrregiões e municípios de Santa Catarina",
+    "fonte": "Wikipédia: Lista de mesorregiões e microrregiões de Santa Catarina",
+    "url": "https://pt.wikipedia.org/wiki/Lista_de_mesorregi%C3%B5es_e_microrregi%C3%B5es_de_Santa_Catarina",
+    "base_ibge": "Divisão regional do Brasil em mesorregiões e microrregiões geográficas; quadro vigente entre 1989 e 2017",
+    "observacao": "Mesorregiões e microrregiões foram extintas pelo IBGE em 2017 e substituídas por regiões geográficas intermediárias e imediatas.",
+    "gerado_em": "2026-07-02",
+    "total_mesorregioes": 6,
+    "total_microrregioes": 20,
+    "total_municipios": 295
+  },
+  "mesorregioes": [
+    {
+      "codigo": "01",
+      "nome": "Oeste Catarinense",
+      "microrregioes": [
+        {
+          "codigo": "001",
+          "nome": "São Miguel do Oeste",
+          "municipios": [
+            "Anchieta",
+            "Bandeirante",
+            "Barra Bonita",
+            "Belmonte",
+            "Descanso",
+            "Dionísio Cerqueira",
+            "Guaraciaba",
+            "Guarujá do Sul",
+            "Iporã do Oeste",
+            "Itapiranga",
+            "Mondaí",
+            "Palma Sola",
+            "Paraíso",
+            "Princesa",
+            "Riqueza",
+            "Romelândia",
+            "Santa Helena",
+            "São João do Oeste",
+            "São José do Cedro",
+            "São Miguel do Oeste",
+            "Tunápolis"
+          ]
+        },
+        {
+          "codigo": "002",
+          "nome": "Chapecó",
+          "municipios": [
+            "Águas de Chapecó",
+            "Águas Frias",
+            "Bom Jesus do Oeste",
+            "Caibi",
+            "Campo Erê",
+            "Caxambu do Sul",
+            "Chapecó",
+            "Cordilheira Alta",
+            "Coronel Freitas",
+            "Cunha Porã",
+            "Cunhataí",
+            "Flor do Sertão",
+            "Formosa do Sul",
+            "Guatambu",
+            "Iraceminha",
+            "Irati",
+            "Jardinópolis",
+            "Maravilha",
+            "Modelo",
+            "Nova Erechim",
+            "Nova Itaberaba",
+            "Novo Horizonte",
+            "Palmitos",
+            "Pinhalzinho",
+            "Planalto Alegre",
+            "Quilombo",
+            "Saltinho",
+            "Santa Terezinha do Progresso",
+            "Santiago do Sul",
+            "São Bernardino",
+            "São Carlos",
+            "São Lourenço do Oeste",
+            "São Miguel da Boa Vista",
+            "Saudades",
+            "Serra Alta",
+            "Sul Brasil",
+            "Tigrinhos",
+            "União do Oeste"
+          ]
+        },
+        {
+          "codigo": "003",
+          "nome": "Xanxerê",
+          "municipios": [
+            "Abelardo Luz",
+            "Bom Jesus",
+            "Coronel Martins",
+            "Entre Rios",
+            "Faxinal dos Guedes",
+            "Galvão",
+            "Ipuaçu",
+            "Jupiá",
+            "Lajeado Grande",
+            "Marema",
+            "Ouro Verde",
+            "Passos Maia",
+            "Ponte Serrada",
+            "São Domingos",
+            "Vargeão",
+            "Xanxerê",
+            "Xaxim"
+          ]
+        },
+        {
+          "codigo": "004",
+          "nome": "Joaçaba",
+          "municipios": [
+            "Água Doce",
+            "Arroio Trinta",
+            "Caçador",
+            "Calmon",
+            "Capinzal",
+            "Catanduvas",
+            "Erval Velho",
+            "Fraiburgo",
+            "Herval d'Oeste",
+            "Ibiam",
+            "Ibicaré",
+            "Iomerê",
+            "Jaborá",
+            "Joaçaba",
+            "Lacerdópolis",
+            "Lebon Régis",
+            "Luzerna",
+            "Macieira",
+            "Matos Costa",
+            "Ouro",
+            "Pinheiro Preto",
+            "Rio das Antas",
+            "Salto Veloso",
+            "Tangará",
+            "Treze Tílias",
+            "Vargem Bonita",
+            "Videira"
+          ]
+        },
+        {
+          "codigo": "005",
+          "nome": "Concórdia",
+          "municipios": [
+            "Alto Bela Vista",
+            "Arabutã",
+            "Arvoredo",
+            "Concórdia",
+            "Ipira",
+            "Ipumirim",
+            "Irani",
+            "Itá",
+            "Lindóia do Sul",
+            "Paial",
+            "Peritiba",
+            "Piratuba",
+            "Presidente Castello Branco",
+            "Seara",
+            "Xavantina"
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "02",
+      "nome": "Norte Catarinense",
+      "microrregioes": [
+        {
+          "codigo": "006",
+          "nome": "Canoinhas",
+          "municipios": [
+            "Bela Vista do Toldo",
+            "Canoinhas",
+            "Irineópolis",
+            "Itaiópolis",
+            "Mafra",
+            "Major Vieira",
+            "Monte Castelo",
+            "Papanduva",
+            "Porto União",
+            "Santa Terezinha",
+            "Timbó Grande",
+            "Três Barras"
+          ]
+        },
+        {
+          "codigo": "007",
+          "nome": "São Bento do Sul",
+          "municipios": [
+            "Campo Alegre",
+            "Rio Negrinho",
+            "São Bento do Sul"
+          ]
+        },
+        {
+          "codigo": "008",
+          "nome": "Joinville",
+          "municipios": [
+            "Araquari",
+            "Balneário Barra do Sul",
+            "Corupá",
+            "Garuva",
+            "Guaramirim",
+            "Itapoá",
+            "Jaraguá do Sul",
+            "Joinville",
+            "Massaranduba",
+            "São Francisco do Sul",
+            "Schroeder"
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "03",
+      "nome": "Serrana",
+      "microrregioes": [
+        {
+          "codigo": "009",
+          "nome": "Curitibanos",
+          "municipios": [
+            "Abdon Batista",
+            "Brunópolis",
+            "Campos Novos",
+            "Curitibanos",
+            "Frei Rogério",
+            "Monte Carlo",
+            "Ponte Alta",
+            "Ponte Alta do Norte",
+            "Santa Cecília",
+            "São Cristóvão do Sul",
+            "Vargem",
+            "Zortéa"
+          ]
+        },
+        {
+          "codigo": "010",
+          "nome": "Campos de Lages",
+          "municipios": [
+            "Anita Garibaldi",
+            "Bocaina do Sul",
+            "Bom Jardim da Serra",
+            "Bom Retiro",
+            "Campo Belo do Sul",
+            "Capão Alto",
+            "Celso Ramos",
+            "Cerro Negro",
+            "Correia Pinto",
+            "Lages",
+            "Otacílio Costa",
+            "Painel",
+            "Palmeira",
+            "Rio Rufino",
+            "São Joaquim",
+            "São José do Cerrito",
+            "Urubici",
+            "Urupema"
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "04",
+      "nome": "Vale do Itajaí",
+      "microrregioes": [
+        {
+          "codigo": "011",
+          "nome": "Rio do Sul",
+          "municipios": [
+            "Agronômica",
+            "Aurora",
+            "Braço do Trombudo",
+            "Dona Emma",
+            "Ibirama",
+            "José Boiteux",
+            "Laurentino",
+            "Lontras",
+            "Mirim Doce",
+            "Pouso Redondo",
+            "Presidente Getúlio",
+            "Presidente Nereu",
+            "Rio do Campo",
+            "Rio do Oeste",
+            "Rio do Sul",
+            "Salete",
+            "Taió",
+            "Trombudo Central",
+            "Vitor Meireles",
+            "Witmarsum"
+          ]
+        },
+        {
+          "codigo": "012",
+          "nome": "Blumenau",
+          "municipios": [
+            "Apiúna",
+            "Ascurra",
+            "Benedito Novo",
+            "Blumenau",
+            "Botuverá",
+            "Brusque",
+            "Doutor Pedrinho",
+            "Gaspar",
+            "Guabiruba",
+            "Indaial",
+            "Luiz Alves",
+            "Pomerode",
+            "Rio dos Cedros",
+            "Rodeio",
+            "Timbó"
+          ]
+        },
+        {
+          "codigo": "013",
+          "nome": "Itajaí",
+          "municipios": [
+            "Balneário Camboriú",
+            "Balneário Piçarras",
+            "Barra Velha",
+            "Bombinhas",
+            "Camboriú",
+            "Ilhota",
+            "Itajaí",
+            "Itapema",
+            "Navegantes",
+            "Penha",
+            "Porto Belo",
+            "São João do Itaperiú"
+          ]
+        },
+        {
+          "codigo": "014",
+          "nome": "Ituporanga",
+          "municipios": [
+            "Agrolândia",
+            "Atalanta",
+            "Chapadão do Lageado",
+            "Imbuia",
+            "Ituporanga",
+            "Petrolândia",
+            "Vidal Ramos"
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "05",
+      "nome": "Grande Florianópolis",
+      "microrregioes": [
+        {
+          "codigo": "015",
+          "nome": "Tijucas",
+          "municipios": [
+            "Angelina",
+            "Canelinha",
+            "Leoberto Leal",
+            "Major Gercino",
+            "Nova Trento",
+            "São João Batista",
+            "Tijucas"
+          ]
+        },
+        {
+          "codigo": "016",
+          "nome": "Florianópolis",
+          "municipios": [
+            "Antônio Carlos",
+            "Biguaçu",
+            "Florianópolis",
+            "Governador Celso Ramos",
+            "Palhoça",
+            "Paulo Lopes",
+            "Santo Amaro da Imperatriz",
+            "São José",
+            "São Pedro de Alcântara"
+          ]
+        },
+        {
+          "codigo": "017",
+          "nome": "Tabuleiro",
+          "municipios": [
+            "Águas Mornas",
+            "Alfredo Wagner",
+            "Anitápolis",
+            "Rancho Queimado",
+            "São Bonifácio"
+          ]
+        }
+      ]
+    },
+    {
+      "codigo": "06",
+      "nome": "Sul Catarinense",
+      "microrregioes": [
+        {
+          "codigo": "018",
+          "nome": "Tubarão",
+          "municipios": [
+            "Armazém",
+            "Braço do Norte",
+            "Capivari de Baixo",
+            "Garopaba",
+            "Grão-Pará",
+            "Gravatal",
+            "Imaruí",
+            "Imbituba",
+            "Jaguaruna",
+            "Laguna",
+            "Orleans",
+            "Pedras Grandes",
+            "Pescaria Brava",
+            "Rio Fortuna",
+            "Sangão",
+            "Santa Rosa de Lima",
+            "São Ludgero",
+            "São Martinho",
+            "Treze de Maio",
+            "Tubarão"
+          ]
+        },
+        {
+          "codigo": "019",
+          "nome": "Criciúma",
+          "municipios": [
+            "Balneário Rincão",
+            "Cocal do Sul",
+            "Criciúma",
+            "Forquilhinha",
+            "Içara",
+            "Lauro Müller",
+            "Morro da Fumaça",
+            "Nova Veneza",
+            "Siderópolis",
+            "Treviso",
+            "Urussanga"
+          ]
+        },
+        {
+          "codigo": "020",
+          "nome": "Araranguá",
+          "municipios": [
+            "Araranguá",
+            "Balneário Arroio do Silva",
+            "Balneário Gaivota",
+            "Ermo",
+            "Jacinto Machado",
+            "Maracajá",
+            "Meleiro",
+            "Morro Grande",
+            "Passo de Torres",
+            "Praia Grande",
+            "Santa Rosa do Sul",
+            "São João do Sul",
+            "Sombrio",
+            "Timbé do Sul",
+            "Turvo"
+          ]
+        }
+      ]
+    }
+  ],
+  "municipios": {
+    "abdon_batista": {
+      "municipio": "Abdon Batista",
+      "municipio_key": "abdon_batista",
+      "microrregiao": "Curitibanos",
+      "microrregiao_codigo": "009",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "abelardo_luz": {
+      "municipio": "Abelardo Luz",
+      "municipio_key": "abelardo_luz",
+      "microrregiao": "Xanxerê",
+      "microrregiao_codigo": "003",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "agrolandia": {
+      "municipio": "Agrolândia",
+      "municipio_key": "agrolandia",
+      "microrregiao": "Ituporanga",
+      "microrregiao_codigo": "014",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "agronomica": {
+      "municipio": "Agronômica",
+      "municipio_key": "agronomica",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "agua_doce": {
+      "municipio": "Água Doce",
+      "municipio_key": "agua_doce",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "aguas_de_chapeco": {
+      "municipio": "Águas de Chapecó",
+      "municipio_key": "aguas_de_chapeco",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "aguas_frias": {
+      "municipio": "Águas Frias",
+      "municipio_key": "aguas_frias",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "aguas_mornas": {
+      "municipio": "Águas Mornas",
+      "municipio_key": "aguas_mornas",
+      "microrregiao": "Tabuleiro",
+      "microrregiao_codigo": "017",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "alfredo_wagner": {
+      "municipio": "Alfredo Wagner",
+      "municipio_key": "alfredo_wagner",
+      "microrregiao": "Tabuleiro",
+      "microrregiao_codigo": "017",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "alto_bela_vista": {
+      "municipio": "Alto Bela Vista",
+      "municipio_key": "alto_bela_vista",
+      "microrregiao": "Concórdia",
+      "microrregiao_codigo": "005",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "anchieta": {
+      "municipio": "Anchieta",
+      "municipio_key": "anchieta",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "angelina": {
+      "municipio": "Angelina",
+      "municipio_key": "angelina",
+      "microrregiao": "Tijucas",
+      "microrregiao_codigo": "015",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "anita_garibaldi": {
+      "municipio": "Anita Garibaldi",
+      "municipio_key": "anita_garibaldi",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "anitapolis": {
+      "municipio": "Anitápolis",
+      "municipio_key": "anitapolis",
+      "microrregiao": "Tabuleiro",
+      "microrregiao_codigo": "017",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "antonio_carlos": {
+      "municipio": "Antônio Carlos",
+      "municipio_key": "antonio_carlos",
+      "microrregiao": "Florianópolis",
+      "microrregiao_codigo": "016",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "apiuna": {
+      "municipio": "Apiúna",
+      "municipio_key": "apiuna",
+      "microrregiao": "Blumenau",
+      "microrregiao_codigo": "012",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "arabuta": {
+      "municipio": "Arabutã",
+      "municipio_key": "arabuta",
+      "microrregiao": "Concórdia",
+      "microrregiao_codigo": "005",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "araquari": {
+      "municipio": "Araquari",
+      "municipio_key": "araquari",
+      "microrregiao": "Joinville",
+      "microrregiao_codigo": "008",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "ararangua": {
+      "municipio": "Araranguá",
+      "municipio_key": "ararangua",
+      "microrregiao": "Araranguá",
+      "microrregiao_codigo": "020",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "armazem": {
+      "municipio": "Armazém",
+      "municipio_key": "armazem",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "arroio_trinta": {
+      "municipio": "Arroio Trinta",
+      "municipio_key": "arroio_trinta",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "arvoredo": {
+      "municipio": "Arvoredo",
+      "municipio_key": "arvoredo",
+      "microrregiao": "Concórdia",
+      "microrregiao_codigo": "005",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "ascurra": {
+      "municipio": "Ascurra",
+      "municipio_key": "ascurra",
+      "microrregiao": "Blumenau",
+      "microrregiao_codigo": "012",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "atalanta": {
+      "municipio": "Atalanta",
+      "municipio_key": "atalanta",
+      "microrregiao": "Ituporanga",
+      "microrregiao_codigo": "014",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "aurora": {
+      "municipio": "Aurora",
+      "municipio_key": "aurora",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "balneario_arroio_do_silva": {
+      "municipio": "Balneário Arroio do Silva",
+      "municipio_key": "balneario_arroio_do_silva",
+      "microrregiao": "Araranguá",
+      "microrregiao_codigo": "020",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "balneario_barra_do_sul": {
+      "municipio": "Balneário Barra do Sul",
+      "municipio_key": "balneario_barra_do_sul",
+      "microrregiao": "Joinville",
+      "microrregiao_codigo": "008",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "balneario_camboriu": {
+      "municipio": "Balneário Camboriú",
+      "municipio_key": "balneario_camboriu",
+      "microrregiao": "Itajaí",
+      "microrregiao_codigo": "013",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "balneario_gaivota": {
+      "municipio": "Balneário Gaivota",
+      "municipio_key": "balneario_gaivota",
+      "microrregiao": "Araranguá",
+      "microrregiao_codigo": "020",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "balneario_picarras": {
+      "municipio": "Balneário Piçarras",
+      "municipio_key": "balneario_picarras",
+      "microrregiao": "Itajaí",
+      "microrregiao_codigo": "013",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "balneario_rincao": {
+      "municipio": "Balneário Rincão",
+      "municipio_key": "balneario_rincao",
+      "microrregiao": "Criciúma",
+      "microrregiao_codigo": "019",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "bandeirante": {
+      "municipio": "Bandeirante",
+      "municipio_key": "bandeirante",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "barra_bonita": {
+      "municipio": "Barra Bonita",
+      "municipio_key": "barra_bonita",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "barra_velha": {
+      "municipio": "Barra Velha",
+      "municipio_key": "barra_velha",
+      "microrregiao": "Itajaí",
+      "microrregiao_codigo": "013",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "bela_vista_do_toldo": {
+      "municipio": "Bela Vista do Toldo",
+      "municipio_key": "bela_vista_do_toldo",
+      "microrregiao": "Canoinhas",
+      "microrregiao_codigo": "006",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "belmonte": {
+      "municipio": "Belmonte",
+      "municipio_key": "belmonte",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "benedito_novo": {
+      "municipio": "Benedito Novo",
+      "municipio_key": "benedito_novo",
+      "microrregiao": "Blumenau",
+      "microrregiao_codigo": "012",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "biguacu": {
+      "municipio": "Biguaçu",
+      "municipio_key": "biguacu",
+      "microrregiao": "Florianópolis",
+      "microrregiao_codigo": "016",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "blumenau": {
+      "municipio": "Blumenau",
+      "municipio_key": "blumenau",
+      "microrregiao": "Blumenau",
+      "microrregiao_codigo": "012",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "bocaina_do_sul": {
+      "municipio": "Bocaina do Sul",
+      "municipio_key": "bocaina_do_sul",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "bom_jardim_da_serra": {
+      "municipio": "Bom Jardim da Serra",
+      "municipio_key": "bom_jardim_da_serra",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "bom_jesus": {
+      "municipio": "Bom Jesus",
+      "municipio_key": "bom_jesus",
+      "microrregiao": "Xanxerê",
+      "microrregiao_codigo": "003",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "bom_jesus_do_oeste": {
+      "municipio": "Bom Jesus do Oeste",
+      "municipio_key": "bom_jesus_do_oeste",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "bom_retiro": {
+      "municipio": "Bom Retiro",
+      "municipio_key": "bom_retiro",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "bombinhas": {
+      "municipio": "Bombinhas",
+      "municipio_key": "bombinhas",
+      "microrregiao": "Itajaí",
+      "microrregiao_codigo": "013",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "botuvera": {
+      "municipio": "Botuverá",
+      "municipio_key": "botuvera",
+      "microrregiao": "Blumenau",
+      "microrregiao_codigo": "012",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "braco_do_norte": {
+      "municipio": "Braço do Norte",
+      "municipio_key": "braco_do_norte",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "braco_do_trombudo": {
+      "municipio": "Braço do Trombudo",
+      "municipio_key": "braco_do_trombudo",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "brunopolis": {
+      "municipio": "Brunópolis",
+      "municipio_key": "brunopolis",
+      "microrregiao": "Curitibanos",
+      "microrregiao_codigo": "009",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "brusque": {
+      "municipio": "Brusque",
+      "municipio_key": "brusque",
+      "microrregiao": "Blumenau",
+      "microrregiao_codigo": "012",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "cacador": {
+      "municipio": "Caçador",
+      "municipio_key": "cacador",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "caibi": {
+      "municipio": "Caibi",
+      "municipio_key": "caibi",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "calmon": {
+      "municipio": "Calmon",
+      "municipio_key": "calmon",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "camboriu": {
+      "municipio": "Camboriú",
+      "municipio_key": "camboriu",
+      "microrregiao": "Itajaí",
+      "microrregiao_codigo": "013",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "campo_alegre": {
+      "municipio": "Campo Alegre",
+      "municipio_key": "campo_alegre",
+      "microrregiao": "São Bento do Sul",
+      "microrregiao_codigo": "007",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "campo_belo_do_sul": {
+      "municipio": "Campo Belo do Sul",
+      "municipio_key": "campo_belo_do_sul",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "campo_ere": {
+      "municipio": "Campo Erê",
+      "municipio_key": "campo_ere",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "campos_novos": {
+      "municipio": "Campos Novos",
+      "municipio_key": "campos_novos",
+      "microrregiao": "Curitibanos",
+      "microrregiao_codigo": "009",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "canelinha": {
+      "municipio": "Canelinha",
+      "municipio_key": "canelinha",
+      "microrregiao": "Tijucas",
+      "microrregiao_codigo": "015",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "canoinhas": {
+      "municipio": "Canoinhas",
+      "municipio_key": "canoinhas",
+      "microrregiao": "Canoinhas",
+      "microrregiao_codigo": "006",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "capao_alto": {
+      "municipio": "Capão Alto",
+      "municipio_key": "capao_alto",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "capinzal": {
+      "municipio": "Capinzal",
+      "municipio_key": "capinzal",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "capivari_de_baixo": {
+      "municipio": "Capivari de Baixo",
+      "municipio_key": "capivari_de_baixo",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "catanduvas": {
+      "municipio": "Catanduvas",
+      "municipio_key": "catanduvas",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "caxambu_do_sul": {
+      "municipio": "Caxambu do Sul",
+      "municipio_key": "caxambu_do_sul",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "celso_ramos": {
+      "municipio": "Celso Ramos",
+      "municipio_key": "celso_ramos",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "cerro_negro": {
+      "municipio": "Cerro Negro",
+      "municipio_key": "cerro_negro",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "chapadao_do_lageado": {
+      "municipio": "Chapadão do Lageado",
+      "municipio_key": "chapadao_do_lageado",
+      "microrregiao": "Ituporanga",
+      "microrregiao_codigo": "014",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "chapeco": {
+      "municipio": "Chapecó",
+      "municipio_key": "chapeco",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "cocal_do_sul": {
+      "municipio": "Cocal do Sul",
+      "municipio_key": "cocal_do_sul",
+      "microrregiao": "Criciúma",
+      "microrregiao_codigo": "019",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "concordia": {
+      "municipio": "Concórdia",
+      "municipio_key": "concordia",
+      "microrregiao": "Concórdia",
+      "microrregiao_codigo": "005",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "cordilheira_alta": {
+      "municipio": "Cordilheira Alta",
+      "municipio_key": "cordilheira_alta",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "coronel_freitas": {
+      "municipio": "Coronel Freitas",
+      "municipio_key": "coronel_freitas",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "coronel_martins": {
+      "municipio": "Coronel Martins",
+      "municipio_key": "coronel_martins",
+      "microrregiao": "Xanxerê",
+      "microrregiao_codigo": "003",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "correia_pinto": {
+      "municipio": "Correia Pinto",
+      "municipio_key": "correia_pinto",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "corupa": {
+      "municipio": "Corupá",
+      "municipio_key": "corupa",
+      "microrregiao": "Joinville",
+      "microrregiao_codigo": "008",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "criciuma": {
+      "municipio": "Criciúma",
+      "municipio_key": "criciuma",
+      "microrregiao": "Criciúma",
+      "microrregiao_codigo": "019",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "cunha_pora": {
+      "municipio": "Cunha Porã",
+      "municipio_key": "cunha_pora",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "cunhatai": {
+      "municipio": "Cunhataí",
+      "municipio_key": "cunhatai",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "curitibanos": {
+      "municipio": "Curitibanos",
+      "municipio_key": "curitibanos",
+      "microrregiao": "Curitibanos",
+      "microrregiao_codigo": "009",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "descanso": {
+      "municipio": "Descanso",
+      "municipio_key": "descanso",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "dionisio_cerqueira": {
+      "municipio": "Dionísio Cerqueira",
+      "municipio_key": "dionisio_cerqueira",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "dona_emma": {
+      "municipio": "Dona Emma",
+      "municipio_key": "dona_emma",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "doutor_pedrinho": {
+      "municipio": "Doutor Pedrinho",
+      "municipio_key": "doutor_pedrinho",
+      "microrregiao": "Blumenau",
+      "microrregiao_codigo": "012",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "entre_rios": {
+      "municipio": "Entre Rios",
+      "municipio_key": "entre_rios",
+      "microrregiao": "Xanxerê",
+      "microrregiao_codigo": "003",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "ermo": {
+      "municipio": "Ermo",
+      "municipio_key": "ermo",
+      "microrregiao": "Araranguá",
+      "microrregiao_codigo": "020",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "erval_velho": {
+      "municipio": "Erval Velho",
+      "municipio_key": "erval_velho",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "faxinal_dos_guedes": {
+      "municipio": "Faxinal dos Guedes",
+      "municipio_key": "faxinal_dos_guedes",
+      "microrregiao": "Xanxerê",
+      "microrregiao_codigo": "003",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "flor_do_sertao": {
+      "municipio": "Flor do Sertão",
+      "municipio_key": "flor_do_sertao",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "florianopolis": {
+      "municipio": "Florianópolis",
+      "municipio_key": "florianopolis",
+      "microrregiao": "Florianópolis",
+      "microrregiao_codigo": "016",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "formosa_do_sul": {
+      "municipio": "Formosa do Sul",
+      "municipio_key": "formosa_do_sul",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "forquilhinha": {
+      "municipio": "Forquilhinha",
+      "municipio_key": "forquilhinha",
+      "microrregiao": "Criciúma",
+      "microrregiao_codigo": "019",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "fraiburgo": {
+      "municipio": "Fraiburgo",
+      "municipio_key": "fraiburgo",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "frei_rogerio": {
+      "municipio": "Frei Rogério",
+      "municipio_key": "frei_rogerio",
+      "microrregiao": "Curitibanos",
+      "microrregiao_codigo": "009",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "galvao": {
+      "municipio": "Galvão",
+      "municipio_key": "galvao",
+      "microrregiao": "Xanxerê",
+      "microrregiao_codigo": "003",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "garopaba": {
+      "municipio": "Garopaba",
+      "municipio_key": "garopaba",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "garuva": {
+      "municipio": "Garuva",
+      "municipio_key": "garuva",
+      "microrregiao": "Joinville",
+      "microrregiao_codigo": "008",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "gaspar": {
+      "municipio": "Gaspar",
+      "municipio_key": "gaspar",
+      "microrregiao": "Blumenau",
+      "microrregiao_codigo": "012",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "governador_celso_ramos": {
+      "municipio": "Governador Celso Ramos",
+      "municipio_key": "governador_celso_ramos",
+      "microrregiao": "Florianópolis",
+      "microrregiao_codigo": "016",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "grao_para": {
+      "municipio": "Grão-Pará",
+      "municipio_key": "grao_para",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "gravatal": {
+      "municipio": "Gravatal",
+      "municipio_key": "gravatal",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "guabiruba": {
+      "municipio": "Guabiruba",
+      "municipio_key": "guabiruba",
+      "microrregiao": "Blumenau",
+      "microrregiao_codigo": "012",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "guaraciaba": {
+      "municipio": "Guaraciaba",
+      "municipio_key": "guaraciaba",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "guaramirim": {
+      "municipio": "Guaramirim",
+      "municipio_key": "guaramirim",
+      "microrregiao": "Joinville",
+      "microrregiao_codigo": "008",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "guaruja_do_sul": {
+      "municipio": "Guarujá do Sul",
+      "municipio_key": "guaruja_do_sul",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "guatambu": {
+      "municipio": "Guatambu",
+      "municipio_key": "guatambu",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "herval_d_oeste": {
+      "municipio": "Herval d'Oeste",
+      "municipio_key": "herval_d_oeste",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "ibiam": {
+      "municipio": "Ibiam",
+      "municipio_key": "ibiam",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "ibicare": {
+      "municipio": "Ibicaré",
+      "municipio_key": "ibicare",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "ibirama": {
+      "municipio": "Ibirama",
+      "municipio_key": "ibirama",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "icara": {
+      "municipio": "Içara",
+      "municipio_key": "icara",
+      "microrregiao": "Criciúma",
+      "microrregiao_codigo": "019",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "ilhota": {
+      "municipio": "Ilhota",
+      "municipio_key": "ilhota",
+      "microrregiao": "Itajaí",
+      "microrregiao_codigo": "013",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "imarui": {
+      "municipio": "Imaruí",
+      "municipio_key": "imarui",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "imbituba": {
+      "municipio": "Imbituba",
+      "municipio_key": "imbituba",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "imbuia": {
+      "municipio": "Imbuia",
+      "municipio_key": "imbuia",
+      "microrregiao": "Ituporanga",
+      "microrregiao_codigo": "014",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "indaial": {
+      "municipio": "Indaial",
+      "municipio_key": "indaial",
+      "microrregiao": "Blumenau",
+      "microrregiao_codigo": "012",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "iomere": {
+      "municipio": "Iomerê",
+      "municipio_key": "iomere",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "ipira": {
+      "municipio": "Ipira",
+      "municipio_key": "ipira",
+      "microrregiao": "Concórdia",
+      "microrregiao_codigo": "005",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "ipora_do_oeste": {
+      "municipio": "Iporã do Oeste",
+      "municipio_key": "ipora_do_oeste",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "ipuacu": {
+      "municipio": "Ipuaçu",
+      "municipio_key": "ipuacu",
+      "microrregiao": "Xanxerê",
+      "microrregiao_codigo": "003",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "ipumirim": {
+      "municipio": "Ipumirim",
+      "municipio_key": "ipumirim",
+      "microrregiao": "Concórdia",
+      "microrregiao_codigo": "005",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "iraceminha": {
+      "municipio": "Iraceminha",
+      "municipio_key": "iraceminha",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "irani": {
+      "municipio": "Irani",
+      "municipio_key": "irani",
+      "microrregiao": "Concórdia",
+      "microrregiao_codigo": "005",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "irati": {
+      "municipio": "Irati",
+      "municipio_key": "irati",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "irineopolis": {
+      "municipio": "Irineópolis",
+      "municipio_key": "irineopolis",
+      "microrregiao": "Canoinhas",
+      "microrregiao_codigo": "006",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "ita": {
+      "municipio": "Itá",
+      "municipio_key": "ita",
+      "microrregiao": "Concórdia",
+      "microrregiao_codigo": "005",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "itaiopolis": {
+      "municipio": "Itaiópolis",
+      "municipio_key": "itaiopolis",
+      "microrregiao": "Canoinhas",
+      "microrregiao_codigo": "006",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "itajai": {
+      "municipio": "Itajaí",
+      "municipio_key": "itajai",
+      "microrregiao": "Itajaí",
+      "microrregiao_codigo": "013",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "itapema": {
+      "municipio": "Itapema",
+      "municipio_key": "itapema",
+      "microrregiao": "Itajaí",
+      "microrregiao_codigo": "013",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "itapiranga": {
+      "municipio": "Itapiranga",
+      "municipio_key": "itapiranga",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "itapoa": {
+      "municipio": "Itapoá",
+      "municipio_key": "itapoa",
+      "microrregiao": "Joinville",
+      "microrregiao_codigo": "008",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "ituporanga": {
+      "municipio": "Ituporanga",
+      "municipio_key": "ituporanga",
+      "microrregiao": "Ituporanga",
+      "microrregiao_codigo": "014",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "jabora": {
+      "municipio": "Jaborá",
+      "municipio_key": "jabora",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "jacinto_machado": {
+      "municipio": "Jacinto Machado",
+      "municipio_key": "jacinto_machado",
+      "microrregiao": "Araranguá",
+      "microrregiao_codigo": "020",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "jaguaruna": {
+      "municipio": "Jaguaruna",
+      "municipio_key": "jaguaruna",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "jaragua_do_sul": {
+      "municipio": "Jaraguá do Sul",
+      "municipio_key": "jaragua_do_sul",
+      "microrregiao": "Joinville",
+      "microrregiao_codigo": "008",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "jardinopolis": {
+      "municipio": "Jardinópolis",
+      "municipio_key": "jardinopolis",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "joacaba": {
+      "municipio": "Joaçaba",
+      "municipio_key": "joacaba",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "joinville": {
+      "municipio": "Joinville",
+      "municipio_key": "joinville",
+      "microrregiao": "Joinville",
+      "microrregiao_codigo": "008",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "jose_boiteux": {
+      "municipio": "José Boiteux",
+      "municipio_key": "jose_boiteux",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "jupia": {
+      "municipio": "Jupiá",
+      "municipio_key": "jupia",
+      "microrregiao": "Xanxerê",
+      "microrregiao_codigo": "003",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "lacerdopolis": {
+      "municipio": "Lacerdópolis",
+      "municipio_key": "lacerdopolis",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "lages": {
+      "municipio": "Lages",
+      "municipio_key": "lages",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "laguna": {
+      "municipio": "Laguna",
+      "municipio_key": "laguna",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "lajeado_grande": {
+      "municipio": "Lajeado Grande",
+      "municipio_key": "lajeado_grande",
+      "microrregiao": "Xanxerê",
+      "microrregiao_codigo": "003",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "laurentino": {
+      "municipio": "Laurentino",
+      "municipio_key": "laurentino",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "lauro_muller": {
+      "municipio": "Lauro Müller",
+      "municipio_key": "lauro_muller",
+      "microrregiao": "Criciúma",
+      "microrregiao_codigo": "019",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "lebon_regis": {
+      "municipio": "Lebon Régis",
+      "municipio_key": "lebon_regis",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "leoberto_leal": {
+      "municipio": "Leoberto Leal",
+      "municipio_key": "leoberto_leal",
+      "microrregiao": "Tijucas",
+      "microrregiao_codigo": "015",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "lindoia_do_sul": {
+      "municipio": "Lindóia do Sul",
+      "municipio_key": "lindoia_do_sul",
+      "microrregiao": "Concórdia",
+      "microrregiao_codigo": "005",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "lontras": {
+      "municipio": "Lontras",
+      "municipio_key": "lontras",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "luiz_alves": {
+      "municipio": "Luiz Alves",
+      "municipio_key": "luiz_alves",
+      "microrregiao": "Blumenau",
+      "microrregiao_codigo": "012",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "luzerna": {
+      "municipio": "Luzerna",
+      "municipio_key": "luzerna",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "macieira": {
+      "municipio": "Macieira",
+      "municipio_key": "macieira",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "mafra": {
+      "municipio": "Mafra",
+      "municipio_key": "mafra",
+      "microrregiao": "Canoinhas",
+      "microrregiao_codigo": "006",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "major_gercino": {
+      "municipio": "Major Gercino",
+      "municipio_key": "major_gercino",
+      "microrregiao": "Tijucas",
+      "microrregiao_codigo": "015",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "major_vieira": {
+      "municipio": "Major Vieira",
+      "municipio_key": "major_vieira",
+      "microrregiao": "Canoinhas",
+      "microrregiao_codigo": "006",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "maracaja": {
+      "municipio": "Maracajá",
+      "municipio_key": "maracaja",
+      "microrregiao": "Araranguá",
+      "microrregiao_codigo": "020",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "maravilha": {
+      "municipio": "Maravilha",
+      "municipio_key": "maravilha",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "marema": {
+      "municipio": "Marema",
+      "municipio_key": "marema",
+      "microrregiao": "Xanxerê",
+      "microrregiao_codigo": "003",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "massaranduba": {
+      "municipio": "Massaranduba",
+      "municipio_key": "massaranduba",
+      "microrregiao": "Joinville",
+      "microrregiao_codigo": "008",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "matos_costa": {
+      "municipio": "Matos Costa",
+      "municipio_key": "matos_costa",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "meleiro": {
+      "municipio": "Meleiro",
+      "municipio_key": "meleiro",
+      "microrregiao": "Araranguá",
+      "microrregiao_codigo": "020",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "mirim_doce": {
+      "municipio": "Mirim Doce",
+      "municipio_key": "mirim_doce",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "modelo": {
+      "municipio": "Modelo",
+      "municipio_key": "modelo",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "mondai": {
+      "municipio": "Mondaí",
+      "municipio_key": "mondai",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "monte_carlo": {
+      "municipio": "Monte Carlo",
+      "municipio_key": "monte_carlo",
+      "microrregiao": "Curitibanos",
+      "microrregiao_codigo": "009",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "monte_castelo": {
+      "municipio": "Monte Castelo",
+      "municipio_key": "monte_castelo",
+      "microrregiao": "Canoinhas",
+      "microrregiao_codigo": "006",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "morro_da_fumaca": {
+      "municipio": "Morro da Fumaça",
+      "municipio_key": "morro_da_fumaca",
+      "microrregiao": "Criciúma",
+      "microrregiao_codigo": "019",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "morro_grande": {
+      "municipio": "Morro Grande",
+      "municipio_key": "morro_grande",
+      "microrregiao": "Araranguá",
+      "microrregiao_codigo": "020",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "navegantes": {
+      "municipio": "Navegantes",
+      "municipio_key": "navegantes",
+      "microrregiao": "Itajaí",
+      "microrregiao_codigo": "013",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "nova_erechim": {
+      "municipio": "Nova Erechim",
+      "municipio_key": "nova_erechim",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "nova_itaberaba": {
+      "municipio": "Nova Itaberaba",
+      "municipio_key": "nova_itaberaba",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "nova_trento": {
+      "municipio": "Nova Trento",
+      "municipio_key": "nova_trento",
+      "microrregiao": "Tijucas",
+      "microrregiao_codigo": "015",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "nova_veneza": {
+      "municipio": "Nova Veneza",
+      "municipio_key": "nova_veneza",
+      "microrregiao": "Criciúma",
+      "microrregiao_codigo": "019",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "novo_horizonte": {
+      "municipio": "Novo Horizonte",
+      "municipio_key": "novo_horizonte",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "orleans": {
+      "municipio": "Orleans",
+      "municipio_key": "orleans",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "otacilio_costa": {
+      "municipio": "Otacílio Costa",
+      "municipio_key": "otacilio_costa",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "ouro": {
+      "municipio": "Ouro",
+      "municipio_key": "ouro",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "ouro_verde": {
+      "municipio": "Ouro Verde",
+      "municipio_key": "ouro_verde",
+      "microrregiao": "Xanxerê",
+      "microrregiao_codigo": "003",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "paial": {
+      "municipio": "Paial",
+      "municipio_key": "paial",
+      "microrregiao": "Concórdia",
+      "microrregiao_codigo": "005",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "painel": {
+      "municipio": "Painel",
+      "municipio_key": "painel",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "palhoca": {
+      "municipio": "Palhoça",
+      "municipio_key": "palhoca",
+      "microrregiao": "Florianópolis",
+      "microrregiao_codigo": "016",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "palma_sola": {
+      "municipio": "Palma Sola",
+      "municipio_key": "palma_sola",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "palmeira": {
+      "municipio": "Palmeira",
+      "municipio_key": "palmeira",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "palmitos": {
+      "municipio": "Palmitos",
+      "municipio_key": "palmitos",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "papanduva": {
+      "municipio": "Papanduva",
+      "municipio_key": "papanduva",
+      "microrregiao": "Canoinhas",
+      "microrregiao_codigo": "006",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "paraiso": {
+      "municipio": "Paraíso",
+      "municipio_key": "paraiso",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "passo_de_torres": {
+      "municipio": "Passo de Torres",
+      "municipio_key": "passo_de_torres",
+      "microrregiao": "Araranguá",
+      "microrregiao_codigo": "020",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "passos_maia": {
+      "municipio": "Passos Maia",
+      "municipio_key": "passos_maia",
+      "microrregiao": "Xanxerê",
+      "microrregiao_codigo": "003",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "paulo_lopes": {
+      "municipio": "Paulo Lopes",
+      "municipio_key": "paulo_lopes",
+      "microrregiao": "Florianópolis",
+      "microrregiao_codigo": "016",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "pedras_grandes": {
+      "municipio": "Pedras Grandes",
+      "municipio_key": "pedras_grandes",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "penha": {
+      "municipio": "Penha",
+      "municipio_key": "penha",
+      "microrregiao": "Itajaí",
+      "microrregiao_codigo": "013",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "peritiba": {
+      "municipio": "Peritiba",
+      "municipio_key": "peritiba",
+      "microrregiao": "Concórdia",
+      "microrregiao_codigo": "005",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "pescaria_brava": {
+      "municipio": "Pescaria Brava",
+      "municipio_key": "pescaria_brava",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "petrolandia": {
+      "municipio": "Petrolândia",
+      "municipio_key": "petrolandia",
+      "microrregiao": "Ituporanga",
+      "microrregiao_codigo": "014",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "pinhalzinho": {
+      "municipio": "Pinhalzinho",
+      "municipio_key": "pinhalzinho",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "pinheiro_preto": {
+      "municipio": "Pinheiro Preto",
+      "municipio_key": "pinheiro_preto",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "piratuba": {
+      "municipio": "Piratuba",
+      "municipio_key": "piratuba",
+      "microrregiao": "Concórdia",
+      "microrregiao_codigo": "005",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "planalto_alegre": {
+      "municipio": "Planalto Alegre",
+      "municipio_key": "planalto_alegre",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "pomerode": {
+      "municipio": "Pomerode",
+      "municipio_key": "pomerode",
+      "microrregiao": "Blumenau",
+      "microrregiao_codigo": "012",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "ponte_alta": {
+      "municipio": "Ponte Alta",
+      "municipio_key": "ponte_alta",
+      "microrregiao": "Curitibanos",
+      "microrregiao_codigo": "009",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "ponte_alta_do_norte": {
+      "municipio": "Ponte Alta do Norte",
+      "municipio_key": "ponte_alta_do_norte",
+      "microrregiao": "Curitibanos",
+      "microrregiao_codigo": "009",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "ponte_serrada": {
+      "municipio": "Ponte Serrada",
+      "municipio_key": "ponte_serrada",
+      "microrregiao": "Xanxerê",
+      "microrregiao_codigo": "003",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "porto_belo": {
+      "municipio": "Porto Belo",
+      "municipio_key": "porto_belo",
+      "microrregiao": "Itajaí",
+      "microrregiao_codigo": "013",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "porto_uniao": {
+      "municipio": "Porto União",
+      "municipio_key": "porto_uniao",
+      "microrregiao": "Canoinhas",
+      "microrregiao_codigo": "006",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "pouso_redondo": {
+      "municipio": "Pouso Redondo",
+      "municipio_key": "pouso_redondo",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "praia_grande": {
+      "municipio": "Praia Grande",
+      "municipio_key": "praia_grande",
+      "microrregiao": "Araranguá",
+      "microrregiao_codigo": "020",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "presidente_castello_branco": {
+      "municipio": "Presidente Castello Branco",
+      "municipio_key": "presidente_castello_branco",
+      "microrregiao": "Concórdia",
+      "microrregiao_codigo": "005",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "presidente_getulio": {
+      "municipio": "Presidente Getúlio",
+      "municipio_key": "presidente_getulio",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "presidente_nereu": {
+      "municipio": "Presidente Nereu",
+      "municipio_key": "presidente_nereu",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "princesa": {
+      "municipio": "Princesa",
+      "municipio_key": "princesa",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "quilombo": {
+      "municipio": "Quilombo",
+      "municipio_key": "quilombo",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "rancho_queimado": {
+      "municipio": "Rancho Queimado",
+      "municipio_key": "rancho_queimado",
+      "microrregiao": "Tabuleiro",
+      "microrregiao_codigo": "017",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "rio_das_antas": {
+      "municipio": "Rio das Antas",
+      "municipio_key": "rio_das_antas",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "rio_do_campo": {
+      "municipio": "Rio do Campo",
+      "municipio_key": "rio_do_campo",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "rio_do_oeste": {
+      "municipio": "Rio do Oeste",
+      "municipio_key": "rio_do_oeste",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "rio_do_sul": {
+      "municipio": "Rio do Sul",
+      "municipio_key": "rio_do_sul",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "rio_dos_cedros": {
+      "municipio": "Rio dos Cedros",
+      "municipio_key": "rio_dos_cedros",
+      "microrregiao": "Blumenau",
+      "microrregiao_codigo": "012",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "rio_fortuna": {
+      "municipio": "Rio Fortuna",
+      "municipio_key": "rio_fortuna",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "rio_negrinho": {
+      "municipio": "Rio Negrinho",
+      "municipio_key": "rio_negrinho",
+      "microrregiao": "São Bento do Sul",
+      "microrregiao_codigo": "007",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "rio_rufino": {
+      "municipio": "Rio Rufino",
+      "municipio_key": "rio_rufino",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "riqueza": {
+      "municipio": "Riqueza",
+      "municipio_key": "riqueza",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "rodeio": {
+      "municipio": "Rodeio",
+      "municipio_key": "rodeio",
+      "microrregiao": "Blumenau",
+      "microrregiao_codigo": "012",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "romelandia": {
+      "municipio": "Romelândia",
+      "municipio_key": "romelandia",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "salete": {
+      "municipio": "Salete",
+      "municipio_key": "salete",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "saltinho": {
+      "municipio": "Saltinho",
+      "municipio_key": "saltinho",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "salto_veloso": {
+      "municipio": "Salto Veloso",
+      "municipio_key": "salto_veloso",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "sangao": {
+      "municipio": "Sangão",
+      "municipio_key": "sangao",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "santa_cecilia": {
+      "municipio": "Santa Cecília",
+      "municipio_key": "santa_cecilia",
+      "microrregiao": "Curitibanos",
+      "microrregiao_codigo": "009",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "santa_helena": {
+      "municipio": "Santa Helena",
+      "municipio_key": "santa_helena",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "santa_rosa_de_lima": {
+      "municipio": "Santa Rosa de Lima",
+      "municipio_key": "santa_rosa_de_lima",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "santa_rosa_do_sul": {
+      "municipio": "Santa Rosa do Sul",
+      "municipio_key": "santa_rosa_do_sul",
+      "microrregiao": "Araranguá",
+      "microrregiao_codigo": "020",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "santa_terezinha": {
+      "municipio": "Santa Terezinha",
+      "municipio_key": "santa_terezinha",
+      "microrregiao": "Canoinhas",
+      "microrregiao_codigo": "006",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "santa_terezinha_do_progresso": {
+      "municipio": "Santa Terezinha do Progresso",
+      "municipio_key": "santa_terezinha_do_progresso",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "santiago_do_sul": {
+      "municipio": "Santiago do Sul",
+      "municipio_key": "santiago_do_sul",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "santo_amaro_da_imperatriz": {
+      "municipio": "Santo Amaro da Imperatriz",
+      "municipio_key": "santo_amaro_da_imperatriz",
+      "microrregiao": "Florianópolis",
+      "microrregiao_codigo": "016",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "sao_bento_do_sul": {
+      "municipio": "São Bento do Sul",
+      "municipio_key": "sao_bento_do_sul",
+      "microrregiao": "São Bento do Sul",
+      "microrregiao_codigo": "007",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "sao_bernardino": {
+      "municipio": "São Bernardino",
+      "municipio_key": "sao_bernardino",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "sao_bonifacio": {
+      "municipio": "São Bonifácio",
+      "municipio_key": "sao_bonifacio",
+      "microrregiao": "Tabuleiro",
+      "microrregiao_codigo": "017",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "sao_carlos": {
+      "municipio": "São Carlos",
+      "municipio_key": "sao_carlos",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "sao_cristovao_do_sul": {
+      "municipio": "São Cristóvão do Sul",
+      "municipio_key": "sao_cristovao_do_sul",
+      "microrregiao": "Curitibanos",
+      "microrregiao_codigo": "009",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "sao_domingos": {
+      "municipio": "São Domingos",
+      "municipio_key": "sao_domingos",
+      "microrregiao": "Xanxerê",
+      "microrregiao_codigo": "003",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "sao_francisco_do_sul": {
+      "municipio": "São Francisco do Sul",
+      "municipio_key": "sao_francisco_do_sul",
+      "microrregiao": "Joinville",
+      "microrregiao_codigo": "008",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "sao_joao_batista": {
+      "municipio": "São João Batista",
+      "municipio_key": "sao_joao_batista",
+      "microrregiao": "Tijucas",
+      "microrregiao_codigo": "015",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "sao_joao_do_itaperiu": {
+      "municipio": "São João do Itaperiú",
+      "municipio_key": "sao_joao_do_itaperiu",
+      "microrregiao": "Itajaí",
+      "microrregiao_codigo": "013",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "sao_joao_do_oeste": {
+      "municipio": "São João do Oeste",
+      "municipio_key": "sao_joao_do_oeste",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "sao_joao_do_sul": {
+      "municipio": "São João do Sul",
+      "municipio_key": "sao_joao_do_sul",
+      "microrregiao": "Araranguá",
+      "microrregiao_codigo": "020",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "sao_joaquim": {
+      "municipio": "São Joaquim",
+      "municipio_key": "sao_joaquim",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "sao_jose": {
+      "municipio": "São José",
+      "municipio_key": "sao_jose",
+      "microrregiao": "Florianópolis",
+      "microrregiao_codigo": "016",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "sao_jose_do_cedro": {
+      "municipio": "São José do Cedro",
+      "municipio_key": "sao_jose_do_cedro",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "sao_jose_do_cerrito": {
+      "municipio": "São José do Cerrito",
+      "municipio_key": "sao_jose_do_cerrito",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "sao_lourenco_do_oeste": {
+      "municipio": "São Lourenço do Oeste",
+      "municipio_key": "sao_lourenco_do_oeste",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "sao_ludgero": {
+      "municipio": "São Ludgero",
+      "municipio_key": "sao_ludgero",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "sao_martinho": {
+      "municipio": "São Martinho",
+      "municipio_key": "sao_martinho",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "sao_miguel_da_boa_vista": {
+      "municipio": "São Miguel da Boa Vista",
+      "municipio_key": "sao_miguel_da_boa_vista",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "sao_miguel_do_oeste": {
+      "municipio": "São Miguel do Oeste",
+      "municipio_key": "sao_miguel_do_oeste",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "sao_pedro_de_alcantara": {
+      "municipio": "São Pedro de Alcântara",
+      "municipio_key": "sao_pedro_de_alcantara",
+      "microrregiao": "Florianópolis",
+      "microrregiao_codigo": "016",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "saudades": {
+      "municipio": "Saudades",
+      "municipio_key": "saudades",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "schroeder": {
+      "municipio": "Schroeder",
+      "municipio_key": "schroeder",
+      "microrregiao": "Joinville",
+      "microrregiao_codigo": "008",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "seara": {
+      "municipio": "Seara",
+      "municipio_key": "seara",
+      "microrregiao": "Concórdia",
+      "microrregiao_codigo": "005",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "serra_alta": {
+      "municipio": "Serra Alta",
+      "municipio_key": "serra_alta",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "sideropolis": {
+      "municipio": "Siderópolis",
+      "municipio_key": "sideropolis",
+      "microrregiao": "Criciúma",
+      "microrregiao_codigo": "019",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "sombrio": {
+      "municipio": "Sombrio",
+      "municipio_key": "sombrio",
+      "microrregiao": "Araranguá",
+      "microrregiao_codigo": "020",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "sul_brasil": {
+      "municipio": "Sul Brasil",
+      "municipio_key": "sul_brasil",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "taio": {
+      "municipio": "Taió",
+      "municipio_key": "taio",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "tangara": {
+      "municipio": "Tangará",
+      "municipio_key": "tangara",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "tigrinhos": {
+      "municipio": "Tigrinhos",
+      "municipio_key": "tigrinhos",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "tijucas": {
+      "municipio": "Tijucas",
+      "municipio_key": "tijucas",
+      "microrregiao": "Tijucas",
+      "microrregiao_codigo": "015",
+      "mesorregiao": "Grande Florianópolis",
+      "mesorregiao_codigo": "05"
+    },
+    "timbe_do_sul": {
+      "municipio": "Timbé do Sul",
+      "municipio_key": "timbe_do_sul",
+      "microrregiao": "Araranguá",
+      "microrregiao_codigo": "020",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "timbo": {
+      "municipio": "Timbó",
+      "municipio_key": "timbo",
+      "microrregiao": "Blumenau",
+      "microrregiao_codigo": "012",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "timbo_grande": {
+      "municipio": "Timbó Grande",
+      "municipio_key": "timbo_grande",
+      "microrregiao": "Canoinhas",
+      "microrregiao_codigo": "006",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "tres_barras": {
+      "municipio": "Três Barras",
+      "municipio_key": "tres_barras",
+      "microrregiao": "Canoinhas",
+      "microrregiao_codigo": "006",
+      "mesorregiao": "Norte Catarinense",
+      "mesorregiao_codigo": "02"
+    },
+    "treviso": {
+      "municipio": "Treviso",
+      "municipio_key": "treviso",
+      "microrregiao": "Criciúma",
+      "microrregiao_codigo": "019",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "treze_de_maio": {
+      "municipio": "Treze de Maio",
+      "municipio_key": "treze_de_maio",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "treze_tilias": {
+      "municipio": "Treze Tílias",
+      "municipio_key": "treze_tilias",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "trombudo_central": {
+      "municipio": "Trombudo Central",
+      "municipio_key": "trombudo_central",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "tubarao": {
+      "municipio": "Tubarão",
+      "municipio_key": "tubarao",
+      "microrregiao": "Tubarão",
+      "microrregiao_codigo": "018",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "tunapolis": {
+      "municipio": "Tunápolis",
+      "municipio_key": "tunapolis",
+      "microrregiao": "São Miguel do Oeste",
+      "microrregiao_codigo": "001",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "turvo": {
+      "municipio": "Turvo",
+      "municipio_key": "turvo",
+      "microrregiao": "Araranguá",
+      "microrregiao_codigo": "020",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "uniao_do_oeste": {
+      "municipio": "União do Oeste",
+      "municipio_key": "uniao_do_oeste",
+      "microrregiao": "Chapecó",
+      "microrregiao_codigo": "002",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "urubici": {
+      "municipio": "Urubici",
+      "municipio_key": "urubici",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "urupema": {
+      "municipio": "Urupema",
+      "municipio_key": "urupema",
+      "microrregiao": "Campos de Lages",
+      "microrregiao_codigo": "010",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "urussanga": {
+      "municipio": "Urussanga",
+      "municipio_key": "urussanga",
+      "microrregiao": "Criciúma",
+      "microrregiao_codigo": "019",
+      "mesorregiao": "Sul Catarinense",
+      "mesorregiao_codigo": "06"
+    },
+    "vargeao": {
+      "municipio": "Vargeão",
+      "municipio_key": "vargeao",
+      "microrregiao": "Xanxerê",
+      "microrregiao_codigo": "003",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "vargem": {
+      "municipio": "Vargem",
+      "municipio_key": "vargem",
+      "microrregiao": "Curitibanos",
+      "microrregiao_codigo": "009",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    },
+    "vargem_bonita": {
+      "municipio": "Vargem Bonita",
+      "municipio_key": "vargem_bonita",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "vidal_ramos": {
+      "municipio": "Vidal Ramos",
+      "municipio_key": "vidal_ramos",
+      "microrregiao": "Ituporanga",
+      "microrregiao_codigo": "014",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "videira": {
+      "municipio": "Videira",
+      "municipio_key": "videira",
+      "microrregiao": "Joaçaba",
+      "microrregiao_codigo": "004",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "vitor_meireles": {
+      "municipio": "Vitor Meireles",
+      "municipio_key": "vitor_meireles",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "witmarsum": {
+      "municipio": "Witmarsum",
+      "municipio_key": "witmarsum",
+      "microrregiao": "Rio do Sul",
+      "microrregiao_codigo": "011",
+      "mesorregiao": "Vale do Itajaí",
+      "mesorregiao_codigo": "04"
+    },
+    "xanxere": {
+      "municipio": "Xanxerê",
+      "municipio_key": "xanxere",
+      "microrregiao": "Xanxerê",
+      "microrregiao_codigo": "003",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "xavantina": {
+      "municipio": "Xavantina",
+      "municipio_key": "xavantina",
+      "microrregiao": "Concórdia",
+      "microrregiao_codigo": "005",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "xaxim": {
+      "municipio": "Xaxim",
+      "municipio_key": "xaxim",
+      "microrregiao": "Xanxerê",
+      "microrregiao_codigo": "003",
+      "mesorregiao": "Oeste Catarinense",
+      "mesorregiao_codigo": "01"
+    },
+    "zortea": {
+      "municipio": "Zortéa",
+      "municipio_key": "zortea",
+      "microrregiao": "Curitibanos",
+      "microrregiao_codigo": "009",
+      "mesorregiao": "Serrana",
+      "mesorregiao_codigo": "03"
+    }
+  }
+}

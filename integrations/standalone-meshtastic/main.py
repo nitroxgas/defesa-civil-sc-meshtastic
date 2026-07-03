@@ -25,6 +25,7 @@ sys.path.insert(0, str(PROJECT_ROOT))
 from core import (
     RSSParser,
     MessageFormatter,
+    RegionFilter,
     MAX_HISTORY,
     CHANNEL_LINK_DELAY_SECONDS,
     CHANNEL_ALERT_BATCH_DELAY_SECONDS,
@@ -61,10 +62,25 @@ class DefesaCivilAlertasStandalone:
             interval_minutes=self.config.get("feed.interval_minutes") or None
         )
         self.formatter = MessageFormatter()
+        self.region_filter = RegionFilter(
+            self.config.get_region_filter_config()
+        )
+        valid, errors = self.region_filter.validate_config()
+        if not valid:
+            for error in errors:
+                self.logger.warning(error)
         self.mesh = None
         self.running = False
         self.shutdown_requested = False
         self.next_check_time = time.time()
+        
+        # Monitoramento e reconexão automática
+        self.connection_check_interval = 30  # segundos
+        self.last_connection_check = 0.0
+        self.reconnect_attempts = 0
+        self.reconnect_backoff_seconds = 30  # inicia em 30s
+        self.max_reconnect_backoff_seconds = 300  # máximo 5 minutos
+        self.last_reconnect_attempt = 0.0
     
     def _setup_logging(self) -> None:
         """Configura logging da aplicação."""
@@ -113,6 +129,75 @@ class DefesaCivilAlertasStandalone:
             self.logger.debug("Callback de mensagens diretas registrado")
         
         return True
+    
+    def check_meshtastic_connection(self) -> bool:
+        """Verifica se a conexão Meshtastic está ativa."""
+        if not self.mesh:
+            return False
+        if self.mesh.is_connected():
+            # Resetar backoff em caso de conexão estável
+            if self.reconnect_attempts > 0:
+                self.logger.info("Conexão Meshtastic restaurada")
+            self.reconnect_attempts = 0
+            self.reconnect_backoff_seconds = 30
+            return True
+        return False
+    
+    def reconnect_meshtastic(self) -> bool:
+        """
+        Tenta reconectar ao Meshtastic com backoff exponencial.
+        
+        Inicia em 30s e dobra até o máximo de 5 minutos (300s),
+        tentando indefinidamente.
+        
+        Returns:
+            True se reconectado com sucesso, False caso contrário.
+        """
+        now = time.time()
+        elapsed = now - self.last_reconnect_attempt
+        
+        if elapsed < self.reconnect_backoff_seconds:
+            return False
+        
+        self.last_reconnect_attempt = now
+        self.reconnect_attempts += 1
+        
+        self.logger.warning(
+            f"Tentativa de reconexão {self.reconnect_attempts} ao Meshtastic "
+            f"(próxima em {self.reconnect_backoff_seconds}s)"
+        )
+        
+        try:
+            if self.mesh:
+                self.mesh.disconnect()
+        except Exception as e:
+            self.logger.debug(f"Erro ao desconectar antes de reconectar: {e}")
+        
+        try:
+            if self.mesh and self.mesh.connect():
+                self.logger.info("Reconectado ao Meshtastic com sucesso")
+                self.reconnect_attempts = 0
+                self.reconnect_backoff_seconds = 30
+                self.last_reconnect_attempt = 0.0
+                
+                # Re-registrar callback de mensagens diretas
+                if self.config.get("direct_message.enabled", True):
+                    self.mesh.register_receive_callback(self.on_message_received)
+                    self.logger.debug("Callback de mensagens diretas re-registrado")
+                
+                return True
+        except Exception as e:
+            self.logger.error(f"Erro durante tentativa de reconexão: {e}")
+        
+        # Backoff exponencial com limite de 5 minutos
+        self.reconnect_backoff_seconds = min(
+            self.reconnect_backoff_seconds * 2,
+            self.max_reconnect_backoff_seconds
+        )
+        self.logger.warning(
+            f"Reconexão falhou. Próxima tentativa em {self.reconnect_backoff_seconds}s"
+        )
+        return False
     
     def on_message_received(self, packet: dict, interface) -> None:
         """
@@ -223,9 +308,13 @@ class DefesaCivilAlertasStandalone:
                 self.logger.debug("DM sem remetente ignorado")
                 return
             
-            # Obter alertas recentes
+            # Obter alertas recentes e aplicar filtro regional
             max_alerts = self.config.get("direct_message.max_alerts_reply", 3)
-            alerts = self.state_manager.get_latest_alerts(max_alerts)
+            latest_alerts = self.state_manager.get_latest_alerts(max_alerts * 2)
+            alerts = [
+                alert for alert in latest_alerts
+                if self.region_filter.should_send(alert)
+            ][:max_alerts]
             
             if not alerts:
                 self.logger.info(f"Sem alertas para responder a {from_id_str}")
@@ -355,8 +444,18 @@ class DefesaCivilAlertasStandalone:
                     )
                     continue
                 
-                if self.state_manager.is_guid_sent(guid):
-                    self.logger.debug(f"Alerta já enviado: {guid}")
+                if self.state_manager.is_guid_processed(guid):
+                    self.logger.debug(f"Alerta já processado: {guid}")
+                    continue
+                
+                # Aplicar filtro regional
+                if not self.region_filter.should_send(item):
+                    matches = self.region_filter.get_matches(item)
+                    self.logger.info(
+                        f"Alerta ignorado por filtro regional: {guid} "
+                        f"(matches: {matches})"
+                    )
+                    self.state_manager.add_ignored_guid(guid)
                     continue
                 
                 # Enviar alerta
@@ -455,6 +554,12 @@ class DefesaCivilAlertasStandalone:
         while self.running:
             try:
                 now = time.time()
+                
+                # Monitorar conexão com Meshtastic periodicamente
+                if now - self.last_connection_check >= self.connection_check_interval:
+                    self.last_connection_check = now
+                    if not self.check_meshtastic_connection():
+                        self.reconnect_meshtastic()
                 
                 if now >= self.next_check_time:
                     self.check_feed()

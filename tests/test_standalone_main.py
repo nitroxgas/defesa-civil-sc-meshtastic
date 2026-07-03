@@ -15,6 +15,7 @@ sys.path.insert(0, str(MAIN_DIR / "src"))
 with patch("logging.basicConfig"):
     import main as main_module
     from main import DefesaCivilAlertasStandalone
+from core import RegionFilter
 
 
 @pytest.fixture(autouse=True)
@@ -197,3 +198,136 @@ def test_resolve_channel_id_returns_default_when_not_connected():
 
     connector = MeshtasticConnector(connection_type="tcp", tcp_host="127.0.0.1")
     assert connector.resolve_channel_id("BitDevs", default=5) == 5
+
+
+def test_check_feed_respects_region_filter(app, caplog):
+    """Verifica que check_feed ignora alertas fora das regiões configuradas."""
+    app.running = True
+    app.region_filter = RegionFilter(
+        {
+            "enabled": True,
+            "mode": "both",
+            "mesorregioes": ["Grande Florianópolis"],
+            "municipios": [],
+        }
+    )
+    app.rss_parser.parse_and_fetch = MagicMock(
+        return_value=(
+            [
+                {
+                    "guid": "g1",
+                    "title": "ALERTA - Temporal em Chapeco",
+                    "content": "Alerta para Oeste Catarinense.",
+                    "link": "http://example.com/1",
+                    "pub_date": "Mon, 01 Jan 2024 12:00:00 GMT",
+                    "seen_at": "2024-01-01T12:00:00",
+                },
+                {
+                    "guid": "g2",
+                    "title": "ALERTA - Temporal em Florianopolis",
+                    "content": "Alerta para Grande Florianopolis.",
+                    "link": "http://example.com/2",
+                    "pub_date": "Mon, 01 Jan 2024 12:00:00 GMT",
+                    "seen_at": "2024-01-01T12:00:00",
+                },
+            ],
+            None,
+            1,
+            15,
+        )
+    )
+    app.mesh.send_to_channel.return_value = True
+
+    with caplog.at_level("INFO"):
+        app.check_feed()
+
+    assert app.state_manager.is_guid_ignored("g1")
+    assert app.state_manager.is_guid_sent("g2")
+    assert "Alerta ignorado por filtro regional" in caplog.text
+
+
+def test_check_meshtastic_connection_resets_backoff_when_connected(app):
+    """Verifica que conexão ativa reseta contador de reconexão."""
+    app.mesh.is_connected.return_value = True
+    app.reconnect_attempts = 2
+    app.reconnect_backoff_seconds = 120
+
+    assert app.check_meshtastic_connection() is True
+    assert app.reconnect_attempts == 0
+    assert app.reconnect_backoff_seconds == 30
+
+
+def test_check_meshtastic_connection_returns_false_when_disconnected(app):
+    """Verifica que detecta desconexão."""
+    app.mesh.is_connected.return_value = False
+    assert app.check_meshtastic_connection() is False
+
+
+def test_reconnect_meshtastic_respects_backoff(app, monkeypatch):
+    """Verifica que reconexão respeita intervalo de backoff."""
+    app.mesh.is_connected.return_value = False
+    app.mesh.connect.return_value = False
+    app.reconnect_backoff_seconds = 30
+    app.last_reconnect_attempt = 1000.0
+
+    current_time = 1000.0
+    monkeypatch.setattr(
+        main_module.time, "time", lambda: current_time
+    )
+
+    # Antes do backoff, não deve tentar
+    assert app.reconnect_meshtastic() is False
+    app.mesh.connect.assert_not_called()
+
+    # Depois do backoff, deve tentar
+    current_time = 1035.0
+    assert app.reconnect_meshtastic() is False
+    app.mesh.connect.assert_called_once()
+
+
+def test_reconnect_meshtastic_doubles_backoff_on_failure(app, monkeypatch):
+    """Verifica que backoff dobra após falha."""
+    app.mesh.is_connected.return_value = False
+    app.mesh.connect.return_value = False
+    app.reconnect_backoff_seconds = 30
+    app.last_reconnect_attempt = 0.0
+
+    current_time = 1000.0
+    monkeypatch.setattr(main_module.time, "time", lambda: current_time)
+
+    app.reconnect_meshtastic()
+    assert app.reconnect_backoff_seconds == 60
+    current_time += 60
+
+    app.reconnect_meshtastic()
+    assert app.reconnect_backoff_seconds == 120
+    current_time += 120
+
+    app.reconnect_meshtastic()
+    assert app.reconnect_backoff_seconds == 240
+    current_time += 240
+
+    app.reconnect_meshtastic()
+    assert app.reconnect_backoff_seconds == 300
+    current_time += 300
+
+    app.reconnect_meshtastic()
+    assert app.reconnect_backoff_seconds == 300
+
+
+def test_reconnect_meshtastic_reregisters_callback_on_success(app, monkeypatch):
+    """Verifica que callback é re-registrado após reconexão bem-sucedida."""
+    app.mesh.is_connected.return_value = False
+    app.mesh.connect.return_value = True
+    app.reconnect_backoff_seconds = 60
+    app.reconnect_attempts = 1
+    app.last_reconnect_attempt = 0.0
+
+    monkeypatch.setattr(main_module.time, "time", lambda: 1000.0)
+
+    assert app.reconnect_meshtastic() is True
+    assert app.reconnect_attempts == 0
+    assert app.reconnect_backoff_seconds == 30
+    app.mesh.register_receive_callback.assert_called_with(
+        app.on_message_received
+    )

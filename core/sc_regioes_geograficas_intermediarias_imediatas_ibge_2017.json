@@ -1,0 +1,4999 @@
+{
+  "metadata": {
+    "titulo": "Regiões Geográficas Intermediárias e Imediatas de Santa Catarina por município",
+    "uf": "SC",
+    "unidade_federativa": "Santa Catarina",
+    "fonte": "IBGE - Divisão Regional do Brasil em Regiões Geográficas Imediatas e Regiões Geográficas Intermediárias 2017",
+    "arquivo_fonte": "regioes_geograficas_composicao_por_municipios_2017_20180911.xlsx",
+    "url_fonte": "https://geoftp.ibge.gov.br/organizacao_do_territorio/divisao_regional/divisao_regional_do_brasil/divisao_regional_do_brasil_em_regioes_geograficas_2017/tabelas/regioes_geograficas_composicao_por_municipios_2017_20180911.xlsx",
+    "data_atualizacao_fonte": "2018-09-11",
+    "quadro_regional": "2017",
+    "observacao": "Segundo o IBGE, a Divisão Regional do Brasil em Regiões Geográficas 2017 é o quadro regional vigente para divulgação estatística do IBGE e substitui as microrregiões e mesorregiões geográficas de 1990.",
+    "total_municipios": 295,
+    "total_regioes_imediatas": 24,
+    "total_regioes_intermediarias": 7,
+    "schema": {
+      "regioes_intermediarias": "Lista hierárquica: região intermediária -> regiões imediatas -> municípios.",
+      "municipios": "Índice direto por municipio_key normalizada, útil para lookup em Python."
+    }
+  },
+  "regioes_intermediarias": [
+    {
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201",
+      "regioes_imediatas": [
+        {
+          "regiao_imediata": "Florianópolis",
+          "regiao_imediata_key": "florianopolis",
+          "regiao_imediata_codigo_ibge": "420001",
+          "municipios": [
+            {
+              "municipio": "Alfredo Wagner",
+              "municipio_key": "alfredo_wagner",
+              "municipio_codigo_ibge": "4200705"
+            },
+            {
+              "municipio": "Angelina",
+              "municipio_key": "angelina",
+              "municipio_codigo_ibge": "4200903"
+            },
+            {
+              "municipio": "Anitápolis",
+              "municipio_key": "anitapolis",
+              "municipio_codigo_ibge": "4201109"
+            },
+            {
+              "municipio": "Antônio Carlos",
+              "municipio_key": "antonio_carlos",
+              "municipio_codigo_ibge": "4201208"
+            },
+            {
+              "municipio": "Biguaçu",
+              "municipio_key": "biguacu",
+              "municipio_codigo_ibge": "4202305"
+            },
+            {
+              "municipio": "Florianópolis",
+              "municipio_key": "florianopolis",
+              "municipio_codigo_ibge": "4205407"
+            },
+            {
+              "municipio": "Garopaba",
+              "municipio_key": "garopaba",
+              "municipio_codigo_ibge": "4205704"
+            },
+            {
+              "municipio": "Governador Celso Ramos",
+              "municipio_key": "governador_celso_ramos",
+              "municipio_codigo_ibge": "4206009"
+            },
+            {
+              "municipio": "Imbituba",
+              "municipio_key": "imbituba",
+              "municipio_codigo_ibge": "4207304"
+            },
+            {
+              "municipio": "Palhoça",
+              "municipio_key": "palhoca",
+              "municipio_codigo_ibge": "4211900"
+            },
+            {
+              "municipio": "Paulo Lopes",
+              "municipio_key": "paulo_lopes",
+              "municipio_codigo_ibge": "4212304"
+            },
+            {
+              "municipio": "Rancho Queimado",
+              "municipio_key": "rancho_queimado",
+              "municipio_codigo_ibge": "4214300"
+            },
+            {
+              "municipio": "Santo Amaro da Imperatriz",
+              "municipio_key": "santo_amaro_da_imperatriz",
+              "municipio_codigo_ibge": "4215703"
+            },
+            {
+              "municipio": "São Bonifácio",
+              "municipio_key": "sao_bonifacio",
+              "municipio_codigo_ibge": "4215901"
+            },
+            {
+              "municipio": "São José",
+              "municipio_key": "sao_jose",
+              "municipio_codigo_ibge": "4216602"
+            },
+            {
+              "municipio": "São Pedro de Alcântara",
+              "municipio_key": "sao_pedro_de_alcantara",
+              "municipio_codigo_ibge": "4217253"
+            },
+            {
+              "municipio": "Águas Mornas",
+              "municipio_key": "aguas_mornas",
+              "municipio_codigo_ibge": "4200606"
+            }
+          ],
+          "total_municipios": 17
+        }
+      ],
+      "total_regioes_imediatas": 1,
+      "total_municipios": 17
+    },
+    {
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202",
+      "regioes_imediatas": [
+        {
+          "regiao_imediata": "Criciúma",
+          "regiao_imediata_key": "criciuma",
+          "regiao_imediata_codigo_ibge": "420002",
+          "municipios": [
+            {
+              "municipio": "Balneário Rincão",
+              "municipio_key": "balneario_rincao",
+              "municipio_codigo_ibge": "4220000"
+            },
+            {
+              "municipio": "Cocal do Sul",
+              "municipio_key": "cocal_do_sul",
+              "municipio_codigo_ibge": "4204251"
+            },
+            {
+              "municipio": "Criciúma",
+              "municipio_key": "criciuma",
+              "municipio_codigo_ibge": "4204608"
+            },
+            {
+              "municipio": "Forquilhinha",
+              "municipio_key": "forquilhinha",
+              "municipio_codigo_ibge": "4205456"
+            },
+            {
+              "municipio": "Içara",
+              "municipio_key": "icara",
+              "municipio_codigo_ibge": "4207007"
+            },
+            {
+              "municipio": "Lauro Muller",
+              "municipio_key": "lauro_muller",
+              "municipio_codigo_ibge": "4209607"
+            },
+            {
+              "municipio": "Morro Grande",
+              "municipio_key": "morro_grande",
+              "municipio_codigo_ibge": "4211256"
+            },
+            {
+              "municipio": "Morro da Fumaça",
+              "municipio_key": "morro_da_fumaca",
+              "municipio_codigo_ibge": "4211207"
+            },
+            {
+              "municipio": "Nova Veneza",
+              "municipio_key": "nova_veneza",
+              "municipio_codigo_ibge": "4211603"
+            },
+            {
+              "municipio": "Orleans",
+              "municipio_key": "orleans",
+              "municipio_codigo_ibge": "4211702"
+            },
+            {
+              "municipio": "Siderópolis",
+              "municipio_key": "sideropolis",
+              "municipio_codigo_ibge": "4217600"
+            },
+            {
+              "municipio": "Treviso",
+              "municipio_key": "treviso",
+              "municipio_codigo_ibge": "4218350"
+            },
+            {
+              "municipio": "Urussanga",
+              "municipio_key": "urussanga",
+              "municipio_codigo_ibge": "4219002"
+            }
+          ],
+          "total_municipios": 13
+        },
+        {
+          "regiao_imediata": "Tubarão",
+          "regiao_imediata_key": "tubarao",
+          "regiao_imediata_codigo_ibge": "420003",
+          "municipios": [
+            {
+              "municipio": "Armazém",
+              "municipio_key": "armazem",
+              "municipio_codigo_ibge": "4201505"
+            },
+            {
+              "municipio": "Braço do Norte",
+              "municipio_key": "braco_do_norte",
+              "municipio_codigo_ibge": "4202800"
+            },
+            {
+              "municipio": "Capivari de Baixo",
+              "municipio_key": "capivari_de_baixo",
+              "municipio_codigo_ibge": "4203956"
+            },
+            {
+              "municipio": "Gravatal",
+              "municipio_key": "gravatal",
+              "municipio_codigo_ibge": "4206207"
+            },
+            {
+              "municipio": "Grão Pará",
+              "municipio_key": "grao_para",
+              "municipio_codigo_ibge": "4206108"
+            },
+            {
+              "municipio": "Imaruí",
+              "municipio_key": "imarui",
+              "municipio_codigo_ibge": "4207205"
+            },
+            {
+              "municipio": "Jaguaruna",
+              "municipio_key": "jaguaruna",
+              "municipio_codigo_ibge": "4208807"
+            },
+            {
+              "municipio": "Laguna",
+              "municipio_key": "laguna",
+              "municipio_codigo_ibge": "4209409"
+            },
+            {
+              "municipio": "Pedras Grandes",
+              "municipio_key": "pedras_grandes",
+              "municipio_codigo_ibge": "4212403"
+            },
+            {
+              "municipio": "Pescaria Brava",
+              "municipio_key": "pescaria_brava",
+              "municipio_codigo_ibge": "4212650"
+            },
+            {
+              "municipio": "Rio Fortuna",
+              "municipio_key": "rio_fortuna",
+              "municipio_codigo_ibge": "4214904"
+            },
+            {
+              "municipio": "Sangão",
+              "municipio_key": "sangao",
+              "municipio_codigo_ibge": "4215455"
+            },
+            {
+              "municipio": "Santa Rosa de Lima",
+              "municipio_key": "santa_rosa_de_lima",
+              "municipio_codigo_ibge": "4215604"
+            },
+            {
+              "municipio": "São Ludgero",
+              "municipio_key": "sao_ludgero",
+              "municipio_codigo_ibge": "4217006"
+            },
+            {
+              "municipio": "São Martinho",
+              "municipio_key": "sao_martinho",
+              "municipio_codigo_ibge": "4217105"
+            },
+            {
+              "municipio": "Treze de Maio",
+              "municipio_key": "treze_de_maio",
+              "municipio_codigo_ibge": "4218400"
+            },
+            {
+              "municipio": "Tubarão",
+              "municipio_key": "tubarao",
+              "municipio_codigo_ibge": "4218707"
+            }
+          ],
+          "total_municipios": 17
+        },
+        {
+          "regiao_imediata": "Araranguá",
+          "regiao_imediata_key": "ararangua",
+          "regiao_imediata_codigo_ibge": "420004",
+          "municipios": [
+            {
+              "municipio": "Araranguá",
+              "municipio_key": "ararangua",
+              "municipio_codigo_ibge": "4201406"
+            },
+            {
+              "municipio": "Balneário Arroio do Silva",
+              "municipio_key": "balneario_arroio_do_silva",
+              "municipio_codigo_ibge": "4201950"
+            },
+            {
+              "municipio": "Balneário Gaivota",
+              "municipio_key": "balneario_gaivota",
+              "municipio_codigo_ibge": "4202073"
+            },
+            {
+              "municipio": "Ermo",
+              "municipio_key": "ermo",
+              "municipio_codigo_ibge": "4205191"
+            },
+            {
+              "municipio": "Jacinto Machado",
+              "municipio_key": "jacinto_machado",
+              "municipio_codigo_ibge": "4208708"
+            },
+            {
+              "municipio": "Maracajá",
+              "municipio_key": "maracaja",
+              "municipio_codigo_ibge": "4210407"
+            },
+            {
+              "municipio": "Meleiro",
+              "municipio_key": "meleiro",
+              "municipio_codigo_ibge": "4210803"
+            },
+            {
+              "municipio": "Passo de Torres",
+              "municipio_key": "passo_de_torres",
+              "municipio_codigo_ibge": "4212254"
+            },
+            {
+              "municipio": "Praia Grande",
+              "municipio_key": "praia_grande",
+              "municipio_codigo_ibge": "4213807"
+            },
+            {
+              "municipio": "Santa Rosa do Sul",
+              "municipio_key": "santa_rosa_do_sul",
+              "municipio_codigo_ibge": "4215653"
+            },
+            {
+              "municipio": "Sombrio",
+              "municipio_key": "sombrio",
+              "municipio_codigo_ibge": "4217709"
+            },
+            {
+              "municipio": "São João do Sul",
+              "municipio_key": "sao_joao_do_sul",
+              "municipio_codigo_ibge": "4216404"
+            },
+            {
+              "municipio": "Timbé do Sul",
+              "municipio_key": "timbe_do_sul",
+              "municipio_codigo_ibge": "4218103"
+            },
+            {
+              "municipio": "Turvo",
+              "municipio_key": "turvo",
+              "municipio_codigo_ibge": "4218806"
+            }
+          ],
+          "total_municipios": 14
+        }
+      ],
+      "total_regioes_imediatas": 3,
+      "total_municipios": 44
+    },
+    {
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203",
+      "regioes_imediatas": [
+        {
+          "regiao_imediata": "Lages",
+          "regiao_imediata_key": "lages",
+          "regiao_imediata_codigo_ibge": "420005",
+          "municipios": [
+            {
+              "municipio": "Anita Garibaldi",
+              "municipio_key": "anita_garibaldi",
+              "municipio_codigo_ibge": "4201000"
+            },
+            {
+              "municipio": "Bocaina do Sul",
+              "municipio_key": "bocaina_do_sul",
+              "municipio_codigo_ibge": "4202438"
+            },
+            {
+              "municipio": "Bom Jardim da Serra",
+              "municipio_key": "bom_jardim_da_serra",
+              "municipio_codigo_ibge": "4202503"
+            },
+            {
+              "municipio": "Bom Retiro",
+              "municipio_key": "bom_retiro",
+              "municipio_codigo_ibge": "4202602"
+            },
+            {
+              "municipio": "Campo Belo do Sul",
+              "municipio_key": "campo_belo_do_sul",
+              "municipio_codigo_ibge": "4203402"
+            },
+            {
+              "municipio": "Capão Alto",
+              "municipio_key": "capao_alto",
+              "municipio_codigo_ibge": "4203253"
+            },
+            {
+              "municipio": "Cerro Negro",
+              "municipio_key": "cerro_negro",
+              "municipio_codigo_ibge": "4204178"
+            },
+            {
+              "municipio": "Correia Pinto",
+              "municipio_key": "correia_pinto",
+              "municipio_codigo_ibge": "4204558"
+            },
+            {
+              "municipio": "Lages",
+              "municipio_key": "lages",
+              "municipio_codigo_ibge": "4209300"
+            },
+            {
+              "municipio": "Otacílio Costa",
+              "municipio_key": "otacilio_costa",
+              "municipio_codigo_ibge": "4211751"
+            },
+            {
+              "municipio": "Painel",
+              "municipio_key": "painel",
+              "municipio_codigo_ibge": "4211892"
+            },
+            {
+              "municipio": "Palmeira",
+              "municipio_key": "palmeira",
+              "municipio_codigo_ibge": "4212056"
+            },
+            {
+              "municipio": "Ponte Alta",
+              "municipio_key": "ponte_alta",
+              "municipio_codigo_ibge": "4213302"
+            },
+            {
+              "municipio": "Rio Rufino",
+              "municipio_key": "rio_rufino",
+              "municipio_codigo_ibge": "4215059"
+            },
+            {
+              "municipio": "São Joaquim",
+              "municipio_key": "sao_joaquim",
+              "municipio_codigo_ibge": "4216503"
+            },
+            {
+              "municipio": "São José do Cerrito",
+              "municipio_key": "sao_jose_do_cerrito",
+              "municipio_codigo_ibge": "4216800"
+            },
+            {
+              "municipio": "Urubici",
+              "municipio_key": "urubici",
+              "municipio_codigo_ibge": "4218905"
+            },
+            {
+              "municipio": "Urupema",
+              "municipio_key": "urupema",
+              "municipio_codigo_ibge": "4218954"
+            }
+          ],
+          "total_municipios": 18
+        },
+        {
+          "regiao_imediata": "Curitibanos",
+          "regiao_imediata_key": "curitibanos",
+          "regiao_imediata_codigo_ibge": "420006",
+          "municipios": [
+            {
+              "municipio": "Brunópolis",
+              "municipio_key": "brunopolis",
+              "municipio_codigo_ibge": "4202875"
+            },
+            {
+              "municipio": "Curitibanos",
+              "municipio_key": "curitibanos",
+              "municipio_codigo_ibge": "4204806"
+            },
+            {
+              "municipio": "Frei Rogério",
+              "municipio_key": "frei_rogerio",
+              "municipio_codigo_ibge": "4205555"
+            },
+            {
+              "municipio": "Ponte Alta do Norte",
+              "municipio_key": "ponte_alta_do_norte",
+              "municipio_codigo_ibge": "4213351"
+            },
+            {
+              "municipio": "Santa Cecília",
+              "municipio_key": "santa_cecilia",
+              "municipio_codigo_ibge": "4215505"
+            },
+            {
+              "municipio": "São Cristovão do Sul",
+              "municipio_key": "sao_cristovao_do_sul",
+              "municipio_codigo_ibge": "4216057"
+            }
+          ],
+          "total_municipios": 6
+        }
+      ],
+      "total_regioes_imediatas": 2,
+      "total_municipios": 24
+    },
+    {
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204",
+      "regioes_imediatas": [
+        {
+          "regiao_imediata": "Chapecó",
+          "regiao_imediata_key": "chapeco",
+          "regiao_imediata_codigo_ibge": "420007",
+          "municipios": [
+            {
+              "municipio": "Arvoredo",
+              "municipio_key": "arvoredo",
+              "municipio_codigo_ibge": "4201653"
+            },
+            {
+              "municipio": "Caibi",
+              "municipio_key": "caibi",
+              "municipio_codigo_ibge": "4203105"
+            },
+            {
+              "municipio": "Caxambu do Sul",
+              "municipio_key": "caxambu_do_sul",
+              "municipio_codigo_ibge": "4204103"
+            },
+            {
+              "municipio": "Chapecó",
+              "municipio_key": "chapeco",
+              "municipio_codigo_ibge": "4204202"
+            },
+            {
+              "municipio": "Cordilheira Alta",
+              "municipio_key": "cordilheira_alta",
+              "municipio_codigo_ibge": "4204350"
+            },
+            {
+              "municipio": "Coronel Freitas",
+              "municipio_key": "coronel_freitas",
+              "municipio_codigo_ibge": "4204400"
+            },
+            {
+              "municipio": "Cunhataí",
+              "municipio_key": "cunhatai",
+              "municipio_codigo_ibge": "4204756"
+            },
+            {
+              "municipio": "Formosa do Sul",
+              "municipio_key": "formosa_do_sul",
+              "municipio_codigo_ibge": "4205431"
+            },
+            {
+              "municipio": "Guatambú",
+              "municipio_key": "guatambu",
+              "municipio_codigo_ibge": "4206652"
+            },
+            {
+              "municipio": "Irati",
+              "municipio_key": "irati",
+              "municipio_codigo_ibge": "4207858"
+            },
+            {
+              "municipio": "Jardinópolis",
+              "municipio_key": "jardinopolis",
+              "municipio_codigo_ibge": "4208955"
+            },
+            {
+              "municipio": "Lajeado Grande",
+              "municipio_key": "lajeado_grande",
+              "municipio_codigo_ibge": "4209458"
+            },
+            {
+              "municipio": "Marema",
+              "municipio_key": "marema",
+              "municipio_codigo_ibge": "4210555"
+            },
+            {
+              "municipio": "Modelo",
+              "municipio_key": "modelo",
+              "municipio_codigo_ibge": "4210902"
+            },
+            {
+              "municipio": "Mondaí",
+              "municipio_key": "mondai",
+              "municipio_codigo_ibge": "4211009"
+            },
+            {
+              "municipio": "Nova Erechim",
+              "municipio_key": "nova_erechim",
+              "municipio_codigo_ibge": "4211405"
+            },
+            {
+              "municipio": "Nova Itaberaba",
+              "municipio_key": "nova_itaberaba",
+              "municipio_codigo_ibge": "4211454"
+            },
+            {
+              "municipio": "Paial",
+              "municipio_key": "paial",
+              "municipio_codigo_ibge": "4211876"
+            },
+            {
+              "municipio": "Palmitos",
+              "municipio_key": "palmitos",
+              "municipio_codigo_ibge": "4212106"
+            },
+            {
+              "municipio": "Pinhalzinho",
+              "municipio_key": "pinhalzinho",
+              "municipio_codigo_ibge": "4212908"
+            },
+            {
+              "municipio": "Planalto Alegre",
+              "municipio_key": "planalto_alegre",
+              "municipio_codigo_ibge": "4213153"
+            },
+            {
+              "municipio": "Quilombo",
+              "municipio_key": "quilombo",
+              "municipio_codigo_ibge": "4214201"
+            },
+            {
+              "municipio": "Riqueza",
+              "municipio_key": "riqueza",
+              "municipio_codigo_ibge": "4215075"
+            },
+            {
+              "municipio": "Santiago do Sul",
+              "municipio_key": "santiago_do_sul",
+              "municipio_codigo_ibge": "4215695"
+            },
+            {
+              "municipio": "Saudades",
+              "municipio_key": "saudades",
+              "municipio_codigo_ibge": "4217303"
+            },
+            {
+              "municipio": "Serra Alta",
+              "municipio_key": "serra_alta",
+              "municipio_codigo_ibge": "4217550"
+            },
+            {
+              "municipio": "Sul Brasil",
+              "municipio_key": "sul_brasil",
+              "municipio_codigo_ibge": "4217758"
+            },
+            {
+              "municipio": "São Carlos",
+              "municipio_key": "sao_carlos",
+              "municipio_codigo_ibge": "4216008"
+            },
+            {
+              "municipio": "União do Oeste",
+              "municipio_key": "uniao_do_oeste",
+              "municipio_codigo_ibge": "4218855"
+            },
+            {
+              "municipio": "Xaxim",
+              "municipio_key": "xaxim",
+              "municipio_codigo_ibge": "4219705"
+            },
+            {
+              "municipio": "Águas Frias",
+              "municipio_key": "aguas_frias",
+              "municipio_codigo_ibge": "4200556"
+            },
+            {
+              "municipio": "Águas de Chapecó",
+              "municipio_key": "aguas_de_chapeco",
+              "municipio_codigo_ibge": "4200507"
+            }
+          ],
+          "total_municipios": 32
+        },
+        {
+          "regiao_imediata": "Joaçaba - Herval d'Oeste",
+          "regiao_imediata_key": "joacaba_herval_d_oeste",
+          "regiao_imediata_codigo_ibge": "420008",
+          "municipios": [
+            {
+              "municipio": "Abdon Batista",
+              "municipio_key": "abdon_batista",
+              "municipio_codigo_ibge": "4200051"
+            },
+            {
+              "municipio": "Campos Novos",
+              "municipio_key": "campos_novos",
+              "municipio_codigo_ibge": "4203600"
+            },
+            {
+              "municipio": "Capinzal",
+              "municipio_key": "capinzal",
+              "municipio_codigo_ibge": "4203907"
+            },
+            {
+              "municipio": "Catanduvas",
+              "municipio_key": "catanduvas",
+              "municipio_codigo_ibge": "4204004"
+            },
+            {
+              "municipio": "Celso Ramos",
+              "municipio_key": "celso_ramos",
+              "municipio_codigo_ibge": "4204152"
+            },
+            {
+              "municipio": "Erval Velho",
+              "municipio_key": "erval_velho",
+              "municipio_codigo_ibge": "4205209"
+            },
+            {
+              "municipio": "Herval d'Oeste",
+              "municipio_key": "herval_d_oeste",
+              "municipio_codigo_ibge": "4206702"
+            },
+            {
+              "municipio": "Ibicaré",
+              "municipio_key": "ibicare",
+              "municipio_codigo_ibge": "4206801"
+            },
+            {
+              "municipio": "Jaborá",
+              "municipio_key": "jabora",
+              "municipio_codigo_ibge": "4208609"
+            },
+            {
+              "municipio": "Joaçaba",
+              "municipio_key": "joacaba",
+              "municipio_codigo_ibge": "4209003"
+            },
+            {
+              "municipio": "Lacerdópolis",
+              "municipio_key": "lacerdopolis",
+              "municipio_codigo_ibge": "4209201"
+            },
+            {
+              "municipio": "Luzerna",
+              "municipio_key": "luzerna",
+              "municipio_codigo_ibge": "4210035"
+            },
+            {
+              "municipio": "Ouro",
+              "municipio_key": "ouro",
+              "municipio_codigo_ibge": "4211801"
+            },
+            {
+              "municipio": "Treze Tílias",
+              "municipio_key": "treze_tilias",
+              "municipio_codigo_ibge": "4218509"
+            },
+            {
+              "municipio": "Vargem",
+              "municipio_key": "vargem",
+              "municipio_codigo_ibge": "4219150"
+            },
+            {
+              "municipio": "Vargem Bonita",
+              "municipio_key": "vargem_bonita",
+              "municipio_codigo_ibge": "4219176"
+            },
+            {
+              "municipio": "Zortéa",
+              "municipio_key": "zortea",
+              "municipio_codigo_ibge": "4219853"
+            },
+            {
+              "municipio": "Água Doce",
+              "municipio_key": "agua_doce",
+              "municipio_codigo_ibge": "4200408"
+            }
+          ],
+          "total_municipios": 18
+        },
+        {
+          "regiao_imediata": "São Miguel do Oeste",
+          "regiao_imediata_key": "sao_miguel_do_oeste",
+          "regiao_imediata_codigo_ibge": "420009",
+          "municipios": [
+            {
+              "municipio": "Anchieta",
+              "municipio_key": "anchieta",
+              "municipio_codigo_ibge": "4200804"
+            },
+            {
+              "municipio": "Bandeirante",
+              "municipio_key": "bandeirante",
+              "municipio_codigo_ibge": "4202081"
+            },
+            {
+              "municipio": "Barra Bonita",
+              "municipio_key": "barra_bonita",
+              "municipio_codigo_ibge": "4202099"
+            },
+            {
+              "municipio": "Belmonte",
+              "municipio_key": "belmonte",
+              "municipio_codigo_ibge": "4202156"
+            },
+            {
+              "municipio": "Descanso",
+              "municipio_key": "descanso",
+              "municipio_codigo_ibge": "4204905"
+            },
+            {
+              "municipio": "Dionísio Cerqueira",
+              "municipio_key": "dionisio_cerqueira",
+              "municipio_codigo_ibge": "4205001"
+            },
+            {
+              "municipio": "Flor do Sertão",
+              "municipio_key": "flor_do_sertao",
+              "municipio_codigo_ibge": "4205357"
+            },
+            {
+              "municipio": "Guaraciaba",
+              "municipio_key": "guaraciaba",
+              "municipio_codigo_ibge": "4206405"
+            },
+            {
+              "municipio": "Guarujá do Sul",
+              "municipio_key": "guaruja_do_sul",
+              "municipio_codigo_ibge": "4206603"
+            },
+            {
+              "municipio": "Iporã do Oeste",
+              "municipio_key": "ipora_do_oeste",
+              "municipio_codigo_ibge": "4207650"
+            },
+            {
+              "municipio": "Itapiranga",
+              "municipio_key": "itapiranga",
+              "municipio_codigo_ibge": "4208401"
+            },
+            {
+              "municipio": "Palma Sola",
+              "municipio_key": "palma_sola",
+              "municipio_codigo_ibge": "4212007"
+            },
+            {
+              "municipio": "Paraíso",
+              "municipio_key": "paraiso",
+              "municipio_codigo_ibge": "4212239"
+            },
+            {
+              "municipio": "Princesa",
+              "municipio_key": "princesa",
+              "municipio_codigo_ibge": "4214151"
+            },
+            {
+              "municipio": "Romelândia",
+              "municipio_key": "romelandia",
+              "municipio_codigo_ibge": "4215208"
+            },
+            {
+              "municipio": "Santa Helena",
+              "municipio_key": "santa_helena",
+              "municipio_codigo_ibge": "4215554"
+            },
+            {
+              "municipio": "São José do Cedro",
+              "municipio_key": "sao_jose_do_cedro",
+              "municipio_codigo_ibge": "4216701"
+            },
+            {
+              "municipio": "São João do Oeste",
+              "municipio_key": "sao_joao_do_oeste",
+              "municipio_codigo_ibge": "4216255"
+            },
+            {
+              "municipio": "São Miguel do Oeste",
+              "municipio_key": "sao_miguel_do_oeste",
+              "municipio_codigo_ibge": "4217204"
+            },
+            {
+              "municipio": "Tunápolis",
+              "municipio_key": "tunapolis",
+              "municipio_codigo_ibge": "4218756"
+            }
+          ],
+          "total_municipios": 20
+        },
+        {
+          "regiao_imediata": "Concórdia",
+          "regiao_imediata_key": "concordia",
+          "regiao_imediata_codigo_ibge": "420010",
+          "municipios": [
+            {
+              "municipio": "Alto Bela Vista",
+              "municipio_key": "alto_bela_vista",
+              "municipio_codigo_ibge": "4200754"
+            },
+            {
+              "municipio": "Arabutã",
+              "municipio_key": "arabuta",
+              "municipio_codigo_ibge": "4201273"
+            },
+            {
+              "municipio": "Concórdia",
+              "municipio_key": "concordia",
+              "municipio_codigo_ibge": "4204301"
+            },
+            {
+              "municipio": "Ipira",
+              "municipio_key": "ipira",
+              "municipio_codigo_ibge": "4207601"
+            },
+            {
+              "municipio": "Ipumirim",
+              "municipio_key": "ipumirim",
+              "municipio_codigo_ibge": "4207700"
+            },
+            {
+              "municipio": "Irani",
+              "municipio_key": "irani",
+              "municipio_codigo_ibge": "4207809"
+            },
+            {
+              "municipio": "Itá",
+              "municipio_key": "ita",
+              "municipio_codigo_ibge": "4208005"
+            },
+            {
+              "municipio": "Lindóia do Sul",
+              "municipio_key": "lindoia_do_sul",
+              "municipio_codigo_ibge": "4209854"
+            },
+            {
+              "municipio": "Peritiba",
+              "municipio_key": "peritiba",
+              "municipio_codigo_ibge": "4212601"
+            },
+            {
+              "municipio": "Piratuba",
+              "municipio_key": "piratuba",
+              "municipio_codigo_ibge": "4213104"
+            },
+            {
+              "municipio": "Presidente Castello Branco",
+              "municipio_key": "presidente_castello_branco",
+              "municipio_codigo_ibge": "4213906"
+            },
+            {
+              "municipio": "Seara",
+              "municipio_key": "seara",
+              "municipio_codigo_ibge": "4217501"
+            }
+          ],
+          "total_municipios": 12
+        },
+        {
+          "regiao_imediata": "Xanxerê",
+          "regiao_imediata_key": "xanxere",
+          "regiao_imediata_codigo_ibge": "420011",
+          "municipios": [
+            {
+              "municipio": "Abelardo Luz",
+              "municipio_key": "abelardo_luz",
+              "municipio_codigo_ibge": "4200101"
+            },
+            {
+              "municipio": "Bom Jesus",
+              "municipio_key": "bom_jesus",
+              "municipio_codigo_ibge": "4202537"
+            },
+            {
+              "municipio": "Coronel Martins",
+              "municipio_key": "coronel_martins",
+              "municipio_codigo_ibge": "4204459"
+            },
+            {
+              "municipio": "Entre Rios",
+              "municipio_key": "entre_rios",
+              "municipio_codigo_ibge": "4205175"
+            },
+            {
+              "municipio": "Faxinal dos Guedes",
+              "municipio_key": "faxinal_dos_guedes",
+              "municipio_codigo_ibge": "4205308"
+            },
+            {
+              "municipio": "Ipuaçu",
+              "municipio_key": "ipuacu",
+              "municipio_codigo_ibge": "4207684"
+            },
+            {
+              "municipio": "Ouro Verde",
+              "municipio_key": "ouro_verde",
+              "municipio_codigo_ibge": "4211850"
+            },
+            {
+              "municipio": "Passos Maia",
+              "municipio_key": "passos_maia",
+              "municipio_codigo_ibge": "4212270"
+            },
+            {
+              "municipio": "Ponte Serrada",
+              "municipio_key": "ponte_serrada",
+              "municipio_codigo_ibge": "4213401"
+            },
+            {
+              "municipio": "São Domingos",
+              "municipio_key": "sao_domingos",
+              "municipio_codigo_ibge": "4216107"
+            },
+            {
+              "municipio": "Vargeão",
+              "municipio_key": "vargeao",
+              "municipio_codigo_ibge": "4219101"
+            },
+            {
+              "municipio": "Xanxerê",
+              "municipio_key": "xanxere",
+              "municipio_codigo_ibge": "4219507"
+            },
+            {
+              "municipio": "Xavantina",
+              "municipio_key": "xavantina",
+              "municipio_codigo_ibge": "4219606"
+            }
+          ],
+          "total_municipios": 13
+        },
+        {
+          "regiao_imediata": "Maravilha",
+          "regiao_imediata_key": "maravilha",
+          "regiao_imediata_codigo_ibge": "420012",
+          "municipios": [
+            {
+              "municipio": "Bom Jesus do Oeste",
+              "municipio_key": "bom_jesus_do_oeste",
+              "municipio_codigo_ibge": "4202578"
+            },
+            {
+              "municipio": "Cunha Porã",
+              "municipio_key": "cunha_pora",
+              "municipio_codigo_ibge": "4204707"
+            },
+            {
+              "municipio": "Iraceminha",
+              "municipio_key": "iraceminha",
+              "municipio_codigo_ibge": "4207759"
+            },
+            {
+              "municipio": "Maravilha",
+              "municipio_key": "maravilha",
+              "municipio_codigo_ibge": "4210506"
+            },
+            {
+              "municipio": "Saltinho",
+              "municipio_key": "saltinho",
+              "municipio_codigo_ibge": "4215356"
+            },
+            {
+              "municipio": "Santa Terezinha do Progresso",
+              "municipio_key": "santa_terezinha_do_progresso",
+              "municipio_codigo_ibge": "4215687"
+            },
+            {
+              "municipio": "São Miguel da Boa Vista",
+              "municipio_key": "sao_miguel_da_boa_vista",
+              "municipio_codigo_ibge": "4217154"
+            },
+            {
+              "municipio": "Tigrinhos",
+              "municipio_key": "tigrinhos",
+              "municipio_codigo_ibge": "4217956"
+            }
+          ],
+          "total_municipios": 8
+        },
+        {
+          "regiao_imediata": "São Lourenço do Oeste",
+          "regiao_imediata_key": "sao_lourenco_do_oeste",
+          "regiao_imediata_codigo_ibge": "420013",
+          "municipios": [
+            {
+              "municipio": "Campo Erê",
+              "municipio_key": "campo_ere",
+              "municipio_codigo_ibge": "4203501"
+            },
+            {
+              "municipio": "Galvão",
+              "municipio_key": "galvao",
+              "municipio_codigo_ibge": "4205605"
+            },
+            {
+              "municipio": "Jupiá",
+              "municipio_key": "jupia",
+              "municipio_codigo_ibge": "4209177"
+            },
+            {
+              "municipio": "Novo Horizonte",
+              "municipio_key": "novo_horizonte",
+              "municipio_codigo_ibge": "4211652"
+            },
+            {
+              "municipio": "São Bernardino",
+              "municipio_key": "sao_bernardino",
+              "municipio_codigo_ibge": "4215752"
+            },
+            {
+              "municipio": "São Lourenço do Oeste",
+              "municipio_key": "sao_lourenco_do_oeste",
+              "municipio_codigo_ibge": "4216909"
+            }
+          ],
+          "total_municipios": 6
+        }
+      ],
+      "total_regioes_imediatas": 7,
+      "total_municipios": 109
+    },
+    {
+      "regiao_intermediaria": "Caçador",
+      "regiao_intermediaria_key": "cacador",
+      "regiao_intermediaria_codigo_ibge": "4205",
+      "regioes_imediatas": [
+        {
+          "regiao_imediata": "Caçador",
+          "regiao_imediata_key": "cacador",
+          "regiao_imediata_codigo_ibge": "420014",
+          "municipios": [
+            {
+              "municipio": "Calmon",
+              "municipio_key": "calmon",
+              "municipio_codigo_ibge": "4203154"
+            },
+            {
+              "municipio": "Caçador",
+              "municipio_key": "cacador",
+              "municipio_codigo_ibge": "4203006"
+            },
+            {
+              "municipio": "Lebon Régis",
+              "municipio_key": "lebon_regis",
+              "municipio_codigo_ibge": "4209706"
+            },
+            {
+              "municipio": "Macieira",
+              "municipio_key": "macieira",
+              "municipio_codigo_ibge": "4210050"
+            },
+            {
+              "municipio": "Matos Costa",
+              "municipio_key": "matos_costa",
+              "municipio_codigo_ibge": "4210704"
+            },
+            {
+              "municipio": "Timbó Grande",
+              "municipio_key": "timbo_grande",
+              "municipio_codigo_ibge": "4218251"
+            }
+          ],
+          "total_municipios": 6
+        },
+        {
+          "regiao_imediata": "Videira",
+          "regiao_imediata_key": "videira",
+          "regiao_imediata_codigo_ibge": "420015",
+          "municipios": [
+            {
+              "municipio": "Arroio Trinta",
+              "municipio_key": "arroio_trinta",
+              "municipio_codigo_ibge": "4201604"
+            },
+            {
+              "municipio": "Fraiburgo",
+              "municipio_key": "fraiburgo",
+              "municipio_codigo_ibge": "4205506"
+            },
+            {
+              "municipio": "Ibiam",
+              "municipio_key": "ibiam",
+              "municipio_codigo_ibge": "4206751"
+            },
+            {
+              "municipio": "Iomerê",
+              "municipio_key": "iomere",
+              "municipio_codigo_ibge": "4207577"
+            },
+            {
+              "municipio": "Monte Carlo",
+              "municipio_key": "monte_carlo",
+              "municipio_codigo_ibge": "4211058"
+            },
+            {
+              "municipio": "Pinheiro Preto",
+              "municipio_key": "pinheiro_preto",
+              "municipio_codigo_ibge": "4213005"
+            },
+            {
+              "municipio": "Rio das Antas",
+              "municipio_key": "rio_das_antas",
+              "municipio_codigo_ibge": "4214409"
+            },
+            {
+              "municipio": "Salto Veloso",
+              "municipio_key": "salto_veloso",
+              "municipio_codigo_ibge": "4215406"
+            },
+            {
+              "municipio": "Tangará",
+              "municipio_key": "tangara",
+              "municipio_codigo_ibge": "4217907"
+            },
+            {
+              "municipio": "Videira",
+              "municipio_key": "videira",
+              "municipio_codigo_ibge": "4219309"
+            }
+          ],
+          "total_municipios": 10
+        }
+      ],
+      "total_regioes_imediatas": 2,
+      "total_municipios": 16
+    },
+    {
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206",
+      "regioes_imediatas": [
+        {
+          "regiao_imediata": "Joinville",
+          "regiao_imediata_key": "joinville",
+          "regiao_imediata_codigo_ibge": "420016",
+          "municipios": [
+            {
+              "municipio": "Araquari",
+              "municipio_key": "araquari",
+              "municipio_codigo_ibge": "4201307"
+            },
+            {
+              "municipio": "Balneário Barra do Sul",
+              "municipio_key": "balneario_barra_do_sul",
+              "municipio_codigo_ibge": "4202057"
+            },
+            {
+              "municipio": "Corupá",
+              "municipio_key": "corupa",
+              "municipio_codigo_ibge": "4204509"
+            },
+            {
+              "municipio": "Garuva",
+              "municipio_key": "garuva",
+              "municipio_codigo_ibge": "4205803"
+            },
+            {
+              "municipio": "Guaramirim",
+              "municipio_key": "guaramirim",
+              "municipio_codigo_ibge": "4206504"
+            },
+            {
+              "municipio": "Itapoá",
+              "municipio_key": "itapoa",
+              "municipio_codigo_ibge": "4208450"
+            },
+            {
+              "municipio": "Jaraguá do Sul",
+              "municipio_key": "jaragua_do_sul",
+              "municipio_codigo_ibge": "4208906"
+            },
+            {
+              "municipio": "Joinville",
+              "municipio_key": "joinville",
+              "municipio_codigo_ibge": "4209102"
+            },
+            {
+              "municipio": "Massaranduba",
+              "municipio_key": "massaranduba",
+              "municipio_codigo_ibge": "4210605"
+            },
+            {
+              "municipio": "Schroeder",
+              "municipio_key": "schroeder",
+              "municipio_codigo_ibge": "4217402"
+            },
+            {
+              "municipio": "São Francisco do Sul",
+              "municipio_key": "sao_francisco_do_sul",
+              "municipio_codigo_ibge": "4216206"
+            },
+            {
+              "municipio": "São João do Itaperiú",
+              "municipio_key": "sao_joao_do_itaperiu",
+              "municipio_codigo_ibge": "4216354"
+            }
+          ],
+          "total_municipios": 12
+        },
+        {
+          "regiao_imediata": "Mafra",
+          "regiao_imediata_key": "mafra",
+          "regiao_imediata_codigo_ibge": "420017",
+          "municipios": [
+            {
+              "municipio": "Bela Vista do Toldo",
+              "municipio_key": "bela_vista_do_toldo",
+              "municipio_codigo_ibge": "4202131"
+            },
+            {
+              "municipio": "Canoinhas",
+              "municipio_key": "canoinhas",
+              "municipio_codigo_ibge": "4203808"
+            },
+            {
+              "municipio": "Irineópolis",
+              "municipio_key": "irineopolis",
+              "municipio_codigo_ibge": "4207908"
+            },
+            {
+              "municipio": "Itaiópolis",
+              "municipio_key": "itaiopolis",
+              "municipio_codigo_ibge": "4208104"
+            },
+            {
+              "municipio": "Mafra",
+              "municipio_key": "mafra",
+              "municipio_codigo_ibge": "4210100"
+            },
+            {
+              "municipio": "Major Vieira",
+              "municipio_key": "major_vieira",
+              "municipio_codigo_ibge": "4210308"
+            },
+            {
+              "municipio": "Monte Castelo",
+              "municipio_key": "monte_castelo",
+              "municipio_codigo_ibge": "4211108"
+            },
+            {
+              "municipio": "Papanduva",
+              "municipio_key": "papanduva",
+              "municipio_codigo_ibge": "4212205"
+            },
+            {
+              "municipio": "Porto União",
+              "municipio_key": "porto_uniao",
+              "municipio_codigo_ibge": "4213609"
+            },
+            {
+              "municipio": "Três Barras",
+              "municipio_key": "tres_barras",
+              "municipio_codigo_ibge": "4218301"
+            }
+          ],
+          "total_municipios": 10
+        },
+        {
+          "regiao_imediata": "São Bento do Sul - Rio Negrinho",
+          "regiao_imediata_key": "sao_bento_do_sul_rio_negrinho",
+          "regiao_imediata_codigo_ibge": "420018",
+          "municipios": [
+            {
+              "municipio": "Campo Alegre",
+              "municipio_key": "campo_alegre",
+              "municipio_codigo_ibge": "4203303"
+            },
+            {
+              "municipio": "Rio Negrinho",
+              "municipio_key": "rio_negrinho",
+              "municipio_codigo_ibge": "4215000"
+            },
+            {
+              "municipio": "São Bento do Sul",
+              "municipio_key": "sao_bento_do_sul",
+              "municipio_codigo_ibge": "4215802"
+            }
+          ],
+          "total_municipios": 3
+        }
+      ],
+      "total_regioes_imediatas": 3,
+      "total_municipios": 25
+    },
+    {
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207",
+      "regioes_imediatas": [
+        {
+          "regiao_imediata": "Blumenau",
+          "regiao_imediata_key": "blumenau",
+          "regiao_imediata_codigo_ibge": "420019",
+          "municipios": [
+            {
+              "municipio": "Apiúna",
+              "municipio_key": "apiuna",
+              "municipio_codigo_ibge": "4201257"
+            },
+            {
+              "municipio": "Ascurra",
+              "municipio_key": "ascurra",
+              "municipio_codigo_ibge": "4201703"
+            },
+            {
+              "municipio": "Benedito Novo",
+              "municipio_key": "benedito_novo",
+              "municipio_codigo_ibge": "4202206"
+            },
+            {
+              "municipio": "Blumenau",
+              "municipio_key": "blumenau",
+              "municipio_codigo_ibge": "4202404"
+            },
+            {
+              "municipio": "Doutor Pedrinho",
+              "municipio_key": "doutor_pedrinho",
+              "municipio_codigo_ibge": "4205159"
+            },
+            {
+              "municipio": "Gaspar",
+              "municipio_key": "gaspar",
+              "municipio_codigo_ibge": "4205902"
+            },
+            {
+              "municipio": "Ilhota",
+              "municipio_key": "ilhota",
+              "municipio_codigo_ibge": "4207106"
+            },
+            {
+              "municipio": "Indaial",
+              "municipio_key": "indaial",
+              "municipio_codigo_ibge": "4207502"
+            },
+            {
+              "municipio": "Pomerode",
+              "municipio_key": "pomerode",
+              "municipio_codigo_ibge": "4213203"
+            },
+            {
+              "municipio": "Rio dos Cedros",
+              "municipio_key": "rio_dos_cedros",
+              "municipio_codigo_ibge": "4214706"
+            },
+            {
+              "municipio": "Rodeio",
+              "municipio_key": "rodeio",
+              "municipio_codigo_ibge": "4215109"
+            },
+            {
+              "municipio": "Timbó",
+              "municipio_key": "timbo",
+              "municipio_codigo_ibge": "4218202"
+            }
+          ],
+          "total_municipios": 12
+        },
+        {
+          "regiao_imediata": "Itajaí",
+          "regiao_imediata_key": "itajai",
+          "regiao_imediata_codigo_ibge": "420020",
+          "municipios": [
+            {
+              "municipio": "Balneário Camboriú",
+              "municipio_key": "balneario_camboriu",
+              "municipio_codigo_ibge": "4202008"
+            },
+            {
+              "municipio": "Balneário Piçarras",
+              "municipio_key": "balneario_picarras",
+              "municipio_codigo_ibge": "4212809"
+            },
+            {
+              "municipio": "Barra Velha",
+              "municipio_key": "barra_velha",
+              "municipio_codigo_ibge": "4202107"
+            },
+            {
+              "municipio": "Bombinhas",
+              "municipio_key": "bombinhas",
+              "municipio_codigo_ibge": "4202453"
+            },
+            {
+              "municipio": "Camboriú",
+              "municipio_key": "camboriu",
+              "municipio_codigo_ibge": "4203204"
+            },
+            {
+              "municipio": "Itajaí",
+              "municipio_key": "itajai",
+              "municipio_codigo_ibge": "4208203"
+            },
+            {
+              "municipio": "Itapema",
+              "municipio_key": "itapema",
+              "municipio_codigo_ibge": "4208302"
+            },
+            {
+              "municipio": "Luiz Alves",
+              "municipio_key": "luiz_alves",
+              "municipio_codigo_ibge": "4210001"
+            },
+            {
+              "municipio": "Navegantes",
+              "municipio_key": "navegantes",
+              "municipio_codigo_ibge": "4211306"
+            },
+            {
+              "municipio": "Penha",
+              "municipio_key": "penha",
+              "municipio_codigo_ibge": "4212502"
+            },
+            {
+              "municipio": "Porto Belo",
+              "municipio_key": "porto_belo",
+              "municipio_codigo_ibge": "4213500"
+            },
+            {
+              "municipio": "Tijucas",
+              "municipio_key": "tijucas",
+              "municipio_codigo_ibge": "4218004"
+            }
+          ],
+          "total_municipios": 12
+        },
+        {
+          "regiao_imediata": "Brusque",
+          "regiao_imediata_key": "brusque",
+          "regiao_imediata_codigo_ibge": "420021",
+          "municipios": [
+            {
+              "municipio": "Botuverá",
+              "municipio_key": "botuvera",
+              "municipio_codigo_ibge": "4202701"
+            },
+            {
+              "municipio": "Brusque",
+              "municipio_key": "brusque",
+              "municipio_codigo_ibge": "4202909"
+            },
+            {
+              "municipio": "Canelinha",
+              "municipio_key": "canelinha",
+              "municipio_codigo_ibge": "4203709"
+            },
+            {
+              "municipio": "Guabiruba",
+              "municipio_key": "guabiruba",
+              "municipio_codigo_ibge": "4206306"
+            },
+            {
+              "municipio": "Major Gercino",
+              "municipio_key": "major_gercino",
+              "municipio_codigo_ibge": "4210209"
+            },
+            {
+              "municipio": "Nova Trento",
+              "municipio_key": "nova_trento",
+              "municipio_codigo_ibge": "4211504"
+            },
+            {
+              "municipio": "São João Batista",
+              "municipio_key": "sao_joao_batista",
+              "municipio_codigo_ibge": "4216305"
+            }
+          ],
+          "total_municipios": 7
+        },
+        {
+          "regiao_imediata": "Rio do Sul",
+          "regiao_imediata_key": "rio_do_sul",
+          "regiao_imediata_codigo_ibge": "420022",
+          "municipios": [
+            {
+              "municipio": "Agrolândia",
+              "municipio_key": "agrolandia",
+              "municipio_codigo_ibge": "4200200"
+            },
+            {
+              "municipio": "Agronômica",
+              "municipio_key": "agronomica",
+              "municipio_codigo_ibge": "4200309"
+            },
+            {
+              "municipio": "Atalanta",
+              "municipio_key": "atalanta",
+              "municipio_codigo_ibge": "4201802"
+            },
+            {
+              "municipio": "Aurora",
+              "municipio_key": "aurora",
+              "municipio_codigo_ibge": "4201901"
+            },
+            {
+              "municipio": "Braço do Trombudo",
+              "municipio_key": "braco_do_trombudo",
+              "municipio_codigo_ibge": "4202859"
+            },
+            {
+              "municipio": "Laurentino",
+              "municipio_key": "laurentino",
+              "municipio_codigo_ibge": "4209508"
+            },
+            {
+              "municipio": "Lontras",
+              "municipio_key": "lontras",
+              "municipio_codigo_ibge": "4209904"
+            },
+            {
+              "municipio": "Mirim Doce",
+              "municipio_key": "mirim_doce",
+              "municipio_codigo_ibge": "4210852"
+            },
+            {
+              "municipio": "Pouso Redondo",
+              "municipio_key": "pouso_redondo",
+              "municipio_codigo_ibge": "4213708"
+            },
+            {
+              "municipio": "Presidente Nereu",
+              "municipio_key": "presidente_nereu",
+              "municipio_codigo_ibge": "4214102"
+            },
+            {
+              "municipio": "Rio do Campo",
+              "municipio_key": "rio_do_campo",
+              "municipio_codigo_ibge": "4214508"
+            },
+            {
+              "municipio": "Rio do Oeste",
+              "municipio_key": "rio_do_oeste",
+              "municipio_codigo_ibge": "4214607"
+            },
+            {
+              "municipio": "Rio do Sul",
+              "municipio_key": "rio_do_sul",
+              "municipio_codigo_ibge": "4214805"
+            },
+            {
+              "municipio": "Salete",
+              "municipio_key": "salete",
+              "municipio_codigo_ibge": "4215307"
+            },
+            {
+              "municipio": "Santa Terezinha",
+              "municipio_key": "santa_terezinha",
+              "municipio_codigo_ibge": "4215679"
+            },
+            {
+              "municipio": "Taió",
+              "municipio_key": "taio",
+              "municipio_codigo_ibge": "4217808"
+            },
+            {
+              "municipio": "Trombudo Central",
+              "municipio_key": "trombudo_central",
+              "municipio_codigo_ibge": "4218608"
+            }
+          ],
+          "total_municipios": 17
+        },
+        {
+          "regiao_imediata": "Ibirama - Presidente Getúlio",
+          "regiao_imediata_key": "ibirama_presidente_getulio",
+          "regiao_imediata_codigo_ibge": "420023",
+          "municipios": [
+            {
+              "municipio": "Dona Emma",
+              "municipio_key": "dona_emma",
+              "municipio_codigo_ibge": "4205100"
+            },
+            {
+              "municipio": "Ibirama",
+              "municipio_key": "ibirama",
+              "municipio_codigo_ibge": "4206900"
+            },
+            {
+              "municipio": "José Boiteux",
+              "municipio_key": "jose_boiteux",
+              "municipio_codigo_ibge": "4209151"
+            },
+            {
+              "municipio": "Presidente Getúlio",
+              "municipio_key": "presidente_getulio",
+              "municipio_codigo_ibge": "4214003"
+            },
+            {
+              "municipio": "Vitor Meireles",
+              "municipio_key": "vitor_meireles",
+              "municipio_codigo_ibge": "4219358"
+            },
+            {
+              "municipio": "Witmarsum",
+              "municipio_key": "witmarsum",
+              "municipio_codigo_ibge": "4219408"
+            }
+          ],
+          "total_municipios": 6
+        },
+        {
+          "regiao_imediata": "Ituporanga",
+          "regiao_imediata_key": "ituporanga",
+          "regiao_imediata_codigo_ibge": "420024",
+          "municipios": [
+            {
+              "municipio": "Chapadão do Lageado",
+              "municipio_key": "chapadao_do_lageado",
+              "municipio_codigo_ibge": "4204194"
+            },
+            {
+              "municipio": "Imbuia",
+              "municipio_key": "imbuia",
+              "municipio_codigo_ibge": "4207403"
+            },
+            {
+              "municipio": "Ituporanga",
+              "municipio_key": "ituporanga",
+              "municipio_codigo_ibge": "4208500"
+            },
+            {
+              "municipio": "Leoberto Leal",
+              "municipio_key": "leoberto_leal",
+              "municipio_codigo_ibge": "4209805"
+            },
+            {
+              "municipio": "Petrolândia",
+              "municipio_key": "petrolandia",
+              "municipio_codigo_ibge": "4212700"
+            },
+            {
+              "municipio": "Vidal Ramos",
+              "municipio_key": "vidal_ramos",
+              "municipio_codigo_ibge": "4219200"
+            }
+          ],
+          "total_municipios": 6
+        }
+      ],
+      "total_regioes_imediatas": 6,
+      "total_municipios": 60
+    }
+  ],
+  "municipios": {
+    "abdon_batista": {
+      "municipio": "Abdon Batista",
+      "municipio_key": "abdon_batista",
+      "municipio_codigo_ibge": "4200051",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "abelardo_luz": {
+      "municipio": "Abelardo Luz",
+      "municipio_key": "abelardo_luz",
+      "municipio_codigo_ibge": "4200101",
+      "regiao_imediata": "Xanxerê",
+      "regiao_imediata_key": "xanxere",
+      "regiao_imediata_codigo_ibge": "420011",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "agrolandia": {
+      "municipio": "Agrolândia",
+      "municipio_key": "agrolandia",
+      "municipio_codigo_ibge": "4200200",
+      "regiao_imediata": "Rio do Sul",
+      "regiao_imediata_key": "rio_do_sul",
+      "regiao_imediata_codigo_ibge": "420022",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "agronomica": {
+      "municipio": "Agronômica",
+      "municipio_key": "agronomica",
+      "municipio_codigo_ibge": "4200309",
+      "regiao_imediata": "Rio do Sul",
+      "regiao_imediata_key": "rio_do_sul",
+      "regiao_imediata_codigo_ibge": "420022",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "alfredo_wagner": {
+      "municipio": "Alfredo Wagner",
+      "municipio_key": "alfredo_wagner",
+      "municipio_codigo_ibge": "4200705",
+      "regiao_imediata": "Florianópolis",
+      "regiao_imediata_key": "florianopolis",
+      "regiao_imediata_codigo_ibge": "420001",
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201"
+    },
+    "alto_bela_vista": {
+      "municipio": "Alto Bela Vista",
+      "municipio_key": "alto_bela_vista",
+      "municipio_codigo_ibge": "4200754",
+      "regiao_imediata": "Concórdia",
+      "regiao_imediata_key": "concordia",
+      "regiao_imediata_codigo_ibge": "420010",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "anchieta": {
+      "municipio": "Anchieta",
+      "municipio_key": "anchieta",
+      "municipio_codigo_ibge": "4200804",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "angelina": {
+      "municipio": "Angelina",
+      "municipio_key": "angelina",
+      "municipio_codigo_ibge": "4200903",
+      "regiao_imediata": "Florianópolis",
+      "regiao_imediata_key": "florianopolis",
+      "regiao_imediata_codigo_ibge": "420001",
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201"
+    },
+    "anita_garibaldi": {
+      "municipio": "Anita Garibaldi",
+      "municipio_key": "anita_garibaldi",
+      "municipio_codigo_ibge": "4201000",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "anitapolis": {
+      "municipio": "Anitápolis",
+      "municipio_key": "anitapolis",
+      "municipio_codigo_ibge": "4201109",
+      "regiao_imediata": "Florianópolis",
+      "regiao_imediata_key": "florianopolis",
+      "regiao_imediata_codigo_ibge": "420001",
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201"
+    },
+    "antonio_carlos": {
+      "municipio": "Antônio Carlos",
+      "municipio_key": "antonio_carlos",
+      "municipio_codigo_ibge": "4201208",
+      "regiao_imediata": "Florianópolis",
+      "regiao_imediata_key": "florianopolis",
+      "regiao_imediata_codigo_ibge": "420001",
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201"
+    },
+    "apiuna": {
+      "municipio": "Apiúna",
+      "municipio_key": "apiuna",
+      "municipio_codigo_ibge": "4201257",
+      "regiao_imediata": "Blumenau",
+      "regiao_imediata_key": "blumenau",
+      "regiao_imediata_codigo_ibge": "420019",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "arabuta": {
+      "municipio": "Arabutã",
+      "municipio_key": "arabuta",
+      "municipio_codigo_ibge": "4201273",
+      "regiao_imediata": "Concórdia",
+      "regiao_imediata_key": "concordia",
+      "regiao_imediata_codigo_ibge": "420010",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "araquari": {
+      "municipio": "Araquari",
+      "municipio_key": "araquari",
+      "municipio_codigo_ibge": "4201307",
+      "regiao_imediata": "Joinville",
+      "regiao_imediata_key": "joinville",
+      "regiao_imediata_codigo_ibge": "420016",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "ararangua": {
+      "municipio": "Araranguá",
+      "municipio_key": "ararangua",
+      "municipio_codigo_ibge": "4201406",
+      "regiao_imediata": "Araranguá",
+      "regiao_imediata_key": "ararangua",
+      "regiao_imediata_codigo_ibge": "420004",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "armazem": {
+      "municipio": "Armazém",
+      "municipio_key": "armazem",
+      "municipio_codigo_ibge": "4201505",
+      "regiao_imediata": "Tubarão",
+      "regiao_imediata_key": "tubarao",
+      "regiao_imediata_codigo_ibge": "420003",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "arroio_trinta": {
+      "municipio": "Arroio Trinta",
+      "municipio_key": "arroio_trinta",
+      "municipio_codigo_ibge": "4201604",
+      "regiao_imediata": "Videira",
+      "regiao_imediata_key": "videira",
+      "regiao_imediata_codigo_ibge": "420015",
+      "regiao_intermediaria": "Caçador",
+      "regiao_intermediaria_key": "cacador",
+      "regiao_intermediaria_codigo_ibge": "4205"
+    },
+    "arvoredo": {
+      "municipio": "Arvoredo",
+      "municipio_key": "arvoredo",
+      "municipio_codigo_ibge": "4201653",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "ascurra": {
+      "municipio": "Ascurra",
+      "municipio_key": "ascurra",
+      "municipio_codigo_ibge": "4201703",
+      "regiao_imediata": "Blumenau",
+      "regiao_imediata_key": "blumenau",
+      "regiao_imediata_codigo_ibge": "420019",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "atalanta": {
+      "municipio": "Atalanta",
+      "municipio_key": "atalanta",
+      "municipio_codigo_ibge": "4201802",
+      "regiao_imediata": "Rio do Sul",
+      "regiao_imediata_key": "rio_do_sul",
+      "regiao_imediata_codigo_ibge": "420022",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "aurora": {
+      "municipio": "Aurora",
+      "municipio_key": "aurora",
+      "municipio_codigo_ibge": "4201901",
+      "regiao_imediata": "Rio do Sul",
+      "regiao_imediata_key": "rio_do_sul",
+      "regiao_imediata_codigo_ibge": "420022",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "balneario_arroio_do_silva": {
+      "municipio": "Balneário Arroio do Silva",
+      "municipio_key": "balneario_arroio_do_silva",
+      "municipio_codigo_ibge": "4201950",
+      "regiao_imediata": "Araranguá",
+      "regiao_imediata_key": "ararangua",
+      "regiao_imediata_codigo_ibge": "420004",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "balneario_barra_do_sul": {
+      "municipio": "Balneário Barra do Sul",
+      "municipio_key": "balneario_barra_do_sul",
+      "municipio_codigo_ibge": "4202057",
+      "regiao_imediata": "Joinville",
+      "regiao_imediata_key": "joinville",
+      "regiao_imediata_codigo_ibge": "420016",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "balneario_camboriu": {
+      "municipio": "Balneário Camboriú",
+      "municipio_key": "balneario_camboriu",
+      "municipio_codigo_ibge": "4202008",
+      "regiao_imediata": "Itajaí",
+      "regiao_imediata_key": "itajai",
+      "regiao_imediata_codigo_ibge": "420020",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "balneario_gaivota": {
+      "municipio": "Balneário Gaivota",
+      "municipio_key": "balneario_gaivota",
+      "municipio_codigo_ibge": "4202073",
+      "regiao_imediata": "Araranguá",
+      "regiao_imediata_key": "ararangua",
+      "regiao_imediata_codigo_ibge": "420004",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "balneario_picarras": {
+      "municipio": "Balneário Piçarras",
+      "municipio_key": "balneario_picarras",
+      "municipio_codigo_ibge": "4212809",
+      "regiao_imediata": "Itajaí",
+      "regiao_imediata_key": "itajai",
+      "regiao_imediata_codigo_ibge": "420020",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "balneario_rincao": {
+      "municipio": "Balneário Rincão",
+      "municipio_key": "balneario_rincao",
+      "municipio_codigo_ibge": "4220000",
+      "regiao_imediata": "Criciúma",
+      "regiao_imediata_key": "criciuma",
+      "regiao_imediata_codigo_ibge": "420002",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "bandeirante": {
+      "municipio": "Bandeirante",
+      "municipio_key": "bandeirante",
+      "municipio_codigo_ibge": "4202081",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "barra_bonita": {
+      "municipio": "Barra Bonita",
+      "municipio_key": "barra_bonita",
+      "municipio_codigo_ibge": "4202099",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "barra_velha": {
+      "municipio": "Barra Velha",
+      "municipio_key": "barra_velha",
+      "municipio_codigo_ibge": "4202107",
+      "regiao_imediata": "Itajaí",
+      "regiao_imediata_key": "itajai",
+      "regiao_imediata_codigo_ibge": "420020",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "bela_vista_do_toldo": {
+      "municipio": "Bela Vista do Toldo",
+      "municipio_key": "bela_vista_do_toldo",
+      "municipio_codigo_ibge": "4202131",
+      "regiao_imediata": "Mafra",
+      "regiao_imediata_key": "mafra",
+      "regiao_imediata_codigo_ibge": "420017",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "belmonte": {
+      "municipio": "Belmonte",
+      "municipio_key": "belmonte",
+      "municipio_codigo_ibge": "4202156",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "benedito_novo": {
+      "municipio": "Benedito Novo",
+      "municipio_key": "benedito_novo",
+      "municipio_codigo_ibge": "4202206",
+      "regiao_imediata": "Blumenau",
+      "regiao_imediata_key": "blumenau",
+      "regiao_imediata_codigo_ibge": "420019",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "biguacu": {
+      "municipio": "Biguaçu",
+      "municipio_key": "biguacu",
+      "municipio_codigo_ibge": "4202305",
+      "regiao_imediata": "Florianópolis",
+      "regiao_imediata_key": "florianopolis",
+      "regiao_imediata_codigo_ibge": "420001",
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201"
+    },
+    "blumenau": {
+      "municipio": "Blumenau",
+      "municipio_key": "blumenau",
+      "municipio_codigo_ibge": "4202404",
+      "regiao_imediata": "Blumenau",
+      "regiao_imediata_key": "blumenau",
+      "regiao_imediata_codigo_ibge": "420019",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "bocaina_do_sul": {
+      "municipio": "Bocaina do Sul",
+      "municipio_key": "bocaina_do_sul",
+      "municipio_codigo_ibge": "4202438",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "bom_jardim_da_serra": {
+      "municipio": "Bom Jardim da Serra",
+      "municipio_key": "bom_jardim_da_serra",
+      "municipio_codigo_ibge": "4202503",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "bom_jesus": {
+      "municipio": "Bom Jesus",
+      "municipio_key": "bom_jesus",
+      "municipio_codigo_ibge": "4202537",
+      "regiao_imediata": "Xanxerê",
+      "regiao_imediata_key": "xanxere",
+      "regiao_imediata_codigo_ibge": "420011",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "bom_jesus_do_oeste": {
+      "municipio": "Bom Jesus do Oeste",
+      "municipio_key": "bom_jesus_do_oeste",
+      "municipio_codigo_ibge": "4202578",
+      "regiao_imediata": "Maravilha",
+      "regiao_imediata_key": "maravilha",
+      "regiao_imediata_codigo_ibge": "420012",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "bom_retiro": {
+      "municipio": "Bom Retiro",
+      "municipio_key": "bom_retiro",
+      "municipio_codigo_ibge": "4202602",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "bombinhas": {
+      "municipio": "Bombinhas",
+      "municipio_key": "bombinhas",
+      "municipio_codigo_ibge": "4202453",
+      "regiao_imediata": "Itajaí",
+      "regiao_imediata_key": "itajai",
+      "regiao_imediata_codigo_ibge": "420020",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "botuvera": {
+      "municipio": "Botuverá",
+      "municipio_key": "botuvera",
+      "municipio_codigo_ibge": "4202701",
+      "regiao_imediata": "Brusque",
+      "regiao_imediata_key": "brusque",
+      "regiao_imediata_codigo_ibge": "420021",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "braco_do_norte": {
+      "municipio": "Braço do Norte",
+      "municipio_key": "braco_do_norte",
+      "municipio_codigo_ibge": "4202800",
+      "regiao_imediata": "Tubarão",
+      "regiao_imediata_key": "tubarao",
+      "regiao_imediata_codigo_ibge": "420003",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "braco_do_trombudo": {
+      "municipio": "Braço do Trombudo",
+      "municipio_key": "braco_do_trombudo",
+      "municipio_codigo_ibge": "4202859",
+      "regiao_imediata": "Rio do Sul",
+      "regiao_imediata_key": "rio_do_sul",
+      "regiao_imediata_codigo_ibge": "420022",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "brunopolis": {
+      "municipio": "Brunópolis",
+      "municipio_key": "brunopolis",
+      "municipio_codigo_ibge": "4202875",
+      "regiao_imediata": "Curitibanos",
+      "regiao_imediata_key": "curitibanos",
+      "regiao_imediata_codigo_ibge": "420006",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "brusque": {
+      "municipio": "Brusque",
+      "municipio_key": "brusque",
+      "municipio_codigo_ibge": "4202909",
+      "regiao_imediata": "Brusque",
+      "regiao_imediata_key": "brusque",
+      "regiao_imediata_codigo_ibge": "420021",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "caibi": {
+      "municipio": "Caibi",
+      "municipio_key": "caibi",
+      "municipio_codigo_ibge": "4203105",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "calmon": {
+      "municipio": "Calmon",
+      "municipio_key": "calmon",
+      "municipio_codigo_ibge": "4203154",
+      "regiao_imediata": "Caçador",
+      "regiao_imediata_key": "cacador",
+      "regiao_imediata_codigo_ibge": "420014",
+      "regiao_intermediaria": "Caçador",
+      "regiao_intermediaria_key": "cacador",
+      "regiao_intermediaria_codigo_ibge": "4205"
+    },
+    "camboriu": {
+      "municipio": "Camboriú",
+      "municipio_key": "camboriu",
+      "municipio_codigo_ibge": "4203204",
+      "regiao_imediata": "Itajaí",
+      "regiao_imediata_key": "itajai",
+      "regiao_imediata_codigo_ibge": "420020",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "campo_alegre": {
+      "municipio": "Campo Alegre",
+      "municipio_key": "campo_alegre",
+      "municipio_codigo_ibge": "4203303",
+      "regiao_imediata": "São Bento do Sul - Rio Negrinho",
+      "regiao_imediata_key": "sao_bento_do_sul_rio_negrinho",
+      "regiao_imediata_codigo_ibge": "420018",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "campo_belo_do_sul": {
+      "municipio": "Campo Belo do Sul",
+      "municipio_key": "campo_belo_do_sul",
+      "municipio_codigo_ibge": "4203402",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "campo_ere": {
+      "municipio": "Campo Erê",
+      "municipio_key": "campo_ere",
+      "municipio_codigo_ibge": "4203501",
+      "regiao_imediata": "São Lourenço do Oeste",
+      "regiao_imediata_key": "sao_lourenco_do_oeste",
+      "regiao_imediata_codigo_ibge": "420013",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "campos_novos": {
+      "municipio": "Campos Novos",
+      "municipio_key": "campos_novos",
+      "municipio_codigo_ibge": "4203600",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "canelinha": {
+      "municipio": "Canelinha",
+      "municipio_key": "canelinha",
+      "municipio_codigo_ibge": "4203709",
+      "regiao_imediata": "Brusque",
+      "regiao_imediata_key": "brusque",
+      "regiao_imediata_codigo_ibge": "420021",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "canoinhas": {
+      "municipio": "Canoinhas",
+      "municipio_key": "canoinhas",
+      "municipio_codigo_ibge": "4203808",
+      "regiao_imediata": "Mafra",
+      "regiao_imediata_key": "mafra",
+      "regiao_imediata_codigo_ibge": "420017",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "capinzal": {
+      "municipio": "Capinzal",
+      "municipio_key": "capinzal",
+      "municipio_codigo_ibge": "4203907",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "capivari_de_baixo": {
+      "municipio": "Capivari de Baixo",
+      "municipio_key": "capivari_de_baixo",
+      "municipio_codigo_ibge": "4203956",
+      "regiao_imediata": "Tubarão",
+      "regiao_imediata_key": "tubarao",
+      "regiao_imediata_codigo_ibge": "420003",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "capao_alto": {
+      "municipio": "Capão Alto",
+      "municipio_key": "capao_alto",
+      "municipio_codigo_ibge": "4203253",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "catanduvas": {
+      "municipio": "Catanduvas",
+      "municipio_key": "catanduvas",
+      "municipio_codigo_ibge": "4204004",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "caxambu_do_sul": {
+      "municipio": "Caxambu do Sul",
+      "municipio_key": "caxambu_do_sul",
+      "municipio_codigo_ibge": "4204103",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "cacador": {
+      "municipio": "Caçador",
+      "municipio_key": "cacador",
+      "municipio_codigo_ibge": "4203006",
+      "regiao_imediata": "Caçador",
+      "regiao_imediata_key": "cacador",
+      "regiao_imediata_codigo_ibge": "420014",
+      "regiao_intermediaria": "Caçador",
+      "regiao_intermediaria_key": "cacador",
+      "regiao_intermediaria_codigo_ibge": "4205"
+    },
+    "celso_ramos": {
+      "municipio": "Celso Ramos",
+      "municipio_key": "celso_ramos",
+      "municipio_codigo_ibge": "4204152",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "cerro_negro": {
+      "municipio": "Cerro Negro",
+      "municipio_key": "cerro_negro",
+      "municipio_codigo_ibge": "4204178",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "chapadao_do_lageado": {
+      "municipio": "Chapadão do Lageado",
+      "municipio_key": "chapadao_do_lageado",
+      "municipio_codigo_ibge": "4204194",
+      "regiao_imediata": "Ituporanga",
+      "regiao_imediata_key": "ituporanga",
+      "regiao_imediata_codigo_ibge": "420024",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "chapeco": {
+      "municipio": "Chapecó",
+      "municipio_key": "chapeco",
+      "municipio_codigo_ibge": "4204202",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "cocal_do_sul": {
+      "municipio": "Cocal do Sul",
+      "municipio_key": "cocal_do_sul",
+      "municipio_codigo_ibge": "4204251",
+      "regiao_imediata": "Criciúma",
+      "regiao_imediata_key": "criciuma",
+      "regiao_imediata_codigo_ibge": "420002",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "concordia": {
+      "municipio": "Concórdia",
+      "municipio_key": "concordia",
+      "municipio_codigo_ibge": "4204301",
+      "regiao_imediata": "Concórdia",
+      "regiao_imediata_key": "concordia",
+      "regiao_imediata_codigo_ibge": "420010",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "cordilheira_alta": {
+      "municipio": "Cordilheira Alta",
+      "municipio_key": "cordilheira_alta",
+      "municipio_codigo_ibge": "4204350",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "coronel_freitas": {
+      "municipio": "Coronel Freitas",
+      "municipio_key": "coronel_freitas",
+      "municipio_codigo_ibge": "4204400",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "coronel_martins": {
+      "municipio": "Coronel Martins",
+      "municipio_key": "coronel_martins",
+      "municipio_codigo_ibge": "4204459",
+      "regiao_imediata": "Xanxerê",
+      "regiao_imediata_key": "xanxere",
+      "regiao_imediata_codigo_ibge": "420011",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "correia_pinto": {
+      "municipio": "Correia Pinto",
+      "municipio_key": "correia_pinto",
+      "municipio_codigo_ibge": "4204558",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "corupa": {
+      "municipio": "Corupá",
+      "municipio_key": "corupa",
+      "municipio_codigo_ibge": "4204509",
+      "regiao_imediata": "Joinville",
+      "regiao_imediata_key": "joinville",
+      "regiao_imediata_codigo_ibge": "420016",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "criciuma": {
+      "municipio": "Criciúma",
+      "municipio_key": "criciuma",
+      "municipio_codigo_ibge": "4204608",
+      "regiao_imediata": "Criciúma",
+      "regiao_imediata_key": "criciuma",
+      "regiao_imediata_codigo_ibge": "420002",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "cunha_pora": {
+      "municipio": "Cunha Porã",
+      "municipio_key": "cunha_pora",
+      "municipio_codigo_ibge": "4204707",
+      "regiao_imediata": "Maravilha",
+      "regiao_imediata_key": "maravilha",
+      "regiao_imediata_codigo_ibge": "420012",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "cunhatai": {
+      "municipio": "Cunhataí",
+      "municipio_key": "cunhatai",
+      "municipio_codigo_ibge": "4204756",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "curitibanos": {
+      "municipio": "Curitibanos",
+      "municipio_key": "curitibanos",
+      "municipio_codigo_ibge": "4204806",
+      "regiao_imediata": "Curitibanos",
+      "regiao_imediata_key": "curitibanos",
+      "regiao_imediata_codigo_ibge": "420006",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "descanso": {
+      "municipio": "Descanso",
+      "municipio_key": "descanso",
+      "municipio_codigo_ibge": "4204905",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "dionisio_cerqueira": {
+      "municipio": "Dionísio Cerqueira",
+      "municipio_key": "dionisio_cerqueira",
+      "municipio_codigo_ibge": "4205001",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "dona_emma": {
+      "municipio": "Dona Emma",
+      "municipio_key": "dona_emma",
+      "municipio_codigo_ibge": "4205100",
+      "regiao_imediata": "Ibirama - Presidente Getúlio",
+      "regiao_imediata_key": "ibirama_presidente_getulio",
+      "regiao_imediata_codigo_ibge": "420023",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "doutor_pedrinho": {
+      "municipio": "Doutor Pedrinho",
+      "municipio_key": "doutor_pedrinho",
+      "municipio_codigo_ibge": "4205159",
+      "regiao_imediata": "Blumenau",
+      "regiao_imediata_key": "blumenau",
+      "regiao_imediata_codigo_ibge": "420019",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "entre_rios": {
+      "municipio": "Entre Rios",
+      "municipio_key": "entre_rios",
+      "municipio_codigo_ibge": "4205175",
+      "regiao_imediata": "Xanxerê",
+      "regiao_imediata_key": "xanxere",
+      "regiao_imediata_codigo_ibge": "420011",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "ermo": {
+      "municipio": "Ermo",
+      "municipio_key": "ermo",
+      "municipio_codigo_ibge": "4205191",
+      "regiao_imediata": "Araranguá",
+      "regiao_imediata_key": "ararangua",
+      "regiao_imediata_codigo_ibge": "420004",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "erval_velho": {
+      "municipio": "Erval Velho",
+      "municipio_key": "erval_velho",
+      "municipio_codigo_ibge": "4205209",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "faxinal_dos_guedes": {
+      "municipio": "Faxinal dos Guedes",
+      "municipio_key": "faxinal_dos_guedes",
+      "municipio_codigo_ibge": "4205308",
+      "regiao_imediata": "Xanxerê",
+      "regiao_imediata_key": "xanxere",
+      "regiao_imediata_codigo_ibge": "420011",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "flor_do_sertao": {
+      "municipio": "Flor do Sertão",
+      "municipio_key": "flor_do_sertao",
+      "municipio_codigo_ibge": "4205357",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "florianopolis": {
+      "municipio": "Florianópolis",
+      "municipio_key": "florianopolis",
+      "municipio_codigo_ibge": "4205407",
+      "regiao_imediata": "Florianópolis",
+      "regiao_imediata_key": "florianopolis",
+      "regiao_imediata_codigo_ibge": "420001",
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201"
+    },
+    "formosa_do_sul": {
+      "municipio": "Formosa do Sul",
+      "municipio_key": "formosa_do_sul",
+      "municipio_codigo_ibge": "4205431",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "forquilhinha": {
+      "municipio": "Forquilhinha",
+      "municipio_key": "forquilhinha",
+      "municipio_codigo_ibge": "4205456",
+      "regiao_imediata": "Criciúma",
+      "regiao_imediata_key": "criciuma",
+      "regiao_imediata_codigo_ibge": "420002",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "fraiburgo": {
+      "municipio": "Fraiburgo",
+      "municipio_key": "fraiburgo",
+      "municipio_codigo_ibge": "4205506",
+      "regiao_imediata": "Videira",
+      "regiao_imediata_key": "videira",
+      "regiao_imediata_codigo_ibge": "420015",
+      "regiao_intermediaria": "Caçador",
+      "regiao_intermediaria_key": "cacador",
+      "regiao_intermediaria_codigo_ibge": "4205"
+    },
+    "frei_rogerio": {
+      "municipio": "Frei Rogério",
+      "municipio_key": "frei_rogerio",
+      "municipio_codigo_ibge": "4205555",
+      "regiao_imediata": "Curitibanos",
+      "regiao_imediata_key": "curitibanos",
+      "regiao_imediata_codigo_ibge": "420006",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "galvao": {
+      "municipio": "Galvão",
+      "municipio_key": "galvao",
+      "municipio_codigo_ibge": "4205605",
+      "regiao_imediata": "São Lourenço do Oeste",
+      "regiao_imediata_key": "sao_lourenco_do_oeste",
+      "regiao_imediata_codigo_ibge": "420013",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "garopaba": {
+      "municipio": "Garopaba",
+      "municipio_key": "garopaba",
+      "municipio_codigo_ibge": "4205704",
+      "regiao_imediata": "Florianópolis",
+      "regiao_imediata_key": "florianopolis",
+      "regiao_imediata_codigo_ibge": "420001",
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201"
+    },
+    "garuva": {
+      "municipio": "Garuva",
+      "municipio_key": "garuva",
+      "municipio_codigo_ibge": "4205803",
+      "regiao_imediata": "Joinville",
+      "regiao_imediata_key": "joinville",
+      "regiao_imediata_codigo_ibge": "420016",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "gaspar": {
+      "municipio": "Gaspar",
+      "municipio_key": "gaspar",
+      "municipio_codigo_ibge": "4205902",
+      "regiao_imediata": "Blumenau",
+      "regiao_imediata_key": "blumenau",
+      "regiao_imediata_codigo_ibge": "420019",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "governador_celso_ramos": {
+      "municipio": "Governador Celso Ramos",
+      "municipio_key": "governador_celso_ramos",
+      "municipio_codigo_ibge": "4206009",
+      "regiao_imediata": "Florianópolis",
+      "regiao_imediata_key": "florianopolis",
+      "regiao_imediata_codigo_ibge": "420001",
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201"
+    },
+    "gravatal": {
+      "municipio": "Gravatal",
+      "municipio_key": "gravatal",
+      "municipio_codigo_ibge": "4206207",
+      "regiao_imediata": "Tubarão",
+      "regiao_imediata_key": "tubarao",
+      "regiao_imediata_codigo_ibge": "420003",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "grao_para": {
+      "municipio": "Grão Pará",
+      "municipio_key": "grao_para",
+      "municipio_codigo_ibge": "4206108",
+      "regiao_imediata": "Tubarão",
+      "regiao_imediata_key": "tubarao",
+      "regiao_imediata_codigo_ibge": "420003",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "guabiruba": {
+      "municipio": "Guabiruba",
+      "municipio_key": "guabiruba",
+      "municipio_codigo_ibge": "4206306",
+      "regiao_imediata": "Brusque",
+      "regiao_imediata_key": "brusque",
+      "regiao_imediata_codigo_ibge": "420021",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "guaraciaba": {
+      "municipio": "Guaraciaba",
+      "municipio_key": "guaraciaba",
+      "municipio_codigo_ibge": "4206405",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "guaramirim": {
+      "municipio": "Guaramirim",
+      "municipio_key": "guaramirim",
+      "municipio_codigo_ibge": "4206504",
+      "regiao_imediata": "Joinville",
+      "regiao_imediata_key": "joinville",
+      "regiao_imediata_codigo_ibge": "420016",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "guaruja_do_sul": {
+      "municipio": "Guarujá do Sul",
+      "municipio_key": "guaruja_do_sul",
+      "municipio_codigo_ibge": "4206603",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "guatambu": {
+      "municipio": "Guatambú",
+      "municipio_key": "guatambu",
+      "municipio_codigo_ibge": "4206652",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "herval_d_oeste": {
+      "municipio": "Herval d'Oeste",
+      "municipio_key": "herval_d_oeste",
+      "municipio_codigo_ibge": "4206702",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "ibiam": {
+      "municipio": "Ibiam",
+      "municipio_key": "ibiam",
+      "municipio_codigo_ibge": "4206751",
+      "regiao_imediata": "Videira",
+      "regiao_imediata_key": "videira",
+      "regiao_imediata_codigo_ibge": "420015",
+      "regiao_intermediaria": "Caçador",
+      "regiao_intermediaria_key": "cacador",
+      "regiao_intermediaria_codigo_ibge": "4205"
+    },
+    "ibicare": {
+      "municipio": "Ibicaré",
+      "municipio_key": "ibicare",
+      "municipio_codigo_ibge": "4206801",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "ibirama": {
+      "municipio": "Ibirama",
+      "municipio_key": "ibirama",
+      "municipio_codigo_ibge": "4206900",
+      "regiao_imediata": "Ibirama - Presidente Getúlio",
+      "regiao_imediata_key": "ibirama_presidente_getulio",
+      "regiao_imediata_codigo_ibge": "420023",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "ilhota": {
+      "municipio": "Ilhota",
+      "municipio_key": "ilhota",
+      "municipio_codigo_ibge": "4207106",
+      "regiao_imediata": "Blumenau",
+      "regiao_imediata_key": "blumenau",
+      "regiao_imediata_codigo_ibge": "420019",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "imarui": {
+      "municipio": "Imaruí",
+      "municipio_key": "imarui",
+      "municipio_codigo_ibge": "4207205",
+      "regiao_imediata": "Tubarão",
+      "regiao_imediata_key": "tubarao",
+      "regiao_imediata_codigo_ibge": "420003",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "imbituba": {
+      "municipio": "Imbituba",
+      "municipio_key": "imbituba",
+      "municipio_codigo_ibge": "4207304",
+      "regiao_imediata": "Florianópolis",
+      "regiao_imediata_key": "florianopolis",
+      "regiao_imediata_codigo_ibge": "420001",
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201"
+    },
+    "imbuia": {
+      "municipio": "Imbuia",
+      "municipio_key": "imbuia",
+      "municipio_codigo_ibge": "4207403",
+      "regiao_imediata": "Ituporanga",
+      "regiao_imediata_key": "ituporanga",
+      "regiao_imediata_codigo_ibge": "420024",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "indaial": {
+      "municipio": "Indaial",
+      "municipio_key": "indaial",
+      "municipio_codigo_ibge": "4207502",
+      "regiao_imediata": "Blumenau",
+      "regiao_imediata_key": "blumenau",
+      "regiao_imediata_codigo_ibge": "420019",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "iomere": {
+      "municipio": "Iomerê",
+      "municipio_key": "iomere",
+      "municipio_codigo_ibge": "4207577",
+      "regiao_imediata": "Videira",
+      "regiao_imediata_key": "videira",
+      "regiao_imediata_codigo_ibge": "420015",
+      "regiao_intermediaria": "Caçador",
+      "regiao_intermediaria_key": "cacador",
+      "regiao_intermediaria_codigo_ibge": "4205"
+    },
+    "ipira": {
+      "municipio": "Ipira",
+      "municipio_key": "ipira",
+      "municipio_codigo_ibge": "4207601",
+      "regiao_imediata": "Concórdia",
+      "regiao_imediata_key": "concordia",
+      "regiao_imediata_codigo_ibge": "420010",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "ipora_do_oeste": {
+      "municipio": "Iporã do Oeste",
+      "municipio_key": "ipora_do_oeste",
+      "municipio_codigo_ibge": "4207650",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "ipuacu": {
+      "municipio": "Ipuaçu",
+      "municipio_key": "ipuacu",
+      "municipio_codigo_ibge": "4207684",
+      "regiao_imediata": "Xanxerê",
+      "regiao_imediata_key": "xanxere",
+      "regiao_imediata_codigo_ibge": "420011",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "ipumirim": {
+      "municipio": "Ipumirim",
+      "municipio_key": "ipumirim",
+      "municipio_codigo_ibge": "4207700",
+      "regiao_imediata": "Concórdia",
+      "regiao_imediata_key": "concordia",
+      "regiao_imediata_codigo_ibge": "420010",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "iraceminha": {
+      "municipio": "Iraceminha",
+      "municipio_key": "iraceminha",
+      "municipio_codigo_ibge": "4207759",
+      "regiao_imediata": "Maravilha",
+      "regiao_imediata_key": "maravilha",
+      "regiao_imediata_codigo_ibge": "420012",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "irani": {
+      "municipio": "Irani",
+      "municipio_key": "irani",
+      "municipio_codigo_ibge": "4207809",
+      "regiao_imediata": "Concórdia",
+      "regiao_imediata_key": "concordia",
+      "regiao_imediata_codigo_ibge": "420010",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "irati": {
+      "municipio": "Irati",
+      "municipio_key": "irati",
+      "municipio_codigo_ibge": "4207858",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "irineopolis": {
+      "municipio": "Irineópolis",
+      "municipio_key": "irineopolis",
+      "municipio_codigo_ibge": "4207908",
+      "regiao_imediata": "Mafra",
+      "regiao_imediata_key": "mafra",
+      "regiao_imediata_codigo_ibge": "420017",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "itaiopolis": {
+      "municipio": "Itaiópolis",
+      "municipio_key": "itaiopolis",
+      "municipio_codigo_ibge": "4208104",
+      "regiao_imediata": "Mafra",
+      "regiao_imediata_key": "mafra",
+      "regiao_imediata_codigo_ibge": "420017",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "itajai": {
+      "municipio": "Itajaí",
+      "municipio_key": "itajai",
+      "municipio_codigo_ibge": "4208203",
+      "regiao_imediata": "Itajaí",
+      "regiao_imediata_key": "itajai",
+      "regiao_imediata_codigo_ibge": "420020",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "itapema": {
+      "municipio": "Itapema",
+      "municipio_key": "itapema",
+      "municipio_codigo_ibge": "4208302",
+      "regiao_imediata": "Itajaí",
+      "regiao_imediata_key": "itajai",
+      "regiao_imediata_codigo_ibge": "420020",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "itapiranga": {
+      "municipio": "Itapiranga",
+      "municipio_key": "itapiranga",
+      "municipio_codigo_ibge": "4208401",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "itapoa": {
+      "municipio": "Itapoá",
+      "municipio_key": "itapoa",
+      "municipio_codigo_ibge": "4208450",
+      "regiao_imediata": "Joinville",
+      "regiao_imediata_key": "joinville",
+      "regiao_imediata_codigo_ibge": "420016",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "ituporanga": {
+      "municipio": "Ituporanga",
+      "municipio_key": "ituporanga",
+      "municipio_codigo_ibge": "4208500",
+      "regiao_imediata": "Ituporanga",
+      "regiao_imediata_key": "ituporanga",
+      "regiao_imediata_codigo_ibge": "420024",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "ita": {
+      "municipio": "Itá",
+      "municipio_key": "ita",
+      "municipio_codigo_ibge": "4208005",
+      "regiao_imediata": "Concórdia",
+      "regiao_imediata_key": "concordia",
+      "regiao_imediata_codigo_ibge": "420010",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "icara": {
+      "municipio": "Içara",
+      "municipio_key": "icara",
+      "municipio_codigo_ibge": "4207007",
+      "regiao_imediata": "Criciúma",
+      "regiao_imediata_key": "criciuma",
+      "regiao_imediata_codigo_ibge": "420002",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "jabora": {
+      "municipio": "Jaborá",
+      "municipio_key": "jabora",
+      "municipio_codigo_ibge": "4208609",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "jacinto_machado": {
+      "municipio": "Jacinto Machado",
+      "municipio_key": "jacinto_machado",
+      "municipio_codigo_ibge": "4208708",
+      "regiao_imediata": "Araranguá",
+      "regiao_imediata_key": "ararangua",
+      "regiao_imediata_codigo_ibge": "420004",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "jaguaruna": {
+      "municipio": "Jaguaruna",
+      "municipio_key": "jaguaruna",
+      "municipio_codigo_ibge": "4208807",
+      "regiao_imediata": "Tubarão",
+      "regiao_imediata_key": "tubarao",
+      "regiao_imediata_codigo_ibge": "420003",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "jaragua_do_sul": {
+      "municipio": "Jaraguá do Sul",
+      "municipio_key": "jaragua_do_sul",
+      "municipio_codigo_ibge": "4208906",
+      "regiao_imediata": "Joinville",
+      "regiao_imediata_key": "joinville",
+      "regiao_imediata_codigo_ibge": "420016",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "jardinopolis": {
+      "municipio": "Jardinópolis",
+      "municipio_key": "jardinopolis",
+      "municipio_codigo_ibge": "4208955",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "joacaba": {
+      "municipio": "Joaçaba",
+      "municipio_key": "joacaba",
+      "municipio_codigo_ibge": "4209003",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "joinville": {
+      "municipio": "Joinville",
+      "municipio_key": "joinville",
+      "municipio_codigo_ibge": "4209102",
+      "regiao_imediata": "Joinville",
+      "regiao_imediata_key": "joinville",
+      "regiao_imediata_codigo_ibge": "420016",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "jose_boiteux": {
+      "municipio": "José Boiteux",
+      "municipio_key": "jose_boiteux",
+      "municipio_codigo_ibge": "4209151",
+      "regiao_imediata": "Ibirama - Presidente Getúlio",
+      "regiao_imediata_key": "ibirama_presidente_getulio",
+      "regiao_imediata_codigo_ibge": "420023",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "jupia": {
+      "municipio": "Jupiá",
+      "municipio_key": "jupia",
+      "municipio_codigo_ibge": "4209177",
+      "regiao_imediata": "São Lourenço do Oeste",
+      "regiao_imediata_key": "sao_lourenco_do_oeste",
+      "regiao_imediata_codigo_ibge": "420013",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "lacerdopolis": {
+      "municipio": "Lacerdópolis",
+      "municipio_key": "lacerdopolis",
+      "municipio_codigo_ibge": "4209201",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "lages": {
+      "municipio": "Lages",
+      "municipio_key": "lages",
+      "municipio_codigo_ibge": "4209300",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "laguna": {
+      "municipio": "Laguna",
+      "municipio_key": "laguna",
+      "municipio_codigo_ibge": "4209409",
+      "regiao_imediata": "Tubarão",
+      "regiao_imediata_key": "tubarao",
+      "regiao_imediata_codigo_ibge": "420003",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "lajeado_grande": {
+      "municipio": "Lajeado Grande",
+      "municipio_key": "lajeado_grande",
+      "municipio_codigo_ibge": "4209458",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "laurentino": {
+      "municipio": "Laurentino",
+      "municipio_key": "laurentino",
+      "municipio_codigo_ibge": "4209508",
+      "regiao_imediata": "Rio do Sul",
+      "regiao_imediata_key": "rio_do_sul",
+      "regiao_imediata_codigo_ibge": "420022",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "lauro_muller": {
+      "municipio": "Lauro Muller",
+      "municipio_key": "lauro_muller",
+      "municipio_codigo_ibge": "4209607",
+      "regiao_imediata": "Criciúma",
+      "regiao_imediata_key": "criciuma",
+      "regiao_imediata_codigo_ibge": "420002",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "lebon_regis": {
+      "municipio": "Lebon Régis",
+      "municipio_key": "lebon_regis",
+      "municipio_codigo_ibge": "4209706",
+      "regiao_imediata": "Caçador",
+      "regiao_imediata_key": "cacador",
+      "regiao_imediata_codigo_ibge": "420014",
+      "regiao_intermediaria": "Caçador",
+      "regiao_intermediaria_key": "cacador",
+      "regiao_intermediaria_codigo_ibge": "4205"
+    },
+    "leoberto_leal": {
+      "municipio": "Leoberto Leal",
+      "municipio_key": "leoberto_leal",
+      "municipio_codigo_ibge": "4209805",
+      "regiao_imediata": "Ituporanga",
+      "regiao_imediata_key": "ituporanga",
+      "regiao_imediata_codigo_ibge": "420024",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "lindoia_do_sul": {
+      "municipio": "Lindóia do Sul",
+      "municipio_key": "lindoia_do_sul",
+      "municipio_codigo_ibge": "4209854",
+      "regiao_imediata": "Concórdia",
+      "regiao_imediata_key": "concordia",
+      "regiao_imediata_codigo_ibge": "420010",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "lontras": {
+      "municipio": "Lontras",
+      "municipio_key": "lontras",
+      "municipio_codigo_ibge": "4209904",
+      "regiao_imediata": "Rio do Sul",
+      "regiao_imediata_key": "rio_do_sul",
+      "regiao_imediata_codigo_ibge": "420022",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "luiz_alves": {
+      "municipio": "Luiz Alves",
+      "municipio_key": "luiz_alves",
+      "municipio_codigo_ibge": "4210001",
+      "regiao_imediata": "Itajaí",
+      "regiao_imediata_key": "itajai",
+      "regiao_imediata_codigo_ibge": "420020",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "luzerna": {
+      "municipio": "Luzerna",
+      "municipio_key": "luzerna",
+      "municipio_codigo_ibge": "4210035",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "macieira": {
+      "municipio": "Macieira",
+      "municipio_key": "macieira",
+      "municipio_codigo_ibge": "4210050",
+      "regiao_imediata": "Caçador",
+      "regiao_imediata_key": "cacador",
+      "regiao_imediata_codigo_ibge": "420014",
+      "regiao_intermediaria": "Caçador",
+      "regiao_intermediaria_key": "cacador",
+      "regiao_intermediaria_codigo_ibge": "4205"
+    },
+    "mafra": {
+      "municipio": "Mafra",
+      "municipio_key": "mafra",
+      "municipio_codigo_ibge": "4210100",
+      "regiao_imediata": "Mafra",
+      "regiao_imediata_key": "mafra",
+      "regiao_imediata_codigo_ibge": "420017",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "major_gercino": {
+      "municipio": "Major Gercino",
+      "municipio_key": "major_gercino",
+      "municipio_codigo_ibge": "4210209",
+      "regiao_imediata": "Brusque",
+      "regiao_imediata_key": "brusque",
+      "regiao_imediata_codigo_ibge": "420021",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "major_vieira": {
+      "municipio": "Major Vieira",
+      "municipio_key": "major_vieira",
+      "municipio_codigo_ibge": "4210308",
+      "regiao_imediata": "Mafra",
+      "regiao_imediata_key": "mafra",
+      "regiao_imediata_codigo_ibge": "420017",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "maracaja": {
+      "municipio": "Maracajá",
+      "municipio_key": "maracaja",
+      "municipio_codigo_ibge": "4210407",
+      "regiao_imediata": "Araranguá",
+      "regiao_imediata_key": "ararangua",
+      "regiao_imediata_codigo_ibge": "420004",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "maravilha": {
+      "municipio": "Maravilha",
+      "municipio_key": "maravilha",
+      "municipio_codigo_ibge": "4210506",
+      "regiao_imediata": "Maravilha",
+      "regiao_imediata_key": "maravilha",
+      "regiao_imediata_codigo_ibge": "420012",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "marema": {
+      "municipio": "Marema",
+      "municipio_key": "marema",
+      "municipio_codigo_ibge": "4210555",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "massaranduba": {
+      "municipio": "Massaranduba",
+      "municipio_key": "massaranduba",
+      "municipio_codigo_ibge": "4210605",
+      "regiao_imediata": "Joinville",
+      "regiao_imediata_key": "joinville",
+      "regiao_imediata_codigo_ibge": "420016",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "matos_costa": {
+      "municipio": "Matos Costa",
+      "municipio_key": "matos_costa",
+      "municipio_codigo_ibge": "4210704",
+      "regiao_imediata": "Caçador",
+      "regiao_imediata_key": "cacador",
+      "regiao_imediata_codigo_ibge": "420014",
+      "regiao_intermediaria": "Caçador",
+      "regiao_intermediaria_key": "cacador",
+      "regiao_intermediaria_codigo_ibge": "4205"
+    },
+    "meleiro": {
+      "municipio": "Meleiro",
+      "municipio_key": "meleiro",
+      "municipio_codigo_ibge": "4210803",
+      "regiao_imediata": "Araranguá",
+      "regiao_imediata_key": "ararangua",
+      "regiao_imediata_codigo_ibge": "420004",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "mirim_doce": {
+      "municipio": "Mirim Doce",
+      "municipio_key": "mirim_doce",
+      "municipio_codigo_ibge": "4210852",
+      "regiao_imediata": "Rio do Sul",
+      "regiao_imediata_key": "rio_do_sul",
+      "regiao_imediata_codigo_ibge": "420022",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "modelo": {
+      "municipio": "Modelo",
+      "municipio_key": "modelo",
+      "municipio_codigo_ibge": "4210902",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "mondai": {
+      "municipio": "Mondaí",
+      "municipio_key": "mondai",
+      "municipio_codigo_ibge": "4211009",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "monte_carlo": {
+      "municipio": "Monte Carlo",
+      "municipio_key": "monte_carlo",
+      "municipio_codigo_ibge": "4211058",
+      "regiao_imediata": "Videira",
+      "regiao_imediata_key": "videira",
+      "regiao_imediata_codigo_ibge": "420015",
+      "regiao_intermediaria": "Caçador",
+      "regiao_intermediaria_key": "cacador",
+      "regiao_intermediaria_codigo_ibge": "4205"
+    },
+    "monte_castelo": {
+      "municipio": "Monte Castelo",
+      "municipio_key": "monte_castelo",
+      "municipio_codigo_ibge": "4211108",
+      "regiao_imediata": "Mafra",
+      "regiao_imediata_key": "mafra",
+      "regiao_imediata_codigo_ibge": "420017",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "morro_grande": {
+      "municipio": "Morro Grande",
+      "municipio_key": "morro_grande",
+      "municipio_codigo_ibge": "4211256",
+      "regiao_imediata": "Criciúma",
+      "regiao_imediata_key": "criciuma",
+      "regiao_imediata_codigo_ibge": "420002",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "morro_da_fumaca": {
+      "municipio": "Morro da Fumaça",
+      "municipio_key": "morro_da_fumaca",
+      "municipio_codigo_ibge": "4211207",
+      "regiao_imediata": "Criciúma",
+      "regiao_imediata_key": "criciuma",
+      "regiao_imediata_codigo_ibge": "420002",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "navegantes": {
+      "municipio": "Navegantes",
+      "municipio_key": "navegantes",
+      "municipio_codigo_ibge": "4211306",
+      "regiao_imediata": "Itajaí",
+      "regiao_imediata_key": "itajai",
+      "regiao_imediata_codigo_ibge": "420020",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "nova_erechim": {
+      "municipio": "Nova Erechim",
+      "municipio_key": "nova_erechim",
+      "municipio_codigo_ibge": "4211405",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "nova_itaberaba": {
+      "municipio": "Nova Itaberaba",
+      "municipio_key": "nova_itaberaba",
+      "municipio_codigo_ibge": "4211454",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "nova_trento": {
+      "municipio": "Nova Trento",
+      "municipio_key": "nova_trento",
+      "municipio_codigo_ibge": "4211504",
+      "regiao_imediata": "Brusque",
+      "regiao_imediata_key": "brusque",
+      "regiao_imediata_codigo_ibge": "420021",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "nova_veneza": {
+      "municipio": "Nova Veneza",
+      "municipio_key": "nova_veneza",
+      "municipio_codigo_ibge": "4211603",
+      "regiao_imediata": "Criciúma",
+      "regiao_imediata_key": "criciuma",
+      "regiao_imediata_codigo_ibge": "420002",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "novo_horizonte": {
+      "municipio": "Novo Horizonte",
+      "municipio_key": "novo_horizonte",
+      "municipio_codigo_ibge": "4211652",
+      "regiao_imediata": "São Lourenço do Oeste",
+      "regiao_imediata_key": "sao_lourenco_do_oeste",
+      "regiao_imediata_codigo_ibge": "420013",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "orleans": {
+      "municipio": "Orleans",
+      "municipio_key": "orleans",
+      "municipio_codigo_ibge": "4211702",
+      "regiao_imediata": "Criciúma",
+      "regiao_imediata_key": "criciuma",
+      "regiao_imediata_codigo_ibge": "420002",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "otacilio_costa": {
+      "municipio": "Otacílio Costa",
+      "municipio_key": "otacilio_costa",
+      "municipio_codigo_ibge": "4211751",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "ouro": {
+      "municipio": "Ouro",
+      "municipio_key": "ouro",
+      "municipio_codigo_ibge": "4211801",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "ouro_verde": {
+      "municipio": "Ouro Verde",
+      "municipio_key": "ouro_verde",
+      "municipio_codigo_ibge": "4211850",
+      "regiao_imediata": "Xanxerê",
+      "regiao_imediata_key": "xanxere",
+      "regiao_imediata_codigo_ibge": "420011",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "paial": {
+      "municipio": "Paial",
+      "municipio_key": "paial",
+      "municipio_codigo_ibge": "4211876",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "painel": {
+      "municipio": "Painel",
+      "municipio_key": "painel",
+      "municipio_codigo_ibge": "4211892",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "palhoca": {
+      "municipio": "Palhoça",
+      "municipio_key": "palhoca",
+      "municipio_codigo_ibge": "4211900",
+      "regiao_imediata": "Florianópolis",
+      "regiao_imediata_key": "florianopolis",
+      "regiao_imediata_codigo_ibge": "420001",
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201"
+    },
+    "palma_sola": {
+      "municipio": "Palma Sola",
+      "municipio_key": "palma_sola",
+      "municipio_codigo_ibge": "4212007",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "palmeira": {
+      "municipio": "Palmeira",
+      "municipio_key": "palmeira",
+      "municipio_codigo_ibge": "4212056",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "palmitos": {
+      "municipio": "Palmitos",
+      "municipio_key": "palmitos",
+      "municipio_codigo_ibge": "4212106",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "papanduva": {
+      "municipio": "Papanduva",
+      "municipio_key": "papanduva",
+      "municipio_codigo_ibge": "4212205",
+      "regiao_imediata": "Mafra",
+      "regiao_imediata_key": "mafra",
+      "regiao_imediata_codigo_ibge": "420017",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "paraiso": {
+      "municipio": "Paraíso",
+      "municipio_key": "paraiso",
+      "municipio_codigo_ibge": "4212239",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "passo_de_torres": {
+      "municipio": "Passo de Torres",
+      "municipio_key": "passo_de_torres",
+      "municipio_codigo_ibge": "4212254",
+      "regiao_imediata": "Araranguá",
+      "regiao_imediata_key": "ararangua",
+      "regiao_imediata_codigo_ibge": "420004",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "passos_maia": {
+      "municipio": "Passos Maia",
+      "municipio_key": "passos_maia",
+      "municipio_codigo_ibge": "4212270",
+      "regiao_imediata": "Xanxerê",
+      "regiao_imediata_key": "xanxere",
+      "regiao_imediata_codigo_ibge": "420011",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "paulo_lopes": {
+      "municipio": "Paulo Lopes",
+      "municipio_key": "paulo_lopes",
+      "municipio_codigo_ibge": "4212304",
+      "regiao_imediata": "Florianópolis",
+      "regiao_imediata_key": "florianopolis",
+      "regiao_imediata_codigo_ibge": "420001",
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201"
+    },
+    "pedras_grandes": {
+      "municipio": "Pedras Grandes",
+      "municipio_key": "pedras_grandes",
+      "municipio_codigo_ibge": "4212403",
+      "regiao_imediata": "Tubarão",
+      "regiao_imediata_key": "tubarao",
+      "regiao_imediata_codigo_ibge": "420003",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "penha": {
+      "municipio": "Penha",
+      "municipio_key": "penha",
+      "municipio_codigo_ibge": "4212502",
+      "regiao_imediata": "Itajaí",
+      "regiao_imediata_key": "itajai",
+      "regiao_imediata_codigo_ibge": "420020",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "peritiba": {
+      "municipio": "Peritiba",
+      "municipio_key": "peritiba",
+      "municipio_codigo_ibge": "4212601",
+      "regiao_imediata": "Concórdia",
+      "regiao_imediata_key": "concordia",
+      "regiao_imediata_codigo_ibge": "420010",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "pescaria_brava": {
+      "municipio": "Pescaria Brava",
+      "municipio_key": "pescaria_brava",
+      "municipio_codigo_ibge": "4212650",
+      "regiao_imediata": "Tubarão",
+      "regiao_imediata_key": "tubarao",
+      "regiao_imediata_codigo_ibge": "420003",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "petrolandia": {
+      "municipio": "Petrolândia",
+      "municipio_key": "petrolandia",
+      "municipio_codigo_ibge": "4212700",
+      "regiao_imediata": "Ituporanga",
+      "regiao_imediata_key": "ituporanga",
+      "regiao_imediata_codigo_ibge": "420024",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "pinhalzinho": {
+      "municipio": "Pinhalzinho",
+      "municipio_key": "pinhalzinho",
+      "municipio_codigo_ibge": "4212908",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "pinheiro_preto": {
+      "municipio": "Pinheiro Preto",
+      "municipio_key": "pinheiro_preto",
+      "municipio_codigo_ibge": "4213005",
+      "regiao_imediata": "Videira",
+      "regiao_imediata_key": "videira",
+      "regiao_imediata_codigo_ibge": "420015",
+      "regiao_intermediaria": "Caçador",
+      "regiao_intermediaria_key": "cacador",
+      "regiao_intermediaria_codigo_ibge": "4205"
+    },
+    "piratuba": {
+      "municipio": "Piratuba",
+      "municipio_key": "piratuba",
+      "municipio_codigo_ibge": "4213104",
+      "regiao_imediata": "Concórdia",
+      "regiao_imediata_key": "concordia",
+      "regiao_imediata_codigo_ibge": "420010",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "planalto_alegre": {
+      "municipio": "Planalto Alegre",
+      "municipio_key": "planalto_alegre",
+      "municipio_codigo_ibge": "4213153",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "pomerode": {
+      "municipio": "Pomerode",
+      "municipio_key": "pomerode",
+      "municipio_codigo_ibge": "4213203",
+      "regiao_imediata": "Blumenau",
+      "regiao_imediata_key": "blumenau",
+      "regiao_imediata_codigo_ibge": "420019",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "ponte_alta": {
+      "municipio": "Ponte Alta",
+      "municipio_key": "ponte_alta",
+      "municipio_codigo_ibge": "4213302",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "ponte_alta_do_norte": {
+      "municipio": "Ponte Alta do Norte",
+      "municipio_key": "ponte_alta_do_norte",
+      "municipio_codigo_ibge": "4213351",
+      "regiao_imediata": "Curitibanos",
+      "regiao_imediata_key": "curitibanos",
+      "regiao_imediata_codigo_ibge": "420006",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "ponte_serrada": {
+      "municipio": "Ponte Serrada",
+      "municipio_key": "ponte_serrada",
+      "municipio_codigo_ibge": "4213401",
+      "regiao_imediata": "Xanxerê",
+      "regiao_imediata_key": "xanxere",
+      "regiao_imediata_codigo_ibge": "420011",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "porto_belo": {
+      "municipio": "Porto Belo",
+      "municipio_key": "porto_belo",
+      "municipio_codigo_ibge": "4213500",
+      "regiao_imediata": "Itajaí",
+      "regiao_imediata_key": "itajai",
+      "regiao_imediata_codigo_ibge": "420020",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "porto_uniao": {
+      "municipio": "Porto União",
+      "municipio_key": "porto_uniao",
+      "municipio_codigo_ibge": "4213609",
+      "regiao_imediata": "Mafra",
+      "regiao_imediata_key": "mafra",
+      "regiao_imediata_codigo_ibge": "420017",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "pouso_redondo": {
+      "municipio": "Pouso Redondo",
+      "municipio_key": "pouso_redondo",
+      "municipio_codigo_ibge": "4213708",
+      "regiao_imediata": "Rio do Sul",
+      "regiao_imediata_key": "rio_do_sul",
+      "regiao_imediata_codigo_ibge": "420022",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "praia_grande": {
+      "municipio": "Praia Grande",
+      "municipio_key": "praia_grande",
+      "municipio_codigo_ibge": "4213807",
+      "regiao_imediata": "Araranguá",
+      "regiao_imediata_key": "ararangua",
+      "regiao_imediata_codigo_ibge": "420004",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "presidente_castello_branco": {
+      "municipio": "Presidente Castello Branco",
+      "municipio_key": "presidente_castello_branco",
+      "municipio_codigo_ibge": "4213906",
+      "regiao_imediata": "Concórdia",
+      "regiao_imediata_key": "concordia",
+      "regiao_imediata_codigo_ibge": "420010",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "presidente_getulio": {
+      "municipio": "Presidente Getúlio",
+      "municipio_key": "presidente_getulio",
+      "municipio_codigo_ibge": "4214003",
+      "regiao_imediata": "Ibirama - Presidente Getúlio",
+      "regiao_imediata_key": "ibirama_presidente_getulio",
+      "regiao_imediata_codigo_ibge": "420023",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "presidente_nereu": {
+      "municipio": "Presidente Nereu",
+      "municipio_key": "presidente_nereu",
+      "municipio_codigo_ibge": "4214102",
+      "regiao_imediata": "Rio do Sul",
+      "regiao_imediata_key": "rio_do_sul",
+      "regiao_imediata_codigo_ibge": "420022",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "princesa": {
+      "municipio": "Princesa",
+      "municipio_key": "princesa",
+      "municipio_codigo_ibge": "4214151",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "quilombo": {
+      "municipio": "Quilombo",
+      "municipio_key": "quilombo",
+      "municipio_codigo_ibge": "4214201",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "rancho_queimado": {
+      "municipio": "Rancho Queimado",
+      "municipio_key": "rancho_queimado",
+      "municipio_codigo_ibge": "4214300",
+      "regiao_imediata": "Florianópolis",
+      "regiao_imediata_key": "florianopolis",
+      "regiao_imediata_codigo_ibge": "420001",
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201"
+    },
+    "rio_fortuna": {
+      "municipio": "Rio Fortuna",
+      "municipio_key": "rio_fortuna",
+      "municipio_codigo_ibge": "4214904",
+      "regiao_imediata": "Tubarão",
+      "regiao_imediata_key": "tubarao",
+      "regiao_imediata_codigo_ibge": "420003",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "rio_negrinho": {
+      "municipio": "Rio Negrinho",
+      "municipio_key": "rio_negrinho",
+      "municipio_codigo_ibge": "4215000",
+      "regiao_imediata": "São Bento do Sul - Rio Negrinho",
+      "regiao_imediata_key": "sao_bento_do_sul_rio_negrinho",
+      "regiao_imediata_codigo_ibge": "420018",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "rio_rufino": {
+      "municipio": "Rio Rufino",
+      "municipio_key": "rio_rufino",
+      "municipio_codigo_ibge": "4215059",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "rio_das_antas": {
+      "municipio": "Rio das Antas",
+      "municipio_key": "rio_das_antas",
+      "municipio_codigo_ibge": "4214409",
+      "regiao_imediata": "Videira",
+      "regiao_imediata_key": "videira",
+      "regiao_imediata_codigo_ibge": "420015",
+      "regiao_intermediaria": "Caçador",
+      "regiao_intermediaria_key": "cacador",
+      "regiao_intermediaria_codigo_ibge": "4205"
+    },
+    "rio_do_campo": {
+      "municipio": "Rio do Campo",
+      "municipio_key": "rio_do_campo",
+      "municipio_codigo_ibge": "4214508",
+      "regiao_imediata": "Rio do Sul",
+      "regiao_imediata_key": "rio_do_sul",
+      "regiao_imediata_codigo_ibge": "420022",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "rio_do_oeste": {
+      "municipio": "Rio do Oeste",
+      "municipio_key": "rio_do_oeste",
+      "municipio_codigo_ibge": "4214607",
+      "regiao_imediata": "Rio do Sul",
+      "regiao_imediata_key": "rio_do_sul",
+      "regiao_imediata_codigo_ibge": "420022",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "rio_do_sul": {
+      "municipio": "Rio do Sul",
+      "municipio_key": "rio_do_sul",
+      "municipio_codigo_ibge": "4214805",
+      "regiao_imediata": "Rio do Sul",
+      "regiao_imediata_key": "rio_do_sul",
+      "regiao_imediata_codigo_ibge": "420022",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "rio_dos_cedros": {
+      "municipio": "Rio dos Cedros",
+      "municipio_key": "rio_dos_cedros",
+      "municipio_codigo_ibge": "4214706",
+      "regiao_imediata": "Blumenau",
+      "regiao_imediata_key": "blumenau",
+      "regiao_imediata_codigo_ibge": "420019",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "riqueza": {
+      "municipio": "Riqueza",
+      "municipio_key": "riqueza",
+      "municipio_codigo_ibge": "4215075",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "rodeio": {
+      "municipio": "Rodeio",
+      "municipio_key": "rodeio",
+      "municipio_codigo_ibge": "4215109",
+      "regiao_imediata": "Blumenau",
+      "regiao_imediata_key": "blumenau",
+      "regiao_imediata_codigo_ibge": "420019",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "romelandia": {
+      "municipio": "Romelândia",
+      "municipio_key": "romelandia",
+      "municipio_codigo_ibge": "4215208",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "salete": {
+      "municipio": "Salete",
+      "municipio_key": "salete",
+      "municipio_codigo_ibge": "4215307",
+      "regiao_imediata": "Rio do Sul",
+      "regiao_imediata_key": "rio_do_sul",
+      "regiao_imediata_codigo_ibge": "420022",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "saltinho": {
+      "municipio": "Saltinho",
+      "municipio_key": "saltinho",
+      "municipio_codigo_ibge": "4215356",
+      "regiao_imediata": "Maravilha",
+      "regiao_imediata_key": "maravilha",
+      "regiao_imediata_codigo_ibge": "420012",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "salto_veloso": {
+      "municipio": "Salto Veloso",
+      "municipio_key": "salto_veloso",
+      "municipio_codigo_ibge": "4215406",
+      "regiao_imediata": "Videira",
+      "regiao_imediata_key": "videira",
+      "regiao_imediata_codigo_ibge": "420015",
+      "regiao_intermediaria": "Caçador",
+      "regiao_intermediaria_key": "cacador",
+      "regiao_intermediaria_codigo_ibge": "4205"
+    },
+    "sangao": {
+      "municipio": "Sangão",
+      "municipio_key": "sangao",
+      "municipio_codigo_ibge": "4215455",
+      "regiao_imediata": "Tubarão",
+      "regiao_imediata_key": "tubarao",
+      "regiao_imediata_codigo_ibge": "420003",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "santa_cecilia": {
+      "municipio": "Santa Cecília",
+      "municipio_key": "santa_cecilia",
+      "municipio_codigo_ibge": "4215505",
+      "regiao_imediata": "Curitibanos",
+      "regiao_imediata_key": "curitibanos",
+      "regiao_imediata_codigo_ibge": "420006",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "santa_helena": {
+      "municipio": "Santa Helena",
+      "municipio_key": "santa_helena",
+      "municipio_codigo_ibge": "4215554",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "santa_rosa_de_lima": {
+      "municipio": "Santa Rosa de Lima",
+      "municipio_key": "santa_rosa_de_lima",
+      "municipio_codigo_ibge": "4215604",
+      "regiao_imediata": "Tubarão",
+      "regiao_imediata_key": "tubarao",
+      "regiao_imediata_codigo_ibge": "420003",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "santa_rosa_do_sul": {
+      "municipio": "Santa Rosa do Sul",
+      "municipio_key": "santa_rosa_do_sul",
+      "municipio_codigo_ibge": "4215653",
+      "regiao_imediata": "Araranguá",
+      "regiao_imediata_key": "ararangua",
+      "regiao_imediata_codigo_ibge": "420004",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "santa_terezinha": {
+      "municipio": "Santa Terezinha",
+      "municipio_key": "santa_terezinha",
+      "municipio_codigo_ibge": "4215679",
+      "regiao_imediata": "Rio do Sul",
+      "regiao_imediata_key": "rio_do_sul",
+      "regiao_imediata_codigo_ibge": "420022",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "santa_terezinha_do_progresso": {
+      "municipio": "Santa Terezinha do Progresso",
+      "municipio_key": "santa_terezinha_do_progresso",
+      "municipio_codigo_ibge": "4215687",
+      "regiao_imediata": "Maravilha",
+      "regiao_imediata_key": "maravilha",
+      "regiao_imediata_codigo_ibge": "420012",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "santiago_do_sul": {
+      "municipio": "Santiago do Sul",
+      "municipio_key": "santiago_do_sul",
+      "municipio_codigo_ibge": "4215695",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "santo_amaro_da_imperatriz": {
+      "municipio": "Santo Amaro da Imperatriz",
+      "municipio_key": "santo_amaro_da_imperatriz",
+      "municipio_codigo_ibge": "4215703",
+      "regiao_imediata": "Florianópolis",
+      "regiao_imediata_key": "florianopolis",
+      "regiao_imediata_codigo_ibge": "420001",
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201"
+    },
+    "saudades": {
+      "municipio": "Saudades",
+      "municipio_key": "saudades",
+      "municipio_codigo_ibge": "4217303",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "schroeder": {
+      "municipio": "Schroeder",
+      "municipio_key": "schroeder",
+      "municipio_codigo_ibge": "4217402",
+      "regiao_imediata": "Joinville",
+      "regiao_imediata_key": "joinville",
+      "regiao_imediata_codigo_ibge": "420016",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "seara": {
+      "municipio": "Seara",
+      "municipio_key": "seara",
+      "municipio_codigo_ibge": "4217501",
+      "regiao_imediata": "Concórdia",
+      "regiao_imediata_key": "concordia",
+      "regiao_imediata_codigo_ibge": "420010",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "serra_alta": {
+      "municipio": "Serra Alta",
+      "municipio_key": "serra_alta",
+      "municipio_codigo_ibge": "4217550",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "sideropolis": {
+      "municipio": "Siderópolis",
+      "municipio_key": "sideropolis",
+      "municipio_codigo_ibge": "4217600",
+      "regiao_imediata": "Criciúma",
+      "regiao_imediata_key": "criciuma",
+      "regiao_imediata_codigo_ibge": "420002",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "sombrio": {
+      "municipio": "Sombrio",
+      "municipio_key": "sombrio",
+      "municipio_codigo_ibge": "4217709",
+      "regiao_imediata": "Araranguá",
+      "regiao_imediata_key": "ararangua",
+      "regiao_imediata_codigo_ibge": "420004",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "sul_brasil": {
+      "municipio": "Sul Brasil",
+      "municipio_key": "sul_brasil",
+      "municipio_codigo_ibge": "4217758",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "sao_bento_do_sul": {
+      "municipio": "São Bento do Sul",
+      "municipio_key": "sao_bento_do_sul",
+      "municipio_codigo_ibge": "4215802",
+      "regiao_imediata": "São Bento do Sul - Rio Negrinho",
+      "regiao_imediata_key": "sao_bento_do_sul_rio_negrinho",
+      "regiao_imediata_codigo_ibge": "420018",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "sao_bernardino": {
+      "municipio": "São Bernardino",
+      "municipio_key": "sao_bernardino",
+      "municipio_codigo_ibge": "4215752",
+      "regiao_imediata": "São Lourenço do Oeste",
+      "regiao_imediata_key": "sao_lourenco_do_oeste",
+      "regiao_imediata_codigo_ibge": "420013",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "sao_bonifacio": {
+      "municipio": "São Bonifácio",
+      "municipio_key": "sao_bonifacio",
+      "municipio_codigo_ibge": "4215901",
+      "regiao_imediata": "Florianópolis",
+      "regiao_imediata_key": "florianopolis",
+      "regiao_imediata_codigo_ibge": "420001",
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201"
+    },
+    "sao_carlos": {
+      "municipio": "São Carlos",
+      "municipio_key": "sao_carlos",
+      "municipio_codigo_ibge": "4216008",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "sao_cristovao_do_sul": {
+      "municipio": "São Cristovão do Sul",
+      "municipio_key": "sao_cristovao_do_sul",
+      "municipio_codigo_ibge": "4216057",
+      "regiao_imediata": "Curitibanos",
+      "regiao_imediata_key": "curitibanos",
+      "regiao_imediata_codigo_ibge": "420006",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "sao_domingos": {
+      "municipio": "São Domingos",
+      "municipio_key": "sao_domingos",
+      "municipio_codigo_ibge": "4216107",
+      "regiao_imediata": "Xanxerê",
+      "regiao_imediata_key": "xanxere",
+      "regiao_imediata_codigo_ibge": "420011",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "sao_francisco_do_sul": {
+      "municipio": "São Francisco do Sul",
+      "municipio_key": "sao_francisco_do_sul",
+      "municipio_codigo_ibge": "4216206",
+      "regiao_imediata": "Joinville",
+      "regiao_imediata_key": "joinville",
+      "regiao_imediata_codigo_ibge": "420016",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "sao_joaquim": {
+      "municipio": "São Joaquim",
+      "municipio_key": "sao_joaquim",
+      "municipio_codigo_ibge": "4216503",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "sao_jose": {
+      "municipio": "São José",
+      "municipio_key": "sao_jose",
+      "municipio_codigo_ibge": "4216602",
+      "regiao_imediata": "Florianópolis",
+      "regiao_imediata_key": "florianopolis",
+      "regiao_imediata_codigo_ibge": "420001",
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201"
+    },
+    "sao_jose_do_cedro": {
+      "municipio": "São José do Cedro",
+      "municipio_key": "sao_jose_do_cedro",
+      "municipio_codigo_ibge": "4216701",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "sao_jose_do_cerrito": {
+      "municipio": "São José do Cerrito",
+      "municipio_key": "sao_jose_do_cerrito",
+      "municipio_codigo_ibge": "4216800",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "sao_joao_batista": {
+      "municipio": "São João Batista",
+      "municipio_key": "sao_joao_batista",
+      "municipio_codigo_ibge": "4216305",
+      "regiao_imediata": "Brusque",
+      "regiao_imediata_key": "brusque",
+      "regiao_imediata_codigo_ibge": "420021",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "sao_joao_do_itaperiu": {
+      "municipio": "São João do Itaperiú",
+      "municipio_key": "sao_joao_do_itaperiu",
+      "municipio_codigo_ibge": "4216354",
+      "regiao_imediata": "Joinville",
+      "regiao_imediata_key": "joinville",
+      "regiao_imediata_codigo_ibge": "420016",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "sao_joao_do_oeste": {
+      "municipio": "São João do Oeste",
+      "municipio_key": "sao_joao_do_oeste",
+      "municipio_codigo_ibge": "4216255",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "sao_joao_do_sul": {
+      "municipio": "São João do Sul",
+      "municipio_key": "sao_joao_do_sul",
+      "municipio_codigo_ibge": "4216404",
+      "regiao_imediata": "Araranguá",
+      "regiao_imediata_key": "ararangua",
+      "regiao_imediata_codigo_ibge": "420004",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "sao_lourenco_do_oeste": {
+      "municipio": "São Lourenço do Oeste",
+      "municipio_key": "sao_lourenco_do_oeste",
+      "municipio_codigo_ibge": "4216909",
+      "regiao_imediata": "São Lourenço do Oeste",
+      "regiao_imediata_key": "sao_lourenco_do_oeste",
+      "regiao_imediata_codigo_ibge": "420013",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "sao_ludgero": {
+      "municipio": "São Ludgero",
+      "municipio_key": "sao_ludgero",
+      "municipio_codigo_ibge": "4217006",
+      "regiao_imediata": "Tubarão",
+      "regiao_imediata_key": "tubarao",
+      "regiao_imediata_codigo_ibge": "420003",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "sao_martinho": {
+      "municipio": "São Martinho",
+      "municipio_key": "sao_martinho",
+      "municipio_codigo_ibge": "4217105",
+      "regiao_imediata": "Tubarão",
+      "regiao_imediata_key": "tubarao",
+      "regiao_imediata_codigo_ibge": "420003",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "sao_miguel_da_boa_vista": {
+      "municipio": "São Miguel da Boa Vista",
+      "municipio_key": "sao_miguel_da_boa_vista",
+      "municipio_codigo_ibge": "4217154",
+      "regiao_imediata": "Maravilha",
+      "regiao_imediata_key": "maravilha",
+      "regiao_imediata_codigo_ibge": "420012",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "sao_miguel_do_oeste": {
+      "municipio": "São Miguel do Oeste",
+      "municipio_key": "sao_miguel_do_oeste",
+      "municipio_codigo_ibge": "4217204",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "sao_pedro_de_alcantara": {
+      "municipio": "São Pedro de Alcântara",
+      "municipio_key": "sao_pedro_de_alcantara",
+      "municipio_codigo_ibge": "4217253",
+      "regiao_imediata": "Florianópolis",
+      "regiao_imediata_key": "florianopolis",
+      "regiao_imediata_codigo_ibge": "420001",
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201"
+    },
+    "taio": {
+      "municipio": "Taió",
+      "municipio_key": "taio",
+      "municipio_codigo_ibge": "4217808",
+      "regiao_imediata": "Rio do Sul",
+      "regiao_imediata_key": "rio_do_sul",
+      "regiao_imediata_codigo_ibge": "420022",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "tangara": {
+      "municipio": "Tangará",
+      "municipio_key": "tangara",
+      "municipio_codigo_ibge": "4217907",
+      "regiao_imediata": "Videira",
+      "regiao_imediata_key": "videira",
+      "regiao_imediata_codigo_ibge": "420015",
+      "regiao_intermediaria": "Caçador",
+      "regiao_intermediaria_key": "cacador",
+      "regiao_intermediaria_codigo_ibge": "4205"
+    },
+    "tigrinhos": {
+      "municipio": "Tigrinhos",
+      "municipio_key": "tigrinhos",
+      "municipio_codigo_ibge": "4217956",
+      "regiao_imediata": "Maravilha",
+      "regiao_imediata_key": "maravilha",
+      "regiao_imediata_codigo_ibge": "420012",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "tijucas": {
+      "municipio": "Tijucas",
+      "municipio_key": "tijucas",
+      "municipio_codigo_ibge": "4218004",
+      "regiao_imediata": "Itajaí",
+      "regiao_imediata_key": "itajai",
+      "regiao_imediata_codigo_ibge": "420020",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "timbe_do_sul": {
+      "municipio": "Timbé do Sul",
+      "municipio_key": "timbe_do_sul",
+      "municipio_codigo_ibge": "4218103",
+      "regiao_imediata": "Araranguá",
+      "regiao_imediata_key": "ararangua",
+      "regiao_imediata_codigo_ibge": "420004",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "timbo": {
+      "municipio": "Timbó",
+      "municipio_key": "timbo",
+      "municipio_codigo_ibge": "4218202",
+      "regiao_imediata": "Blumenau",
+      "regiao_imediata_key": "blumenau",
+      "regiao_imediata_codigo_ibge": "420019",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "timbo_grande": {
+      "municipio": "Timbó Grande",
+      "municipio_key": "timbo_grande",
+      "municipio_codigo_ibge": "4218251",
+      "regiao_imediata": "Caçador",
+      "regiao_imediata_key": "cacador",
+      "regiao_imediata_codigo_ibge": "420014",
+      "regiao_intermediaria": "Caçador",
+      "regiao_intermediaria_key": "cacador",
+      "regiao_intermediaria_codigo_ibge": "4205"
+    },
+    "treviso": {
+      "municipio": "Treviso",
+      "municipio_key": "treviso",
+      "municipio_codigo_ibge": "4218350",
+      "regiao_imediata": "Criciúma",
+      "regiao_imediata_key": "criciuma",
+      "regiao_imediata_codigo_ibge": "420002",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "treze_tilias": {
+      "municipio": "Treze Tílias",
+      "municipio_key": "treze_tilias",
+      "municipio_codigo_ibge": "4218509",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "treze_de_maio": {
+      "municipio": "Treze de Maio",
+      "municipio_key": "treze_de_maio",
+      "municipio_codigo_ibge": "4218400",
+      "regiao_imediata": "Tubarão",
+      "regiao_imediata_key": "tubarao",
+      "regiao_imediata_codigo_ibge": "420003",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "trombudo_central": {
+      "municipio": "Trombudo Central",
+      "municipio_key": "trombudo_central",
+      "municipio_codigo_ibge": "4218608",
+      "regiao_imediata": "Rio do Sul",
+      "regiao_imediata_key": "rio_do_sul",
+      "regiao_imediata_codigo_ibge": "420022",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "tres_barras": {
+      "municipio": "Três Barras",
+      "municipio_key": "tres_barras",
+      "municipio_codigo_ibge": "4218301",
+      "regiao_imediata": "Mafra",
+      "regiao_imediata_key": "mafra",
+      "regiao_imediata_codigo_ibge": "420017",
+      "regiao_intermediaria": "Joinville",
+      "regiao_intermediaria_key": "joinville",
+      "regiao_intermediaria_codigo_ibge": "4206"
+    },
+    "tubarao": {
+      "municipio": "Tubarão",
+      "municipio_key": "tubarao",
+      "municipio_codigo_ibge": "4218707",
+      "regiao_imediata": "Tubarão",
+      "regiao_imediata_key": "tubarao",
+      "regiao_imediata_codigo_ibge": "420003",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "tunapolis": {
+      "municipio": "Tunápolis",
+      "municipio_key": "tunapolis",
+      "municipio_codigo_ibge": "4218756",
+      "regiao_imediata": "São Miguel do Oeste",
+      "regiao_imediata_key": "sao_miguel_do_oeste",
+      "regiao_imediata_codigo_ibge": "420009",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "turvo": {
+      "municipio": "Turvo",
+      "municipio_key": "turvo",
+      "municipio_codigo_ibge": "4218806",
+      "regiao_imediata": "Araranguá",
+      "regiao_imediata_key": "ararangua",
+      "regiao_imediata_codigo_ibge": "420004",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "uniao_do_oeste": {
+      "municipio": "União do Oeste",
+      "municipio_key": "uniao_do_oeste",
+      "municipio_codigo_ibge": "4218855",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "urubici": {
+      "municipio": "Urubici",
+      "municipio_key": "urubici",
+      "municipio_codigo_ibge": "4218905",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "urupema": {
+      "municipio": "Urupema",
+      "municipio_key": "urupema",
+      "municipio_codigo_ibge": "4218954",
+      "regiao_imediata": "Lages",
+      "regiao_imediata_key": "lages",
+      "regiao_imediata_codigo_ibge": "420005",
+      "regiao_intermediaria": "Lages",
+      "regiao_intermediaria_key": "lages",
+      "regiao_intermediaria_codigo_ibge": "4203"
+    },
+    "urussanga": {
+      "municipio": "Urussanga",
+      "municipio_key": "urussanga",
+      "municipio_codigo_ibge": "4219002",
+      "regiao_imediata": "Criciúma",
+      "regiao_imediata_key": "criciuma",
+      "regiao_imediata_codigo_ibge": "420002",
+      "regiao_intermediaria": "Criciúma",
+      "regiao_intermediaria_key": "criciuma",
+      "regiao_intermediaria_codigo_ibge": "4202"
+    },
+    "vargem": {
+      "municipio": "Vargem",
+      "municipio_key": "vargem",
+      "municipio_codigo_ibge": "4219150",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "vargem_bonita": {
+      "municipio": "Vargem Bonita",
+      "municipio_key": "vargem_bonita",
+      "municipio_codigo_ibge": "4219176",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "vargeao": {
+      "municipio": "Vargeão",
+      "municipio_key": "vargeao",
+      "municipio_codigo_ibge": "4219101",
+      "regiao_imediata": "Xanxerê",
+      "regiao_imediata_key": "xanxere",
+      "regiao_imediata_codigo_ibge": "420011",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "vidal_ramos": {
+      "municipio": "Vidal Ramos",
+      "municipio_key": "vidal_ramos",
+      "municipio_codigo_ibge": "4219200",
+      "regiao_imediata": "Ituporanga",
+      "regiao_imediata_key": "ituporanga",
+      "regiao_imediata_codigo_ibge": "420024",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "videira": {
+      "municipio": "Videira",
+      "municipio_key": "videira",
+      "municipio_codigo_ibge": "4219309",
+      "regiao_imediata": "Videira",
+      "regiao_imediata_key": "videira",
+      "regiao_imediata_codigo_ibge": "420015",
+      "regiao_intermediaria": "Caçador",
+      "regiao_intermediaria_key": "cacador",
+      "regiao_intermediaria_codigo_ibge": "4205"
+    },
+    "vitor_meireles": {
+      "municipio": "Vitor Meireles",
+      "municipio_key": "vitor_meireles",
+      "municipio_codigo_ibge": "4219358",
+      "regiao_imediata": "Ibirama - Presidente Getúlio",
+      "regiao_imediata_key": "ibirama_presidente_getulio",
+      "regiao_imediata_codigo_ibge": "420023",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "witmarsum": {
+      "municipio": "Witmarsum",
+      "municipio_key": "witmarsum",
+      "municipio_codigo_ibge": "4219408",
+      "regiao_imediata": "Ibirama - Presidente Getúlio",
+      "regiao_imediata_key": "ibirama_presidente_getulio",
+      "regiao_imediata_codigo_ibge": "420023",
+      "regiao_intermediaria": "Blumenau",
+      "regiao_intermediaria_key": "blumenau",
+      "regiao_intermediaria_codigo_ibge": "4207"
+    },
+    "xanxere": {
+      "municipio": "Xanxerê",
+      "municipio_key": "xanxere",
+      "municipio_codigo_ibge": "4219507",
+      "regiao_imediata": "Xanxerê",
+      "regiao_imediata_key": "xanxere",
+      "regiao_imediata_codigo_ibge": "420011",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "xavantina": {
+      "municipio": "Xavantina",
+      "municipio_key": "xavantina",
+      "municipio_codigo_ibge": "4219606",
+      "regiao_imediata": "Xanxerê",
+      "regiao_imediata_key": "xanxere",
+      "regiao_imediata_codigo_ibge": "420011",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "xaxim": {
+      "municipio": "Xaxim",
+      "municipio_key": "xaxim",
+      "municipio_codigo_ibge": "4219705",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "zortea": {
+      "municipio": "Zortéa",
+      "municipio_key": "zortea",
+      "municipio_codigo_ibge": "4219853",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "agua_doce": {
+      "municipio": "Água Doce",
+      "municipio_key": "agua_doce",
+      "municipio_codigo_ibge": "4200408",
+      "regiao_imediata": "Joaçaba - Herval d'Oeste",
+      "regiao_imediata_key": "joacaba_herval_d_oeste",
+      "regiao_imediata_codigo_ibge": "420008",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "aguas_frias": {
+      "municipio": "Águas Frias",
+      "municipio_key": "aguas_frias",
+      "municipio_codigo_ibge": "4200556",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    },
+    "aguas_mornas": {
+      "municipio": "Águas Mornas",
+      "municipio_key": "aguas_mornas",
+      "municipio_codigo_ibge": "4200606",
+      "regiao_imediata": "Florianópolis",
+      "regiao_imediata_key": "florianopolis",
+      "regiao_imediata_codigo_ibge": "420001",
+      "regiao_intermediaria": "Florianópolis",
+      "regiao_intermediaria_key": "florianopolis",
+      "regiao_intermediaria_codigo_ibge": "4201"
+    },
+    "aguas_de_chapeco": {
+      "municipio": "Águas de Chapecó",
+      "municipio_key": "aguas_de_chapeco",
+      "municipio_codigo_ibge": "4200507",
+      "regiao_imediata": "Chapecó",
+      "regiao_imediata_key": "chapeco",
+      "regiao_imediata_codigo_ibge": "420007",
+      "regiao_intermediaria": "Chapecó",
+      "regiao_intermediaria_key": "chapeco",
+      "regiao_intermediaria_codigo_ibge": "4204"
+    }
+  }
+}

@@ -84,6 +84,19 @@ class StateManager:
         """Verifica se um GUID já foi enviado."""
         return guid in self.state.sent_guids
     
+    def add_ignored_guid(self, guid: str) -> None:
+        """Adiciona GUID à lista de alertas ignorados pelo filtro regional."""
+        if guid not in self.state.ignored_guids:
+            self.state.ignored_guids.append(guid)
+    
+    def is_guid_ignored(self, guid: str) -> bool:
+        """Verifica se um GUID já foi ignorado pelo filtro regional."""
+        return guid in self.state.ignored_guids
+    
+    def is_guid_processed(self, guid: str) -> bool:
+        """Verifica se um GUID já foi enviado ou ignorado."""
+        return self.is_guid_sent(guid) or self.is_guid_ignored(guid)
+    
     def add_alert(self, alert: Dict, max_history: int = 10) -> None:
         """
         Adiciona alerta ao histórico, mantendo apenas os mais recentes.

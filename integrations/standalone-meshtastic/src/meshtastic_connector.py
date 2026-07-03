@@ -108,8 +108,18 @@ class MeshtasticConnector:
             self.interface = None
     
     def is_connected(self) -> bool:
-        """Verifica se está conectado."""
-        return self.interface is not None
+        """Verifica se a conexão com o Meshtastic ainda está ativa."""
+        if self.interface is None:
+            return False
+        try:
+            # Tentar acessar myInfo e, se disponível, validar socket serial
+            _ = self.interface.myInfo
+            if hasattr(self.interface, "socket") and self.interface.socket:
+                # getpeername() levanta exceção se o socket estiver fechado
+                self.interface.socket.getpeername()
+            return True
+        except Exception:
+            return False
     
     def resolve_channel_id(self, name_or_number: Any, default: int = 0) -> int:
         """

@@ -38,6 +38,7 @@ class State:
     """Estado persistido de alertas enviados."""
     
     sent_guids: List[str] = field(default_factory=list)
+    ignored_guids: List[str] = field(default_factory=list)
     alerts: List[Alert] = field(default_factory=list)
     update_period: Optional[str] = None
     update_frequency: int = 1
@@ -50,6 +51,7 @@ class State:
         alerts = [Alert.from_dict(a) for a in data.get("alerts", [])]
         return cls(
             sent_guids=data.get("sent_guids", []),
+            ignored_guids=data.get("ignored_guids", []),
             alerts=alerts,
             update_period=data.get("update_period"),
             update_frequency=data.get("update_frequency", 1),
@@ -61,6 +63,7 @@ class State:
         """Converte State para dicionário (para salvar no JSON)."""
         return {
             "sent_guids": self.sent_guids,
+            "ignored_guids": self.ignored_guids,
             "alerts": [a.to_dict() for a in self.alerts],
             "update_period": self.update_period,
             "update_frequency": self.update_frequency,

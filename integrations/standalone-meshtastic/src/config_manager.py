@@ -25,6 +25,12 @@ class ConfigManager:
             "name": "Alertas-SC",
             "number": 0
         },
+        "region_filter": {
+            "enabled": False,
+            "mode": "both",
+            "mesorregioes": [],
+            "municipios": []
+        },
         "feed": {
             "url": "https://www.defesacivil.sc.gov.br/categoria/alerta/feed/",
             "interval_minutes": None,
@@ -136,6 +142,10 @@ class ConfigManager:
     def get_channel_config(self) -> Dict[str, Any]:
         """Retorna configuração do canal."""
         return self.get_section("channel")
+    
+    def get_region_filter_config(self) -> Dict[str, Any]:
+        """Retorna configuração do filtro regional."""
+        return self.get_section("region_filter")
     
     def get_feed_config(self) -> Dict[str, Any]:
         """Retorna configuração do feed."""

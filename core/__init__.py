@@ -18,6 +18,7 @@ from .constants import (
 from .models import Alert, State
 from .rss_parser import RSSParser
 from .message_formatter import MessageFormatter
+from .region_filter import RegionFilter
 
 __all__ = [
     "FEED_URL",
@@ -37,4 +38,5 @@ __all__ = [
     "State",
     "RSSParser",
     "MessageFormatter",
+    "RegionFilter",
 ]

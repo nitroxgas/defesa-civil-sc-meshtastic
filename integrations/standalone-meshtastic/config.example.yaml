@@ -29,6 +29,21 @@ channel:
   # Número do canal (usado se name_or_number for número)
   number: 0
 
+# Filtro regional (opcional)
+region_filter:
+  # Ativar filtro por mesorregião/município
+  enabled: false
+  # Modo: "mesorregiao", "municipio" ou "both"
+  mode: "both"
+  # Mesorregiões permitidas (nomes exatos do JSON)
+  mesorregioes:
+    # - "Grande Florianópolis"
+    # - "Vale do Itajaí"
+  # Municípios permitidos
+  municipios:
+    # - "Florianópolis"
+    # - "Joinville"
+
 # Configuração do feed RSS
 feed:
   # URL do feed
