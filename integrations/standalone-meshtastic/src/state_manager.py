@@ -6,6 +6,7 @@ Responsável por carregar, salvar e gerenciar estado em arquivo JSON.
 import json
 import os
 import sys
+import tempfile
 from pathlib import Path
 from datetime import datetime
 from typing import Dict, List, Optional
@@ -48,16 +49,27 @@ class StateManager:
     
     def save(self) -> bool:
         """
-        Salva estado em arquivo JSON.
+        Salva estado em arquivo JSON de forma atômica.
         
         Returns:
             True se salvo com sucesso, False caso contrário
         """
         try:
+            self.state.last_updated = datetime.now().isoformat(timespec="seconds")
             self.file_path.parent.mkdir(parents=True, exist_ok=True)
             
-            with open(self.file_path, "w", encoding="utf-8") as f:
-                json.dump(self.state.to_dict(), f, ensure_ascii=False, indent=2)
+            # Salvar em arquivo temporário e mover para destino final
+            temp_fd, temp_path = tempfile.mkstemp(
+                dir=self.file_path.parent, suffix=".tmp"
+            )
+            try:
+                with os.fdopen(temp_fd, "w", encoding="utf-8") as f:
+                    json.dump(self.state.to_dict(), f, ensure_ascii=False, indent=2)
+                os.replace(temp_path, self.file_path)
+            except Exception:
+                if os.path.exists(temp_path):
+                    os.unlink(temp_path)
+                raise
             return True
         except Exception as e:
             print(f"Erro ao salvar estado: {e}")

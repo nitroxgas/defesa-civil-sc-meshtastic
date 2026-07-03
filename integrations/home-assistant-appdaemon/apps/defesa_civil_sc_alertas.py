@@ -65,7 +65,15 @@ class DefesaCivilSCAlertas(hass.Hass):
             return
 
         # Inicializar parsers e formatador
-        self.rss_parser = RSSParser()
+        interval_minutes = self.args.get("interval_minutes")
+        if interval_minutes:
+            try:
+                interval_minutes = int(interval_minutes)
+                if interval_minutes < 1:
+                    interval_minutes = None
+            except Exception:
+                interval_minutes = None
+        self.rss_parser = RSSParser(interval_minutes=interval_minutes)
         self.formatter = MessageFormatter()
         
         # Carregar estado

@@ -189,7 +189,9 @@ channel:
 feed:
   url: "https://www.defesacivil.sc.gov.br/categoria/alerta/feed/"
   timeout_seconds: 30
-  default_interval_minutes: 60
+  # Intervalo fixo em minutos. Se 0 ou omitido, usa 1/4 do período do feed
+  # (hourly -> 15 min, daily -> 360 min). Limite mínimo: 15 min.
+  interval_minutes: 0
 
 state:
   file: "./state.json"     # onde guardar histórico
@@ -201,7 +203,7 @@ direct_message:
 test_mode: false           # mude para true para testar
 
 logging:
-  level: INFO              # DEBUG, INFO, WARNING, ERROR
+  level: DEBUG             # DEBUG, INFO, WARNING, ERROR
   file: null               # null = console only
 ```
 
@@ -358,9 +360,10 @@ Como encontrar o IP do gateway:
 ## 🧪 Funcionalidades
 
 ### 1️⃣ Polling Automático
-- Lê feed RSS a cada intervalo (padrão 60 min)
-- Respeita `sy:updatePeriod`/`sy:updateFrequency` do feed
-- Compacta mensagens para caber em LoRa (150-180 chars)
+- Lê feed RSS a cada 1/4 do período informado pelo feed (ex: hourly -> 15 min)
+- Pode ser sobrescrito por `feed.interval_minutes`
+- Respeita limite mínimo de 15 min
+- Compacta mensagens para caber em LoRa (180 chars)
 
 ### 2️⃣ Compactação (via `core.MessageFormatter`)
 - Prefixos: `ALERTA` → `AL:`, `ATENÇÃO` → `AT:`, `OBSERVAÇÃO` → `OBS:`
@@ -370,13 +373,13 @@ Como encontrar o IP do gateway:
 
 ### 3️⃣ Mensagens em Canal
 Cada alerta é enviado em 2 mensagens:
-1. Conteúdo compactado (max 150 chars): `DC-SC AL: ...`
+1. Conteúdo compactado (max 180 chars): `DC-SC AL: ...`
 2. Link (max 180 chars): `Link: https://...`
 
-Aguarda 20 segundos entre mensagens para respeitar LoRa.
+Aguarda 10 segundos entre mensagens para respeitar LoRa.
 
 ### 4️⃣ Resposta a Mensagens Diretas
-Se outro node enviar `ALERTAS`, responde com os 3 últimos alertas.
+Se outro node enviar `ALERTAS`, responde com os 2 últimos alertas.
 
 ### 5️⃣ Histórico Persistente
 - Armazena últimos 10 alertas em `state.json`
@@ -420,7 +423,7 @@ integrations/standalone-meshtastic/
 INFO: Defesa Civil SC Alertas iniciado
 DEBUG: Conectando a serial_port=
 INFO: Conectado ao Meshtastic
-INFO: Feed verificado. Itens: 5. Novos: 2. Próxima: 60 min
+INFO: Feed verificado. Itens: 5. Novos: 2. Próxima: 15 min
 ```
 
 **Arquivo (se configurado):**
@@ -447,10 +450,10 @@ cp integrations/standalone-meshtastic/config.example.yaml integrations/standalon
 
 ## ⚠️ Cuidados
 
-- **LoRa airtime**: Cada mensagem consome recursos. App aguarda 20s entre mensagens.
+- **LoRa airtime**: Cada mensagem consome recursos. App aguarda 10s entre mensagens.
 - **Flood inicial**: Primeira execução carrega histórico sem enviar (evita flood).
 - **Chaves de canal**: Não publique `config.yaml` com chaves de canal públicas.
-- **Taxa de feed**: Se feed publica muito (< 15 min), aumentar intervalo mínimo para 15 min (código).
+- **Taxa de feed**: Se feed publica muito (< 15 min), o intervalo mínimo de 15 min é respeitado.
 - **Histórico**: `state.json` pode crescer. Limite de 10 alertas é controlado.
 
 ## 📚 Documentação

@@ -13,6 +13,10 @@ defesa_civil_sc_alertas:
   # Substitua por seu ID real. Não publique o ID real se considerar sensível.
   gateway_node_id: 0000000000
 
+  # Intervalo fixo de polling em minutos. Se 0 ou omitido, usa 1/4 do período
+  # informado pelo feed (ex: hourly -> 15 min, daily -> 360 min).
+  interval_minutes: 0
+
   # true: envia o alerta mais recente armazenado ao iniciar, para teste.
   # false: operação normal, lendo o feed e enviando apenas novos alertas.
   test_mode: false

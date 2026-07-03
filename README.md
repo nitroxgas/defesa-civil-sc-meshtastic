@@ -95,17 +95,17 @@ Consulte os READMEs específicos para instruções detalhadas:
 
 ✅ Lê feed RSS da Defesa Civil SC com polling automático
 
-✅ Respeita intervalos dinâmicos do feed (`sy:updatePeriod`/`sy:updateFrequency`)
+✅ Intervalo de polling: 1/4 do período do feed, com override opcional
 
 ✅ Armazena histórico dos últimos 10 alertas
 
 ✅ Evita reenvio de alertas repetidos (deduplicação por GUID)
 
-✅ Compacta mensagens para caber em LoRa (150-180 caracteres)
+✅ Compacta mensagens para caber em LoRa (180 caracteres)
 
 ✅ Envia alertas em 2 mensagens: conteúdo + link
 
-✅ Responde mensagens diretas `ALERTAS` com 3 últimos alertas
+✅ Responde mensagens diretas `ALERTAS` com 2 últimos alertas
 
 ✅ Modo de teste para validação
 
@@ -239,7 +239,7 @@ A partir da v1.0, o projeto usa módulos centralizados em `core/`:
 
 - **constants.py** - URLs, limites, intervalos, mapeamentos
 - **models.py** - Dataclasses `Alert` e `State` para type-safety
-- **rss_parser.py** - Parser RSS com intervalos dinâmicos
+- **rss_parser.py** - Parser RSS com intervalo de 1/4 do período do feed e override
 - **message_formatter.py** - Compactação para LoRa (46 compactações)
 
 Benefícios:

@@ -8,7 +8,13 @@ import urllib.request
 from typing import List, Dict, Tuple, Optional
 from datetime import datetime
 
-from .constants import FEED_URL, DEFAULT_INTERVAL_MINUTES, MIN_INTERVAL_MINUTES, MAX_INTERVAL_MINUTES
+from .constants import (
+    FEED_URL,
+    POLL_INTERVAL_DIVISOR,
+    DEFAULT_INTERVAL_MINUTES,
+    MIN_INTERVAL_MINUTES,
+    MAX_INTERVAL_MINUTES,
+)
 
 
 class RSSParser:
@@ -21,16 +27,24 @@ class RSSParser:
         "sy": "http://purl.org/rss/1.0/modules/syndication/"
     }
     
-    def __init__(self, timeout_seconds: int = 30, custom_url: Optional[str] = None):
+    def __init__(
+        self,
+        timeout_seconds: int = 30,
+        custom_url: Optional[str] = None,
+        interval_minutes: Optional[int] = None
+    ):
         """
         Inicializa o parser RSS.
         
         Args:
             timeout_seconds: Timeout para requisição HTTP
             custom_url: URL customizada do feed (opcional, para testes)
+            interval_minutes: Intervalo fixo de polling em minutos. Se None ou 0,
+                              usa 1/4 do período informado pelo feed.
         """
         self.timeout_seconds = timeout_seconds
         self.feed_url = custom_url or FEED_URL
+        self.interval_minutes = interval_minutes
     
     def fetch_feed(self) -> bytes:
         """
@@ -54,6 +68,9 @@ class RSSParser:
         """
         Extrai intervalo de atualização do feed RSS.
         
+        A nova estratégia é consultar o feed a cada 1/4 do período informado
+        pelo feed, ou respeitar um intervalo explícito configurado.
+        
         Returns:
             Tupla (period, frequency, minutes_to_wait)
         """
@@ -76,19 +93,25 @@ class RSSParser:
         except Exception:
             frequency = 1
         
-        # Calcular minutos baseado no período
-        if period == "hourly":
-            minutes = 60 // frequency
-        elif period == "daily":
-            minutes = 1440 // frequency
-        elif period == "weekly":
-            minutes = 10080 // frequency
-        elif period == "monthly":
-            minutes = 43200 // frequency
+        # Intervalo explícito sobrescreve o cálculo do feed
+        if self.interval_minutes:
+            minutes = self.interval_minutes
         else:
-            minutes = DEFAULT_INTERVAL_MINUTES
+            # 1/4 do período informado pelo feed
+            period_minutes = {
+                "hourly": 60,
+                "daily": 1440,
+                "weekly": 10080,
+                "monthly": 43200,
+            }.get(period)
+            
+            if period_minutes is not None:
+                minutes = period_minutes / POLL_INTERVAL_DIVISOR
+            else:
+                minutes = DEFAULT_INTERVAL_MINUTES
         
         # Garantir limites mínimo e máximo
+        minutes = int(minutes)
         if minutes < MIN_INTERVAL_MINUTES:
             minutes = MIN_INTERVAL_MINUTES
         if minutes > MAX_INTERVAL_MINUTES:

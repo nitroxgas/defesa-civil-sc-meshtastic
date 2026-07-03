@@ -27,9 +27,7 @@ class ConfigManager:
         },
         "feed": {
             "url": "https://www.defesacivil.sc.gov.br/categoria/alerta/feed/",
-            "default_interval_minutes": 60,
-            "min_interval_minutes": 15,
-            "max_interval_minutes": 1440,
+            "interval_minutes": None,
             "timeout_seconds": 30
         },
         "state": {
@@ -39,7 +37,7 @@ class ConfigManager:
         "direct_message": {
             "enabled": True,
             "trigger_word": "ALERTAS",
-            "max_alerts_reply": 3
+            "max_alerts_reply": 2
         },
         "test_mode": False,
         "logging": {

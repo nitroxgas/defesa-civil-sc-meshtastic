@@ -52,7 +52,8 @@ class TestRSSParser:
         
         assert period == "hourly"
         assert frequency == 2
-        assert minutes == 30  # 60 / 2
+        # Nova estratégia: 1/4 do período (60 / 4 = 15)
+        assert minutes == 15
     
     def test_parse_feed_basic(self, sample_feed):
         """Testa parsing básico de feed."""
@@ -92,7 +93,8 @@ class TestRSSParser:
         _, period, frequency, minutes = parser.parse_feed(daily_feed)
         
         assert period == "daily"
-        assert minutes == 1440  # 24 horas
+        # 1/4 de 1440 = 360 minutos
+        assert minutes == 360
     
     def test_parse_interval_weekly(self):
         """Testa parsing de intervalo semanal."""
@@ -111,14 +113,50 @@ class TestRSSParser:
         _, period, frequency, minutes = parser.parse_feed(weekly_feed)
         
         assert period == "weekly"
-        # O código limita ao intervalo máximo de 1440 minutos (24 horas)
+        # 10080 / 4 = 2520, mas limitado ao máximo de 1440
         assert minutes == 1440
+    
+    def test_parse_interval_override(self):
+        """Testa override explícito do intervalo de polling."""
+        parser = RSSParser(interval_minutes=45)
+        
+        feed = b"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/">
+  <channel>
+    <sy:updatePeriod>hourly</sy:updatePeriod>
+    <sy:updateFrequency>1</sy:updateFrequency>
+  </channel>
+</rss>
+"""
+        
+        _, period, frequency, minutes = parser.parse_feed(feed)
+        
+        assert minutes == 45
+    
+    def test_parse_interval_no_period(self):
+        """Testa fallback quando feed não informa período."""
+        parser = RSSParser()
+        
+        feed = b"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+     xmlns:sy="http://purl.org/rss/1.0/modules/syndication/">
+  <channel>
+    <title>Sem periodo</title>
+  </channel>
+</rss>
+"""
+        
+        _, period, frequency, minutes = parser.parse_feed(feed)
+        
+        assert period is None
+        assert minutes == 15  # DEFAULT_INTERVAL_MINUTES
     
     def test_parse_respects_min_interval(self):
         """Testa se respeita intervalo mínimo."""
         parser = RSSParser()
         
-        # Feed com intervalo muito curto
+        # Feed com período curto e alta frequência
         feed = b"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" 
      xmlns:sy="http://purl.org/rss/1.0/modules/syndication/">
@@ -131,14 +169,14 @@ class TestRSSParser:
         
         _, period, frequency, minutes = parser.parse_feed(feed)
         
-        # Mínimo é 15 minutos
-        assert minutes >= 15
+        # 1/4 de hourly = 15, respeitando mínimo
+        assert minutes == 15
     
     def test_parse_respects_max_interval(self):
         """Testa se respeita intervalo máximo."""
         parser = RSSParser()
         
-        # Feed com intervalo muito longo
+        # Feed com período muito longo
         feed = b"""<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" 
      xmlns:sy="http://purl.org/rss/1.0/modules/syndication/">
@@ -151,5 +189,5 @@ class TestRSSParser:
         
         _, period, frequency, minutes = parser.parse_feed(feed)
         
-        # Máximo é 1440 minutos (24 horas)
-        assert minutes <= 1440
+        # Período desconhecido: fallback para DEFAULT_INTERVAL_MINUTES
+        assert minutes == 15

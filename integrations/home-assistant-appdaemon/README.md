@@ -146,6 +146,9 @@ defesa_civil_sc_alertas:
   class: DefesaCivilSCAlertas
   notify_entity: notify.mesh_channel_alertas_sc    # ← Sua entidade
   gateway_node_id: 3735928559                       # ← ID do seu gateway
+  # Intervalo fixo em minutos. Se 0 ou omitido, usa 1/4 do período do feed
+  # (hourly -> 15 min, daily -> 360 min). Limite mínimo: 15 min.
+  interval_minutes: 0
   test_mode: false
 ```
 
@@ -205,11 +208,12 @@ Procure por:
 
 ## 📊 Operação
 
-- **Leitura do feed**: A cada hora ou conforme `sy:updatePeriod`/`sy:updateFrequency` do feed RSS
+- **Leitura do feed**: A cada 1/4 do período informado pelo feed (ex: hourly -> 15 min)
+- **Override**: `interval_minutes` em `apps.yaml` pode forçar um intervalo fixo
 - **Histórico**: Armazena os últimos 10 alertas
 - **Deduplicação**: Evita reenviar alertas repetidos usando `guid`
 - **Primeira execução**: Carrega histórico sem enviar (evita flood)
-- **Resposta DM**: Quando alguém enviar `ALERTAS` por mensagem direta, responde com 3 últimos alertas
+- **Resposta DM**: Quando alguém enviar `ALERTAS` por mensagem direta, responde com 2 últimos alertas
 
 ## 🔄 Atualizando
 

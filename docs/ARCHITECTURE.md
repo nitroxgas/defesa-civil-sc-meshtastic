@@ -51,21 +51,22 @@ Todas as constantes do projeto em um único lugar.
 FEED_URL = "https://www.defesacivil.sc.gov.br/categoria/alerta/feed/"
 
 # Limites de mensagem Meshtastic
-MAX_ALERT_MESSAGE_LEN = 150    # Compactação de conteúdo
+MAX_ALERT_MESSAGE_LEN = 180    # Compactação de conteúdo
 MAX_LINK_MESSAGE_LEN = 180     # URL
 
 # Persistência
 MAX_HISTORY = 10               # Alertas armazenados
-MAX_ALERTS_REPLY = 3           # Alertas por resposta DM
+MAX_ALERTS_REPLY = 2           # Alertas por resposta DM
 
 # Intervalos
-DEFAULT_INTERVAL_MINUTES = 60
-MIN_INTERVAL_MINUTES = 15
-MAX_INTERVAL_MINUTES = 1440
+POLL_INTERVAL_DIVISOR = 4      # Polling a cada 1/4 do período do feed
+DEFAULT_INTERVAL_MINUTES = 15  # Fallback quando feed não informa período
+MIN_INTERVAL_MINUTES = 15      # Limite mínimo de intervalo
+MAX_INTERVAL_MINUTES = 1440    # Limite máximo de intervalo
 
 # Delays entre mensagens (evitar flood)
-CHANNEL_LINK_DELAY_SECONDS = 20
-CHANNEL_ALERT_BATCH_DELAY_SECONDS = 20
+CHANNEL_LINK_DELAY_SECONDS = 10
+CHANNEL_ALERT_BATCH_DELAY_SECONDS = 10
 
 # Mapeamento de prefixos
 LEVEL_PREFIX_MAP = {
@@ -134,11 +135,13 @@ class RSSParser:
 - Download de feed RSS via HTTP
 - Parsing de XML e extração de items
 - Interpretação de `sy:updatePeriod` e `sy:updateFrequency`
+- Cálculo do intervalo de polling: 1/4 do período informado pelo feed
+- Sobreposição do intervalo via configuração (`interval_minutes`)
 - Respeito a limites de intervalo (15 min - 24 horas)
 
 **Tratamento de Erros**:
 - Timeout configurável (padrão 30s)
-- Fallback para intervalo default se parsing falhar
+- Fallback para `DEFAULT_INTERVAL_MINUTES` se parsing falhar ou feed não informar período
 - Logging de exceções
 
 ### message_formatter.py
@@ -168,8 +171,8 @@ class MessageFormatter:
 **Exemplo**:
 ```
 Input:  "ALERTA - Temporal severo com rajadas de vento nas próximas 3 horas. Ocorrências ligue 199 ou 193."
-Output: "DC-SC AL: temporal severo c/ vento Val: 3h. 199/193."
-        (149 chars, fit em MAX_ALERT_MESSAGE_LEN=150)
+Output: "DC-SC AL: temporal severo c/ rajadas vento nas próximas 3h. Ocorrências ligue 199/193."
+        (180 chars, fit em MAX_ALERT_MESSAGE_LEN=180)
 ```
 
 **Compactações Aplicadas**:

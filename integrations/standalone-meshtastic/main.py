@@ -21,7 +21,14 @@ sys.path.insert(0, str(STANDALONE_SRC))
 sys.path.insert(0, str(PROJECT_ROOT))
 
 # Imports de core/ (compartilhados) - ANTES de state_manager que depende disso
-from core import RSSParser, MessageFormatter, MAX_HISTORY, CHANNEL_LINK_DELAY_SECONDS, CHANNEL_ALERT_BATCH_DELAY_SECONDS
+from core import (
+    RSSParser,
+    MessageFormatter,
+    MAX_HISTORY,
+    CHANNEL_LINK_DELAY_SECONDS,
+    CHANNEL_ALERT_BATCH_DELAY_SECONDS,
+    DEFAULT_INTERVAL_MINUTES,
+)
 
 # Imports de src/ (específicos do standalone) - DEPOIS de core estar disponível
 from config_manager import ConfigManager
@@ -49,7 +56,8 @@ class DefesaCivilAlertasStandalone:
         self.logger = logging.getLogger(__name__)
         self.state_manager = StateManager(self.config.get("state.file"))
         self.rss_parser = RSSParser(
-            timeout_seconds=self.config.get("feed.timeout_seconds", 30)
+            timeout_seconds=self.config.get("feed.timeout_seconds", 30),
+            interval_minutes=self.config.get("feed.interval_minutes") or None
         )
         self.formatter = MessageFormatter()
         self.mesh = None
@@ -327,6 +335,12 @@ class DefesaCivilAlertasStandalone:
                 
                 guid = item.get("guid")
                 
+                if not guid:
+                    self.logger.warning(
+                        f"Alerta sem GUID ignorado: {item.get('title', '')[:60]}..."
+                    )
+                    continue
+                
                 if self.state_manager.is_guid_sent(guid):
                     self.logger.debug(f"Alerta já enviado: {guid}")
                     continue
@@ -366,8 +380,7 @@ class DefesaCivilAlertasStandalone:
         except Exception as e:
             self.logger.error(f"Erro ao verificar feed: {e}")
             # Usar intervalo padrão em caso de erro
-            default_interval = self.config.get("feed.default_interval_minutes", 60)
-            self.next_check_time = time.time() + (default_interval * 60)
+            self.next_check_time = time.time() + (DEFAULT_INTERVAL_MINUTES * 60)
     
     def send_test_alert(self) -> None:
         """Modo de teste: envia alerta mais recente ou busca um do feed."""

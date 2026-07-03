@@ -33,12 +33,9 @@ channel:
 feed:
   # URL do feed
   url: "https://www.defesacivil.sc.gov.br/categoria/alerta/feed/"
-  # Intervalo mínimo de polling em minutos (padrão: 60)
-  default_interval_minutes: 60
-  # Intervalo mínimo permitido
-  min_interval_minutes: 15
-  # Intervalo máximo permitido
-  max_interval_minutes: 1440
+  # Intervalo fixo de polling em minutos. Se 0 ou omitido, usa 1/4 do período
+  # informado pelo feed (ex: hourly -> 15 min, daily -> 360 min).
+  interval_minutes: 0
   # Timeout para requisição HTTP (segundos)
   timeout_seconds: 30
 
@@ -56,7 +53,7 @@ direct_message:
   # Palavra-chave para solicitar alertas
   trigger_word: "ALERTAS"
   # Número de alertas a devolver
-  max_alerts_reply: 3
+  max_alerts_reply: 2
 
 # Modo de teste
 test_mode: false
