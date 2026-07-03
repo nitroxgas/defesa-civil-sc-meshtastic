@@ -2,19 +2,6 @@
 
 Esta integração lê o feed RSS de alertas da Defesa Civil de Santa Catarina e envia novos alertas para um canal Meshtastic via entidade `notify.mesh_channel_*` do Home Assistant.
 
-## ℹ️ Refatoração - Uso de Módulos Compartilhados
-
-A partir da v1.0, esta integração usa módulos centralizados em `core/` para evitar duplicação de código:
-
-- `core.RSSParser` - Parser RSS
-- `core.MessageFormatter` - Compactação de mensagens  
-- `core.State`, `core.Alert` - Modelos de dados
-- `core.constants` - Constantes centralizadas
-
-**Redução de código**: 658 linhas → 380 linhas (-42%)
-
-Veja [docs/ARCHITECTURE.md](../../docs/ARCHITECTURE.md) para detalhes de arquitetura.
-
 ## Pré-requisitos
 
 - ✅ Home Assistant funcionando
@@ -210,10 +197,9 @@ Procure por:
 
 - **Leitura do feed**: A cada 1/4 do período informado pelo feed (ex: hourly -> 15 min)
 - **Override**: `interval_minutes` em `apps.yaml` pode forçar um intervalo fixo
-- **Histórico**: Armazena os últimos 10 alertas
+- **Histórico**: Armazena os últimos alertas (limite configurável)
 - **Deduplicação**: Evita reenviar alertas repetidos usando `guid`
-- **Primeira execução**: Carrega histórico sem enviar (evita flood)
-- **Resposta DM**: Quando alguém enviar `ALERTAS` por mensagem direta, responde com 2 últimos alertas
+- **Resposta DM**: Quando alguém enviar `ALERTAS` por mensagem direta, responde com os últimos alertas configurados
 
 ## 🔄 Atualizando
 
@@ -248,6 +234,18 @@ integrations/home-assistant-appdaemon/
     ├── apps.yaml.example             # Configuração (copiar para /config/apps.yaml)
     └── appdaemon.yaml.example        # Configuração AppDaemon (opcional)
 ```
+## ℹ️ Refatoração - Uso de Módulos Compartilhados
+
+A partir da v1.0, esta integração usa módulos centralizados em `core/` para evitar duplicação de código:
+
+- `core.RSSParser` - Parser RSS
+- `core.MessageFormatter` - Compactação de mensagens  
+- `core.State`, `core.Alert` - Modelos de dados
+- `core.constants` - Constantes centralizadas
+
+**Redução de código**: 658 linhas → 380 linhas (-42%)
+
+Veja [docs/ARCHITECTURE.md](../../docs/ARCHITECTURE.md) para detalhes de arquitetura.
 
 ## 📖 Documentação
 

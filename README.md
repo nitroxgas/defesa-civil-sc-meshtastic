@@ -143,7 +143,7 @@ bash install-home-assistant.sh
 ## 🔧 Standalone Python
 
 **Requisitos:**
-- Python 3.8+
+- Python 3.10+ (testado no 3.13)
 - Gateway Meshtastic (USB/Serial ou TCP)
 - Conexão com internet
 
@@ -178,11 +178,12 @@ A partir da v1.0, o projeto usa módulos centralizados em `core/`:
 - **constants.py** - URLs, limites, intervalos, mapeamentos
 - **models.py** - Dataclasses `Alert` e `State` para type-safety
 - **rss_parser.py** - Parser RSS com intervalo de 1/4 do período do feed e override
-- **message_formatter.py** - Compactação para LoRa (46 compactações)
+- **message_formatter.py** - Compactação para LoRa (46+ compactações)
+- **region_filter.py** - Filtro regional por mesorregião/município (Standalone)
 
 Benefícios:
 - 🔄 DRY - Sem duplicação entre integrações
-- 🧪 Testável - Suite com 40+ testes
+- 🧪 Testável - Suite com 74+ testes
 - 🔒 Type-safe - Dataclasses com type hints
 - 📚 Bem documentado - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)
 
@@ -192,7 +193,7 @@ Benefícios:
 |---------|-------|--------|----------|
 | Código duplicado | 650 linhas | 0 linhas | ✅ -100% |
 | App HA | 658 linhas | 380 linhas | ✅ -42% |
-| Testes | 0 | 40+ | ✅ +40 |
+| Testes | 0 | 74+ | ✅ +74 |
 | Documentação | Mínima | Completa | ✅ +300% |
 
 
@@ -200,7 +201,7 @@ Benefícios:
 
 ![Exemplo de mensagem no canal](docs/images/channelConf.jpeg)
 
-## Mensagens diretas
+## 📩 Mensagens Diretas
 
 Se outro node Meshtastic enviar mensagem direta ao gateway com:
 
@@ -231,6 +232,7 @@ O `.gitignore` deste projeto já ignora esses arquivos quando usados dentro do r
 - ✅ Filtrar por município.
 - ✅ Filtrar por região da Defesa Civil SC.
 - ✅ Enviar somente alertas que mencionem regiões configuradas.
+- ✅ Reconexão automática e detecção de quedas de conexão.
 - Filtrar por severidade: `AL:`, `AT:`, `OBS:`.
 - Usar CAP/Common Alerting Protocol quando houver fonte pública estruturada.
 
@@ -332,6 +334,8 @@ Testes incluem:
 - ✅ Formatação e compactação de mensagens
 - ✅ Modelos (serialização/deserialização)
 - ✅ Constantes e limites
+- ✅ Filtro regional por mesorregião/município
+- ✅ Reconexão automática e robustez do connector (Standalone)
 - ✅ Tratamento de erros
 
 [👉 Documentação de Testes](tests/README.md)

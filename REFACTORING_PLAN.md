@@ -1,6 +1,6 @@
 # Plano de Refatoração: Centralizar Módulos Compartilhados
 
-> **Status:** 📋 Planejado (não implementado)  
+> **Status:** ✅ Concluído  
 > **Versão:** v1.0  
 > **Data:** 2026-07-01  
 > **Objetivo:** Eliminar código duplicado entre integrações HA e Standalone

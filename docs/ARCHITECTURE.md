@@ -26,6 +26,7 @@ core/                          (Módulos compartilhados)
 ├── models.py
 ├── rss_parser.py
 ├── message_formatter.py
+├── region_filter.py
 └── __init__.py
 
 integrations/
@@ -103,6 +104,7 @@ class Alert:
 @dataclass
 class State:
     sent_guids: List[str]
+    ignored_guids: List[str]
     alerts: List[Alert]
     update_period: Optional[str]
     update_frequency: Optional[int]
@@ -111,6 +113,7 @@ class State:
     
     def to_dict() -> Dict
     def from_dict(data: Dict) -> State
+    def add_ignored_guid(guid: str) -> bool
 ```
 
 **Vantagens**:
@@ -181,6 +184,45 @@ Output: "DC-SC AL: temporal severo c/ rajadas vento nas próximas 3h. Ocorrênci
 - Períodos: "nas próximas 3 horas" → "Val: 3h"
 - Preposições: "com" → "c/"
 
+### region_filter.py
+
+Filtro regional por mesorregião e município de Santa Catarina.
+
+```python
+class RegionFilter:
+    def __init__(config: Dict, json_path: Optional[str])
+    def should_send(alert: Alert) -> bool
+    def list_mesorregioes() -> List[str]
+    def list_municipios() -> List[str]
+```
+
+**Responsabilidades**:
+- Carregar dados regionais de `core/sc_mesorregioes_microrregioes_municipios.json`
+- Normalizar texto (remover acentos, caixa baixa)
+- Expandir abreviações comuns ("Gde Fpolis" → "Grande Florianópolis")
+- Decidir se alerta deve ser enviado com base no título/conteúdo
+- Registrar GUIDs ignorados para deduplicação futura
+
+**Modos**:
+- `mesorregiao`: filtra apenas por mesorregiões configuradas
+- `municipio`: filtra apenas por municípios configurados
+- `both`: envia se alerta mencionar mesorregião OU município configurado
+
+**Uso**:
+```python
+from core.region_filter import RegionFilter
+
+rf = RegionFilter({
+    "enabled": True,
+    "mode": "both",
+    "mesorregioes": ["Grande Florianópolis"],
+    "municipios": ["Florianópolis"]
+})
+
+if rf.should_send(alert):
+    # enviar alerta
+```
+
 ## Integrações
 
 ### Home Assistant + AppDaemon
@@ -229,31 +271,46 @@ integrations/standalone-meshtastic/
 - Refatorar `StateManager` para usar `State` dataclass
 
 **Fluxo**:
-1. Ler config YAML
+1. Ler config YAML (incluindo `region_filter`)
 2. Conectar Meshtastic (serial/TCP)
-3. Polling loop com `RSSParser`
-4. Enviar alertas via `MeshtasticConnector`
-5. Responder DMs com histórico
-6. Persistir estado com `StateManager`
+3. Registrar callback de DM
+4. Polling loop com `RSSParser`
+5. Aplicar filtro regional (`RegionFilter`) quando ativado
+6. Enviar alertas via `MeshtasticConnector`
+7. Responder DMs com histórico filtrado
+8. Persistir estado com `StateManager`
+9. Monitorar conexão e reconectar automaticamente em caso de queda
+
+**Reconexão Automática**:
+- Verificação de conexão a cada 30s (conectado) ou 5s (desconectado)
+- Backoff exponencial ao reconectar: 30s, 60s, 120s, 240s, 300s (máx)
+- Envios que falham por `ConnectionResetError`, `BrokenPipeError` ou `OSError` marcam a interface como desconectada
+- Callbacks de DM são re-registrados após reconexão
+- Thread-safe via `threading.RLock`
 
 ## Testes Centralizados
 
 ```
 tests/
 ├── conftest.py                # Fixtures pytest
-├── test_constants.py          # 8 testes
-├── test_models.py            # 8 testes
-├── test_rss_parser.py        # 11 testes
-├── test_message_formatter.py # 14 testes
+├── test_constants.py          # Constantes e limites
+├── test_models.py            # Dataclasses Alert/State
+├── test_rss_parser.py        # Parser RSS e intervalos
+├── test_message_formatter.py # Compactação de mensagens
+├── test_region_filter.py     # Filtro regional
+├── test_standalone_main.py   # Integração Standalone (reconexão, DM, filtro)
 └── fixtures/
     └── sample_feed.xml       # Feed de amostra
 ```
 
 **Cobertura**:
-- ✅ 40+ testes para validar funcionalidade de core/
+- ✅ 74+ testes para validar funcionalidade de core/ e integração Standalone
 - ✅ Feed RSS parsing com diferentes períodos
 - ✅ Compactação de mensagens em múltiplos idiomas
-- ✅ Serialização/deserialização de modelos
+- ✅ Serialização/deserialização de modelos (incluindo `ignored_guids`)
+- ✅ Filtro regional por mesorregião/município
+- ✅ Reconexão automática e detecção de desconexão
+- ✅ Resposta a DM com filtro regional
 - ✅ Edge cases e limites
 
 **Executar**:
@@ -274,27 +331,35 @@ pytest tests/ --cov=core
 └────────────┬────────────────────────────────────────────┘
              │
 ┌────────────▼────────────────────────────────────────────┐
-│ 2. State.sent_guids comparação                          │
-│    - Novo alerta? guid não em sent_guids               │
-│    - Evita reenvio                                      │
+│ 2. State.sent_guids / State.ignored_guids comparação   │
+│    - Novo alerta? guid não em sent_guids/ignored_guids  │
+│    - Evita reenvio e reprocessamento                    │
 └────────────┬────────────────────────────────────────────┘
              │
 ┌────────────▼────────────────────────────────────────────┐
-│ 3. MessageFormatter.build_alert_messages(alert)        │
-│    - Compacta conteúdo (max 150 chars)                 │
+│ 3. RegionFilter.should_send(alert) (opcional)          │
+│    - Verifica mesorregião/município no título/conteúdo  │
+│    - Se não bater: State.add_ignored_guid() + skip      │
+└────────────┬────────────────────────────────────────────┘
+             │
+┌────────────▼────────────────────────────────────────────┐
+│ 4. MessageFormatter.build_alert_messages(alert)        │
+│    - Compacta conteúdo (max 180 chars)                 │
 │    - Formata URL (max 180 chars)                       │
 │    - Retorna (msg_conteúdo, msg_link)                  │
 └────────────┬────────────────────────────────────────────┘
              │
 ┌────────────▼────────────────────────────────────────────┐
-│ 4. Envio via integração                                │
+│ 5. Envio via integração                                │
 │    - HA: via notify service                            │
 │    - Standalone: via MeshtasticConnector               │
+│    - Se falhar por erro de rede: marcar desconectado  │
+│      e não adicionar guid em sent_guids                 │
 └────────────┬────────────────────────────────────────────┘
              │
 ┌────────────▼────────────────────────────────────────────┐
-│ 5. State.add_sent_guid() + State.to_dict()             │
-│    - Marca como enviado                                │
+│ 6. State.add_sent_guid() + State.to_dict()             │
+│    - Marca como enviado (somente se envio OK)          │
 │    - Persiste em JSON                                  │
 └─────────────────────────────────────────────────────────┘
 ```
@@ -307,6 +372,8 @@ Cada módulo tem responsabilidade única:
 - `models.py` → Estrutura de dados
 - `rss_parser.py` → Fonte de dados
 - `message_formatter.py` → Transformação
+- `region_filter.py` → Regras de negócio regional
+- `meshtastic_connector.py` → Integração e lifecycle de conexão (Standalone)
 
 ### DRY (Don't Repeat Yourself)
 Lógica comum centralizada em `core/`, reutilizada por ambas integrações.
@@ -333,11 +400,13 @@ Para adicionar nova integração, reutilizar `core/`:
 
 ```python
 from core import RSSParser, MessageFormatter, State, Alert
+from core.region_filter import RegionFilter
 
 # Seu código específico
 parser = RSSParser()
 formatter = MessageFormatter()
 state = State()
+region_filter = RegionFilter({"enabled": False})
 
 # Lógica de integração
 ```
@@ -346,9 +415,11 @@ Exemplo: Integração MQTT, Discord, Telegram, etc.
 
 ## Evolução Futura
 
+- [x] Filtros por região/município na core (concluído: `RegionFilter`)
+- [x] Reconexão automática e detecção de desconexão (concluído: Standalone)
 - [ ] Refatorar `StateManager` para usar patterns de database abstraction
 - [ ] Adicionar source diversity (não só RSS)
-- [ ] Filtros por região/município na core
 - [ ] Métricas e monitoring centralizados
 - [ ] Plugin architecture para custom formatters
+- [ ] Filtros por severidade (`AL:`, `AT:`, `OBS:`)
 

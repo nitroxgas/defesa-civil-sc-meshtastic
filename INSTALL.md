@@ -172,6 +172,7 @@ powershell -ExecutionPolicy Bypass -File install-standalone.ps1 -Pull
 1. Após o script terminar, edite `config.yaml`:
    - Configure `connection_type` (serial ou tcp)
    - Configure `serial_port` ou `tcp_host`
+   - (Opcional) Ative `region_filter` para restringir alertas por mesorregião/município
 
 2. Teste a conexão:
    ```bash
