@@ -8,6 +8,7 @@ import meshtastic.serial_interface
 import meshtastic.tcp_interface
 from typing import Optional, Callable, Any
 import logging
+import threading
 
 from pubsub import pub
 
@@ -40,6 +41,7 @@ class MeshtasticConnector:
         self.logger = logger or logging.getLogger(__name__)
         self.interface = None
         self.on_message_callback = None
+        self._lock = threading.Lock()
     
     def connect(self) -> bool:
         """
@@ -93,19 +95,20 @@ class MeshtasticConnector:
     
     def disconnect(self) -> None:
         """Desconecta do gateway Meshtastic."""
-        try:
-            if self.on_message_callback:
-                try:
-                    pub.unsubscribe(self.on_message_callback, "meshtastic.receive.text")
-                except Exception:
-                    pass
-            if self.interface:
-                self.interface.close()
-                self.logger.info("Desconectado do Meshtastic.")
-        except Exception as e:
-            self.logger.error(f"Erro ao desconectar: {e}")
-        finally:
-            self.interface = None
+        with self._lock:
+            try:
+                if self.on_message_callback:
+                    try:
+                        pub.unsubscribe(self.on_message_callback, "meshtastic.receive.text")
+                    except Exception:
+                        pass
+                if self.interface:
+                    self.interface.close()
+                    self.logger.info("Desconectado do Meshtastic.")
+            except Exception as e:
+                self.logger.error(f"Erro ao desconectar: {e}")
+            finally:
+                self.interface = None
     
     def is_connected(self) -> bool:
         """Verifica se a conexão com o Meshtastic ainda está ativa."""
@@ -180,28 +183,33 @@ class MeshtasticConnector:
         Returns:
             True se enviado com sucesso, False caso contrário
         """
-        try:
-            if not self.is_connected():
-                self.logger.error("Não conectado ao Meshtastic.")
+        with self._lock:
+            try:
+                if not self.is_connected():
+                    self.logger.error("Não conectado ao Meshtastic.")
+                    return False
+                
+                self.logger.info(
+                    f"Enviando texto para canal {channel_id}: {message[:80]}..."
+                )
+                
+                self.interface.sendText(
+                    message,
+                    destinationId="^all",  # Broadcast para o canal
+                    channelIndex=channel_id,
+                    wantAck=want_ack
+                )
+                
+                self.logger.info(f"Texto enviado para canal {channel_id}")
+                return True
+            
+            except (ConnectionResetError, BrokenPipeError, OSError) as e:
+                self.logger.error(f"Conexão perdida ao enviar para canal: {e}")
+                self.interface = None
                 return False
-            
-            self.logger.info(
-                f"Enviando texto para canal {channel_id}: {message[:80]}..."
-            )
-            
-            self.interface.sendText(
-                message,
-                destinationId="^all",  # Broadcast para o canal
-                channelIndex=channel_id,
-                wantAck=want_ack
-            )
-            
-            self.logger.info(f"Texto enviado para canal {channel_id}")
-            return True
-        
-        except Exception as e:
-            self.logger.error(f"Erro ao enviar mensagem para canal: {e}")
-            return False
+            except Exception as e:
+                self.logger.error(f"Erro ao enviar mensagem para canal: {e}")
+                return False
     
     def send_direct_message(
         self,
@@ -221,27 +229,32 @@ class MeshtasticConnector:
         Returns:
             True se enviado com sucesso, False caso contrário
         """
-        try:
-            if not self.is_connected():
-                self.logger.error("Não conectado ao Meshtastic.")
+        with self._lock:
+            try:
+                if not self.is_connected():
+                    self.logger.error("Não conectado ao Meshtastic.")
+                    return False
+                
+                self.logger.info(
+                    f"Enviando DM para {node_id}: {message[:80]}..."
+                )
+                
+                self.interface.sendText(
+                    message,
+                    destinationId=str(node_id),
+                    wantAck=want_ack
+                )
+                
+                self.logger.info(f"DM enviado para {node_id}")
+                return True
+            
+            except (ConnectionResetError, BrokenPipeError, OSError) as e:
+                self.logger.error(f"Conexão perdida ao enviar DM: {e}")
+                self.interface = None
                 return False
-            
-            self.logger.info(
-                f"Enviando DM para {node_id}: {message[:80]}..."
-            )
-            
-            self.interface.sendText(
-                message,
-                destinationId=str(node_id),
-                wantAck=want_ack
-            )
-            
-            self.logger.info(f"DM enviado para {node_id}")
-            return True
-        
-        except Exception as e:
-            self.logger.error(f"Erro ao enviar mensagem direta: {e}")
-            return False
+            except Exception as e:
+                self.logger.error(f"Erro ao enviar mensagem direta: {e}")
+                return False
     
     def get_node_info(self, node_id: str) -> Optional[dict]:
         """

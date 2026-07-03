@@ -75,12 +75,14 @@ class DefesaCivilAlertasStandalone:
         self.next_check_time = time.time()
         
         # Monitoramento e reconexão automática
-        self.connection_check_interval = 30  # segundos
+        self.connection_check_interval = 30  # segundos quando conectado
+        self.disconnected_check_interval = 5  # segundos quando desconectado
         self.last_connection_check = 0.0
         self.reconnect_attempts = 0
         self.reconnect_backoff_seconds = 30  # inicia em 30s
         self.max_reconnect_backoff_seconds = 300  # máximo 5 minutos
         self.last_reconnect_attempt = 0.0
+        self._connection_lock = threading.RLock()
     
     def _setup_logging(self) -> None:
         """Configura logging da aplicação."""
@@ -107,41 +109,43 @@ class DefesaCivilAlertasStandalone:
     
     def connect_meshtastic(self) -> bool:
         """Conecta ao Meshtastic."""
-        self.logger.info("Conectando ao Meshtastic...")
-        
-        mesh_config = self.config.get_meshtastic_config()
-        
-        self.mesh = MeshtasticConnector(
-            connection_type=mesh_config.get("connection_type", "serial"),
-            serial_port=mesh_config.get("serial_port"),
-            tcp_host=mesh_config.get("tcp_host"),
-            tcp_port=mesh_config.get("tcp_port", 4403),
-            logger=self.logger
-        )
-        
-        if not self.mesh.connect():
-            self.logger.error("Falha ao conectar ao Meshtastic")
-            return False
-        
-        # Registrar callback para mensagens diretas
-        if self.config.get("direct_message.enabled", True):
-            self.mesh.register_receive_callback(self.on_message_received)
-            self.logger.debug("Callback de mensagens diretas registrado")
-        
-        return True
+        with self._connection_lock:
+            self.logger.info("Conectando ao Meshtastic...")
+            
+            mesh_config = self.config.get_meshtastic_config()
+            
+            self.mesh = MeshtasticConnector(
+                connection_type=mesh_config.get("connection_type", "serial"),
+                serial_port=mesh_config.get("serial_port"),
+                tcp_host=mesh_config.get("tcp_host"),
+                tcp_port=mesh_config.get("tcp_port", 4403),
+                logger=self.logger
+            )
+            
+            if not self.mesh.connect():
+                self.logger.error("Falha ao conectar ao Meshtastic")
+                return False
+            
+            # Registrar callback para mensagens diretas
+            if self.config.get("direct_message.enabled", True):
+                self.mesh.register_receive_callback(self.on_message_received)
+                self.logger.debug("Callback de mensagens diretas registrado")
+            
+            return True
     
     def check_meshtastic_connection(self) -> bool:
         """Verifica se a conexão Meshtastic está ativa."""
-        if not self.mesh:
+        with self._connection_lock:
+            if not self.mesh:
+                return False
+            if self.mesh.is_connected():
+                # Resetar backoff em caso de conexão estável
+                if self.reconnect_attempts > 0:
+                    self.logger.info("Conexão Meshtastic restaurada")
+                self.reconnect_attempts = 0
+                self.reconnect_backoff_seconds = 30
+                return True
             return False
-        if self.mesh.is_connected():
-            # Resetar backoff em caso de conexão estável
-            if self.reconnect_attempts > 0:
-                self.logger.info("Conexão Meshtastic restaurada")
-            self.reconnect_attempts = 0
-            self.reconnect_backoff_seconds = 30
-            return True
-        return False
     
     def reconnect_meshtastic(self) -> bool:
         """
@@ -153,51 +157,52 @@ class DefesaCivilAlertasStandalone:
         Returns:
             True se reconectado com sucesso, False caso contrário.
         """
-        now = time.time()
-        elapsed = now - self.last_reconnect_attempt
-        
-        if elapsed < self.reconnect_backoff_seconds:
+        with self._connection_lock:
+            now = time.time()
+            elapsed = now - self.last_reconnect_attempt
+            
+            if elapsed < self.reconnect_backoff_seconds:
+                return False
+            
+            self.last_reconnect_attempt = now
+            self.reconnect_attempts += 1
+            
+            self.logger.warning(
+                f"Tentativa de reconexão {self.reconnect_attempts} ao Meshtastic "
+                f"(próxima em {self.reconnect_backoff_seconds}s)"
+            )
+            
+            try:
+                if self.mesh:
+                    self.mesh.disconnect()
+            except Exception as e:
+                self.logger.debug(f"Erro ao desconectar antes de reconectar: {e}")
+            
+            try:
+                if self.mesh and self.mesh.connect():
+                    self.logger.info("Reconectado ao Meshtastic com sucesso")
+                    self.reconnect_attempts = 0
+                    self.reconnect_backoff_seconds = 30
+                    self.last_reconnect_attempt = 0.0
+                    
+                    # Re-registrar callback de mensagens diretas
+                    if self.config.get("direct_message.enabled", True):
+                        self.mesh.register_receive_callback(self.on_message_received)
+                        self.logger.debug("Callback de mensagens diretas re-registrado")
+                    
+                    return True
+            except Exception as e:
+                self.logger.error(f"Erro durante tentativa de reconexão: {e}")
+            
+            # Backoff exponencial com limite de 5 minutos
+            self.reconnect_backoff_seconds = min(
+                self.reconnect_backoff_seconds * 2,
+                self.max_reconnect_backoff_seconds
+            )
+            self.logger.warning(
+                f"Reconexão falhou. Próxima tentativa em {self.reconnect_backoff_seconds}s"
+            )
             return False
-        
-        self.last_reconnect_attempt = now
-        self.reconnect_attempts += 1
-        
-        self.logger.warning(
-            f"Tentativa de reconexão {self.reconnect_attempts} ao Meshtastic "
-            f"(próxima em {self.reconnect_backoff_seconds}s)"
-        )
-        
-        try:
-            if self.mesh:
-                self.mesh.disconnect()
-        except Exception as e:
-            self.logger.debug(f"Erro ao desconectar antes de reconectar: {e}")
-        
-        try:
-            if self.mesh and self.mesh.connect():
-                self.logger.info("Reconectado ao Meshtastic com sucesso")
-                self.reconnect_attempts = 0
-                self.reconnect_backoff_seconds = 30
-                self.last_reconnect_attempt = 0.0
-                
-                # Re-registrar callback de mensagens diretas
-                if self.config.get("direct_message.enabled", True):
-                    self.mesh.register_receive_callback(self.on_message_received)
-                    self.logger.debug("Callback de mensagens diretas re-registrado")
-                
-                return True
-        except Exception as e:
-            self.logger.error(f"Erro durante tentativa de reconexão: {e}")
-        
-        # Backoff exponencial com limite de 5 minutos
-        self.reconnect_backoff_seconds = min(
-            self.reconnect_backoff_seconds * 2,
-            self.max_reconnect_backoff_seconds
-        )
-        self.logger.warning(
-            f"Reconexão falhou. Próxima tentativa em {self.reconnect_backoff_seconds}s"
-        )
-        return False
     
     def on_message_received(self, packet: dict, interface) -> None:
         """
@@ -336,7 +341,8 @@ class DefesaCivilAlertasStandalone:
                 self.logger.info(f"Enviando DM {idx+1}/{len(alerts)} parte 1 para {from_id_str}")
                 if not self.mesh.send_direct_message(msg1, from_id_str):
                     self.logger.error(f"Falha ao enviar DM {idx+1} parte 1 para {from_id_str}")
-                    continue
+                    self.reconnect_meshtastic()
+                    break
                 
                 # Aguardar entre as duas partes, verificando shutdown
                 for _ in range(int(CHANNEL_LINK_DELAY_SECONDS * 2)):
@@ -349,6 +355,8 @@ class DefesaCivilAlertasStandalone:
                 self.logger.info(f"Enviando DM {idx+1}/{len(alerts)} parte 2 para {from_id_str}")
                 if not self.mesh.send_direct_message(msg2, from_id_str):
                     self.logger.error(f"Falha ao enviar DM {idx+1} parte 2 para {from_id_str}")
+                    self.reconnect_meshtastic()
+                    break
                 
                 if idx < len(alerts) - 1:
                     for _ in range(int(CHANNEL_ALERT_BATCH_DELAY_SECONDS * 2)):
@@ -462,6 +470,18 @@ class DefesaCivilAlertasStandalone:
                 self.logger.info(f"Novo alerta detectado: {item.get('title', '')[:60]}...")
                 if self.send_alert_to_channel(item, channel_id):
                     new_alerts_count += 1
+                    # Marcar como enviado e armazenar apenas se enviou com sucesso
+                    self.state_manager.add_sent_guid(guid)
+                    self.state_manager.add_alert(
+                        item, self.config.get("state.max_history", MAX_HISTORY)
+                    )
+                else:
+                    self.logger.warning(
+                        f"Alerta não enviado devido a falha de conexão: {guid}"
+                    )
+                    # Tentar reconectar imediatamente e parar processamento
+                    self.reconnect_meshtastic()
+                    break
                 
                 # Aguardar antes do próximo alerta, verificando shutdown
                 if new_alerts_count < len(items):
@@ -472,10 +492,6 @@ class DefesaCivilAlertasStandalone:
                         time.sleep(0.5)
                     if not self.running:
                         break
-                
-                # Marcar como enviado e armazenar
-                self.state_manager.add_sent_guid(guid)
-                self.state_manager.add_alert(item, self.config.get("state.max_history", MAX_HISTORY))
             
             # Salvar estado
             self.state_manager.save()
@@ -556,7 +572,13 @@ class DefesaCivilAlertasStandalone:
                 now = time.time()
                 
                 # Monitorar conexão com Meshtastic periodicamente
-                if now - self.last_connection_check >= self.connection_check_interval:
+                # Intervalo menor quando desconectado para reconectar mais rápido
+                check_interval = (
+                    self.disconnected_check_interval
+                    if self.reconnect_attempts > 0
+                    else self.connection_check_interval
+                )
+                if now - self.last_connection_check >= check_interval:
                     self.last_connection_check = now
                     if not self.check_meshtastic_connection():
                         self.reconnect_meshtastic()
