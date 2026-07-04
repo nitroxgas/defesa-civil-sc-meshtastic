@@ -279,6 +279,47 @@ def test_check_feed_respects_region_filter(app, caplog):
     assert "Alerta ignorado por filtro regional" in caplog.text
 
 
+def test_check_feed_marks_only_first_message_as_alert(app, caplog):
+    """Verifica que, em lote com vários alertas, apenas a primeira mensagem usa send_alert."""
+    app.running = True
+    app.region_filter = RegionFilter({"enabled": False})
+    app.rss_parser.parse_and_fetch = MagicMock(
+        return_value=(
+            [
+                {
+                    "guid": "g1",
+                    "title": "ALERTA - Temporal em A",
+                    "content": "Alerta A.",
+                    "link": "http://example.com/1",
+                    "pub_date": "Mon, 01 Jan 2024 12:00:00 GMT",
+                    "seen_at": "2024-01-01T12:00:00",
+                },
+                {
+                    "guid": "g2",
+                    "title": "ALERTA - Temporal em B",
+                    "content": "Alerta B.",
+                    "link": "http://example.com/2",
+                    "pub_date": "Mon, 01 Jan 2024 12:00:00 GMT",
+                    "seen_at": "2024-01-01T12:00:00",
+                },
+            ],
+            None,
+            1,
+            15,
+        )
+    )
+    app.mesh.send_alert.return_value = True
+    app.mesh.send_to_channel.return_value = True
+
+    with caplog.at_level("INFO"):
+        app.check_feed()
+
+    assert app.mesh.send_alert.call_count == 1
+    assert app.mesh.send_to_channel.call_count == 3
+    assert app.state_manager.is_guid_sent("g1")
+    assert app.state_manager.is_guid_sent("g2")
+
+
 def test_check_meshtastic_connection_resets_backoff_when_connected(app):
     """Verifica que conexão ativa reseta contador de reconexão."""
     app.mesh.is_connected.return_value = True
@@ -367,7 +408,7 @@ def test_reconnect_meshtastic_reregisters_callback_on_success(app, monkeypatch):
 
 
 def test_dm_alerts_request_applies_region_filter(app):
-    """Verifica que resposta a DM aplica filtro regional."""
+    """Verifica que resposta a DM aplica filtro regional e não usa send_alert."""
     app.running = True
     app.region_filter = RegionFilter(
         {
@@ -403,9 +444,10 @@ def test_dm_alerts_request_applies_region_filter(app):
 
     alert_calls = app.mesh.send_alert.call_args_list
     dm_calls = app.mesh.send_direct_message.call_args_list
-    # Deve enviar apenas 1 alerta (g2) em 2 mensagens (parte 1 alerta + link)
-    assert len(alert_calls) == 1
-    assert len(dm_calls) == 1
-    assert "Florianopolis" in str(alert_calls)
-    assert "Chapeco" not in str(alert_calls)
-    assert "Link: g2" in str(dm_calls)
+    # Deve enviar apenas 1 alerta (g2) em 2 mensagens normais (conteúdo + link)
+    assert len(alert_calls) == 0
+    assert len(dm_calls) == 2
+    call_text = " ".join(str(c) for c in dm_calls)
+    assert "Florianopolis" in call_text
+    assert "Link: g2" in call_text
+    assert "Chapeco" not in call_text

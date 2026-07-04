@@ -338,8 +338,8 @@ class DefesaCivilAlertasStandalone:
                 # Enviar em duas mensagens
                 msg1, msg2 = self.formatter.build_alert_messages(alert)
                 
-                self.logger.info(f"Enviando DM {idx+1}/{len(alerts)} parte 1 (alerta) para {from_id_str}")
-                if not self.mesh.send_alert(msg1, 0, from_id_str):
+                self.logger.info(f"Enviando DM {idx+1}/{len(alerts)} parte 1 para {from_id_str}")
+                if not self.mesh.send_direct_message(msg1, from_id_str):
                     self.logger.error(f"Falha ao enviar DM {idx+1} parte 1 para {from_id_str}")
                     self.reconnect_meshtastic()
                     break
@@ -371,13 +371,16 @@ class DefesaCivilAlertasStandalone:
         except Exception as e:
             self.logger.error(f"Erro ao responder DM de alertas: {e}")
     
-    def send_alert_to_channel(self, alert: dict, channel_id: int = 0) -> bool:
+    def send_alert_to_channel(
+        self, alert: dict, channel_id: int = 0, is_first: bool = True
+    ) -> bool:
         """
         Envia alerta para canal Meshtastic.
         
         Args:
             alert: Dicionário com dados do alerta
             channel_id: ID do canal
+            is_first: Se True, marca a primeira mensagem como alerta de notificação
             
         Returns:
             True se enviado com sucesso, False caso contrário
@@ -389,12 +392,19 @@ class DefesaCivilAlertasStandalone:
             
             msg1, msg2 = self.formatter.build_alert_messages(alert)
             
-            # Enviar mensagem de conteúdo como alerta de notificação
-            self.logger.debug(f"Enviando alerta para canal {channel_id}: {msg1[:80]}...")
-            if not self.mesh.send_alert(msg1, channel_id):
-                self.logger.error("Falha ao enviar mensagem de alerta")
-                return False
-            self.logger.info(f"Alerta enviado: {msg1[:80]}...")
+            # Apenas a primeira mensagem do lote usa send_alert (notificação especial)
+            if is_first:
+                self.logger.debug(f"Enviando alerta para canal {channel_id}: {msg1[:80]}...")
+                if not self.mesh.send_alert(msg1, channel_id):
+                    self.logger.error("Falha ao enviar mensagem de alerta")
+                    return False
+                self.logger.info(f"Alerta enviado: {msg1[:80]}...")
+            else:
+                self.logger.debug(f"Enviando mensagem para canal {channel_id}: {msg1[:80]}...")
+                if not self.mesh.send_to_channel(msg1, channel_id):
+                    self.logger.error("Falha ao enviar mensagem de alerta")
+                    return False
+                self.logger.info(f"Mensagem enviada: {msg1[:80]}...")
             
             # Aguardar antes de enviar link, verificando shutdown
             for _ in range(int(CHANNEL_LINK_DELAY_SECONDS * 2)):
@@ -438,6 +448,7 @@ class DefesaCivilAlertasStandalone:
             self.logger.info(f"Canal de envio: {channel_name or channel_number} (índice {channel_id})")
             
             new_alerts_count = 0
+            first_message = True
             
             for item in items:
                 if not self.running:
@@ -466,10 +477,11 @@ class DefesaCivilAlertasStandalone:
                     self.state_manager.add_ignored_guid(guid)
                     continue
                 
-                # Enviar alerta
+                # Enviar alerta (apenas a primeira mensagem do lote é marcada como alerta)
                 self.logger.info(f"Novo alerta detectado: {item.get('title', '')[:60]}...")
-                if self.send_alert_to_channel(item, channel_id):
+                if self.send_alert_to_channel(item, channel_id, is_first=first_message):
                     new_alerts_count += 1
+                    first_message = False
                     # Marcar como enviado e armazenar apenas se enviou com sucesso
                     self.state_manager.add_sent_guid(guid)
                     self.state_manager.add_alert(
