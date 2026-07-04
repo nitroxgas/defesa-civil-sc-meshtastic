@@ -106,6 +106,21 @@ class DefesaCivilAlertasStandalone:
                 level=getattr(logging, log_level),
                 format=log_format
             )
+
+        # Suprimir logs verbosos da biblioteca meshtastic quando não estiver em DEBUG
+        if log_level != "DEBUG":
+            for lib_logger in ("meshtastic", "root"):
+                logging.getLogger(lib_logger).setLevel(logging.ERROR)
+
+            # Suprimir tracebacks de threads internas da lib meshtastic fora do DEBUG
+            def _thread_excepthook(args):
+                name = getattr(args.thread, "name", "?")
+                self.logger.debug(
+                    f"Exception em thread '{name}' suprimida: "
+                    f"{args.exc_type.__name__}: {args.exc_value}"
+                )
+
+            threading.excepthook = _thread_excepthook
     
     def connect_meshtastic(self) -> bool:
         """Conecta ao Meshtastic."""
