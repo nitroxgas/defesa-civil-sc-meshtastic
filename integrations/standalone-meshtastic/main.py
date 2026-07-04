@@ -109,8 +109,7 @@ class DefesaCivilAlertasStandalone:
 
         # Suprimir logs verbosos da biblioteca meshtastic quando não estiver em DEBUG
         if log_level != "DEBUG":
-            for lib_logger in ("meshtastic", "root"):
-                logging.getLogger(lib_logger).setLevel(logging.ERROR)
+            logging.getLogger("meshtastic").setLevel(logging.ERROR)
 
             # Suprimir tracebacks de threads internas da lib meshtastic fora do DEBUG
             def _thread_excepthook(args):
