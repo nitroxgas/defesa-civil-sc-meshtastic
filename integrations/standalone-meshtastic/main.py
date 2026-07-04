@@ -338,8 +338,8 @@ class DefesaCivilAlertasStandalone:
                 # Enviar em duas mensagens
                 msg1, msg2 = self.formatter.build_alert_messages(alert)
                 
-                self.logger.info(f"Enviando DM {idx+1}/{len(alerts)} parte 1 para {from_id_str}")
-                if not self.mesh.send_direct_message(msg1, from_id_str):
+                self.logger.info(f"Enviando DM {idx+1}/{len(alerts)} parte 1 (alerta) para {from_id_str}")
+                if not self.mesh.send_alert(msg1, 0, from_id_str):
                     self.logger.error(f"Falha ao enviar DM {idx+1} parte 1 para {from_id_str}")
                     self.reconnect_meshtastic()
                     break
@@ -389,9 +389,9 @@ class DefesaCivilAlertasStandalone:
             
             msg1, msg2 = self.formatter.build_alert_messages(alert)
             
-            # Enviar mensagem de conteúdo
+            # Enviar mensagem de conteúdo como alerta de notificação
             self.logger.debug(f"Enviando alerta para canal {channel_id}: {msg1[:80]}...")
-            if not self.mesh.send_to_channel(msg1, channel_id):
+            if not self.mesh.send_alert(msg1, channel_id):
                 self.logger.error("Falha ao enviar mensagem de alerta")
                 return False
             self.logger.info(f"Alerta enviado: {msg1[:80]}...")

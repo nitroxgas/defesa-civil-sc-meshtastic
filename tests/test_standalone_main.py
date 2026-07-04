@@ -131,13 +131,15 @@ def test_send_alert_to_channel_returns_false_when_not_running(app):
 
 def test_send_alert_to_channel_logs_success(app, caplog):
     app.running = True
+    app.mesh.send_alert.return_value = True
     app.mesh.send_to_channel.return_value = True
 
     with caplog.at_level("DEBUG"):
         result = app.send_alert_to_channel({"content": "ALERTA - Teste", "link": "http://x"})
 
     assert result is True
-    app.mesh.send_to_channel.assert_called()
+    app.mesh.send_alert.assert_called_once()
+    app.mesh.send_to_channel.assert_called_once()
     assert "Alerta enviado" in caplog.text
 
 
@@ -200,6 +202,34 @@ def test_resolve_channel_id_returns_default_when_not_connected():
     assert connector.resolve_channel_id("BitDevs", default=5) == 5
 
 
+def test_send_alert_uses_interface_sendAlert_for_channel():
+    """Verifica que send_alert chama sendAlert do Meshtastic para canal."""
+    from meshtastic_connector import MeshtasticConnector
+
+    connector = MeshtasticConnector(connection_type="tcp", tcp_host="127.0.0.1")
+    connector.interface = MagicMock()
+    connector.interface.sendAlert = MagicMock(return_value=None)
+
+    assert connector.send_alert("Alerta teste", channel_id=3) is True
+    connector.interface.sendAlert.assert_called_once_with(
+        "Alerta teste", destinationId="^all", channelIndex=3
+    )
+
+
+def test_send_alert_uses_interface_sendAlert_for_direct_message():
+    """Verifica que send_alert chama sendAlert do Meshtastic para DM."""
+    from meshtastic_connector import MeshtasticConnector
+
+    connector = MeshtasticConnector(connection_type="tcp", tcp_host="127.0.0.1")
+    connector.interface = MagicMock()
+    connector.interface.sendAlert = MagicMock(return_value=None)
+
+    assert connector.send_alert("Alerta teste", channel_id=0, node_id="!abc123") is True
+    connector.interface.sendAlert.assert_called_once_with(
+        "Alerta teste", destinationId="!abc123", channelIndex=0
+    )
+
+
 def test_check_feed_respects_region_filter(app, caplog):
     """Verifica que check_feed ignora alertas fora das regiões configuradas."""
     app.running = True
@@ -236,6 +266,7 @@ def test_check_feed_respects_region_filter(app, caplog):
             15,
         )
     )
+    app.mesh.send_alert.return_value = True
     app.mesh.send_to_channel.return_value = True
 
     with caplog.at_level("INFO"):
@@ -243,6 +274,8 @@ def test_check_feed_respects_region_filter(app, caplog):
 
     assert app.state_manager.is_guid_ignored("g1")
     assert app.state_manager.is_guid_sent("g2")
+    assert app.mesh.send_alert.called
+    assert app.mesh.send_to_channel.called
     assert "Alerta ignorado por filtro regional" in caplog.text
 
 
@@ -368,9 +401,11 @@ def test_dm_alerts_request_applies_region_filter(app):
     packet = {"from": 12345, "fromId": "!abc123", "to": 12345}
     app.handle_dm_alerts_request(packet, None)
 
-    calls = app.mesh.send_direct_message.call_args_list
-    # Deve enviar apenas 1 alerta (g2) em 2 mensagens (parte 1 + link)
-    assert len(calls) == 2
-    call_text = " ".join(str(c) for c in calls)
-    assert "Florianopolis" in call_text
-    assert "Chapeco" not in call_text
+    alert_calls = app.mesh.send_alert.call_args_list
+    dm_calls = app.mesh.send_direct_message.call_args_list
+    # Deve enviar apenas 1 alerta (g2) em 2 mensagens (parte 1 alerta + link)
+    assert len(alert_calls) == 1
+    assert len(dm_calls) == 1
+    assert "Florianopolis" in str(alert_calls)
+    assert "Chapeco" not in str(alert_calls)
+    assert "Link: g2" in str(dm_calls)

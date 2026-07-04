@@ -211,6 +211,57 @@ class MeshtasticConnector:
                 self.logger.error(f"Erro ao enviar mensagem para canal: {e}")
                 return False
     
+    def send_alert(
+        self,
+        message: str,
+        channel_id: int = 0,
+        node_id: Optional[str] = None,
+    ) -> bool:
+        """
+        Envia mensagem de alerta com notificação especial do Meshtastic.
+
+        Usa ALERT_APP e prioridade ALERT para que clientes configurados
+        possam tocar/buzzar ao receber. Se node_id for informado, o alerta
+        é enviado como mensagem direta; caso contrário, é broadcast no canal.
+
+        Args:
+            message: Texto do alerta
+            channel_id: ID do canal (padrão 0)
+            node_id: ID do node destino para DM (opcional)
+
+        Returns:
+            True se enviado com sucesso, False caso contrário
+        """
+        with self._lock:
+            try:
+                if not self.is_connected():
+                    self.logger.error("Não conectado ao Meshtastic.")
+                    return False
+
+                destination_id = node_id if node_id is not None else "^all"
+                target_label = f"node {destination_id}" if node_id else f"canal {channel_id}"
+
+                self.logger.info(
+                    f"Enviando alerta de notificação para {target_label}: {message[:80]}..."
+                )
+
+                self.interface.sendAlert(
+                    message,
+                    destinationId=str(destination_id),
+                    channelIndex=channel_id,
+                )
+
+                self.logger.info(f"Alerta de notificação enviado para {target_label}")
+                return True
+
+            except (ConnectionResetError, BrokenPipeError, OSError) as e:
+                self.logger.error(f"Conexão perdida ao enviar alerta: {e}")
+                self.interface = None
+                return False
+            except Exception as e:
+                self.logger.error(f"Erro ao enviar alerta de notificação: {e}")
+                return False
+
     def send_direct_message(
         self,
         message: str,
