@@ -33,6 +33,7 @@ if str(PROJECT_ROOT) not in sys.path:
 from core import (
     RSSParser,
     MessageFormatter,
+    RegionFilter,
     State,
     Alert,
     FEED_URL,
@@ -64,6 +65,11 @@ class DefesaCivilSCAlertas(hass.Hass):
             self.error("Configure notify_entity em apps.yaml. Ex: notify.mesh_channel_alertas_sc")
             return
 
+        # Configurações ajustáveis via apps.yaml
+        self.trigger_word = str(self.args.get("trigger_word", "ALERTAS")).upper()
+        self.max_alerts_reply = int(self.args.get("max_alerts_reply", MAX_ALERTS_REPLY))
+        self.max_history = int(self.args.get("max_history", MAX_HISTORY))
+
         # Inicializar parsers e formatador
         interval_minutes = self.args.get("interval_minutes")
         if interval_minutes:
@@ -75,7 +81,15 @@ class DefesaCivilSCAlertas(hass.Hass):
                 interval_minutes = None
         self.rss_parser = RSSParser(interval_minutes=interval_minutes)
         self.formatter = MessageFormatter()
-        
+
+        # Inicializar filtro regional
+        region_filter_config = self.args.get("region_filter") or {}
+        self.region_filter = RegionFilter(region_filter_config)
+        valid, errors = self.region_filter.validate_config()
+        if not valid:
+            for error in errors:
+                self.log(f"[region_filter] {error}", level="WARNING")
+
         # Carregar estado
         self.state = self._load_state()
 
@@ -91,6 +105,7 @@ class DefesaCivilSCAlertas(hass.Hass):
 
         self.log("Defesa Civil SC Alertas iniciado.")
         self.log(f"Destino de envio para canal: {self.notify_entity}")
+        self.log(f"Filtro regional: {'habilitado' if self.region_filter.enabled else 'desabilitado'}")
         self.log(f"Modo de teste: {self.test_mode}")
 
         if self.test_mode:
@@ -265,7 +280,7 @@ class DefesaCivilSCAlertas(hass.Hass):
         )
 
         # Manter apenas os últimos N
-        self.state.alerts = alerts[:MAX_HISTORY]
+        self.state.alerts = alerts[:self.max_history]
 
     def check_feed(self, kwargs):
         """Verifica o feed da Defesa Civil SC em intervalo configurado."""
@@ -290,8 +305,10 @@ class DefesaCivilSCAlertas(hass.Hass):
 
             self._update_local_history(feed_alerts)
 
-            if not self.state.sent_guids:
-                self.state.sent_guids = [a.guid for a in feed_alerts[:MAX_HISTORY] if a.guid]
+            processed_guids = set(self.state.sent_guids) | set(self.state.ignored_guids)
+
+            if not self.state.sent_guids and not self.state.ignored_guids:
+                self.state.sent_guids = [a.guid for a in feed_alerts[:self.max_history] if a.guid]
                 self._save_state()
 
                 self.log(
@@ -302,17 +319,31 @@ class DefesaCivilSCAlertas(hass.Hass):
 
             new_alerts = [
                 alert for alert in reversed(feed_alerts)
-                if alert["guid"] not in self.state.sent_guids
+                if alert["guid"] not in processed_guids
             ]
 
             delay = 0
 
             for alert_dict in new_alerts:
+                guid = alert_dict["guid"]
+
+                # Aplicar filtro regional
+                if not self.region_filter.should_send(alert_dict):
+                    matches = self.region_filter.get_matches(alert_dict)
+                    self.log(
+                        f"Alerta ignorado por filtro regional: {guid} "
+                        f"(matches: {matches})"
+                    )
+                    self.state.ignored_guids.append(guid)
+                    self.state.ignored_guids = self.state.ignored_guids[-self.max_history:]
+                    self._save_state()
+                    continue
+
                 alert = Alert.from_dict(alert_dict)
                 self.send_channel_alert(alert, delay_seconds=delay)
 
-                self.state.sent_guids.append(alert_dict["guid"])
-                self.state.sent_guids = self.state.sent_guids[-MAX_HISTORY:]
+                self.state.sent_guids.append(guid)
+                self.state.sent_guids = self.state.sent_guids[-self.max_history:]
                 self._save_state()
 
                 delay += CHANNEL_ALERT_BATCH_DELAY_SECONDS
@@ -347,12 +378,12 @@ class DefesaCivilSCAlertas(hass.Hass):
 
             normalized = message.strip().upper()
 
-            if normalized != "ALERTAS":
+            if self.trigger_word not in normalized:
                 return
 
             # Ignorar se parece ter vindo de canal
             if to_channel is not None and to_node is None:
-                self.log("Mensagem ALERTAS ignorada porque parece ter vindo de canal, não DM.")
+                self.log(f"Mensagem '{self.trigger_word}' ignorada porque parece ter vindo de canal, não DM.")
                 return
 
             # Verificar se é para o gateway configurado
@@ -362,7 +393,7 @@ class DefesaCivilSCAlertas(hass.Hass):
 
                     if to_node != configured_gateway:
                         self.log(
-                            f"Mensagem ALERTAS ignorada. "
+                            f"Mensagem '{self.trigger_word}' ignorada. "
                             f"Destino {to_node} diferente do gateway configurado {configured_gateway}."
                         )
                         return
@@ -371,8 +402,12 @@ class DefesaCivilSCAlertas(hass.Hass):
                     self.error(f"gateway_node_id inválido em apps.yaml: {self.gateway_node_id}. Erro: {e}")
                     return
 
-            # Enviar últimos alertas
-            alerts = self.state.alerts[:MAX_ALERTS_REPLY]
+            # Buscar alertas recentes e aplicar filtro regional
+            candidates = self.state.alerts[: self.max_alerts_reply * 2]
+            alerts = [
+                a for a in candidates
+                if self.region_filter.should_send(a.to_dict())
+            ][: self.max_alerts_reply]
 
             if not alerts:
                 self.send_direct_message({

@@ -137,6 +137,18 @@ defesa_civil_sc_alertas:
   # (hourly -> 15 min, daily -> 360 min). Limite mínimo: 15 min.
   interval_minutes: 0
   test_mode: false
+  # Palavra-gatilho para resposta de alertas via DM (match por "contém")
+  trigger_word: ALERTAS
+  # Máximo de alertas retornados em DM e tamanho do histórico
+  # max_alerts_reply: 3
+  # max_history: 10
+  # Filtro regional (opcional): envia apenas alertas das regiões configuradas
+  # region_filter:
+  #   enabled: true
+  #   mode: both   # mesorregiao | municipio | both
+  #   mesorregioes:
+  #     - Grande Florianópolis
+  #   municipios: []
 ```
 
 **Como encontrar seus valores:**
@@ -197,9 +209,12 @@ Procure por:
 
 - **Leitura do feed**: A cada 1/4 do período informado pelo feed (ex: hourly -> 15 min)
 - **Override**: `interval_minutes` em `apps.yaml` pode forçar um intervalo fixo
-- **Histórico**: Armazena os últimos alertas (limite configurável)
-- **Deduplicação**: Evita reenviar alertas repetidos usando `guid`
-- **Resposta DM**: Quando alguém enviar `ALERTAS` por mensagem direta, responde com os últimos alertas configurados
+- **Histórico**: Armazena os últimos `max_history` alertas (padrão 10)
+- **Deduplicação**: Evita reenviar alertas repetidos usando `guid` (enviados e ignorados são rastreados separadamente)
+- **Filtro regional**: Se `region_filter.enabled: true`, apenas alertas que mencionem as regiões configuradas são enviados; os demais são registrados como ignorados
+- **Resposta DM**: Quando alguém enviar a `trigger_word` (padrão `ALERTAS`) por mensagem direta, responde com os últimos alertas filtrados pela região configurada
+
+> **Nota**: A integração oficial `meshtastic/home-assistant` não expõe parâmetro de portnum/prioridade nos serviços de envio. Por isso, a notificação especial de alerta (ALERT_APP/prioridade ALERT, disponível no standalone) **não está disponível** nesta versão.
 
 ## 🔄 Atualizando
 
@@ -239,7 +254,8 @@ integrations/home-assistant-appdaemon/
 A partir da v1.0, esta integração usa módulos centralizados em `core/` para evitar duplicação de código:
 
 - `core.RSSParser` - Parser RSS
-- `core.MessageFormatter` - Compactação de mensagens  
+- `core.MessageFormatter` - Compactação de mensagens
+- `core.RegionFilter` - Filtro regional por mesorregião/município
 - `core.State`, `core.Alert` - Modelos de dados
 - `core.constants` - Constantes centralizadas
 

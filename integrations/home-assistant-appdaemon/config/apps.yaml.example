@@ -20,3 +20,27 @@ defesa_civil_sc_alertas:
   # true: envia o alerta mais recente armazenado ao iniciar, para teste.
   # false: operação normal, lendo o feed e enviando apenas novos alertas.
   test_mode: false
+
+  # Palavra-gatilho (contida na mensagem) para resposta de alertas via DM.
+  # Padrão: ALERTAS
+  trigger_word: ALERTAS
+
+  # Máximo de alertas retornados na resposta via DM.
+  # Padrão: valor de MAX_ALERTS_REPLY (normalmente 2 ou 3).
+  # max_alerts_reply: 3
+
+  # Máximo de alertas armazenados no histórico local.
+  # Padrão: valor de MAX_HISTORY (normalmente 10).
+  # max_history: 10
+
+  # Filtro regional: envia apenas alertas que mencionem as regiões configuradas.
+  # Se disabled (padrão), todos os alertas são enviados.
+  # region_filter:
+  #   enabled: true
+  #   mode: both          # mesorregiao | municipio | both
+  #   mesorregioes:
+  #     - Grande Florianópolis
+  #     - Vale do Itajaí
+  #   municipios:
+  #     - Florianópolis
+  #     - Blumenau
