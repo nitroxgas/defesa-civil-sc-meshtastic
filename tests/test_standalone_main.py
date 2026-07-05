@@ -203,30 +203,30 @@ def test_resolve_channel_id_returns_default_when_not_connected():
 
 
 def test_send_alert_uses_interface_sendAlert_for_channel():
-    """Verifica que send_alert chama sendAlert do Meshtastic para canal."""
+    """Verifica que send_alert usa sendText com Bell (TEXT_MESSAGE_APP) para canal."""
     from meshtastic_connector import MeshtasticConnector
 
     connector = MeshtasticConnector(connection_type="tcp", tcp_host="127.0.0.1")
     connector.interface = MagicMock()
-    connector.interface.sendAlert = MagicMock(return_value=None)
+    connector.interface.sendText = MagicMock(return_value=None)
 
     assert connector.send_alert("Alerta teste", channel_id=3) is True
-    connector.interface.sendAlert.assert_called_once_with(
-        "Alerta teste \a", destinationId="^all", channelIndex=3
+    connector.interface.sendText.assert_called_once_with(
+        "Alerta teste \a", destinationId="^all", channelIndex=3, wantAck=False
     )
 
 
 def test_send_alert_uses_interface_sendAlert_for_direct_message():
-    """Verifica que send_alert chama sendAlert do Meshtastic para DM."""
+    """Verifica que send_alert usa sendText com Bell (TEXT_MESSAGE_APP) para DM."""
     from meshtastic_connector import MeshtasticConnector
 
     connector = MeshtasticConnector(connection_type="tcp", tcp_host="127.0.0.1")
     connector.interface = MagicMock()
-    connector.interface.sendAlert = MagicMock(return_value=None)
+    connector.interface.sendText = MagicMock(return_value=None)
 
     assert connector.send_alert("Alerta teste", channel_id=0, node_id="!abc123") is True
-    connector.interface.sendAlert.assert_called_once_with(
-        "Alerta teste \a", destinationId="!abc123", channelIndex=0
+    connector.interface.sendText.assert_called_once_with(
+        "Alerta teste \a", destinationId="!abc123", channelIndex=0, wantAck=False
     )
 
 
