@@ -251,7 +251,7 @@ class MeshtasticConnector:
                     f"tem sendAlert: {hasattr(self.interface, 'sendAlert')}"
                 )
                 if hasattr(self.interface, 'sendAlert'):
-                    self.logger.debug("Usando sendAlert (ALERT_APP + Priority.ALERT)")
+                    self.logger.info("Usando sendAlert (ALERT_APP + Priority.ALERT)")
                     self.interface.sendAlert(
                         message,
                         destinationId=str(destination_id),
