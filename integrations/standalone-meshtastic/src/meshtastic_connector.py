@@ -245,11 +245,22 @@ class MeshtasticConnector:
                     f"Enviando alerta de notificação para {target_label}: {message[:80]}..."
                 )
 
-                self.interface.sendAlert(
-                    message,
-                    destinationId=str(destination_id),
-                    channelIndex=channel_id,
-                )
+                try:
+                    self.interface.sendAlert(
+                        message,
+                        destinationId=str(destination_id),
+                        channelIndex=channel_id,
+                    )
+                except AttributeError as ae:
+                    self.logger.warning(
+                        f"sendAlert não suportado ({ae}); usando sendText como fallback"
+                    )
+                    self.interface.sendText(
+                        message,
+                        destinationId=str(destination_id),
+                        channelIndex=channel_id,
+                        wantAck=False,
+                    )
 
                 self.logger.info(f"Alerta de notificação enviado para {target_label}")
                 return True
