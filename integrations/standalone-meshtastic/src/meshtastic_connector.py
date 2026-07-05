@@ -9,6 +9,7 @@ import meshtastic.tcp_interface
 from typing import Optional, Callable, Any
 import logging
 import threading
+import traceback
 
 from pubsub import pub
 
@@ -270,7 +271,10 @@ class MeshtasticConnector:
                 self.interface = None
                 return False
             except Exception as e:
-                self.logger.error(f"Erro ao enviar alerta de notificação: {e}")
+                self.logger.error(
+                    f"Erro ao enviar alerta de notificação: {e}\n"
+                    + traceback.format_exc()
+                )
                 return False
 
     def send_direct_message(
