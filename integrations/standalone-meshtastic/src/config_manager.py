@@ -45,6 +45,9 @@ class ConfigManager:
             "trigger_word": "ALERTAS",
             "max_alerts_reply": 2
         },
+        "alert_signal": {
+            "enabled": True
+        },
         "test_mode": False,
         "logging": {
             "level": "DEBUG",

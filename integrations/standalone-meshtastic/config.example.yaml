@@ -70,6 +70,13 @@ direct_message:
   # Número de alertas a devolver
   max_alerts_reply: 2
 
+# Mensagem de sinal de alerta
+alert_signal:
+  # Envia uma mensagem curta com Bell antes do lote de alertas,
+  # para acionar notificação sonora/vibração nos apps Meshtastic.
+  # Desative se preferir enviar apenas o conteúdo sem sinal separado.
+  enabled: true
+
 # Modo de teste
 test_mode: false
 

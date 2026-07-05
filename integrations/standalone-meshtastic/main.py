@@ -397,8 +397,8 @@ class DefesaCivilAlertasStandalone:
         Returns:
             True se enviado com sucesso, False caso contrário
         """
-        label = "alerta" if count == 1 else f"{count} alertas"
-        signal_text = f"[DC-SC] {label} da Defesa Civil SC"
+        label = "Alerta" if count == 1 else f"{count} alertas"
+        signal_text = f"{label} da Defesa Civil SC"
         self.logger.info(f"Enviando sinal de alerta para canal {channel_id}")
         return self.mesh.send_alert(signal_text, channel_id)
 
@@ -480,7 +480,8 @@ class DefesaCivilAlertasStandalone:
             ]
 
             # Enviar sinal de alerta único antes do lote, se houver novos alertas
-            if pending_items:
+            alert_signal_enabled = self.config.get("alert_signal.enabled", True)
+            if pending_items and alert_signal_enabled:
                 if not self.send_alert_signal(channel_id, len(pending_items)):
                     self.logger.warning("Falha ao enviar sinal de alerta; abortando lote")
                     self.reconnect_meshtastic()
@@ -584,9 +585,10 @@ class DefesaCivilAlertasStandalone:
                 channel_name = channel_config.get("name")
                 channel_number = channel_config.get("number", 0)
                 channel_id = self.mesh.resolve_channel_id(channel_name, default=channel_number)
-                self.logger.info("Modo de teste: enviando sinal de alerta...")
-                self.send_alert_signal(channel_id, 1)
-                time.sleep(CHANNEL_LINK_DELAY_SECONDS)
+                if self.config.get("alert_signal.enabled", True):
+                    self.logger.info("Modo de teste: enviando sinal de alerta...")
+                    self.send_alert_signal(channel_id, 1)
+                    time.sleep(CHANNEL_LINK_DELAY_SECONDS)
                 self.logger.info("Modo de teste: enviando conteudo do alerta...")
                 self.send_alert_to_channel(alerts[0], channel_id)
         
