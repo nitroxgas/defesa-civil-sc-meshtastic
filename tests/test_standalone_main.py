@@ -131,16 +131,15 @@ def test_send_alert_to_channel_returns_false_when_not_running(app):
 
 def test_send_alert_to_channel_logs_success(app, caplog):
     app.running = True
-    app.mesh.send_alert.return_value = True
     app.mesh.send_to_channel.return_value = True
 
     with caplog.at_level("DEBUG"):
         result = app.send_alert_to_channel({"content": "ALERTA - Teste", "link": "http://x"})
 
     assert result is True
-    app.mesh.send_alert.assert_called_once()
-    app.mesh.send_to_channel.assert_called_once()
-    assert "Alerta enviado" in caplog.text
+    app.mesh.send_alert.assert_not_called()
+    assert app.mesh.send_to_channel.call_count == 2  # texto + link
+    assert "Texto enviado" in caplog.text
 
 
 def test_meshtastic_connector_subscribes_to_pubsub(tmp_path):
@@ -314,8 +313,9 @@ def test_check_feed_marks_only_first_message_as_alert(app, caplog):
     with caplog.at_level("INFO"):
         app.check_feed()
 
+    # 1 send_alert (sinal do lote) + 4 send_to_channel (msg+link para cada alerta)
     assert app.mesh.send_alert.call_count == 1
-    assert app.mesh.send_to_channel.call_count == 3
+    assert app.mesh.send_to_channel.call_count == 4
     assert app.state_manager.is_guid_sent("g1")
     assert app.state_manager.is_guid_sent("g2")
 
