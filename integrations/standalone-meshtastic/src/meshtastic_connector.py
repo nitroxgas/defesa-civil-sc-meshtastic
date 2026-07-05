@@ -246,15 +246,20 @@ class MeshtasticConnector:
                     f"Enviando alerta de notificação para {target_label}: {message[:80]}..."
                 )
 
-                try:
+                self.logger.debug(
+                    f"Tipo de interface: {type(self.interface).__name__}, "
+                    f"tem sendAlert: {hasattr(self.interface, 'sendAlert')}"
+                )
+                if hasattr(self.interface, 'sendAlert'):
                     self.interface.sendAlert(
                         message,
                         destinationId=str(destination_id),
                         channelIndex=channel_id,
                     )
-                except AttributeError as ae:
+                else:
                     self.logger.warning(
-                        f"sendAlert não suportado ({ae}); usando sendText como fallback"
+                        f"sendAlert não disponível nesta versão da lib "
+                        f"({type(self.interface).__name__}); usando sendText"
                     )
                     self.interface.sendText(
                         message,
