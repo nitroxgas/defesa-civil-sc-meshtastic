@@ -192,6 +192,9 @@ direct_message:
   trigger_word: "ALERTAS"
   max_alerts_reply: 2      # quantos alertas retornar via DM
 
+alert_signal:
+  enabled: true            # false para desativar mensagem de sinal com Bell
+
 test_mode: false           # mude para true para testar
 
 logging:
@@ -363,30 +366,35 @@ Como encontrar o IP do gateway:
 - Regiões: `Grande Florianópolis` → `Gde Fpolis`
 - Validades: `nas próximas 2 horas` → `Val: 2h`
 
-### 3️⃣ Mensagens em Canal
+### 3️⃣ Sinal de Alerta (opcional)
+Antes do lote de alertas, envia uma mensagem curta com o caractere Bell (`\a`) que aciona notificação sonora/vibração nos apps Meshtastic Android/iOS:
+- Exemplo: `[DC-SC] alerta da Defesa Civil SC`
+- Pode ser desativado via `alert_signal.enabled: false`
+
+### 4️⃣ Mensagens em Canal
 Cada alerta é enviado em 2 mensagens:
-1. Conteúdo compactado (max 180 chars): `DC-SC AL: ...`
-2. Link (max 180 chars): `Link: https://...`
+1. Conteúdo compactado (max 180 chars): `AT: 02/07 19:01 - temporal c/ raios...`
+2. Link (max 180 chars): `Detalhes: https://...`
 
 Aguarda 10 segundos entre mensagens para respeitar LoRa.
 
-### 4️⃣ Resposta a Mensagens Diretas
+### 5️⃣ Resposta a Mensagens Diretas
 Se outro node enviar `ALERTAS`, responde com os últimos alertas (configurável via `direct_message.max_alerts_reply`). Alertas fora das regiões configuradas no filtro regional não são retornados.
 
-### 5️⃣ Filtro Regional (Opcional)
+### 6️⃣ Filtro Regional (Opcional)
 Permite enviar/responder apenas alertas que mencionem mesorregiões e/ou municípios configurados:
 - Ative via `region_filter.enabled: true`
 - Modos: `mesorregiao`, `municipio`, `both`
 - Nomes devem coincidir com `core/sc_mesorregioes_microrregioes_municipios.json`
 - Alertas ignorados são registrados em `state.json` (campo `ignored_guids`) e não são reenviados
 
-### 6️⃣ Reconexão Automática
+### 7️⃣ Reconexão Automática
 - Monitora conexão com Meshtastic a cada 30s (conectado) ou 5s (desconectado)
 - Se a conexão TCP/serial cair, tenta reconectar indefinidamente com backoff exponencial: 30s, 60s, 120s, 240s, até 5 minutos
 - Callback de DM é re-registrado após reconexão
 - Envios que falham por queda de conexão não marcam o alerta como enviado
 
-### 7️⃣ Histórico Persistente
+### 8️⃣ Histórico Persistente
 - Armazena alertas enviados em `state.json` (limite configurável via `state.max_history`)
 - Consultas offline funcionam
 - Deduplicação via GUID (evita reenvio)
