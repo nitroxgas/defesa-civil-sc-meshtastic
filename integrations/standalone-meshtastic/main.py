@@ -398,7 +398,7 @@ class DefesaCivilAlertasStandalone:
             True se enviado com sucesso, False caso contrário
         """
         label = "alerta" if count == 1 else f"{count} alertas"
-        signal_text = f"Novo {label} da Defesa Civil - SC"
+        signal_text = f"[DC-SC] {label} da Defesa Civil SC"
         self.logger.info(f"Enviando sinal de alerta para canal {channel_id}")
         return self.mesh.send_alert(signal_text, channel_id)
 
