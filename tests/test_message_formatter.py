@@ -109,8 +109,8 @@ class TestMessageFormatter:
         
         msg1, msg2 = formatter.build_alert_messages(alert)
         
-        assert msg1.startswith("DC-SC")
-        assert msg2.startswith("Link:")
+        assert not msg1.startswith("DC-SC")
+        assert msg2.startswith("Detalhes:")
         assert "?p=123" in msg2
         assert "2024/01/01" not in msg2
         assert len(msg1) <= 150
@@ -125,7 +125,7 @@ class TestMessageFormatter:
         
         _, msg2 = formatter.build_alert_messages(alert)
         
-        assert msg2.startswith("Link:")
+        assert msg2.startswith("Detalhes:")
         assert "http://example.com/alert" in msg2
     
     def test_sanitize_alert(self, formatter):

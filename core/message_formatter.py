@@ -216,9 +216,8 @@ class MessageFormatter:
         # Recompactar para corrigir também alertas antigos
         content = self.compact_alert_text(content)
         
-        # Adicionar prefixo "DC-SC"
-        msg1 = f"DC-SC {content}".strip()
-        msg2 = f"Link: {link}".strip()
+        msg1 = content.strip()
+        msg2 = f"Detalhes: {link}".strip()
         
         # Truncar aos tamanhos máximos
         msg1 = self.truncate_text(msg1, MAX_ALERT_MESSAGE_LEN)

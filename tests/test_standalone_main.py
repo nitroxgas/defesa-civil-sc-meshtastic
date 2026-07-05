@@ -449,5 +449,5 @@ def test_dm_alerts_request_applies_region_filter(app):
     assert len(dm_calls) == 2
     call_text = " ".join(str(c) for c in dm_calls)
     assert "Florianopolis" in call_text
-    assert "Link: g2" in call_text
+    assert "Detalhes: g2" in call_text
     assert "Chapeco" not in call_text
