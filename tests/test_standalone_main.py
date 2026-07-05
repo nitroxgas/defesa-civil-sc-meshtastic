@@ -212,7 +212,7 @@ def test_send_alert_uses_interface_sendAlert_for_channel():
 
     assert connector.send_alert("Alerta teste", channel_id=3) is True
     connector.interface.sendAlert.assert_called_once_with(
-        "Alerta teste", destinationId="^all", channelIndex=3
+        "Alerta teste \a", destinationId="^all", channelIndex=3
     )
 
 
@@ -226,7 +226,7 @@ def test_send_alert_uses_interface_sendAlert_for_direct_message():
 
     assert connector.send_alert("Alerta teste", channel_id=0, node_id="!abc123") is True
     connector.interface.sendAlert.assert_called_once_with(
-        "Alerta teste", destinationId="!abc123", channelIndex=0
+        "Alerta teste \a", destinationId="!abc123", channelIndex=0
     )
 
 

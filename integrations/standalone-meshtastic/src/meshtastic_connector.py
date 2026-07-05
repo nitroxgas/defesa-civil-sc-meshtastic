@@ -246,24 +246,28 @@ class MeshtasticConnector:
                     f"Enviando alerta de notificação para {target_label}: {message[:80]}..."
                 )
 
+                # Adicionar Bell (\a) ao payload — mecanismo usado pelos apps
+                # Meshtastic (Android/iOS) para acionar notificação sonora/vibração
+                alert_message = message + " \a"
+
                 self.logger.debug(
                     f"Tipo de interface: {type(self.interface).__name__}, "
                     f"tem sendAlert: {hasattr(self.interface, 'sendAlert')}"
                 )
                 if hasattr(self.interface, 'sendAlert'):
-                    self.logger.info("Usando sendAlert (ALERT_APP + Priority.ALERT)")
+                    self.logger.info("Usando sendAlert (ALERT_APP + Priority.ALERT + Bell)")
                     self.interface.sendAlert(
-                        message,
+                        alert_message,
                         destinationId=str(destination_id),
                         channelIndex=channel_id,
                     )
                 else:
                     self.logger.warning(
                         f"sendAlert não disponível nesta versão da lib "
-                        f"({type(self.interface).__name__}); usando sendText"
+                        f"({type(self.interface).__name__}); usando sendText com Bell"
                     )
                     self.interface.sendText(
-                        message,
+                        alert_message,
                         destinationId=str(destination_id),
                         channelIndex=channel_id,
                         wantAck=False,
